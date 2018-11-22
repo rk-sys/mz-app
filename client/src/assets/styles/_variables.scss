@@ -1,0 +1,64 @@
+@import 'bootstrap-partials/functions';
+
+// #Colors
+// ##Brand
+$brand-primary: #233B3F;
+$brand-secondary: #A1AEB7;
+
+// ##Grey
+$grey-500: #979797;
+$grey-550: #9B9B9B;
+$grey-400: #898989;
+$grey-300: #BBBBBB;
+$grey-200: #C0C0C0;
+$grey-100: #F1F1F1;
+
+$white: white;
+
+// ##Message
+$success: #4DD865;
+$error: #D0021B;
+
+// #General
+$spacer: 1rem !default;
+$enable-grid-classes: true !default;
+$headings-margin-bottom: ($spacer / 2) !default;
+
+$font-family-base: 'Lato', sans-serif !default;
+$font-size-base: 1.6rem;
+$headings-margin-bottom: 1rem;
+$paragraph-margin-bottom: 1rem;
+
+$link-color: $brand-primary !default;
+$link-decoration: none !default;
+$link-hover-color: darken($link-color, 15%) !default;
+$link-hover-decoration: underline !default;
+
+$table-cell-padding: .75rem !default;
+$text-muted: $grey-500;
+
+// #Grid breakpoints
+$grid-breakpoints: (
+        xs: 0,
+        sm: 576px,
+        md: 768px,
+        lg: 992px,
+        xl: 1200px
+) !default;
+
+@include _assert-ascending($grid-breakpoints, "$grid-breakpoints");
+@include _assert-starts-at-zero($grid-breakpoints);
+
+// #Grid containers
+$container-max-widths: (
+        sm: 540px,
+        md: 720px,
+        lg: 960px,
+        xl: 1140px
+) !default;
+
+@include _assert-ascending($container-max-widths, "$container-max-widths");
+
+// #Grid columns
+$grid-columns: 12 !default;
+$grid-gutter-width: 30px !default;

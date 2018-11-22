@@ -1,0 +1,47 @@
+.el-button {
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2);
+  background-color: $brand-primary;
+  border-color: $brand-primary;
+  letter-spacing: .13rem;
+  text-align: center;
+  font-size: 1rem;
+  font-weight: bold;
+  color: white;
+  text-transform: uppercase;
+  min-width: 12rem;
+
+  + .el-button {
+    margin-left: 2rem;
+  }
+
+  &:hover {
+    background-color: $brand-primary;
+    border: 1px solid $brand-primary;
+    color: white;
+  }
+
+  &:focus {
+    background-color: $brand-primary;
+    border-color: $brand-primary;
+    color: white;
+  }
+
+  &--secondary {
+    border: solid 1px $brand-primary;
+    color: $brand-primary;
+    background-color: white;
+    box-shadow: none;
+  }
+
+  &--secondary:hover {
+    border: solid 1px $brand-primary;
+    color: $brand-primary;
+    background-color: white;
+  }
+
+  &--secondary:focus {
+    border: solid 1px $brand-primary;
+    color: $brand-primary;
+    background-color: white;
+  }
+}
