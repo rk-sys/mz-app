@@ -1,0 +1,25 @@
+.icon {
+  background: center / contain no-repeat;
+}
+
+.icon {
+  &--translation {
+    background-image: url('/static/icons/translation/default.svg');
+
+    &.icon--selected {
+      background-image: url('/static/icons/translation/selected.svg');
+    }
+  }
+
+  &--interpretation {
+    background-image: url('/static/icons/interpretation/default.svg');
+
+    &.icon--selected {
+      background-image: url('/static/icons/interpretation/selected.svg');
+    }
+  }
+
+  &--arrows-both-ways {
+    background-image: url('/static/icons/arrows/both-ways.svg');
+  }
+}

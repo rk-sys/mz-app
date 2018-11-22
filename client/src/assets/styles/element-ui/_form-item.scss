@@ -1,0 +1,13 @@
+.el-form-item {
+  margin-bottom: 1rem;
+
+  &__content {
+    line-height: 1;
+  }
+
+  &__label {
+    line-height: 2.6rem;
+    margin-bottom: 0;
+    color: $brand-primary;
+  }
+}
