@@ -8,13 +8,23 @@ export default new Router({
   base: process.env.BASE_URL,
   routes: [
     {
+      path: '/',
+      name: 'Home',
+      component: () => import('./views/home/home.view.vue'),
+    },
+    {
       path: '/login',
       name: 'Login',
       component: () => import('./views/login/login.views.vue'),
     },
     {
+      path: '/registration',
+      name: 'Registration',
+      component: () => import ('./views/registration/registration.view.vue'),
+    },
+    {
       path: '**',
-      redirect: '/login'
-    }
+      redirect: '/registration',
+    },
   ],
 });

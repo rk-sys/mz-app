@@ -35,33 +35,67 @@ export default class mzButton extends Mixins(mzTransparentWrapper) {
 @import '~element-ui/lib/theme-chalk/button.css';
 
 .mz-button {
-  border-radius: .4rem;
+  height: 4rem;
+  border-radius: .2rem;
   padding: 1rem 2rem;
   cursor: pointer;
-  font-size: var(--font-size-14);
+  font-size: var(--font-size-16);
+  color: var(--white);
+  background-color: var(--primary-color);
+  border: none;
+  width: 100%;
 
-  &,
   &:hover {
-    color: var(--white);
-    background-color: var(--primary-color);
-    border: none;
+    background-color: var(--primary-color-80);
   }
 
   &--primary {
-    &,
+    background-color: var(--primary-color);
+    border: .1rem solid var(--primary-color);
+
     &:hover {
-      color: var(--white);
-      background-color: var(--primary-color);
-      border: .1rem solid var(--primary-color);
-      font-size: var(--font-size-14);
+      background-color: var(--primary-color-80);
+      border: .1rem solid var(--primary-color-80);
+    }
+  }
+
+  &--success {
+    background-color: var(--success);
+    border: .1rem solid var(--success);
+
+    &:hover {
+      background-color: var(--success-80);
+      border: .1rem solid var(--success-80);
     }
   }
 
   &--danger {
-    &,
+    background-color: var(--error);
+    border: .1rem solid var(--error);
+
     &:hover {
-      background-color: var(--error);
-      border: .1rem solid var(--error);
+      background-color: var(--error-80);
+      border: .1rem solid var(--error-80);
+    }
+  }
+
+  &--warning {
+    background-color: var(--warning);
+    border: .1rem solid var(--warning);
+
+    &:hover {
+      background-color: var(--warning-80);
+      border: .1rem solid var(--warning-80);
+    }
+  }
+
+  &--info{
+    background-color: var(--gray-900);
+    border: .1rem solid var(--gray-900);
+
+    &:hover {
+      background-color: var(--gray-500);
+      border: .1rem solid var(--gray-500);
     }
   }
 

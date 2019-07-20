@@ -24,16 +24,14 @@ export default class mzInput extends Mixins(mzTransparentWrapper) {
 }
 </script>
 
-<style lang="scss"
-       scoped>
+<style lang="scss">
 
 @import '~element-ui/lib/theme-chalk/input.css';
 
-/deep/ {
-  .el-input__inner {
-    &:focus {
-      border-color: var(--secondary-color);
-    }
-  }
+.el-input__inner {
+  box-shadow: inset 10rem 10rem var(--white);
+  border: none;
+  background: var(--transparent);
+  padding: 0;
 }
 </style>

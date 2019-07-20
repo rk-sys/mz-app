@@ -1,46 +1,52 @@
 <template>
-  <el-checkbox class="mz-checkbox"
-               v-bind="attributes"
-               v-on="listeners">
+    <el-checkbox class="mz-checkbox"
+                 v-bind="attributes"
+                 v-on="listeners">
 
-    <slot :name="slot"
-          :slot="slot"
-          v-for="(_, slot) of $slots" />
-  </el-checkbox>
+        <slot :name="slot"
+              :slot="slot"
+              v-for="(_, slot) of $slots"/>
+    </el-checkbox>
 </template>
 
 <script lang="ts">
-import { Component, Mixins } from 'vue-property-decorator';
-import ElCheckbox            from 'element-ui/lib/checkbox.js';
-import mzTransparentWrapper   from '@/components/transparent-component.mixin';
+    import {Component, Mixins} from "vue-property-decorator";
+    import ElCheckbox from "element-ui/lib/checkbox.js";
+    import mzTransparentWrapper from "@/components/transparent-component.mixin";
 
-@Component({
-  components: {
-    ElCheckbox,
-  },
-})
-export default class mzCheckbox extends Mixins(mzTransparentWrapper) {
+    @Component({
+        components: {
+            ElCheckbox,
+        },
+    })
+    export default class mzCheckbox extends Mixins(mzTransparentWrapper) {
 
-}
+    }
 </script>
 
 
-<style lang="scss"
-       scoped>
+<style lang="scss">
 
-@import '~element-ui/lib/theme-chalk/checkbox.css';
+    @import '~element-ui/lib/theme-chalk/checkbox.css';
 
-/deep/ .el-checkbox {
-  &__input.is-checked + .el-checkbox__label,
-  &__input.is-checked {
-    color: var(--secondary-color);
+    .el-checkbox {
+        display: flex;
+        white-space: initial;
+        font-weight: var(--font-light);
+        color: var(--black);
+        margin: .5rem 0;
 
-    .el-checkbox__inner {
-      border-color: var(--secondary-color);
-      background: var(--secondary-color);
+        &__input.is-checked + .el-checkbox__label,
+        &__input.is-checked {
+            color: var(--primary-color);
+            font-weight: var(--font-light);
+
+            .el-checkbox__inner {
+                border-color: var(--primary-color);
+                background: var(--primary-color);
+            }
+        }
     }
-  }
-}
 
 
 </style>

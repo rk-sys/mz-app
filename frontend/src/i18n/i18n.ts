@@ -2,17 +2,17 @@ import Vue     from 'vue';
 import VueI18n from 'vue-i18n';
 import axios   from 'axios';
 import Store   from '@/store/store';
-import en      from './en';
+import pl      from './pl';
 
 Vue.use(VueI18n);
 
 export const languages = {
-  en,
+  pl,
 };
 
 export const i18n: VueI18n = new VueI18n({
-  locale: Store.state.global.defaultLang || 'en',
-  fallbackLocale: Store.state.global.defaultLang || 'en',
+  locale: Store.state.global.defaultLang || 'pl',
+  fallbackLocale: Store.state.global.defaultLang || 'pl',
   messages: languages,
 });
 

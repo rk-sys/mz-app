@@ -4,17 +4,25 @@
   --font-size-12: 1.2rem;
   --font-size-13: 1.3rem;
   --font-size-14: 1.4rem;
+  --font-size-16: 1.6rem;
   --font-size-18: 1.8rem;
 
   /* COLORS */
-  --primary-color: #22434c;
-  --primary-color-500: rgba(34, 67, 76, 0.51);
-  --secondary-color-200: #3f55e233;
+  --primary-color: #019A7C;
+  --primary-color-80: #01b496;
+  --primary-color-10: #94cdba;
+
   --secondary-color: #3f55e2;
   --success: #0cce92;
-  --success-dark: #0ca573;
-  --error: #f96c6c;
-  --warning: #e6a23c;
+  --success-80: #67ce96;
+
+  --error: #ff5c4e;
+  --error-80: #ff7d6e;
+
+  --warning: #ff9d39;
+  --warning-80: #ffb559;
+
+  --background-color: #f6f6f4;
   --black: #212121;
   --white: #ffffff;
   --disabled: #c0c4cc;
@@ -27,6 +35,7 @@
   --gray-400: #e1e1e1;
   --gray-450: #d4d4e4;
   --gray-500: #9d9da1;
+  --gray-700: #909094;
   --gray-900: #8d8d8d;
   --gray-950: #707070;
 
@@ -41,4 +50,9 @@
   --font-regular: 400;
   --font-medium: 500;
   --font-bold: 700;
+
+  /* VIEW */
+  --desktop: 1024px;
+  --tablet: 768px;
+  --mobile: 425px;
 }

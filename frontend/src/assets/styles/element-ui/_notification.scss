@@ -1,22 +1,25 @@
 .el-notification {
   padding: 1.5rem 3rem 1.5rem 1.5rem;
+  border-radius: .2rem;
 
   &--success {
-    background-color: var(--success);
-    border-color: var(--success);
+    background-color: var(--primary-color-80);
+    border-color: var(--primary-color-80);
   }
 
   &--error {
-    background-color: var(--error);
-    border-color: var(--error);
+    background-color: var(--error-80);
+    border-color: var(--error-80);
   }
 
   &__title {
-    color: var(--white)
+    color: var(--white);
   }
 
   &__content {
-    color: var(--white)
+    color: var(--white);
+    font-weight: var(--font-regular);
+    text-align: start;
   }
 
   &__icon {
@@ -32,7 +35,7 @@
   .el-icon {
     &-success,
     &-error {
-      color: var(--white)
+      color: var(--white);
     }
 
     &-close {
@@ -42,6 +45,6 @@
   }
 
   .el-notification__group {
-    margin-left: 4.5rem;
+    margin-left: 2rem;
   }
 }

@@ -7,7 +7,8 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
-    global: cloneDeep(state)
+    global: cloneDeep(state),
+    isLogin: false,
   },
   mutations: {},
   actions: {},
