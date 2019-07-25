@@ -1,0 +1,47 @@
+.el-notification {
+  padding: 1.5rem 3rem 1.5rem 1.5rem;
+
+  &--success {
+    background-color: var(--success);
+    border-color: var(--success);
+  }
+
+  &--error {
+    background-color: var(--error);
+    border-color: var(--error);
+  }
+
+  &__title {
+    color: var(--white)
+  }
+
+  &__content {
+    color: var(--white)
+  }
+
+  &__icon {
+    position: absolute;
+    top: 50%;
+    left: 1.5rem;
+    transform: translateY(-50%);
+    font-size: 3rem;
+    height: 3rem;
+    width: 3rem;
+  }
+
+  .el-icon {
+    &-success,
+    &-error {
+      color: var(--white)
+    }
+
+    &-close {
+      color: var(--white);
+      top: 1.5rem;
+    }
+  }
+
+  .el-notification__group {
+    margin-left: 4.5rem;
+  }
+}

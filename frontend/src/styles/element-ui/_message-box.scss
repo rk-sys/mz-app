@@ -1,0 +1,13 @@
+.el-message-box {
+  &.align-buttons-space-between {
+    .el-message-box__btns {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+  }
+
+  &__header {
+    background: var(--gray-200);
+  }
+}

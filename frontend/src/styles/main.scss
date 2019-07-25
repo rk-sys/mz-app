@@ -1,0 +1,54 @@
+@import './abstract';
+@import './variables';
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  color: var(--black)
+}
+
+html {
+  font-size: var(--base);
+}
+
+body {
+  font-size: 1.6rem;
+  font-family: var(--primary-font-family);
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+@for $i from 1 through 6 {
+  h#{$i} {
+    @extend %heading-#{$i}
+  }
+}
+
+p {
+  @extend %main-paragraph;
+}
+
+a {
+  color: var(--secondary-color);
+  text-decoration: underline;
+
+  &:hover {
+    text-decoration: none;
+  }
+
+  &:focus {
+    color: var(--secondary-color);
+  }
+
+  &:visited {
+    color: var(--secondary-color);
+  }
+}
