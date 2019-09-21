@@ -7,36 +7,6 @@
            id="registrationForm">
 
     <div class="mz-registration-form__container">
-      <div class="mz-registration-form__icon icon-user--green"></div>
-
-      <mz-form-item class="mz-registration-form__item"
-                    prop="name">
-
-        <mz-input :holder="$t(`registerForm.name`)"
-                  :is-password="false"
-                  :value="registrationForm.name"
-                  @input="setName"
-                  id="name"></mz-input>
-      </mz-form-item>
-    </div>
-
-
-    <div class="mz-registration-form__container">
-      <div class="mz-registration-form__icon icon-user--green"></div>
-
-      <mz-form-item class="mz-registration-form__item"
-                    prop="lastName">
-
-        <mz-input :holder="$t(`registerForm.lastName`)"
-                  :is-password="false"
-                  :value="registrationForm.lastName"
-                  @input="setLastName"
-                  id="lastName"></mz-input>
-
-      </mz-form-item>
-    </div>
-
-    <div class="mz-registration-form__container">
       <div class="mz-registration-form__icon icon-mail--green"></div>
 
       <mz-form-item class="mz-registration-form__item"
@@ -96,7 +66,8 @@
     <div class="mz-registration-form__buttons">
       <mz-button class="button"
                  form="registrationForm"
-                 native-type="submit">{{$t(`buttonsText.submit`)}}
+                 native-type="submit"
+                 :loading="loadingButton">{{$t(`buttonsText.submit`)}}
       </mz-button>
 
       <router-link to="/login"
@@ -137,13 +108,14 @@ const local = namespace(LOCAL_STORE);
 })
 export default class mzRegistrationForm extends Vue {
   @local.State((state: mzRegistrationModule) => state.mzRegistrationState.registrationForm) public registrationForm!: IRegistrationForm;
-  @local.Mutation public setName!: (arg: string) => void;
-  @local.Mutation public setLastName!: (arg: string) => void;
   @local.Mutation public setEmail!: (arg: string) => void;
   @local.Mutation public setPassword!: (arg: string) => void;
   @local.Mutation public setPasswordRepeat!: (arg: string) => void;
   @local.Mutation public setRule!: (arg: boolean) => void;
   @local.Mutation public setNewsletter!: (arg: boolean) => void;
+  @local.Action public getRegistrationForm!: () => IRegistrationForm;
+  @local.Action public createNewUser!: () => any;
+  public loadingButton: boolean = false;
 
   public formElement: HTMLElement | null = null;
 
@@ -163,32 +135,56 @@ export default class mzRegistrationForm extends Vue {
     this.setNewsletter(isChecked);
   }
 
-  public registerNewUser() {
-    (this.formElement as any).validate(() => {
+  public async registerNewUser() {
+    (this.formElement as any).validate(async (valid: boolean) => {
+      if (valid) {
+        try {
+          this.loadingButton = true;
+          await this.createNewUser();
+        } catch (e) {
+          throw e;
+        } finally {
+          this.loadingButton = false;
+        }
+      } else return false;
     });
   }
 
-  public validateRoomsNumber = (rule: any, value: any, callback: any) => {
-    console.log(12);
-    callback();
-  };
+  public validatePassword() {
+    const form = this.registrationForm;
+    return form.password === form.passwordRepeat;
+  }
 
   public rules: any = {
-    name: [
-      { required: true, message: i18n.t('rules.required'), trigger: [ 'blur', 'submit' ] },
-    ],
-    lastName: [
-      { required: true, message: i18n.t('rules.required'), trigger: [ 'blur', 'submit' ] },
-    ],
     email: [
       { required: true, message: i18n.t('rules.required'), trigger: [ 'blur', 'submit' ] },
       { type: 'email', message: i18n.t('rules.correctEmail'), trigger: [ 'blur', 'submit' ] },
     ],
     password: [
+      {
+        validator: (rule: any, value: string, callback: (error?: Error) => void) => {
+          if (!this.validatePassword()) {
+            callback(new Error(i18n.t('rules.differencePassword') as string));
+          } else {
+            callback();
+          }
+        },
+        trigger: 'submit',
+      },
       { required: true, message: i18n.t('rules.required'), trigger: [ 'blur', 'submit' ] },
       { min: 8, message: i18n.t('rules.minLength'), trigger: [ 'blur', 'submit' ] },
     ],
     passwordRepeat: [
+      {
+        validator: (rule: any, value: string, callback: (error?: Error) => void) => {
+          if (!this.validatePassword()) {
+            callback(new Error(i18n.t('rules.differencePassword') as string));
+          } else {
+            callback();
+          }
+        },
+        trigger: 'submit',
+      },
       { required: true, message: i18n.t('rules.required'), trigger: [ 'blur', 'submit' ] },
       { min: 8, message: i18n.t('rules.minLength'), trigger: [ 'blur', 'submit' ] },
     ],

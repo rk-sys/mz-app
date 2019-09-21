@@ -17,11 +17,13 @@
         <div class="form__container">
           <div class="form__container__icon icon-user--green"></div>
 
-          <mz-form-item prop="login">
+          <mz-form-item class="form__container__item"
+                        prop="email">
+
             <mz-input :holder="$t(`loginForm.login`)"
                       :is-password="false"
                       :error="loginState.errorLoginForm"
-                      v-model="loginModel"
+                      v-model="emailModel"
                       id="login"></mz-input>
           </mz-form-item>
         </div>
@@ -29,7 +31,9 @@
         <div class="form__container">
           <div class="form__container__icon icon-locked--green"></div>
 
-          <mz-form-item prop="password">
+          <mz-form-item class="form__container__item"
+                        prop="password">
+
             <mz-input :holder="$t(`loginForm.password`)"
                       :type="'password'"
                       :error="loginState.errorLoginForm"
@@ -101,18 +105,18 @@ const local = namespace(LOCAL_STORE);
 export default class mzLogin extends Vue {
   @local.State((state: mzLoginModule) => state.mzLoginState) public loginState!: ILogin;
   @local.State((state: mzLoginModule) => state.mzLoginState.loginForm) public loginForm!: ILoginForm;
-  @local.Mutation public setLogin!: (arg: string) => void;
+  @local.Mutation public setEmail!: (arg: string) => void;
   @local.Mutation public setPassword!: (arg: string) => void;
   @local.Action public loginIntoService!: () => any;
 
   public formElement: HTMLElement | null = null;
 
-  get loginModel(): string {
-    return this.loginState.loginForm.login;
+  get emailModel(): string {
+    return this.loginState.loginForm.email;
   }
 
-  set loginModel(login: string) {
-    this.setLogin(login);
+  set emailModel(login: string) {
+    this.setEmail(login);
   }
 
   get passwordModel() {
@@ -128,7 +132,7 @@ export default class mzLogin extends Vue {
   }
 
   public loginUser(): void {
-    (this.formElement as any).validate(async (valid: any) => {
+    (this.formElement as any).validate(async (valid: boolean) => {
       if (valid) {
         this.login();
       } else return false;
@@ -136,11 +140,13 @@ export default class mzLogin extends Vue {
   }
 
   public loginRules: any = {
-    login: [
+    email: [
       { required: true, message: i18n.t('rules.required'), trigger: 'submit' },
+      { type: 'email', message: i18n.t('rules.correctEmail'), trigger: [ 'blur', 'submit' ] },
     ],
     password: [
       { required: true, message: i18n.t('rules.required'), trigger: 'submit' },
+      { min: 8, message: i18n.t('rules.minLength'), trigger: [ 'blur', 'submit' ] },
     ],
   };
 
@@ -184,24 +190,23 @@ export default class mzLogin extends Vue {
   grid-template-columns: auto;
 
   &__logo {
-    margin-top: 3rem;
     width: 15rem;
     height: 5rem;
     grid-row-start: 1;
     grid-column-start: 1;
-    align-self: start;
+    align-self: end;
     justify-self: center;
   }
 
   &__box {
     background: var(--white);
-    width: 45rem;
+    width: 50rem;
     height: auto;
     -webkit-border-radius: .2rem;
     -moz-border-radius: .2rem;
     border-radius: .2rem;
     box-shadow: 0 0 1rem 0 var(--gray-700);
-    padding: 2rem;
+    padding: 1rem 4rem;
     display: flex;
     flex-direction: column;
     grid-row-start: 2;
@@ -227,6 +232,11 @@ export default class mzLogin extends Vue {
         width: 3.5rem;
         height: 3.5rem;
         margin-right: 1rem;
+      }
+
+      &__item {
+        margin: 0;
+        width: 100%;
       }
     }
 
@@ -303,17 +313,14 @@ export default class mzLogin extends Vue {
     }
 
     &__box {
-      width: 40rem;
+      max-width: 40rem;
+      padding: 1rem 2rem;
       grid-row-start: 2;
       grid-column-start: 1;
 
       .title {
         margin: 1rem 0 3rem;
         font-size: 2.8rem;
-      }
-
-      .icons-box {
-        display: none;
       }
 
       &__buttons {

@@ -2,8 +2,6 @@ import { IRegistration } from '@/views/registration/registration.interface';
 
 export const mzRegistrationState: IRegistration = {
   registrationForm: {
-    name: '',
-    lastName: '',
     email: '',
     password: '',
     passwordRepeat: '',
@@ -11,8 +9,6 @@ export const mzRegistrationState: IRegistration = {
     newsletter: false,
   },
   registrationFormErrors: {
-    name: false,
-    lastName: false,
     email: false,
     password: false,
     passwordRepeat: false,

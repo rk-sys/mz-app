@@ -1,7 +1,7 @@
-import Vue from 'vue';
-import Vuex from 'vuex';
+import Vue       from 'vue';
+import Vuex      from 'vuex';
 import cloneDeep from 'lodash/cloneDeep';
-import state from './store.state';
+import state     from './store.state';
 
 Vue.use(Vuex);
 

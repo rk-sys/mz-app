@@ -5,7 +5,7 @@ export interface ILogin {
 }
 
 export interface ILoginForm {
-    login: string;
+  email: string;
     password: string;
 }
 

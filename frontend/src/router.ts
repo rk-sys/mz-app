@@ -11,6 +11,9 @@ export default new Router({
       path: '/',
       name: 'Home',
       component: () => import('./views/home/home.view.vue'),
+      meta: {
+        requiresAuth: true,
+      },
     },
     {
       path: '/login',
@@ -24,7 +27,7 @@ export default new Router({
     },
     {
       path: '**',
-      redirect: '/registration',
+      redirect: '/home',
     },
   ],
 });

@@ -3,7 +3,7 @@ import {ILogin} from '../login.interface';
 export const mzLoginState: ILogin = {
     errorLoginForm: false,
     loginForm: {
-        login: '',
+      email: '',
         password: '',
     },
 

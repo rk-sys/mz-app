@@ -9,6 +9,7 @@ export default class Notification {
             message,
             type: 'success',
             customClass: 'el-notification--success',
+          showClose: true,
         });
     }
 
@@ -18,6 +19,7 @@ export default class Notification {
             message,
             type: 'error',
             customClass: 'el-notification--error',
+          showClose: true,
         });
     }
 }

@@ -76,12 +76,11 @@ export default class mzRegistration extends Vue {
   grid-template-columns: auto;
 
   &__logo {
-    margin-top: 3rem;
     width: 15rem;
     height: 5rem;
     grid-row-start: 1;
     grid-column-start: 1;
-    align-self: start;
+    align-self: end;
     justify-self: center;
   }
 
@@ -93,7 +92,7 @@ export default class mzRegistration extends Vue {
     -moz-border-radius: .2rem;
     border-radius: .2rem;
     box-shadow: 0 0 1rem 0 var(--gray-450);
-    padding: 0 4rem;
+    padding: 1rem 4rem;
     display: flex;
     flex-direction: column;
     grid-row-start: 2;

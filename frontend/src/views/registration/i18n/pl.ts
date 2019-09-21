@@ -24,8 +24,14 @@ export default {
   },
   rules: {
     required: 'Pole jest wymagane',
-    differencePassword: 'Hasła są różne',
+    differencePassword: 'Hasła nie są takie same',
     minLength: 'Minimum 8 znaków',
-    correctEmail: 'Proszę wprowadzić poprawny e-mail',
+    correctEmail: 'Błędny adres e-mail',
+  },
+  response: {
+    error: 'Błąd',
+    success: 'Sukces',
+    userWasCreated: 'Użytkownik został stworzony',
+    'auth/email-already-in-use': 'Email jest już używany',
   },
 };
