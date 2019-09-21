@@ -1,11 +1,9 @@
 export default {
   titlePage: 'Rejestracja',
   registerForm: {
-    name: 'Imię',
-    lastName: 'Nazwisko',
-    email: 'E-mail',
-    password: 'Hasło',
-    repeatPassword: 'Powtórz hasło',
+    email: 'E-mail *',
+    password: 'Hasło *',
+    repeatPassword: 'Powtórz hasło *',
     newsletter: 'Chcę dostawać informację z serwisu moja-zbroja.pl',
     rule: 'regulamin',
     acceptRule: 'Przeczytałem oraz akceptuję',

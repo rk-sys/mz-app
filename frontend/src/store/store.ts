@@ -8,8 +8,16 @@ Vue.use(Vuex);
 export default new Vuex.Store({
   state: {
     global: cloneDeep(state),
-    isLogin: false,
   },
-  mutations: {},
+  mutations: {
+    setCurrentUser(state, payload) {
+      state.global.currentUser = payload.user;
+    },
+  },
   actions: {},
+  getters: {
+    getCurrentUser(state) {
+      return state.global.currentUser;
+    },
+  },
 });

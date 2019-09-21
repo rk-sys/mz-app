@@ -11,21 +11,20 @@ import './class-component-hooks';
 locale.use(lang);
 Vue.config.productionTip = false;
 
+firebase.initializeApp({
+  apiKey: 'AIzaSyBsP7QHV9TA2tWIypoPKS9PkuBcb0fTJpo',
+  authDomain: 'moja-zbroj.firebaseapp.com',
+  databaseURL: 'https://moja-zbroj.firebaseio.com',
+  projectId: 'moja-zbroj',
+  storageBucket: '',
+  messagingSenderId: '11806184685',
+  appId: '1:11806184685:web:c0eba0b09735bda3f428e4',
+});
+
 new Vue({
   router,
   i18n,
   store,
   render: (h) => h(mzApp),
-  created() {
-    firebase.initializeApp({
-      apiKey: 'AIzaSyBsP7QHV9TA2tWIypoPKS9PkuBcb0fTJpo',
-      authDomain: 'moja-zbroj.firebaseapp.com',
-      databaseURL: 'https://moja-zbroj.firebaseio.com',
-      projectId: 'moja-zbroj',
-      storageBucket: '',
-      messagingSenderId: '11806184685',
-      appId: '1:11806184685:web:c0eba0b09735bda3f428e4',
-    });
-  },
 }).$mount('#mzApp');
 

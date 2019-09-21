@@ -2,7 +2,7 @@
   <nav class="nav-bar">
     <mz-nav-bar-category />
 
-    <mz-nav-bar-profile />
+    <mz-nav-bar-profile v-if="this.$store.state.global.currentUser !== null"/>
   </nav>
 </template>
 

@@ -1,8 +1,8 @@
 export default {
   login: 'Zaloguj się',
   loginForm: {
-    login: 'E-mail*',
-    password: 'Hasło*',
+    login: 'E-mail *',
+    password: 'Hasło *',
   },
   noAccount: 'Nie mam konta',
   register: 'Zarejestruj się',
