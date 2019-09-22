@@ -21,10 +21,23 @@ firebase.initializeApp({
   appId: '1:11806184685:web:c0eba0b09735bda3f428e4',
 });
 
-new Vue({
-  router,
-  i18n,
-  store,
-  render: (h) => h(mzApp),
-}).$mount('#mzApp');
+const unsubscribe = firebase.auth().onAuthStateChanged((firebaseUser) => {
+  new Vue({
+    router,
+    i18n,
+    store,
+    render: (h) => h(mzApp),
+    created() {
+      if (firebaseUser) {
+        const currentUser = {
+          email: firebaseUser.email,
+          name: firebaseUser.displayName,
+          uid: firebaseUser.uid,
+        };
 
+        store.commit('setCurrentUser', { currentUser });
+      }
+    },
+  }).$mount('#mzApp');
+  unsubscribe();
+});

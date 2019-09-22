@@ -3,6 +3,7 @@ export default {
   registerForm: {
     email: 'E-mail *',
     password: 'Hasło *',
+    name: 'Imię i nazwisko *',
     repeatPassword: 'Powtórz hasło *',
     newsletter: 'Chcę dostawać informację z serwisu moja-zbroja.pl',
     rule: 'regulamin',

@@ -11,7 +11,8 @@ export default new Vuex.Store({
   },
   mutations: {
     setCurrentUser(state, payload) {
-      state.global.currentUser = payload.user;
+      console.log(payload);
+      state.global.currentUser = payload.currentUser;
     },
   },
   actions: {},

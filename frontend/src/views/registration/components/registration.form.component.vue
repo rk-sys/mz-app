@@ -7,6 +7,20 @@
            id="registrationForm">
 
     <div class="mz-registration-form__container">
+      <div class="mz-registration-form__icon icon-user--green"></div>
+
+      <mz-form-item class="mz-registration-form__item"
+                    prop="name">
+
+        <mz-input :holder="$t(`registerForm.name`)"
+                  :is-password="false"
+                  :value="registrationForm.name"
+                  @input="setName"
+                  id="name"></mz-input>
+      </mz-form-item>
+    </div>
+
+    <div class="mz-registration-form__container">
       <div class="mz-registration-form__icon icon-mail--green"></div>
 
       <mz-form-item class="mz-registration-form__item"
@@ -52,6 +66,7 @@
     </div>
 
     <div class="mz-registration-form__rule">
+
       <mz-checkbox v-model="mzRule">
         {{$t(`registerForm.acceptRule`)}}
         <router-link to="#">{{$t(`registerForm.rule`)}}</router-link>
@@ -108,6 +123,8 @@ const local = namespace(LOCAL_STORE);
 })
 export default class mzRegistrationForm extends Vue {
   @local.State((state: mzRegistrationModule) => state.mzRegistrationState.registrationForm) public registrationForm!: IRegistrationForm;
+  @local.Mutation public setName!: (arg: string) => void;
+  @local.Mutation public setLastName!: (arg: string) => void;
   @local.Mutation public setEmail!: (arg: string) => void;
   @local.Mutation public setPassword!: (arg: string) => void;
   @local.Mutation public setPasswordRepeat!: (arg: string) => void;
@@ -156,6 +173,9 @@ export default class mzRegistrationForm extends Vue {
   }
 
   public rules: any = {
+    name: [
+      { required: true, message: i18n.t('rules.required'), trigger: [ 'blur', 'submit' ] },
+    ],
     email: [
       { required: true, message: i18n.t('rules.required'), trigger: [ 'blur', 'submit' ] },
       { type: 'email', message: i18n.t('rules.correctEmail'), trigger: [ 'blur', 'submit' ] },
@@ -198,6 +218,12 @@ export default class mzRegistrationForm extends Vue {
   font-weight: bold;
   left: auto;
   right: 0;
+}
+
+.mz-checkbox {
+  .el-form-item--error {
+    //TODO
+  }
 }
 </style>
 
