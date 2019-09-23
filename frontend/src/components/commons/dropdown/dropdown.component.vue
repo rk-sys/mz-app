@@ -12,7 +12,7 @@
 <script lang="ts">
 import { Component, Mixins } from 'vue-property-decorator';
 import ElDropdown            from 'element-ui/lib/dropdown.js';
-import mzTransparentWrapper   from 'src/components/transparent-component.mixin';
+import mzTransparentWrapper   from '../../transparent-component.mixin';
 
 @Component({
   components: {

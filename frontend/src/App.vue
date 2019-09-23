@@ -1,6 +1,6 @@
 <template>
   <div id="mzApp">
-    <mz-nav-bar v-show="!($route.name === 'Registration' || $route.name ===  'Login')" />
+    <mz-nav-bar v-if="!($route.name === 'Registration' || $route.name ===  'Login')" />
 
     <router-view />
   </div>
@@ -25,12 +25,4 @@ export default class mzApp extends Vue {
 
 <style lang="scss"
        scoped>
-.fade-enter-active, .fade-leave-active {
-  transition: opacity .3s;
-}
-
-.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */
-{
-  opacity: 0;
-}
 </style>

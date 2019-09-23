@@ -14,9 +14,9 @@ const router = new Router({
       path: '/',
       name: 'Home',
       component: () => import('./views/home/home.view.vue'),
-      meta: {
-        requiresAuth: true,
-      },
+      // meta: {
+      //   requiresAuth: true,
+      // },
     },
     {
       path: '/login',

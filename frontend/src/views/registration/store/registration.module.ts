@@ -89,14 +89,13 @@ export default class mzLoginModule extends VuexModule {
       password: this.mzRegistrationState.registrationForm.password,
     };
     try {
-      await registrationService.createNewUser(newUser).then(response => {
+      await registrationService.createNewUser(newUser).then((response) => {
         if (response.user && !response.user.emailVerified) {
           response.user.sendEmailVerification();
         }
         response.user.updateProfile({ displayName: newUser.name });
       });
       Notification.successNotification(i18n.t(`response.success`), i18n.t(`response.userWasCreated`));
-
       this.context.commit('setRegistrationForm', {
         name: '',
         lastName: '',

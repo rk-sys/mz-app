@@ -92,7 +92,7 @@ export default class Home extends Vue {
       left: 1rem;
       font-size: 1.6rem;
       font-weight: 400;
-      z-index: 1;
+      z-index: 0;
       transition: all 0.2s ease-in-out;
       color: var(--gray-700);
     }
@@ -133,12 +133,10 @@ export default class Home extends Vue {
   }
 }
 
-
 @media screen and (max-width: 425px) {
   .mz-input__container {
     min-width: 26rem;
     max-width: 28rem;
   }
 }
-
 </style>
