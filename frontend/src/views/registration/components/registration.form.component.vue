@@ -159,11 +159,11 @@ export default class mzRegistrationForm extends Vue {
           this.loadingButton = true;
           await this.createNewUser();
         } catch (e) {
-          throw e;
+          throw new Error(e);
         } finally {
           this.loadingButton = false;
         }
-      } else return false;
+      }
     });
   }
 

@@ -17,14 +17,7 @@ export default new Vuex.Store({
             state.global.currentUser = payload.currentUser;
         },
     },
-    actions: {
-        logout(context) {
-            firebase.auth().signOut().then(() => {
-                context.commit('setCurrentUser', {null: null}, {root: true});
-            });
-            router.push({name: 'Login'});
-        },
-    },
+    actions: {},
     getters: {
         getCurrentUser(state) {
             return state.global.currentUser;
