@@ -46,47 +46,40 @@ export default class mzLoginModule extends VuexModule {
     this.mzRegistrationState.registrationForm.newsletter = payload;
   }
 
-  @Action
-  public getRegistrationForm() {
+  get getRegistrationForm() {
     return this.mzRegistrationState.registrationForm;
   }
 
-  @Action
-  public getEmail(): string {
+  get getEmail(): string {
     return this.mzRegistrationState.registrationForm.email;
   }
 
-  @Action
-  public getName(): string {
+  get getName(): string {
     return this.mzRegistrationState.registrationForm.name;
   }
 
-  @Action
-  public getPassword() {
+  get getPassword() {
     return this.mzRegistrationState.registrationForm.passwordRepeat;
   }
 
-  @Action
-  public getPasswordRepeat() {
+  get getPasswordRepeat() {
     return this.mzRegistrationState.registrationForm.passwordRepeat;
   }
 
-  @Action
-  public getRuleMz() {
+  get getRuleMz() {
     return this.mzRegistrationState.registrationForm.rule;
   }
 
-  @Action
-  public getNewsletter() {
+  get getNewsletter() {
     return this.mzRegistrationState.registrationForm.newsletter;
   }
 
   @Action
-  public async createNewUser(): Promise<any> {
+  public async createNewUser(): Promise<void> {
     const newUser = {
-      email: this.mzRegistrationState.registrationForm.email,
-      name: this.mzRegistrationState.registrationForm.name,
-      password: this.mzRegistrationState.registrationForm.password,
+      email: this.getEmail,
+      name: this.getName,
+      password: this.getPassword,
     };
     try {
       await registrationService.createNewUser(newUser).then((response) => {

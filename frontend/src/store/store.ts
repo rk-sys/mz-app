@@ -1,26 +1,46 @@
-import Vue from 'vue';
-import Vuex from 'vuex';
+import Vue       from 'vue';
+import Vuex      from 'vuex';
 import cloneDeep from 'lodash/cloneDeep';
-import state from './store.state';
-import firebase from 'firebase/app';
+import state     from './store.state';
+import firebase  from 'firebase/app';
 import 'firebase/auth';
-import router from '@/router';
+import router    from '@/router';
 
 Vue.use(Vuex);
 
 export default new Vuex.Store({
-    state: {
-        global: cloneDeep(state),
+  state: {
+    global: cloneDeep(state),
+  },
+  mutations: {
+    setCurrentUser(state, payload) {
+      state.global.currentUser = payload.currentUser;
     },
-    mutations: {
-        setCurrentUser(state, payload) {
-            state.global.currentUser = payload.currentUser;
-        },
+  },
+  actions: {
+    logout() {
+      firebase.auth().signOut().then(() => {
+        const currentUser = {
+          name: '',
+          email: '',
+          uid: '',
+        };
+
+        this.commit('setCurrentUser', { currentUser }, { root: true });
+      });
+      router.push({ name: 'Login' });
     },
-    actions: {},
-    getters: {
-        getCurrentUser(state) {
-            return state.global.currentUser;
-        },
+  },
+  getters: {
+    getCurrentUser(state) {
+      return state.global.currentUser;
     },
+    getCurrentUserName(state) {
+      if (state.global.currentUser) {
+        return state.global.currentUser.name;
+      } else {
+        return null;
+      }
+    },
+  },
 });

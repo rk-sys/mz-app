@@ -1,4 +1,8 @@
 export default {
   defaultLang: 'pl',
-  currentUser: null,
+  currentUser: {
+    name: '',
+    email: '',
+    uid: '',
+  },
 };

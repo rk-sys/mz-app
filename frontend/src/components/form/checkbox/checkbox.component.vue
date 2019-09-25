@@ -10,18 +10,18 @@
 </template>
 
 <script lang="ts">
-    import {Component, Mixins} from "vue-property-decorator";
-    import ElCheckbox from "element-ui/lib/checkbox.js";
-    import mzTransparentWrapper from "@/components/transparent-component.mixin";
+import { Component, Mixins } from 'vue-property-decorator';
+import ElCheckbox            from 'element-ui/lib/checkbox.js';
+import mzTransparentWrapper  from '@/components/transparent-component.mixin';
 
-    @Component({
-        components: {
-            ElCheckbox,
-        },
-    })
-    export default class mzCheckbox extends Mixins(mzTransparentWrapper) {
+@Component({
+    components: {
+        ElCheckbox,
+    },
+})
+export default class mzCheckbox extends Mixins(mzTransparentWrapper) {
 
-    }
+}
 </script>
 
 

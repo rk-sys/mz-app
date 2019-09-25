@@ -10,7 +10,7 @@
 </template>
 
 <script lang="ts">
-  import mzTransparentWrapper   from '../../transparent-component.mixin';
+import mzTransparentWrapper  from '../../transparent-component.mixin';
 import { Component, Mixins } from 'vue-property-decorator';
 import ElDropdownItem        from 'element-ui/lib/dropdown-item.js';
 

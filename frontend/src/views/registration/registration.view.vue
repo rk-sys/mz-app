@@ -5,8 +5,8 @@
     <div class="mz-registration-view__box">
       <h2 class="title">{{$t(`titlePage`)}}</h2>
 
-      <mz-icons-box class="mz-registration-view__box__icons"
-                    :icons="registrationStateIcon" />
+      <mz-icons-box :icons="registrationStateIcon"
+                    class="mz-registration-view__box__icons" />
 
       <mz-registration-form />
 

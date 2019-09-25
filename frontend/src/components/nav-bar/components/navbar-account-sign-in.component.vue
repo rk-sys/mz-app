@@ -1,28 +1,27 @@
 <template>
-  <mz-dropdown-menu slot="dropdown"
-                    class="nav-bar-account-sign-in">
+  <mz-dropdown-menu class="mz-nav-bar-account-sign-in"
+                    slot="dropdown">
 
-    <div class="nav-bar-account-sign-in__account">
-      <img src="https://via.placeholder.com/60"
-           alt="avatar"
-           class="picture" />
+    <div class="mz-nav-bar-account-sign-in__account">
+      <img alt="avatar"
+           class="mz-nav-bar-account-sign-in__account__picture"
+           src="https://via.placeholder.com/60" />
 
-      <span class="name"
-            v-if="this.$store.state.global.currentUser">
-				{{ this.$store.state.global.currentUser.name}}
+      <span class="mz-nav-bar-account-sign-in__account__name">
+				{{ getCurrentUserName }}
 			</span>
     </div>
 
     <div class="separator">{{$t(`navBar.account`)}}</div>
 
-    <mz-dropdown-item class="nav-bar-account-sign-in__item">{{$t(`navBar.settings`)}}</mz-dropdown-item>
-    <mz-dropdown-item class="nav-bar-account-sign-in__item">{{$t(`navBar.myItems`)}}</mz-dropdown-item>
-    <mz-dropdown-item class="nav-bar-account-sign-in__item">{{$t(`navBar.message`)}}</mz-dropdown-item>
+    <mz-dropdown-item class="mz-nav-bar-account-sign-in__item">{{$t(`navBar.settings`)}}</mz-dropdown-item>
+    <mz-dropdown-item class="mz-nav-bar-account-sign-in__item">{{$t(`navBar.myItems`)}}</mz-dropdown-item>
+    <mz-dropdown-item class="mz-nav-bar-account-sign-in__item">{{$t(`navBar.message`)}}</mz-dropdown-item>
 
     <div class="separator">{{$t(`navBar.manage`)}}</div>
 
-    <mz-dropdown-item class="nav-bar-account-sign-in__item"
-                      @click.native="logout">
+    <mz-dropdown-item @click.native="logout"
+                      class="mz-nav-bar-account-sign-in__item">
       {{$t(`navBar.logout`)}}
     </mz-dropdown-item>
   </mz-dropdown-menu>
@@ -30,12 +29,10 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
+import { Action, Getter } from 'vuex-class';
 import mzDropdown         from '@/components/commons/dropdown/dropdown.component.vue';
 import mzDropdownMenu     from '@/components/commons/dropdown-menu/dropdown-menu.component.vue';
 import mzDropdownItem     from '@/components/commons/dropdown-item/dropdown-item.component.vue';
-import firebase           from 'firebase/app';
-import 'firebase/auth';
-import router             from '@/router';
 
 @Component({
   components: {
@@ -45,19 +42,15 @@ import router             from '@/router';
   },
 })
 export default class mzNavBarAccountSignIn extends Vue {
-  logout() {
-    firebase.auth().signOut().then(() => {
-      this.$store.commit('setCurrentUser', { currentUser: null }, { root: true });
-    });
-    router.push({ name: 'Login' });
-  }
-};
-
+  @Getter public getCurrentUser!: () => object;
+  @Getter public getCurrentUserName!: () => string;
+  @Action public logout!: () => void;
+}
 </script>
 
 <style lang="scss" scoped>
 
-.nav-bar-account-sign-in {
+.mz-nav-bar-account-sign-in {
   border-radius: 0.2rem;
   min-width: 24rem;
 
@@ -79,7 +72,7 @@ export default class mzNavBarAccountSignIn extends Vue {
     margin: 1rem 0;
     font-size: 1.5rem;
 
-    .picture {
+    &__picture {
       border-radius: 50%;
       max-width: 5rem;
       max-height: 5rem;

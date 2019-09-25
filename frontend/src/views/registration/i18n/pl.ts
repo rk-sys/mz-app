@@ -28,9 +28,9 @@ export default {
     correctEmail: 'Błędny adres e-mail',
   },
   response: {
-    error: 'Błąd',
-    success: 'Sukces',
-    userWasCreated: 'Użytkownik został stworzony',
+    'error': 'Błąd',
+    'success': 'Sukces',
+    'userWasCreated': 'Użytkownik został stworzony',
     'auth/email-already-in-use': 'Email jest już używany',
   },
 };
