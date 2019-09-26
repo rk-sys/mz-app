@@ -103,6 +103,11 @@ const local = namespace(LOCAL_STORE);
     },
 })
 export default class mzLogin extends Vue {
+  @local.State((state: mzLoginModule) => state.mzLoginState) public loginState!: ILogin;
+  @local.State((state: mzLoginModule) => state.mzLoginState.loginForm) public loginForm!: ILoginForm;
+  @local.Mutation public setEmail!: (arg: string) => void;
+  @local.Mutation public setPassword!: (arg: string) => void;
+  @local.Action public loginIntoService!: () => Promise<void>;
 
     get emailModel(): string {
         return this.loginState.loginForm.email;
@@ -119,12 +124,6 @@ export default class mzLogin extends Vue {
     set passwordModel(password: string) {
         this.setPassword(password);
     }
-
-    @local.State((state: mzLoginModule) => state.mzLoginState) public loginState!: ILogin;
-    @local.State((state: mzLoginModule) => state.mzLoginState.loginForm) public loginForm!: ILoginForm;
-    @local.Mutation public setEmail!: (arg: string) => void;
-    @local.Mutation public setPassword!: (arg: string) => void;
-    @local.Action public loginIntoService!: () => Promise<void>;
 
     public formElement: HTMLElement | null = null;
 

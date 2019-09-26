@@ -35,7 +35,6 @@ export default class mzLoginModule extends VuexModule {
     try {
       const response = await loginService.loginIntoService(credentials);
 
-      console.log(response);
       const currentUser = {
         email: response.user.email,
         name: response.user.displayName,
