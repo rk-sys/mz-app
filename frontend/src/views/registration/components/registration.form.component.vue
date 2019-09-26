@@ -122,6 +122,19 @@ const local = namespace(LOCAL_STORE);
   },
 })
 export default class mzRegistrationForm extends Vue {
+  @local.State((state: mzRegistrationModule) => state.mzRegistrationState.registrationForm) public registrationForm!: IRegistrationForm;
+  @local.Mutation public setName!: (arg: string) => void;
+  @local.Mutation public setLastName!: (arg: string) => void;
+  @local.Mutation public setEmail!: (arg: string) => void;
+  @local.Mutation public setPassword!: (arg: string) => void;
+  @local.Mutation public setPasswordRepeat!: (arg: string) => void;
+  @local.Mutation public setRule!: (arg: boolean) => void;
+  @local.Mutation public setNewsletter!: (arg: boolean) => void;
+  @local.Getter public getRegistrationForm!: () => IRegistrationForm;
+  @local.Action public createNewUser!: () => object;
+  public loadingButton: boolean = false;
+
+  public formElement: HTMLElement | null = null;
 
   get mzRule(): boolean {
     return this.registrationForm.rule;
@@ -138,19 +151,6 @@ export default class mzRegistrationForm extends Vue {
   set mzNewsletter(isChecked: boolean) {
     this.setNewsletter(isChecked);
   }
-  @local.State((state: mzRegistrationModule) => state.mzRegistrationState.registrationForm) public registrationForm!: IRegistrationForm;
-  @local.Mutation public setName!: (arg: string) => void;
-  @local.Mutation public setLastName!: (arg: string) => void;
-  @local.Mutation public setEmail!: (arg: string) => void;
-  @local.Mutation public setPassword!: (arg: string) => void;
-  @local.Mutation public setPasswordRepeat!: (arg: string) => void;
-  @local.Mutation public setRule!: (arg: boolean) => void;
-  @local.Mutation public setNewsletter!: (arg: boolean) => void;
-  @local.Getter public getRegistrationForm!: () => IRegistrationForm;
-  @local.Action public createNewUser!: () => object;
-  public loadingButton: boolean = false;
-
-  public formElement: HTMLElement | null = null;
 
   public rules: any = {
     name: [

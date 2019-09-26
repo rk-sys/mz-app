@@ -14,15 +14,38 @@
 
     <div class="separator">{{$t(`navBar.account`)}}</div>
 
-    <mz-dropdown-item class="mz-nav-bar-account-sign-in__item">{{$t(`navBar.settings`)}}</mz-dropdown-item>
-    <mz-dropdown-item class="mz-nav-bar-account-sign-in__item">{{$t(`navBar.myItems`)}}</mz-dropdown-item>
-    <mz-dropdown-item class="mz-nav-bar-account-sign-in__item">{{$t(`navBar.message`)}}</mz-dropdown-item>
+    <mz-dropdown-item class="mz-nav-bar-account-sign-in__item">
+      <router-link :to="{name: 'User account'}"
+                   class="mz-nav-bar-account-sign-in__item__link">
+
+      {{$t(`navBar.settings`)}}
+      </router-link>
+    </mz-dropdown-item>
+
+    <mz-dropdown-item class="mz-nav-bar-account-sign-in__item">
+      <router-link :to="{name: 'User account'}"
+                   class="mz-nav-bar-account-sign-in__item__link">
+
+        {{$t(`navBar.myItems`)}}
+      </router-link>
+    </mz-dropdown-item>
+
+    <mz-dropdown-item class="mz-nav-bar-account-sign-in__item">
+      <router-link :to="{name: 'User account'}"
+                   class="mz-nav-bar-account-sign-in__item__link">
+
+        {{$t(`navBar.message`)}}
+      </router-link>
+    </mz-dropdown-item>
 
     <div class="separator">{{$t(`navBar.manage`)}}</div>
 
     <mz-dropdown-item @click.native="logout"
                       class="mz-nav-bar-account-sign-in__item">
-      {{$t(`navBar.logout`)}}
+
+      <span class="mz-nav-bar-account-sign-in__item__link">
+        {{$t(`navBar.logout`)}}
+      </span>
     </mz-dropdown-item>
   </mz-dropdown-menu>
 </template>
@@ -56,10 +79,24 @@ export default class mzNavBarAccountSignIn extends Vue {
 
   &__item {
     font-size: 1.5rem;
+    padding: 0;
 
     &:hover {
       background: var(--primary-color);
       color: var(--white);
+    }
+
+    &__link {
+      padding: 0 2rem;
+      color: var(--gray-950);
+      width: 100%;
+      height: 100%;
+      display: block;
+      text-decoration: none;
+
+      &:hover {
+        color: var(--white);
+      }
     }
   }
 

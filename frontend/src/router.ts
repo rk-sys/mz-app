@@ -25,8 +25,16 @@ const router = new Router({
       component: () => import ('./views/registration/registration.view.vue'),
     },
     {
+      path: '/account',
+      name: 'User account',
+      component: () => import ('./views/user-account/user-account.view.vue'),
+      meta: {
+        requiresAuth: true,
+      },
+    },
+    {
       path: '**',
-      redirect: '/home',
+      redirect: '/account',
     },
   ],
 });
