@@ -33,14 +33,17 @@ export default class mzLoginModule extends VuexModule {
       password: this.mzLoginState.loginForm.password,
     };
     try {
-      await loginService.loginIntoService(credentials).then((response) => {
-        const currentUser = {
-          email: response.user.email,
-          name: response.user.displayName,
-          uid: response.user.uidl,
-        };
-        this.context.commit('setCurrentUser', { currentUser }, { root: true });
-      });
+      const response = await loginService.loginIntoService(credentials);
+
+      console.log(response);
+      const currentUser = {
+        email: response.user.email,
+        name: response.user.displayName,
+        uid: response.user.uidl,
+      };
+
+      this.context.commit('setCurrentUser', { currentUser }, { root: true });
+
       Notification.successNotification(i18n.t(`notification.success`), i18n.t(`notification.login`));
       this.context.commit('setLoginForm', {
         email: '',

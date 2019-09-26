@@ -219,12 +219,6 @@ export default class mzRegistrationForm extends Vue {
   left: auto;
   right: 0;
 }
-
-.mz-checkbox {
-  .el-form-item--error {
-    //TODO
-  }
-}
 </style>
 
 <style lang="scss" scoped>

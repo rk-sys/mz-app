@@ -5,6 +5,9 @@ import { mzRegistrationState }                  from '@/views/registration/store
 import { IRegistration, IRegistrationForm }     from '@/views/registration/registration.interface';
 import { i18n }                                 from '@/i18n/i18n';
 import Notification                             from '@/components/notification/notifications';
+import firebase                                 from 'firebase/app';
+import 'firebase/auth';
+import router                                   from '@/router';
 
 
 @Module({ namespaced: true, stateFactory: true })
@@ -82,12 +85,13 @@ export default class mzLoginModule extends VuexModule {
       password: this.getPassword,
     };
     try {
-      await registrationService.createNewUser(newUser).then((response) => {
-        if (response.user && !response.user.emailVerified) {
-          response.user.sendEmailVerification();
-        }
-        response.user.updateProfile({ displayName: newUser.name });
-      });
+      const response = await registrationService.createNewUser(newUser);
+
+      if (response.user && !response.user.emailVerified) {
+        await response.user.sendEmailVerification();
+      }
+      await response.user.updateProfile({ displayName: newUser.name });
+      firebase.auth().signOut();
       Notification.successNotification(i18n.t(`response.success`), i18n.t(`response.userWasCreated`));
       this.context.commit('setRegistrationForm', {
         name: '',
@@ -98,6 +102,7 @@ export default class mzLoginModule extends VuexModule {
         rule: false,
         newsletter: false,
       });
+      router.push({ name: 'Login' });
     } catch (e) {
       Notification.errorNotification(i18n.t(`response.error`), i18n.t(`response.${e.code}`));
       throw new Error(e);

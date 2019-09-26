@@ -67,7 +67,6 @@ export default class mzNavBarAccountSignIn extends Vue {
     pointer-events: none;
     padding: 0 2rem;
     display: flex;
-    justify-content: space-around;
     align-items: center;
     margin: 1rem 0;
     font-size: 1.5rem;
@@ -76,6 +75,7 @@ export default class mzNavBarAccountSignIn extends Vue {
       border-radius: 50%;
       max-width: 5rem;
       max-height: 5rem;
+      margin-right: 1rem;
     }
   }
 }
