@@ -1,6 +1,7 @@
-import axios                 from 'axios';
-import {ILoginForm} from '@/views/login/login.interface';
+import { ILoginForm } from './login.interface';
+import firebase       from 'firebase/app';
+import 'firebase/auth';
 
-export function loginIntoService(payload: any) {
-    return axios.put(`http://www.mocky.io/v2/5d45a7593000002f66c5c8dd`, payload);
+export function loginIntoService(payload: ILoginForm): Promise<any> {
+  return firebase.auth().signInWithEmailAndPassword(payload.email, payload.password);
 }

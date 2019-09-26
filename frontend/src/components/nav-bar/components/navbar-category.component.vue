@@ -2,22 +2,22 @@
   <div class="nav-bar-category">
     <mz-logo :is-green="true" class="nav-bar-category__logo" />
 
-    <router-link to="/registration"
-                 class="nav-bar-category__craftsmen">
+    <router-link class="nav-bar-category__craftsmen"
+                 to="/#">
 
       <div class="icon icon-hammer"></div>
       {{$t(`navBar.craftsmen`)}}
     </router-link>
 
-    <router-link to="/login"
-                 class="nav-bar-category__items">
+    <router-link class="nav-bar-category__items"
+                 to="/#">
 
       <div class="icon icon-box"></div>
       {{$t(`navBar.items`)}}
     </router-link>
 
-    <router-link to="/"
-                 class="nav-bar-category__services">
+    <router-link class="nav-bar-category__services"
+                 to="/#">
 
       <div class="icon icon-tag"></div>
       {{$t(`navBar.services`)}}
@@ -35,7 +35,7 @@ import mzLogo             from '@/components/logo/logo.component.vue';
   },
 })
 export default class mzNavBarCategory extends Vue {
-};
+}
 </script>
 
 <style lang="scss"
@@ -62,11 +62,11 @@ export default class mzNavBarCategory extends Vue {
     color: var(--black);
     font-weight: var(--font-medium);
     border-bottom: 2px solid transparent;
-    font-size: 1.5rem;
+    font-size: 1.3rem;
 
     .icon {
-      height: 2.5rem;
-      width: 2.5rem;
+      height: 2.2rem;
+      width: 2.2rem;
       margin-right: 2rem;
     }
 

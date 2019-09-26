@@ -1,9 +1,9 @@
 <template>
-  <mz-form class="mz-registration-form"
-           :form-ref.sync="formElement"
+  <mz-form :form-ref.sync="formElement"
            :model="registrationForm"
            :rules="rules"
            @submit.prevent.native="registerNewUser"
+           class="mz-registration-form"
            id="registrationForm">
 
     <div class="mz-registration-form__container">
@@ -17,22 +17,6 @@
                   :value="registrationForm.name"
                   @input="setName"
                   id="name"></mz-input>
-      </mz-form-item>
-    </div>
-
-
-    <div class="mz-registration-form__container">
-      <div class="mz-registration-form__icon icon-user--green"></div>
-
-      <mz-form-item class="mz-registration-form__item"
-                    prop="lastName">
-
-        <mz-input :holder="$t(`registerForm.lastName`)"
-                  :is-password="false"
-                  :value="registrationForm.lastName"
-                  @input="setLastName"
-                  id="lastName"></mz-input>
-
       </mz-form-item>
     </div>
 
@@ -82,6 +66,7 @@
     </div>
 
     <div class="mz-registration-form__rule">
+
       <mz-checkbox v-model="mzRule">
         {{$t(`registerForm.acceptRule`)}}
         <router-link to="#">{{$t(`registerForm.rule`)}}</router-link>
@@ -94,13 +79,14 @@
     </div>
 
     <div class="mz-registration-form__buttons">
-      <mz-button class="button"
+      <mz-button :loading="loadingButton"
+                 class="button"
                  form="registrationForm"
                  native-type="submit">{{$t(`buttonsText.submit`)}}
       </mz-button>
 
-      <router-link to="/login"
-                   class="btn-register">
+      <router-link class="btn-register"
+                   to="/login">
 
         {{$t(`buttonsText.gotAccount`)}}
         <span>{{$t(`buttonsText.login`)}}</span>
@@ -136,16 +122,6 @@ const local = namespace(LOCAL_STORE);
   },
 })
 export default class mzRegistrationForm extends Vue {
-  @local.State((state: mzRegistrationModule) => state.mzRegistrationState.registrationForm) public registrationForm!: IRegistrationForm;
-  @local.Mutation public setName!: (arg: string) => void;
-  @local.Mutation public setLastName!: (arg: string) => void;
-  @local.Mutation public setEmail!: (arg: string) => void;
-  @local.Mutation public setPassword!: (arg: string) => void;
-  @local.Mutation public setPasswordRepeat!: (arg: string) => void;
-  @local.Mutation public setRule!: (arg: boolean) => void;
-  @local.Mutation public setNewsletter!: (arg: boolean) => void;
-
-  public formElement: HTMLElement | null = null;
 
   get mzRule(): boolean {
     return this.registrationForm.rule;
@@ -162,22 +138,22 @@ export default class mzRegistrationForm extends Vue {
   set mzNewsletter(isChecked: boolean) {
     this.setNewsletter(isChecked);
   }
+  @local.State((state: mzRegistrationModule) => state.mzRegistrationState.registrationForm) public registrationForm!: IRegistrationForm;
+  @local.Mutation public setName!: (arg: string) => void;
+  @local.Mutation public setLastName!: (arg: string) => void;
+  @local.Mutation public setEmail!: (arg: string) => void;
+  @local.Mutation public setPassword!: (arg: string) => void;
+  @local.Mutation public setPasswordRepeat!: (arg: string) => void;
+  @local.Mutation public setRule!: (arg: boolean) => void;
+  @local.Mutation public setNewsletter!: (arg: boolean) => void;
+  @local.Getter public getRegistrationForm!: () => IRegistrationForm;
+  @local.Action public createNewUser!: () => object;
+  public loadingButton: boolean = false;
 
-  public registerNewUser() {
-    (this.formElement as any).validate(() => {
-    });
-  }
-
-  public validateRoomsNumber = (rule: any, value: any, callback: any) => {
-    console.log(12);
-    callback();
-  };
+  public formElement: HTMLElement | null = null;
 
   public rules: any = {
     name: [
-      { required: true, message: i18n.t('rules.required'), trigger: [ 'blur', 'submit' ] },
-    ],
-    lastName: [
       { required: true, message: i18n.t('rules.required'), trigger: [ 'blur', 'submit' ] },
     ],
     email: [
@@ -185,14 +161,54 @@ export default class mzRegistrationForm extends Vue {
       { type: 'email', message: i18n.t('rules.correctEmail'), trigger: [ 'blur', 'submit' ] },
     ],
     password: [
+      {
+        validator: (rule: any, value: string, callback: (error?: Error) => void) => {
+          if (!this.validatePassword()) {
+            callback(new Error(i18n.t('rules.differencePassword') as string));
+          } else {
+            callback();
+          }
+        },
+        trigger: 'submit',
+      },
       { required: true, message: i18n.t('rules.required'), trigger: [ 'blur', 'submit' ] },
       { min: 8, message: i18n.t('rules.minLength'), trigger: [ 'blur', 'submit' ] },
     ],
     passwordRepeat: [
+      {
+        validator: (rule: any, value: string, callback: (error?: Error) => void) => {
+          if (!this.validatePassword()) {
+            callback(new Error(i18n.t('rules.differencePassword') as string));
+          } else {
+            callback();
+          }
+        },
+        trigger: 'submit',
+      },
       { required: true, message: i18n.t('rules.required'), trigger: [ 'blur', 'submit' ] },
       { min: 8, message: i18n.t('rules.minLength'), trigger: [ 'blur', 'submit' ] },
     ],
   };
+
+  public async registerNewUser() {
+    (this.formElement as any).validate(async (valid: boolean) => {
+      if (valid) {
+        try {
+          this.loadingButton = true;
+          await this.createNewUser();
+        } catch (e) {
+          throw new Error(e);
+        } finally {
+          this.loadingButton = false;
+        }
+      }
+    });
+  }
+
+  public validatePassword() {
+    const form = this.registrationForm;
+    return form.password === form.passwordRepeat;
+  }
 }
 </script>
 <style lang="scss">

@@ -1,11 +1,10 @@
 export default {
   titlePage: 'Rejestracja',
   registerForm: {
-    name: 'Imię',
-    lastName: 'Nazwisko',
-    email: 'E-mail',
-    password: 'Hasło',
-    repeatPassword: 'Powtórz hasło',
+    email: 'E-mail *',
+    password: 'Hasło *',
+    name: 'Imię i nazwisko *',
+    repeatPassword: 'Powtórz hasło *',
     newsletter: 'Chcę dostawać informację z serwisu moja-zbroja.pl',
     rule: 'regulamin',
     acceptRule: 'Przeczytałem oraz akceptuję',
@@ -24,8 +23,14 @@ export default {
   },
   rules: {
     required: 'Pole jest wymagane',
-    differencePassword: 'Hasła są różne',
+    differencePassword: 'Hasła nie są takie same',
     minLength: 'Minimum 8 znaków',
-    correctEmail: 'Proszę wprowadzić poprawny e-mail',
+    correctEmail: 'Błędny adres e-mail',
+  },
+  response: {
+    'error': 'Błąd',
+    'success': 'Sukces',
+    'userWasCreated': 'Użytkownik został stworzony',
+    'auth/email-already-in-use': 'Email jest już używany',
   },
 };

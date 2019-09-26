@@ -10,7 +10,7 @@
 </template>
 
 <script lang="ts">
-import mzTransparentWrapper   from 'src/components/transparent-component.mixin';
+import mzTransparentWrapper  from '../../transparent-component.mixin';
 import { Component, Mixins } from 'vue-property-decorator';
 import ElDropdownItem        from 'element-ui/lib/dropdown-item.js';
 
@@ -29,15 +29,4 @@ export default class mzDropdownItem extends Mixins(mzTransparentWrapper) {
 </style>
 
 <style lang="scss" scoped>
-.el-dropdown-menu__item {
-  &.mz-dropdown-item {
-    line-height: 1.2;
-    display: flex;
-
-    &:hover {
-      background: none;
-      color: var(--secondary-color);
-    }
-  }
-}
 </style>

@@ -1,26 +1,26 @@
 <template>
   <div class="mz-social-media">
 
-    <div class="mz-social-media__icon icon-facebook"
-         :class="{'icon--light': isLight,
+    <div :class="{'icon--light': isLight,
              'icon--dark': !isLight,
              'icon-facebook--color': facebookWhite && !isLight,}"
+         @mouseleave="removeColor($event.target)"
          @mouseover="changeColor($event.target)"
-         @mouseleave="removeColor($event.target)"></div>
+         class="mz-social-media__icon icon-facebook"></div>
 
-    <div class="mz-social-media__icon icon-youtube"
-         :class="{'icon--light': isLight,
+    <div :class="{'icon--light': isLight,
              'icon--dark': !isLight,
              'icon-youtube--color': youtubeWhite && !isLight}"
+         @mouseleave="removeColor($event.target)"
          @mouseover="changeColor($event.target)"
-         @mouseleave="removeColor($event.target)"></div>
+         class="mz-social-media__icon icon-youtube"></div>
 
-    <div class="mz-social-media__icon icon-twitter"
-         :class="{'icon--light': isLight,
+    <div :class="{'icon--light': isLight,
              'icon--dark': !isLight,
              'icon-twitter--color': twitterWhite && !isLight,}"
+         @mouseleave="removeColor($event.target)"
          @mouseover="changeColor($event.target)"
-         @mouseleave="removeColor($event.target)"></div>
+         class="mz-social-media__icon icon-twitter"></div>
 
   </div>
 </template>

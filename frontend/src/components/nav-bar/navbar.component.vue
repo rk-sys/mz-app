@@ -20,7 +20,7 @@ import mzNavBarProfile    from '@/components/nav-bar/components/navbar-profile.c
   },
 })
 export default class mzNavBar extends Vue {
-};
+}
 </script>
 
 <style lang="scss" scoped>
@@ -32,7 +32,6 @@ export default class mzNavBar extends Vue {
   display: flex;
   justify-content: space-around;
   background: var(--white);
-  box-shadow: 0 0 1.2rem var(--gray-300);
-  border-bottom: 1px solid var(--gray-400);
+  box-shadow: 0 2px 3px 0 var(--gray-300);
 }
 </style>

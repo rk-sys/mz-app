@@ -1,9 +1,11 @@
-import Vue from 'vue';
-import Router from 'vue-router';
+import Vue               from 'vue';
+import Router, { Route } from 'vue-router';
+import firebase          from 'firebase/app';
+import 'firebase/auth';
 
 Vue.use(Router);
 
-export default new Router({
+const router = new Router({
   mode: 'history',
   base: process.env.BASE_URL,
   routes: [
@@ -24,7 +26,23 @@ export default new Router({
     },
     {
       path: '**',
-      redirect: '/registration',
+      redirect: '/home',
     },
   ],
 });
+
+router.beforeEach((to: Route, from: Route, next: any) => {
+  const currentUser = firebase.auth().currentUser;
+  const requiresAuth = to.matched.some((record) => record.meta.requiresAuth);
+
+  if (requiresAuth && !currentUser) {
+    next({ name: 'Login' });
+  } else if (!requiresAuth && currentUser) {
+    next();
+  } else {
+    next();
+  }
+});
+
+
+export default router;

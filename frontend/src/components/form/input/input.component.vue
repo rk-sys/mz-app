@@ -29,7 +29,7 @@ export default class mzInput extends Mixins(mzTransparentWrapper) {
 @import '~element-ui/lib/theme-chalk/input.css';
 
 .el-input__inner {
-  box-shadow: inset 10rem 10rem var(--white);
+  box-shadow: inset 10rem 10rem var(--transparent);
   border: none;
   background: var(--transparent);
   padding: 0;

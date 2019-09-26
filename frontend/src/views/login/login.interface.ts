@@ -1,22 +1,22 @@
 export interface ILogin {
-    loginForm: ILoginForm;
-    icons: IIcon[];
-    errorLoginForm: boolean;
+  loginForm: ILoginForm;
+  icons: IIcon[];
+  errorLoginForm: boolean;
 }
 
 export interface ILoginForm {
-    login: string;
-    password: string;
+  email: string;
+  password: string;
 }
 
 export interface IIcon {
-    icon: string;
-    style: IIconStyle;
+  icon: string;
+  style: IIconStyle;
 }
 
 export interface IIconStyle {
-    top: string;
-    left: string;
-    width?: string;
-    height?: string;
+  top: string;
+  left: string;
+  width?: string;
+  height?: string;
 }

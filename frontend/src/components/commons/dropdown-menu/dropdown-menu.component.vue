@@ -12,7 +12,7 @@
 <script lang="ts">
 import { Component, Mixins } from 'vue-property-decorator';
 import ElDropdownMenu        from 'element-ui/lib/dropdown-menu.js';
-import mzTransparentWrapper   from 'src/components/transparent-component.mixin';
+import mzTransparentWrapper   from '../../transparent-component.mixin';
 
 @Component({
   components: {
@@ -26,8 +26,4 @@ export default class mzDropdownMenu extends Mixins(mzTransparentWrapper) {
 
 <style lang="scss">
 @import '~element-ui/lib/theme-chalk/dropdown-menu.css';
-
-.mz-dropdown-menu {
-  min-width: 20rem;
-}
 </style>
