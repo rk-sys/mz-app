@@ -11,19 +11,19 @@ export const userAccountMenu: IUserAccountMenu = {
   links: [
     {
       label: 'editProfile',
-      url: 'account/edit',
+      nameUrl: 'User account edit',
     },
     {
       label: 'settings',
-      url: 'account/settings',
+      nameUrl: 'Login',
     },
     {
       label: 'message',
-      url: 'account/message',
+      nameUrl: 'Login',
     },
     {
       label: 'calendar',
-      url: 'account/calendar',
+      nameUrl: 'Registration',
     },
   ],
 };

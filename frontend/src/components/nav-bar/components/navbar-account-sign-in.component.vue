@@ -3,19 +3,26 @@
                     slot="dropdown">
 
     <div class="mz-nav-bar-account-sign-in__account">
-      <img alt="avatar"
+
+      <img v-if="getCurrentUser.photoURL === null"
            class="mz-nav-bar-account-sign-in__account__picture"
-           src="https://via.placeholder.com/60" />
+           alt="avatar"
+           src="@/assets/img/user.png" />
+
+      <img v-else
+           class="mz-nav-bar-account-sign-in__account__picture"
+           alt="avatar"
+           :src="getCurrentUser.photoURL" />
 
       <span class="mz-nav-bar-account-sign-in__account__name">
-				{{ getCurrentUserName }}
+				{{ getCurrentUser.name }}
 			</span>
     </div>
 
     <div class="separator">{{$t(`navBar.account`)}}</div>
 
     <mz-dropdown-item class="mz-nav-bar-account-sign-in__item">
-      <router-link :to="{name: 'User account'}"
+      <router-link :to="{name: 'User account edit'}"
                    class="mz-nav-bar-account-sign-in__item__link">
 
       {{$t(`navBar.settings`)}}
@@ -66,7 +73,6 @@ import mzDropdownItem     from '@/components/commons/dropdown-item/dropdown-item
 })
 export default class mzNavBarAccountSignIn extends Vue {
   @Getter public getCurrentUser!: () => object;
-  @Getter public getCurrentUserName!: () => string;
   @Action public logout!: () => void;
 }
 </script>

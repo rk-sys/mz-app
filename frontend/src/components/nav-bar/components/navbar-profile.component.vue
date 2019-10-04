@@ -1,5 +1,6 @@
 <template>
   <div class="nav-bar-profile">
+
     <div class="nav-bar-profile__search">
       <div :class="searchHover? 'icon-search--green' : 'icon-search'"
            @mouseenter="searchHover = true"
@@ -17,7 +18,7 @@
              @mouseleave="userHover = false"
              class="icon"></div>
 
-        <template v-if="getCurrentUserName !== ''">
+        <template v-if="getCurrentUser.name !== ''">
           <mz-nav-bar-account-sign-in />
         </template>
 
@@ -58,7 +59,7 @@ import mzNavBarAccountNotSignIn from '@/components/nav-bar/components/navbar-acc
   },
 })
 export default class mzNavBarProfile extends Vue {
-  @Getter public getCurrentUserName!: () => string;
+  @Getter public getCurrentUser!: () => any;
 
   public searchHover = false;
   public userHover = false;

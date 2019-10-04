@@ -5,7 +5,7 @@ export interface IUserAccountMenu {
 
 export interface IUserAccountMenuLinks {
   label: string;
-  url: string;
+  nameUrl: string;
 }
 
 export interface IUserInfo {
@@ -14,4 +14,18 @@ export interface IUserInfo {
   emailVerified: string;
   email: string;
   uid: string;
+}
+
+export interface IUserEmailForm {
+  email: string;
+  repeatEmail: string;
+}
+
+export interface IUserPasswordForm {
+  password: string;
+  repeatPassword: string;
+}
+
+export interface IUserDisplayNameForm {
+  displayName: string;
 }

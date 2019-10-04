@@ -15,7 +15,7 @@
                      id="loginForm">
 
                 <div class="form__container">
-                    <div class="form__container__icon icon-user--green"></div>
+                    <div class="form__container__icon icon-mail--green"></div>
 
                     <mz-form-item class="form__container__item"
                                   prop="email">

@@ -1,7 +1,12 @@
 <template>
   <div class="user-account">
-    <mz-user-account-menu />
+    <div class="user-account__container">
+      <mz-user-account-menu />
 
+      <transition name="fade" mode="out-in">
+        <router-view />
+      </transition>
+    </div>
   </div>
 </template>
 
@@ -43,12 +48,28 @@ export default class mzUserAccount extends Vue {
 
 <style lang="scss"
        scoped>
+
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .25s;
+}
+
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */
+{
+  opacity: 0;
+}
+
 .user-account {
   min-height: 100vh;
   background: var(--background-color);
   height: 100%;
   display: grid;
   grid-template-rows: 6.4rem 7rem auto;
-  grid-template-columns: 16rem 18rem auto 16rem;
+  grid-template-columns: 1fr 3fr 1fr;
+
+  &__container {
+    display: flex;
+    grid-row-start: 3;
+    grid-column-start: 2;
+  }
 }
 </style>
