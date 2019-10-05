@@ -116,9 +116,10 @@ export default class mzNavBarAccountSignIn extends Vue {
 
     &__picture {
       border-radius: 50%;
-      max-width: 5rem;
-      max-height: 5rem;
+      width: 5rem;
+      height: 5rem;
       margin-right: 1rem;
+      object-fit: cover;
     }
   }
 }
