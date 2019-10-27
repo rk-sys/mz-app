@@ -25,8 +25,24 @@ const router = new Router({
       component: () => import ('./views/registration/registration.view.vue'),
     },
     {
+      path: '/account',
+      name: 'User account',
+      redirect: '/account/edit',
+      component: () => import ('./views/user-account/user-account.view.vue'),
+      meta: {
+        requiresAuth: true,
+      },
+      children: [
+        {
+          path: 'edit',
+          name: 'User account edit',
+          component: () => import('./views/user-account/user-account-edit/user-account-edit.view.vue'),
+        },
+      ],
+    },
+    {
       path: '**',
-      redirect: '/home',
+      redirect: '/account',
     },
   ],
 });

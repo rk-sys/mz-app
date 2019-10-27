@@ -12,7 +12,7 @@
 
 <script lang="ts">
 import { Component, Mixins, Prop } from 'vue-property-decorator';
-import mzTransparentWrapper         from '@/components/transparent-component.mixin';
+import mzTransparentWrapper        from '@/components/transparent-component.mixin';
 import ElButton                    from 'element-ui/lib/button.js';
 
 @Component({
@@ -72,6 +72,7 @@ export default class mzButton extends Mixins(mzTransparentWrapper) {
   &--danger {
     background-color: var(--error);
     border: .1rem solid var(--error);
+    margin: 0;
 
     &:hover {
       background-color: var(--error-80);
@@ -89,12 +90,23 @@ export default class mzButton extends Mixins(mzTransparentWrapper) {
     }
   }
 
-  &--info{
+  &--info {
     background-color: var(--gray-900);
     border: .1rem solid var(--gray-900);
 
     &:hover {
       background-color: var(--gray-500);
+      border: .1rem solid var(--gray-500);
+    }
+  }
+
+  &--light {
+    background-color: var(--gray-100);
+    border: .1rem solid var(--gray-500);
+    color: var(--gray-700);
+
+    &:hover {
+      background-color: var(--gray-150);
       border: .1rem solid var(--gray-500);
     }
   }

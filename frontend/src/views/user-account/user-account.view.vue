@@ -1,0 +1,75 @@
+<template>
+  <div class="user-account">
+    <div class="user-account__container">
+      <mz-user-account-menu />
+
+      <transition name="fade" mode="out-in">
+        <router-view />
+      </transition>
+    </div>
+  </div>
+</template>
+
+<script lang="ts">
+import { Component, Vue }        from 'vue-property-decorator';
+import { registerStoreModule }   from '@/helpers/helpers';
+import { namespace }             from 'vuex-class';
+import { loadTranslationsAsync } from '@/i18n/i18n';
+import Store                     from '@/store/store';
+import { Route }                 from 'vue-router';
+import mzUserAccountMenu         from './components/user-account-menu.components.vue';
+import mzUserAccountModule       from './store/user-account.module';
+
+const LOCAL_STORE = 'userAccount';
+const local = namespace(LOCAL_STORE);
+
+@Component({
+  components: {
+    mzUserAccountMenu,
+  },
+})
+export default class mzUserAccount extends Vue {
+
+  private async beforeRouteEnter(to: Route, from: Route, next: any) {
+    const lang = Store.state.global.defaultLang;
+
+    try {
+      await loadTranslationsAsync(lang, import(`./i18n/${lang}`));
+      registerStoreModule(LOCAL_STORE.split('/'), mzUserAccountModule);
+      await Store.dispatch(`${LOCAL_STORE}/getCurrentUserInfo`);
+      next();
+    } catch (e) {
+      next(false);
+      throw new Error(e);
+    }
+  }
+}
+</script>
+
+<style lang="scss"
+       scoped>
+
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .25s;
+}
+
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */
+{
+  opacity: 0;
+}
+
+.user-account {
+  min-height: 100vh;
+  background: var(--background-color);
+  height: 100%;
+  display: grid;
+  grid-template-rows: 6.4rem 7rem auto;
+  grid-template-columns: 1fr 3fr 1fr;
+
+  &__container {
+    display: flex;
+    grid-row-start: 3;
+    grid-column-start: 2;
+  }
+}
+</style>

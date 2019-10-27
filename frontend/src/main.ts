@@ -16,7 +16,7 @@ firebase.initializeApp({
   authDomain: 'moja-zbroj.firebaseapp.com',
   databaseURL: 'https://moja-zbroj.firebaseio.com',
   projectId: 'moja-zbroj',
-  storageBucket: '',
+  storageBucket: 'gs://moja-zbroj.appspot.com/',
   messagingSenderId: '11806184685',
   appId: '1:11806184685:web:c0eba0b09735bda3f428e4',
 });
@@ -33,8 +33,8 @@ const unsubscribe = firebase.auth().onAuthStateChanged((firebaseUser) => {
           email: firebaseUser.email,
           name: firebaseUser.displayName,
           uid: firebaseUser.uid,
+          photoURL: firebaseUser.photoURL,
         };
-
         store.commit('setCurrentUser', { currentUser });
       }
     },

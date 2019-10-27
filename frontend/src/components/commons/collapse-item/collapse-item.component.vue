@@ -13,7 +13,7 @@
 <script lang="ts">
 
 import { Component, Mixins, Prop } from 'vue-property-decorator';
-import mzTransparentWrapper         from '@/components/transparent-component.mixin';
+import mzTransparentWrapper        from '@/components/transparent-component.mixin';
 import elCollapseItem              from 'element-ui/lib/collapse-item.js';
 
 @Component({
@@ -31,22 +31,30 @@ export default class mzCollapseItem extends Mixins(mzTransparentWrapper) {
 
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 @import '~element-ui/lib/theme-chalk/collapse-item.css';
+
+.el-collapse-item__header {
+  padding: 0 3rem;
+  font-size: 1.8rem;
+  height: 6.8rem;
+
+  &.is-active {
+    border-bottom: 1px solid var(--gray-200);
+  }
+}
 
 .mz-collapse-item {
 
   &--section {
+    .el-collapse-item {
 
-    /deep/ {
-      .el-collapse-item {
-
-        &__wrap,
-        &__header {
-          border: none;
-        }
+      &__wrap,
+      &__header {
+        border: none;
       }
     }
+
   }
 }
 

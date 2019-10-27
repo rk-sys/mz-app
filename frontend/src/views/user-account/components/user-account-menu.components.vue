@@ -1,0 +1,220 @@
+<template>
+  <div class="user-account-menu">
+    <div class="user-account-menu__info">
+
+      <mz-upload width='17.5rem'
+                 height='17.5rem'
+                 action=''
+                 :http-request='uploadPicture'
+                 :show-file-list='false'
+                 :on-success='handleAvatarSuccess'
+                 :before-upload='beforeAvatarUpload'
+                 class="user-account-menu__info__wrapper">
+
+
+        <transition name="fade">
+          <span class="label"
+                v-if="showLabel">{{$t(`picture.label`)}}</span>
+        </transition>
+
+        <img v-if="userInfo.photoURL === null"
+             src="@/assets/img/user.png"
+             alt="user_2_picture"
+             class="picture"
+             :class="{'picture--blur': showLabel}"
+             @mouseenter="showLabel = true" />
+
+        <img v-else
+             :src="userInfo.photoURL"
+             alt="user_picture"
+             class="picture"
+             :class="{'picture--blur': showLabel}"
+             @mouseenter="showLabel = true" />
+
+        <div class="picture--dark"
+             v-show="showLabel"></div>
+
+        <div class="picture--light"
+             v-show="showLabel"
+             @mouseleave="showLabel = false"></div>
+      </mz-upload>
+
+      <span class="user-account-menu__info__display-name">
+        {{userInfo.displayName}}
+      </span>
+    </div>
+
+    <div class="user-account-menu__list">
+      <div v-for="link in menuLinks"
+           :key="link.label"
+           class="user-account-menu__list__wrapper">
+
+        <router-link :to="{name: link.nameUrl}"
+                     class="user-account-menu__list__link">
+          {{$t(`links.${link.label}`)}}
+        </router-link>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script lang="ts">
+import { Component, Vue }  from 'vue-property-decorator';
+import { namespace }       from 'vuex-class';
+import mzUserAccountModule from '../store/user-account.module';
+import mzUpload            from '@/components/upload/upload.component.vue';
+import Notification        from '@/components/notification/notifications';
+import { i18n }            from '@/i18n/i18n';
+
+const LOCAL_STORE = 'userAccount';
+const local = namespace(LOCAL_STORE);
+
+@Component({
+  components: {
+    mzUpload,
+  },
+})
+export default class mzUserAccountMenu extends Vue {
+  @local.State((state: mzUserAccountModule) => state.mzUserAccountMenuState.userInfo) public userInfo!: string;
+  @local.State((state: mzUserAccountModule) => state.mzUserAccountMenuState.links) public menuLinks!: string;
+  @local.Action public changeUserPicture!: (file: any) => void;
+
+  public showLabel: boolean = false;
+
+  public beforeAvatarUpload(file: any) {
+    const isJPG = file.type === 'image/jpeg';
+    const isLt2M = file.size / 1024 / 1024 < 2;
+
+    if (!isJPG) {
+      Notification.errorNotification(i18n.t(`notification.error`), i18n.t(`notification.mustBeJPG`));
+    }
+    if (!isLt2M) {
+      Notification.errorNotification(i18n.t(`notification.error`), i18n.t(`notification.toLarge`));
+    }
+    return isJPG && isLt2M;
+  }
+
+  public handleAvatarSuccess(res: any, file: any) {
+    Notification.successNotification(i18n.t(`notification.success`), i18n.t(`notification.pictureWasChange`));
+  }
+
+  public uploadPicture(file: any) {
+    this.changeUserPicture(file);
+  }
+
+}
+</script>
+
+<style lang="scss"
+       scoped>
+.fade-enter-active {
+  transition: opacity .5s;
+}
+
+.fade-enter /* .fade-leave-active below version 2.1.8 */
+{
+  opacity: 0;
+}
+
+.user-account-menu {
+  max-width: 20rem;
+
+  &__info {
+    display: flex;
+    flex-direction: column;;
+
+    &__wrapper {
+      position: relative;
+
+      .picture {
+        width: 17.5rem;
+        height: 17.5rem;
+        border-radius: 50%;
+        z-index: 0;
+        object-fit: cover;
+
+        &--dark {
+          width: 100%;
+          height: 100%;
+          background: var(--black);
+          opacity: .5;
+          position: absolute;
+          border-radius: 50%;
+        }
+
+        &--light {
+          width: 100%;
+          height: 100%;
+          background: var(--transparent);
+          opacity: 0.5;
+          position: absolute;
+          border-radius: 50%;
+          z-index: 2;
+        }
+      }
+
+      .label {
+        user-select: none;
+        z-index: 1;
+        color: var(--white);
+        font-weight: var(--font-medium);
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+    }
+
+    &__display-name {
+      margin-top: 1rem;
+      font-size: 2.2rem;
+      font-weight: var(--font-medium);
+      color: var(--black);
+      text-align: center;
+      margin-bottom: 7rem;
+    }
+  }
+
+  &__list {
+
+    .router-link-active {
+      color: var(--primary-color);
+      font-weight: var(--font-bold);
+      border-bottom: 2px solid var(--primary-color);
+    }
+
+    &__link {
+      font-size: 1.8rem;
+      color: var(--gray-950);
+      text-decoration: none;
+      margin-bottom: 2.5rem;
+      font-weight: var(--font-regular);
+      display: inline-block;
+      padding: .5rem 0;
+      border-bottom: 2px solid var(--transparent);
+      position: relative;
+
+      &::before {
+        content: "";
+        left: 0;
+        bottom: -.2rem;
+        width: 100%;
+        position: absolute;
+        transform: scaleX(0);
+        transition: transform .3s ease-in-out;
+        transform-origin: left;
+        border-bottom: 2px solid var(--primary-color);
+      }
+
+      &:hover {
+        color: var(--primary-color);
+
+        &::before {
+          transition: transform .3s ease-in-out;
+          transform: scaleX(1);
+        }
+      }
+    }
+  }
+}
+</style>

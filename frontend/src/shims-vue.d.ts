@@ -33,3 +33,4 @@ declare module 'element-ui/lib/locale/lang/en';
 declare module 'element-ui/lib/locale';
 declare module 'element-ui/lib/checkbox.js';
 declare module 'element-ui/lib/checkbox-group.js';
+declare module 'element-ui/lib/upload.js';

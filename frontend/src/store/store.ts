@@ -24,6 +24,7 @@ export default new Vuex.Store({
           name: '',
           email: '',
           uid: '',
+          photoURL: '',
         };
 
         this.commit('setCurrentUser', { currentUser }, { root: true });
@@ -34,13 +35,6 @@ export default new Vuex.Store({
   getters: {
     getCurrentUser(state) {
       return state.global.currentUser;
-    },
-    getCurrentUserName(state) {
-      if (state.global.currentUser) {
-        return state.global.currentUser.name;
-      } else {
-        return null;
-      }
     },
   },
 });

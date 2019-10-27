@@ -11,7 +11,7 @@ import router                                   from '@/router';
 
 
 @Module({ namespaced: true, stateFactory: true })
-export default class mzLoginModule extends VuexModule {
+export default class mzRegistrationModule extends VuexModule {
   public mzRegistrationState: IRegistration = cloneDeep(mzRegistrationState);
 
   @Mutation
