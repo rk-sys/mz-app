@@ -58,7 +58,11 @@
                 </div>
             </mz-form>
 
-            <router-link class="mz-login-views__reset-password" to="#">{{$t(`rememberPassword`)}}</router-link>
+            <router-link class="mz-login-views__reset-password"
+                         to="/reset">
+
+                {{$t(`rememberPassword`)}}
+            </router-link>
         </div>
 
         <mz-footer :is-light="true"
@@ -218,7 +222,6 @@ export default class mzLogin extends Vue {
             user-select: none;
             margin-bottom: 1rem;
         }
-
 
         .form__container {
             display: flex;

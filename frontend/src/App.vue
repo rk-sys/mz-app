@@ -1,6 +1,6 @@
 <template>
   <div id="mzApp">
-    <mz-nav-bar v-if="!($route.name === 'Registration' || $route.name ===  'Login')" />
+    <mz-nav-bar v-if="!($route.name === 'Registration' || $route.name ===  'Login' || $route.name === 'Reset password')" />
 
     <router-view />
   </div>
