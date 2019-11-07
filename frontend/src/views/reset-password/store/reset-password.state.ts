@@ -1,4 +1,4 @@
-import { IResetPassword } from '@/views/reset-password/resetPassword.interface';
+import { IResetPassword } from '@/views/reset-password/reset-password.interface';
 
 export const mzResetPasswordState: IResetPassword = {
   resetPasswordForm: {

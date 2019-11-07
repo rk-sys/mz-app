@@ -12,7 +12,11 @@
       <span class="mz-reset-password__info-message">
         {{ $t(`resetPasswordForm.message`) }}</span>
 
-      <mz-form class="mz-reset-password__box__form"
+      <mz-form :form-ref.sync="formElement"
+               :model="resetPasswordForm"
+               :rules="resetPasswordRules"
+               @submit.prevent.native="sendEmail"
+               class="mz-reset-password__box__form"
                id="resetPasswordForm">
 
         <div class="form__container">
@@ -21,7 +25,7 @@
           <mz-form-item class="form__container__item"
                         prop="email">
 
-            <mz-input :holder="$t(`resetPasswordForm.login`)"
+            <mz-input :holder="$t(`resetPasswordForm.email`)"
                       :is-password="false"
                       id="login"
                       v-model="emailModel"></mz-input>
@@ -51,7 +55,7 @@ import { Route }                       from 'vue-router';
 import Store                           from '@/store/store';
 import { namespace }                   from 'vuex-class';
 import { registerStoreModule }         from '@/helpers/helpers';
-import mzResetPasswordModule           from '@/views/reset-password/store/resetPassword.module';
+import mzResetPasswordModule           from '@/views/reset-password/store/reset-password.module';
 import mzLogo                          from '@/components/logo/logo.component.vue';
 import mzFooter                        from '@/components/footer/footer.component.vue';
 import mzSocialMedia                   from '@/components/social-media/social-media.component.vue';
@@ -60,6 +64,7 @@ import mzFormItem                      from '@/components/form/form-item/form-it
 import mzInput                         from '@/components/input/mz-input.component.vue';
 import mzButton                        from '@/components/buttons/button.component.vue';
 import mzIconsBox                      from '@/components/icons-box/icons-box.component.vue';
+import { IResetPasswordForm }          from '@/views/reset-password/reset-password.interface';
 
 
 const LOCAL_STORE = 'resetPassword';
@@ -79,7 +84,9 @@ const local = namespace(LOCAL_STORE);
 })
 export default class mzResetPassword extends Vue {
   @local.State((state: mzResetPasswordModule) => state.mzResetPasswordState) public resetPasswordState!: any;
+  @local.State((state: mzResetPasswordModule) => state.mzResetPasswordState.resetPasswordForm) public resetPasswordForm!: IResetPasswordForm;
   @local.Mutation public setEmail!: (arg: string) => void;
+  @local.Action public sendPasswordResetEmail!: () => void;
 
   get emailModel(): string {
     return this.resetPasswordState.resetPasswordForm.email;
@@ -87,6 +94,37 @@ export default class mzResetPassword extends Vue {
 
   set emailModel(login: string) {
     this.setEmail(login);
+  }
+
+  public formElement: HTMLElement | null = null;
+
+  public resetPasswordRules: any = {
+    email: [
+      {
+        required: true,
+        message: i18n.t('rules.required'),
+        trigger: 'submit',
+      },
+      {
+        type: 'email',
+        message: i18n.t('rules.correctEmail'),
+        trigger:
+          [
+            'blur',
+            'submit',
+          ],
+      },
+    ],
+  };
+
+  public sendEmail(): void {
+    (this.formElement as any).validate(async (valid: boolean) => {
+      if (valid) {
+        this.sendPasswordResetEmail();
+      } else {
+        return false;
+      }
+    });
   }
 
   private async beforeRouteEnter(to: Route, from: Route, next: any): Promise<void> {
@@ -192,6 +230,70 @@ export default class mzResetPassword extends Vue {
     grid-row-start: 3;
     grid-column-start: 1;
     place-self: center;
+  }
+}
+
+@include respond-to(tablet) {
+  .mz-reset-password {
+    grid-template-rows: 9rem auto 8rem 6rem;
+    grid-template-columns: auto;
+
+    &__logo {
+      align-self: start;
+    }
+
+    &__box {
+      max-width: 40rem;
+      padding: 1rem 2rem;
+      grid-row-start: 2;
+      grid-column-start: 1;
+
+      &__buttons {
+        margin-top: 3rem;
+        padding: 0 2rem;
+        display: flex;
+        justify-content: center;
+        font-size: 1.6rem;
+        margin-bottom: 2rem;
+        flex-direction: column;
+      }
+    }
+
+    &__title {
+      font-size: 2.8rem;
+    }
+
+    &__info-message {
+      font-size: 1rem;
+    }
+
+    &__footer {
+      grid-row-start: 4;
+      grid-column-start: 1;
+    }
+
+    &__social-media {
+      grid-row-start: 3;
+      grid-column-start: 1;
+      align-self: center;
+    }
+  }
+}
+
+@include respond-to(mobile) {
+  .mz-reset-password {
+
+    &__box {
+      width: 30rem;
+    }
+
+    &__title {
+      font-size: 2.2rem;
+    }
+  }
+
+  .form__container__icon {
+    display: none;
   }
 }
 </style>
