@@ -6,11 +6,11 @@ $mobile: 425px;
 /* MEDIA QUERY */
 @mixin respond-to($media) {
   @if $media == desktop {
-    @media only screen and (max-width: $desktop) and (min-width: #{$tablet - 1px}) {
+    @media only screen and (max-width: $desktop) and (min-width: #{$tablet + 1px}) {
       @content;
     }
   } @else if $media == tablet {
-    @media only screen and (max-width: $tablet) and (min-width: #{$mobile - 1px}) {
+    @media only screen and (max-width: $tablet) and (min-width: #{$mobile + 1px}) {
       @content;
     }
   } @else if $media == mobile {

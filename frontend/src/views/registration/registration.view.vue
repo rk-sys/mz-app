@@ -127,7 +127,7 @@ export default class mzRegistration extends Vue {
   }
 }
 
-@media screen and (max-width: 767px) {
+@include respond-to(tablet) {
 
   .mz-registration-view__box {
     max-width: 40rem;
@@ -145,7 +145,8 @@ export default class mzRegistration extends Vue {
   }
 }
 
-@media screen and (max-width: 425px) {
+@include respond-to(mobile) {
+
   .mz-registration-view__box {
     width: 30rem;
   }

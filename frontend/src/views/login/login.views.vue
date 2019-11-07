@@ -304,7 +304,7 @@ export default class mzLogin extends Vue {
     }
 }
 
-@media only screen and (max-width: 767px) and (min-width: 426px) {
+@include respond-to(tablet) {
     .mz-login-views {
         grid-template-rows: 9rem auto 8rem 6rem;
         grid-template-columns: auto;
@@ -348,7 +348,7 @@ export default class mzLogin extends Vue {
     }
 }
 
-@media only screen and (max-width: 425px) {
+@include respond-to(mobile) {
     .mz-login-views__box {
         width: 30rem;
     }
