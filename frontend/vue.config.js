@@ -5,6 +5,7 @@ module.exports = {
       sass: {
         data: `
         @import '@/assets/styles/_abstract.scss';
+        @import '@/assets/styles/_mixins.scss';
         `,
       },
     },

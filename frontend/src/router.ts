@@ -25,6 +25,11 @@ const router = new Router({
       component: () => import ('./views/registration/registration.view.vue'),
     },
     {
+      path: '/reset',
+      name: 'Reset password',
+      component: () => import ('./views/reset-password/reset-password.view.vue'),
+    },
+    {
       path: '/account',
       name: 'User account',
       redirect: '/account/edit',
