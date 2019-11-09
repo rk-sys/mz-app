@@ -30,13 +30,13 @@ export default class mzResetPasswordModule extends VuexModule {
     try {
       const response = await resetPasswordService.sendPasswordResetEmail(credentials);
 
-      Notification.successNotification(i18n.t(`notification.success`), i18n.t(`notification.send`));
+      Notification.successNotification(i18n.t(`notification.success`) as string, i18n.t(`notification.send`) as string);
       this.context.commit('setRegistrationForm', {
         email: '',
       });
       router.push({ name: 'Login' });
     } catch (e) {
-      Notification.errorNotification(i18n.t(`notification.error`), i18n.t(`notification.${e.code}`));
+      Notification.errorNotification(i18n.t(`notification.error`) as string, i18n.t(`notification.${e.code}`) as string);
       throw new Error(e);
     }
   }
