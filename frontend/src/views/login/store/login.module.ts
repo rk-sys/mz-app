@@ -38,7 +38,8 @@ export default class mzLoginModule extends VuexModule {
       const currentUser = {
         email: response.user.email,
         name: response.user.displayName,
-        uid: response.user.uidl,
+        uid: response.user.uid,
+        photoURL: response.user.photoURL,
       };
 
       this.context.commit('setCurrentUser', { currentUser }, { root: true });
