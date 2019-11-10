@@ -1,18 +1,31 @@
-import { Action, Module, Mutation, VuexModule }                                                 from 'vuex-module-decorators';
-import cloneDeep                                                                                from 'lodash/cloneDeep';
-import { userAccountMenu }                                                                      from './user-account.state';
-import * as userAccountService                                                                  from './user-account.service';
+import { Action, Module, Mutation, VuexModule } from 'vuex-module-decorators';
+import cloneDeep                                from 'lodash/cloneDeep';
+import { userAccountMenu }                      from './user-account.state';
+import * as userAccountService                  from './user-account.service';
 import 'firebase/auth';
-import { IUserAccountMenu, IUserDisplayNameForm, IUserEmailForm, IUserInfo, IUserPasswordForm } from '@/views/user-account/store/user-account.interface';
-import Notification                                                                             from '@/components/notification/notifications';
-import { i18n }                                                                                 from '@/i18n/i18n';
-
+import {
+  IUserAccountMenu,
+  IUserDisplayNameForm,
+  IUserEmailForm,
+  IUserInfo,
+  IUserPasswordForm,
+}                                               from '@/views/user-account/store/user-account.interface';
+import Notification                             from '@/components/notification/notifications';
+import { i18n }                                 from '@/i18n/i18n';
+import firebase                                 from 'firebase';
+import 'firebase/storage';
 
 @Module({ namespaced: true, stateFactory: true })
 export default class mzUserAccountModule extends VuexModule {
   public mzUserAccountMenuState: IUserAccountMenu = cloneDeep(userAccountMenu);
   public mzUserDisplayNameForm: IUserDisplayNameForm = {
     displayName: '',
+  };
+
+  public mzAccountDetails: any = {
+    description: '',
+    tagList: [],
+    contact: '',
   };
 
   public mzUserEmailForm: IUserEmailForm = {
@@ -31,6 +44,21 @@ export default class mzUserAccountModule extends VuexModule {
 
   get userAccountInfo() {
     return this.mzUserAccountMenuState.userInfo;
+  }
+
+  @Mutation
+  public addTagToList(payload: string): void {
+    this.mzAccountDetails.tagList.push(payload);
+  }
+
+  @Mutation
+  public removeTagFromList(payload: number): void {
+    this.mzAccountDetails.tagList.splice(payload, 1);
+  }
+
+  @Mutation
+  public setAccountDetails(payload: any): void {
+    this.mzAccountDetails = payload;
   }
 
   @Mutation
@@ -154,5 +182,44 @@ export default class mzUserAccountModule extends VuexModule {
       Notification.errorNotification(i18n.t(`notification.error`) as string, i18n.t(`notification.somethingWrong`) as string);
       throw new Error(err);
     }
+  }
+
+  @Action
+  public getAccountDetails() {
+    const docRef = firebase.firestore()
+      .collection('users')
+      .doc(`${this.mzUserAccountMenuState.userInfo.uid}`);
+
+    docRef.get().then((doc) => {
+      if (doc.exists) {
+        this.context.commit('setAccountDetails', doc.data());
+      } else {
+        this.context.dispatch('updateAccountDetails');
+      }
+    }).catch((error) => {
+      console.log('Error getting document:', error);
+      Notification.errorNotification(i18n.t(`notification.error`) as string, i18n.t(`notification.somethingWrong`) as string);
+    });
+  }
+
+  @Action
+  public updateAccountDetails() {
+    const docRef = firebase.firestore()
+      .collection('users')
+      .doc(`${this.mzUserAccountMenuState.userInfo.uid}`);
+
+    docRef.get().then((doc) => {
+      if (doc.exists) {
+        docRef.update({
+          tagList: this.mzAccountDetails.tagList,
+        });
+        Notification.successNotification(i18n.t(`notification.success`) as string, i18n.t(`notification.savedData`) as string);
+      } else {
+        docRef.set(this.mzAccountDetails);
+      }
+    }).catch((error) => {
+      console.log('Error getting document:', error);
+      Notification.errorNotification(i18n.t(`notification.error`) as string, i18n.t(`notification.somethingWrong`) as string);
+    });
   }
 }

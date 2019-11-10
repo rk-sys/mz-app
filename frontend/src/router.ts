@@ -43,6 +43,11 @@ const router = new Router({
           name: 'User account edit',
           component: () => import('./views/user-account/user-account-edit/user-account-edit.view.vue'),
         },
+        {
+          path: 'info',
+          name: 'User account information',
+          component: () => import('./views/user-account/user-account-info/user-account-info.view.vue'),
+        },
       ],
     },
     {

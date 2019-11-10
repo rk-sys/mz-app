@@ -14,8 +14,8 @@ export const userAccountMenu: IUserAccountMenu = {
       nameUrl: 'User account edit',
     },
     {
-      label: 'settings',
-      nameUrl: 'Login',
+      label: 'accountInformation',
+      nameUrl: 'User account information',
     },
     {
       label: 'message',

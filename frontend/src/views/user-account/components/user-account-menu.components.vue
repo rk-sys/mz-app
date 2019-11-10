@@ -40,7 +40,7 @@
       </mz-upload>
 
       <span class="user-account-menu__info__display-name">
-        {{userInfo.displayName}}
+        {{ userInfo.displayName }}
       </span>
     </div>
 
@@ -51,7 +51,8 @@
 
         <router-link :to="{name: link.nameUrl}"
                      class="user-account-menu__list__link">
-          {{$t(`links.${link.label}`)}}
+
+          {{ $t(`links.${link.label}`) }}
         </router-link>
       </div>
     </div>

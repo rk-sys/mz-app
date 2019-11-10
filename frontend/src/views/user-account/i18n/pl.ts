@@ -1,7 +1,7 @@
 export default {
   links: {
     editProfile: 'Edytuj profil',
-    settings: 'Ustawienia konta',
+    accountInformation: 'Edytuj profil',
     message: 'Wiadomości',
     calendar: 'Kalendarz',
   },
@@ -15,6 +15,7 @@ export default {
     toLarge: 'Zdjęcie za duże, max 2 MB',
     pictureWasChange: 'Zdjęcie zostało zmienione',
     somethingWrong: 'Coś poszło nie tak',
+    savedData: 'Dane zostały zapisane',
   },
   picture: {
     label: 'Zmień zdjęcie',
