@@ -9,6 +9,8 @@ import {
   IUserEmailForm,
   IUserInfo,
   IUserPasswordForm,
+  IUserDisplayDescriptionForm,
+  IUserDisplayTagsForm,
 }                                               from '@/views/user-account/store/user-account.interface';
 import Notification                             from '@/components/notification/notifications';
 import { i18n }                                 from '@/i18n/i18n';
@@ -22,11 +24,11 @@ export default class mzUserAccountModule extends VuexModule {
     displayName: '',
   };
 
-  public mzUserDisplayDescriptionForm: any = {
+  public mzUserDisplayDescriptionForm: IUserDisplayDescriptionForm = {
     description: '',
   };
 
-  public mzUserDisplayTagsForm: any = {
+  public mzUserDisplayTagsForm: IUserDisplayTagsForm = {
     tagList: [],
   };
 
@@ -60,8 +62,8 @@ export default class mzUserAccountModule extends VuexModule {
 
   @Mutation
   public setAccountDetails(payload: any): void {
-    this.mzUserDisplayDescriptionForm = payload;
-    this.mzUserDisplayTagsForm = payload;
+    this.mzUserDisplayDescriptionForm.description = payload.description;
+    this.mzUserDisplayTagsForm.tagList = payload.tagList;
   }
 
   @Mutation
