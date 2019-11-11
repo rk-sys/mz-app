@@ -9,45 +9,60 @@
     <div class="form__container">
       <div class="form__container__icon icon-locked--green"></div>
 
-      <mz-form-item class="form__container__item">
+      <mz-form-item class="form__container__item"
+                    prop="phone">
+
         <mz-input :holder="$t(`form.phone`)"
-                  v-model="displayContactForm.phone"></mz-input>
+                  v-model="displayContactForm.phone"
+                  id="phone"></mz-input>
       </mz-form-item>
     </div>
 
     <div class="form__container">
       <div class="form__container__icon icon-mail--green"></div>
 
-      <mz-form-item class="form__container__item">
+      <mz-form-item class="form__container__item"
+                    prop="email">
+
         <mz-input :holder="$t(`form.email`)"
-                  v-model="displayContactForm.email"></mz-input>
+                  v-model="displayContactForm.email"
+                  id="email"></mz-input>
       </mz-form-item>
     </div>
 
     <div class="form__container">
       <div class="form__container__icon icon-facebook--color"></div>
 
-      <mz-form-item class="form__container__item">
+      <mz-form-item class="form__container__item"
+                    prop="facebook">
+
         <mz-input :holder="$t(`form.facebook`)"
-                  v-model="displayContactForm.facebook"></mz-input>
+                  v-model="displayContactForm.facebook"
+                  id="facebook"></mz-input>
       </mz-form-item>
     </div>
 
     <div class="form__container">
       <div class="form__container__icon icon-locked--green"></div>
 
-      <mz-form-item class="form__container__item">
+      <mz-form-item class="form__container__item"
+                    prop="website">
+
         <mz-input :holder="$t(`form.website`)"
-                  v-model="displayContactForm.website"></mz-input>
+                  v-model="displayContactForm.website"
+                  id="website"></mz-input>
       </mz-form-item>
     </div>
 
     <div class="form__container">
       <div class="form__container__icon icon-locked--green"></div>
 
-      <mz-form-item class="form__container__item">
+      <mz-form-item class="form__container__item"
+                    prop="address">
+
         <mz-input :holder="$t(`form.address`)"
-                  v-model="displayContactForm.address"></mz-input>
+                  v-model="displayContactForm.address"
+                  id="address"></mz-input>
       </mz-form-item>
     </div>
 

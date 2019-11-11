@@ -156,13 +156,14 @@ export default class mzUserAccountInfo extends Vue {
   }
 }
 </script>
+
 <style lang="scss">
 .el-form-item__error {
-  bottom: 1rem;
+  bottom: 0;
   top: auto;
   font-weight: bold;
   left: auto;
-  right: 1rem;
+  right: 0;
 }
 
 .el-form-item {
