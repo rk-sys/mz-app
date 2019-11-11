@@ -24,6 +24,14 @@ export default class mzUserAccountModule extends VuexModule {
     displayName: '',
   };
 
+  public mzUserDisplayContactForm: any = {
+    phone: '',
+    email: '',
+    facebook: '',
+    website: '',
+    address: '',
+  };
+
   public mzUserDisplayDescriptionForm: IUserDisplayDescriptionForm = {
     description: '',
   };
@@ -64,6 +72,7 @@ export default class mzUserAccountModule extends VuexModule {
   public setAccountDetails(payload: any): void {
     this.mzUserDisplayDescriptionForm.description = payload.description;
     this.mzUserDisplayTagsForm.tagList = payload.tagList;
+    this.mzUserDisplayContactForm = payload.contact;
   }
 
   @Mutation
@@ -245,6 +254,28 @@ export default class mzUserAccountModule extends VuexModule {
         Notification.successNotification(i18n.t(`notification.success`) as string, i18n.t(`notification.savedData`) as string);
       } else {
         docRef.set(this.mzUserDisplayTagsForm);
+      }
+    }).catch((error) => {
+      console.log('Error getting document:', error);
+      Notification.errorNotification(i18n.t(`notification.error`) as string, i18n.t(`notification.somethingWrong`) as string);
+    });
+  }
+
+  @Action
+  public updateContact() {
+    const docRef = firebase
+      .firestore()
+      .collection('users')
+      .doc(`${this.mzUserAccountMenuState.userInfo.uid}`);
+
+    docRef.get().then((doc) => {
+      if (doc.exists) {
+        docRef.update({
+          contact: this.mzUserDisplayContactForm,
+        });
+        Notification.successNotification(i18n.t(`notification.success`) as string, i18n.t(`notification.savedData`) as string);
+      } else {
+        docRef.set(this.mzUserDisplayContactForm);
       }
     }).catch((error) => {
       console.log('Error getting document:', error);

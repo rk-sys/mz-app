@@ -2,10 +2,10 @@
   <div class="user-account-info">
     <mz-box-with-title :title="$t(`boxTitle.description`)">
 
-      <mz-form :form-ref.sync="form"
+      <mz-form @submit.prevent.native="updateAccountDescription()"
+               :form-ref.sync="form"
                :model="displayDescriptionForm"
                :rules="descriptionRules"
-               @submit.prevent.native="updateAccountDescription()"
                class="user-account-info__form"
                id="displayDescriptionForm">
 
@@ -58,6 +58,10 @@
         </div>
       </div>
     </mz-box-with-title>
+
+    <mz-box-with-title :title="$t(`boxTitle.contact`)">
+      <mz-contact />
+    </mz-box-with-title>
   </div>
 </template>
 
@@ -77,6 +81,7 @@ import mzBoxWithTitle                  from '@/components/box-with-title/box-wit
 import mzButton                        from '@/components/buttons/button.component.vue';
 import mzUpload                        from '@/components/upload/upload.component.vue';
 import mzTag                           from './components/tag.component.vue';
+import mzContact                       from './components/contact.component.vue';
 
 const LOCAL_STORE = 'userAccount';
 const local = namespace(LOCAL_STORE);
@@ -90,6 +95,7 @@ const local = namespace(LOCAL_STORE);
     mzButton,
     mzUpload,
     mzTag,
+    mzContact,
   },
 })
 export default class mzUserAccountInfo extends Vue {
@@ -152,11 +158,11 @@ export default class mzUserAccountInfo extends Vue {
 </script>
 <style lang="scss">
 .el-form-item__error {
-  bottom: 0;
+  bottom: 1rem;
   top: auto;
   font-weight: bold;
   left: auto;
-  right: 0;
+  right: 1rem;
 }
 
 .el-form-item {
@@ -178,7 +184,6 @@ export default class mzUserAccountInfo extends Vue {
       display: flex;
       justify-content: start;
       align-items: center;
-      //max-height: 8.5rem;
       margin: 2rem 0;
 
       &__icon {
@@ -222,7 +227,6 @@ export default class mzUserAccountInfo extends Vue {
 
     &--contact {
       margin: 5rem 3rem 0;
-
 
       .form__container {
         margin: 0;
