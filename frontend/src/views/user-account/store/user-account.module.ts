@@ -22,10 +22,12 @@ export default class mzUserAccountModule extends VuexModule {
     displayName: '',
   };
 
-  public mzAccountDetails: any = {
+  public mzUserDisplayDescriptionForm: any = {
     description: '',
+  };
+
+  public mzUserDisplayTagsForm: any = {
     tagList: [],
-    contact: '',
   };
 
   public mzUserEmailForm: IUserEmailForm = {
@@ -48,17 +50,18 @@ export default class mzUserAccountModule extends VuexModule {
 
   @Mutation
   public addTagToList(payload: string): void {
-    this.mzAccountDetails.tagList.push(payload);
+    this.mzUserDisplayTagsForm.tagList.push(payload);
   }
 
   @Mutation
   public removeTagFromList(payload: number): void {
-    this.mzAccountDetails.tagList.splice(payload, 1);
+    this.mzUserDisplayTagsForm.tagList.splice(payload, 1);
   }
 
   @Mutation
   public setAccountDetails(payload: any): void {
-    this.mzAccountDetails = payload;
+    this.mzUserDisplayDescriptionForm = payload;
+    this.mzUserDisplayTagsForm = payload;
   }
 
   @Mutation
@@ -186,7 +189,8 @@ export default class mzUserAccountModule extends VuexModule {
 
   @Action
   public getAccountDetails() {
-    const docRef = firebase.firestore()
+    const docRef = firebase
+      .firestore()
       .collection('users')
       .doc(`${this.mzUserAccountMenuState.userInfo.uid}`);
 
@@ -194,7 +198,7 @@ export default class mzUserAccountModule extends VuexModule {
       if (doc.exists) {
         this.context.commit('setAccountDetails', doc.data());
       } else {
-        this.context.dispatch('updateAccountDetails');
+        this.context.dispatch('updateDescription'); // pierwsze wygenerowanie dokumentu - dowolna akcja
       }
     }).catch((error) => {
       console.log('Error getting document:', error);
@@ -203,19 +207,42 @@ export default class mzUserAccountModule extends VuexModule {
   }
 
   @Action
-  public updateAccountDetails() {
-    const docRef = firebase.firestore()
+  public updateDescription() {
+    const docRef = firebase
+      .firestore()
       .collection('users')
       .doc(`${this.mzUserAccountMenuState.userInfo.uid}`);
 
     docRef.get().then((doc) => {
       if (doc.exists) {
         docRef.update({
-          tagList: this.mzAccountDetails.tagList,
+          description: this.mzUserDisplayDescriptionForm.description,
         });
         Notification.successNotification(i18n.t(`notification.success`) as string, i18n.t(`notification.savedData`) as string);
       } else {
-        docRef.set(this.mzAccountDetails);
+        docRef.set(this.mzUserDisplayDescriptionForm);
+      }
+    }).catch((error) => {
+      console.log('Error getting document:', error);
+      Notification.errorNotification(i18n.t(`notification.error`) as string, i18n.t(`notification.somethingWrong`) as string);
+    });
+  }
+
+  @Action
+  public updateTags() {
+    const docRef = firebase
+      .firestore()
+      .collection('users')
+      .doc(`${this.mzUserAccountMenuState.userInfo.uid}`);
+
+    docRef.get().then((doc) => {
+      if (doc.exists) {
+        docRef.update({
+          tagList: this.mzUserDisplayTagsForm.tagList,
+        });
+        Notification.successNotification(i18n.t(`notification.success`) as string, i18n.t(`notification.savedData`) as string);
+      } else {
+        docRef.set(this.mzUserDisplayTagsForm);
       }
     }).catch((error) => {
       console.log('Error getting document:', error);

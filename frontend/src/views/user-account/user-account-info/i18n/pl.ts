@@ -16,5 +16,9 @@ export default {
     website: 'Strona',
     address: 'Adres',
   },
+  rules: {
+    required: 'Pole wymagane',
+    minLength: 'Minimum {0} znaki',
+  },
   removeButton: '+',
 };

@@ -2,17 +2,26 @@
   <div class="user-account-info">
     <mz-box-with-title :title="$t(`boxTitle.description`)">
 
-      <mz-form class="user-account-info__form">
+      <mz-form :form-ref.sync="form"
+               :model="displayDescriptionForm"
+               :rules="descriptionRules"
+               @submit.prevent.native="updateAccountDescription()"
+               class="user-account-info__form"
+               id="displayDescriptionForm">
+
         <div class="form__container">
           <mz-form-item class="form__container__item"
-                        prop="displayName">
+                        prop="description">
 
+            <textarea id="description"
+                      class="form__container__profile-description"
+                      v-model="displayDescriptionForm.description"></textarea>
           </mz-form-item>
         </div>
 
         <div class="user-account-info__form__button">
           <mz-button buttonStyle="primary"
-                     form="displayNameForm"
+                     form="displayDescriptionForm"
                      native-type="submit">{{$t(`form.save`)}}
           </mz-button>
         </div>
@@ -34,7 +43,7 @@
         </div>
 
         <div class="form__container__tag-list">
-          <mz-tag v-for="(tag, index) in tagList"
+          <mz-tag v-for="(tag, index) in displayTagsForm.tagList"
                   :tag="tag"
                   :index="index"
                   :removeTag="removeTag" />
@@ -42,7 +51,7 @@
 
         <div class="user-account-info__form__button">
           <mz-button buttonStyle="primary"
-                     @click="updateAccountDetails()">
+                     @click="updateTags()">
 
             {{ $t(`form.save`) }}
           </mz-button>
@@ -59,6 +68,7 @@ import { namespace }                   from 'vuex-class';
 import { i18n, loadTranslationsAsync } from '@/i18n/i18n';
 import Store                           from '@/store/store';
 import { Route }                       from 'vue-router';
+import { IVueElementFormReference }    from '../store/user-account.state';
 import mzUserAccountModule             from '../store/user-account.module';
 import mzInput                         from '@/components/input/mz-input.component.vue';
 import mzForm                          from '@/components/form/form/form.component.vue';
@@ -82,12 +92,23 @@ const local = namespace(LOCAL_STORE);
     mzTag,
   },
 })
-export default class mzUserAccountEdit extends Vue {
-  @local.State((state: mzUserAccountModule) => state.mzAccountDetails.tagList) public tagList!: string[];
+export default class mzUserAccountInfo extends Vue {
+  @local.State((state: mzUserAccountModule) => state.mzUserDisplayTagsForm) public displayTagsForm!: any;
+  @local.State((state: mzUserAccountModule) => state.mzUserDisplayDescriptionForm) public displayDescriptionForm!: any;
   @local.Mutation public addTagToList!: (arg: string) => void;
   @local.Mutation public removeTagFromList!: (arg: number) => void;
-  @local.Action public updateAccountDetails!: () => any;
+  @local.Action public updateTags!: () => any;
+  @local.Action public updateDescription!: () => any;
   public userTag: string = '';
+
+  public form: HTMLElement | null = null;
+
+  public descriptionRules: any = {
+    description: [
+      { required: true, message: i18n.t('rules.required'), trigger: 'submit' },
+      { min: 4, message: i18n.t('rules.minLength', [ 4 ]), trigger: 'submit' },
+    ],
+  };
 
   public addTag(userTag: string): void {
     if (userTag) {
@@ -98,6 +119,20 @@ export default class mzUserAccountEdit extends Vue {
 
   public removeTag(index: number) {
     this.removeTagFromList(index);
+  }
+
+  public async updateAccountDescription() {
+    (this.form as unknown as IVueElementFormReference).validate(async (valid: boolean) => {
+      if (valid) {
+        try {
+          this.updateDescription();
+        } catch (e) {
+          (this.form as unknown as IVueElementFormReference).validate(() => null);
+        }
+      } else {
+        return false;
+      }
+    });
   }
 
   private async beforeRouteEnter(to: Route, from: Route, next: any) {
@@ -131,6 +166,7 @@ export default class mzUserAccountEdit extends Vue {
 
 <style lang="scss"
        scoped>
+
 .user-account-info {
   width: 75rem;
   margin-left: 10rem;
@@ -142,7 +178,7 @@ export default class mzUserAccountEdit extends Vue {
       display: flex;
       justify-content: start;
       align-items: center;
-      max-height: 8.5rem;
+      //max-height: 8.5rem;
       margin: 2rem 0;
 
       &__icon {
@@ -153,6 +189,16 @@ export default class mzUserAccountEdit extends Vue {
 
       &__item {
         margin: 0;
+        width: 100%;
+      }
+
+      &__profile-description {
+        font-family: var(--primary-font-family);
+        font-size: 1.4rem;
+        width: 100%;
+        height: 20rem;
+        resize: none;
+        padding: 2rem;
       }
 
       &__tag-list {

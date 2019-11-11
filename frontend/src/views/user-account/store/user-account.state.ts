@@ -27,3 +27,8 @@ export const userAccountMenu: IUserAccountMenu = {
     },
   ],
 };
+
+export interface IVueElementFormReference {
+  validate: (arg: (valid: boolean) => void) => any;
+  clearValidate: () => void;
+}
