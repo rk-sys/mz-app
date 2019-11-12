@@ -209,7 +209,7 @@ export default class mzUserAccountModule extends VuexModule {
       if (doc.exists) {
         this.context.commit('setAccountDetails', doc.data());
       } else {
-        this.context.dispatch('updateDescription'); // pierwsze wygenerowanie dokumentu - dowolna akcja
+        this.context.dispatch('updateDescription');
       }
     }).catch((error) => {
       console.log('Error getting document:', error);
@@ -271,7 +271,9 @@ export default class mzUserAccountModule extends VuexModule {
     docRef.get().then((doc) => {
       if (doc.exists) {
         docRef.update({
-          contact: this.mzUserDisplayContactForm,
+          contact: {
+            ...this.mzUserDisplayContactForm,
+          },
         });
         Notification.successNotification(i18n.t(`notification.success`) as string, i18n.t(`notification.savedData`) as string);
       } else {
