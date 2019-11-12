@@ -35,7 +35,15 @@
 
           <mz-input v-model="userTag"
                     :holder="$t(`form.tag`)"
-                    @keyup.enter.native="addTag($event.target.value)"></mz-input>
+                    @keyup.enter.native="addTag(userTag)">
+
+          </mz-input>
+
+          <div class="form__container__add-btn"
+               @click="addTag(userTag)">
+
+            {{ $t(`removeButton`) }}
+          </div>
         </div>
 
         <div class="form__container__inner-title">
@@ -186,6 +194,28 @@ export default class mzUserAccountInfo extends Vue {
       justify-content: start;
       align-items: center;
       margin: 2rem 0;
+
+      &__add-btn {
+        color: var(--white);
+        background-color: var(--primary-color);
+        border: 0.2rem solid var(--primary-color);
+        border-radius: 50%;
+        height: 2.5rem;
+        width: 2.5rem;
+        font-size: 3.5rem;
+        font-weight: 100;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        transition: .4s;
+
+        &:hover {
+          color: var(--primary-color);
+          border: 0.2rem solid var(--primary-color);
+          background-color: var(--white);
+        }
+      }
 
       &__icon {
         width: 3.5rem;

@@ -208,8 +208,6 @@ export default class mzUserAccountModule extends VuexModule {
     docRef.get().then((doc) => {
       if (doc.exists) {
         this.context.commit('setAccountDetails', doc.data());
-      } else {
-        this.context.dispatch('updateDescription');
       }
     }).catch((error) => {
       console.log('Error getting document:', error);
