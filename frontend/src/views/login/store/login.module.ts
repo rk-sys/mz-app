@@ -38,19 +38,20 @@ export default class mzLoginModule extends VuexModule {
       const currentUser = {
         email: response.user.email,
         name: response.user.displayName,
-        uid: response.user.uidl,
+        uid: response.user.uid,
+        photoURL: response.user.photoURL,
       };
 
       this.context.commit('setCurrentUser', { currentUser }, { root: true });
 
-      Notification.successNotification(i18n.t(`notification.success`), i18n.t(`notification.login`));
+      Notification.successNotification(i18n.t(`notification.success`) as string, i18n.t(`notification.login`) as string);
       this.context.commit('setLoginForm', {
         email: '',
         password: '',
       });
       router.push({ name: 'Home' });
     } catch (e) {
-      Notification.errorNotification(i18n.t(`notification.error`), i18n.t(`notification.${e.code}`));
+      Notification.errorNotification(i18n.t(`notification.error`) as string, i18n.t(`notification.${e.code}`) as string);
       throw new Error(e);
     }
   }

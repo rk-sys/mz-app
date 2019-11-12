@@ -92,7 +92,7 @@ export default class mzRegistrationModule extends VuexModule {
       }
       await response.user.updateProfile({ displayName: newUser.name });
       firebase.auth().signOut();
-      Notification.successNotification(i18n.t(`response.success`), i18n.t(`response.userWasCreated`));
+      Notification.successNotification(i18n.t(`response.success`) as string, i18n.t(`response.userWasCreated`) as string);
       this.context.commit('setRegistrationForm', {
         name: '',
         lastName: '',
@@ -104,7 +104,7 @@ export default class mzRegistrationModule extends VuexModule {
       });
       router.push({ name: 'Login' });
     } catch (e) {
-      Notification.errorNotification(i18n.t(`response.error`), i18n.t(`response.${e.code}`));
+      Notification.errorNotification(i18n.t(`response.error`) as string, i18n.t(`response.${e.code}`) as string);
       throw new Error(e);
     }
   }

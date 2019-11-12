@@ -86,16 +86,16 @@ export default class mzUserAccountMenu extends Vue {
     const isLt2M = file.size / 1024 / 1024 < 2;
 
     if (!isJPG) {
-      Notification.errorNotification(i18n.t(`notification.error`), i18n.t(`notification.mustBeJPG`));
+      Notification.errorNotification(i18n.t(`notification.error`) as string, i18n.t(`notification.mustBeJPG`) as string);
     }
     if (!isLt2M) {
-      Notification.errorNotification(i18n.t(`notification.error`), i18n.t(`notification.toLarge`));
+      Notification.errorNotification(i18n.t(`notification.error`) as string, i18n.t(`notification.toLarge`) as string);
     }
     return isJPG && isLt2M;
   }
 
   public handleAvatarSuccess(res: any, file: any) {
-    Notification.successNotification(i18n.t(`notification.success`), i18n.t(`notification.pictureWasChange`));
+    Notification.successNotification(i18n.t(`notification.success`) as string, i18n.t(`notification.pictureWasChange`) as string);
   }
 
   public uploadPicture(file: any) {

@@ -77,9 +77,9 @@ export default class mzUserAccountModule extends VuexModule {
       try {
         await userAccountService.changeUserPassword(newUserPassword);
         this.context.commit('setUserPasswordForm', { password: '', repeatPassword: '' });
-        Notification.successNotification(i18n.t(`notification.success`), i18n.t(`notification.passwordChanged`));
+        Notification.successNotification(i18n.t(`notification.success`) as string, i18n.t(`notification.passwordChanged`) as string);
       } catch (e) {
-        Notification.errorNotification(i18n.t(`notification.error`), i18n.t(`notification.${e.code}`));
+        Notification.errorNotification(i18n.t(`notification.error`) as string, i18n.t(`notification.${e.code}`) as string);
         throw new Error(e);
       }
     }
@@ -93,9 +93,9 @@ export default class mzUserAccountModule extends VuexModule {
       try {
         await userAccountService.updateEmail(newUserEmail);
         this.context.commit('setUserEmailForm', { email: '', repeatEmail: '' });
-        Notification.successNotification(i18n.t(`notification.success`), i18n.t(`notification.emailChanged`));
+        Notification.successNotification(i18n.t(`notification.success`) as string, i18n.t(`notification.emailChanged`) as string);
       } catch (e) {
-        Notification.errorNotification(i18n.t(`notification.error`), i18n.t(`notification.${e.code}`));
+        Notification.errorNotification(i18n.t(`notification.error`) as string, i18n.t(`notification.${e.code}`) as string);
         throw new Error(e);
       }
     }
@@ -122,9 +122,9 @@ export default class mzUserAccountModule extends VuexModule {
           this.context.commit('setUserInfo', currentUser);
         }
         this.context.commit('setUserDisplayNameForm', { name: '' });
-        Notification.successNotification(i18n.t(`notification.success`), i18n.t(`notification.displayName`));
+        Notification.successNotification(i18n.t(`notification.success`) as string, i18n.t(`notification.displayName`) as string);
       } catch (e) {
-        Notification.errorNotification(i18n.t(`notification.error`), i18n.t(`notification.${e.code}`));
+        Notification.errorNotification(i18n.t(`notification.error`) as string, i18n.t(`notification.${e.code}`) as string);
         throw new Error(e);
       }
     }
@@ -149,9 +149,9 @@ export default class mzUserAccountModule extends VuexModule {
         this.context.commit('setCurrentUser', { currentUser }, { root: true });
         this.context.commit('setUserInfo', currentUser);
       }
-      Notification.successNotification(i18n.t(`notification.success`), i18n.t(`notification.pictureWasChange`));
+      Notification.successNotification(i18n.t(`notification.success`) as string, i18n.t(`notification.pictureWasChange`) as string);
     } catch (err) {
-      Notification.errorNotification(i18n.t(`notification.error`), i18n.t(`notification.somethingWrong`));
+      Notification.errorNotification(i18n.t(`notification.error`) as string, i18n.t(`notification.somethingWrong`) as string);
       throw new Error(err);
     }
   }
