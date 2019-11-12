@@ -41,6 +41,12 @@
     &-close {
       color: var(--white);
       top: 1.5rem;
+      height: 1.5rem;
+      width: 1.5rem;
+      background-image: url("../../../assets/icons/close/close.svg");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
     }
   }
 
