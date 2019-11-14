@@ -1,6 +1,7 @@
 <template>
   <div class="user-account-info">
-    <mz-box-with-title :title="$t(`boxTitle.description`)">
+    <mz-box-with-title :title="$t(`boxTitle.description`)"
+                       :hint="true">
 
       <mz-form @submit.prevent.native="updateAccountDescription()"
                :form-ref.sync="form"
@@ -28,7 +29,9 @@
       </mz-form>
     </mz-box-with-title>
 
-    <mz-box-with-title :title="$t(`boxTitle.tags.newTag`)">
+    <mz-box-with-title :title="$t(`boxTitle.tags.newTag`)"
+                       :hint="true">
+
       <div class="user-account-info__form">
         <div class="form__container">
           <div class="form__container__icon icon-tag"></div>
@@ -67,7 +70,9 @@
       </div>
     </mz-box-with-title>
 
-    <mz-box-with-title :title="$t(`boxTitle.contact`)">
+    <mz-box-with-title :title="$t(`boxTitle.contact`)"
+                       :hint="true">
+
       <mz-contact />
     </mz-box-with-title>
   </div>
@@ -119,8 +124,7 @@ export default class mzUserAccountInfo extends Vue {
 
   public descriptionRules: any = {
     description: [
-      { required: true, message: i18n.t('rules.required'), trigger: 'submit' },
-      { min: 4, message: i18n.t('rules.minLength', [ 4 ]), trigger: 'submit' },
+      { max: 256, message: i18n.t('rules.descriptionLength', [ 256 ]), trigger: 'submit' },
     ],
   };
 

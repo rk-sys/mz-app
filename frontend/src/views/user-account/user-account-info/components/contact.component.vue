@@ -7,7 +7,7 @@
            id="displayContactForm">
 
     <div class="form__container">
-      <div class="form__container__icon icon-locked--green"></div>
+      <div class="form__container__icon icon-call"></div>
 
       <mz-form-item class="form__container__item"
                     prop="phone">
@@ -43,7 +43,7 @@
     </div>
 
     <div class="form__container">
-      <div class="form__container__icon icon-locked--green"></div>
+      <div class="form__container__icon icon-domain"></div>
 
       <mz-form-item class="form__container__item"
                     prop="website">
@@ -55,7 +55,7 @@
     </div>
 
     <div class="form__container">
-      <div class="form__container__icon icon-locked--green"></div>
+      <div class="form__container__icon icon-pin"></div>
 
       <mz-form-item class="form__container__item"
                     prop="address">
@@ -108,20 +108,23 @@ export default class mzContact extends Vue {
 
   public contactRules: any = {
     phone: [
-      { required: true, message: i18n.t('rules.required'), trigger: 'submit' },
-      { min: 4, message: i18n.t('rules.minLength', [ 4 ]), trigger: 'submit' },
+      { min: 9, message: i18n.t('rules.phoneLength'), trigger: 'submit' },
+      { max: 9, message: i18n.t('rules.phoneLength'), trigger: 'submit' },
     ],
     email: [
-      { min: 4, message: i18n.t('rules.minLength', [ 4 ]), trigger: 'submit' },
+      { type: 'email', message: i18n.t('rules.correctEmail'), trigger: 'submit' },
     ],
     facebook: [
       { min: 4, message: i18n.t('rules.minLength', [ 4 ]), trigger: 'submit' },
+      { max: 32, message: i18n.t('rules.maxLength', [ 32 ]), trigger: 'submit' },
     ],
     website: [
       { min: 4, message: i18n.t('rules.minLength', [ 4 ]), trigger: 'submit' },
+      { max: 32, message: i18n.t('rules.maxLength', [ 32 ]), trigger: 'submit' },
     ],
     address: [
       { min: 4, message: i18n.t('rules.minLength', [ 4 ]), trigger: 'submit' },
+      { max: 32, message: i18n.t('rules.maxLength', [ 32 ]), trigger: 'submit' },
     ],
   };
 

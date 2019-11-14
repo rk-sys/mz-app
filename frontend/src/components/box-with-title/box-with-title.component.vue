@@ -2,6 +2,10 @@
   <div class="box-with-title">
     <span class="box-with-title__text">
       {{title}}
+
+      <div class="box-with-title__icon icon-help"
+           v-if="hint"></div>
+
       <span v-if="subTitle"
             class="subtitle"
             :class="{'subtitle--error': !addColor}">( {{subTitle}} )</span>
@@ -21,6 +25,7 @@ export default class mzBoxWithTitle extends Vue {
   @Prop(String) public readonly title!: boolean;
   @Prop(String) public readonly subTitle!: string;
   @Prop(Boolean) public readonly addColor!: boolean;
+  @Prop(Boolean) public readonly hint!: boolean;
 }
 </script>
 
@@ -46,6 +51,12 @@ export default class mzBoxWithTitle extends Vue {
     .subtitle--error {
       color: var(--error);
     }
+  }
+
+  &__icon {
+    display: inline-block;
+    height: 2rem;
+    width: 2rem;
   }
 }
 </style>

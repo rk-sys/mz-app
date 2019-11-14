@@ -12,13 +12,17 @@ export default {
     save: 'Zapisz',
     phone: 'Telefon',
     email: 'E-mail',
-    facebook: 'facebook',
+    facebook: 'Facebook',
     website: 'Strona',
     address: 'Adres',
   },
   rules: {
     required: 'Pole wymagane',
     minLength: 'Minimum {0} znaki',
+    maxLength: 'Nie więcej niż {0} znaki',
+    phoneLength: 'Wymagany 9-cio cyfrowy numer telefonu',
+    descriptionLength: 'Nie więcej niż {0} znaków',
+    correctEmail: 'Błędny adres e-mail',
   },
   removeButton: '+',
 };

@@ -1,4 +1,25 @@
 .icon {
+
+  &-pin {
+    background: url("~@/assets/icons/pin/pin.svg") no-repeat center;
+    background-size: contain;
+  }
+
+  &-domain {
+    background: url("~@/assets/icons/domain/domain.svg") no-repeat center;
+    background-size: contain;
+  }
+
+  &-call {
+    background: url("~@/assets/icons/call/call.svg") no-repeat center;
+    background-size: contain;
+  }
+
+  &-help {
+    background: url("~@/assets/icons/help/help.svg") no-repeat center;
+    background-size: contain;
+  }
+
   &-locked {
     background: url("~@/assets/icons/locked/locked.svg") no-repeat center;
     background-size: contain;
