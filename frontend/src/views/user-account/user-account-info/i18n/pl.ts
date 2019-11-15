@@ -7,6 +7,11 @@ export default {
     },
     contact: 'Kontakt',
   },
+  tooltip: {
+    description: 'Napisz coś o sobie w kilku zdaniach',
+    tags: 'Opisz swój profil krótkimi tagami',
+    contact: 'Zostaw informacje kontaktowe',
+  },
   form: {
     tag: 'Dodaj nowy tag',
     save: 'Zapisz',

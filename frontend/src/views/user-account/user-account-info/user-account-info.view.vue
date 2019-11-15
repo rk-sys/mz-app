@@ -1,6 +1,7 @@
 <template>
   <div class="user-account-info">
     <mz-box-with-title :title="$t(`boxTitle.description`)"
+                       :tooltip-message="$t(`tooltip.description`)"
                        :hint="true">
 
       <mz-form @submit.prevent.native="updateAccountDescription()"
@@ -30,6 +31,7 @@
     </mz-box-with-title>
 
     <mz-box-with-title :title="$t(`boxTitle.tags.newTag`)"
+                       :tooltip-message="$t(`tooltip.tags`)"
                        :hint="true">
 
       <div class="user-account-info__form">
@@ -71,6 +73,7 @@
     </mz-box-with-title>
 
     <mz-box-with-title :title="$t(`boxTitle.contact`)"
+                       :tooltip-message="$t(`tooltip.contact`)"
                        :hint="true">
 
       <mz-contact />

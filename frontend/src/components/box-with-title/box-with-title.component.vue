@@ -3,8 +3,12 @@
     <span class="box-with-title__text">
       {{title}}
 
-      <div class="box-with-title__icon icon-help"
-           v-if="hint"></div>
+      <mz-tooltip :content="tooltipMessage"
+                  placement="top">
+
+        <div class="box-with-title__icon icon-help"
+             v-if="hint"></div>
+      </mz-tooltip>
 
       <span v-if="subTitle"
             class="subtitle"
@@ -17,15 +21,19 @@
 
 <script lang="ts">
 import { Component, Prop, Vue } from 'vue-property-decorator';
+import mzTooltip                from '@/components/tooltip/tooltip.component.vue';
 
 @Component({
-  components: {},
+  components: {
+    mzTooltip,
+  },
 })
 export default class mzBoxWithTitle extends Vue {
   @Prop(String) public readonly title!: boolean;
   @Prop(String) public readonly subTitle!: string;
   @Prop(Boolean) public readonly addColor!: boolean;
   @Prop(Boolean) public readonly hint!: boolean;
+  @Prop(String) public readonly tooltipMessage!: string;
 }
 </script>
 
@@ -57,6 +65,7 @@ export default class mzBoxWithTitle extends Vue {
     display: inline-block;
     height: 2rem;
     width: 2rem;
+    cursor: pointer;
   }
 }
 </style>
