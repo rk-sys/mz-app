@@ -18,6 +18,10 @@ export const userAccountMenu: IUserAccountMenu = {
       nameUrl: 'User account information',
     },
     {
+      label: 'items',
+      nameUrl: 'User items',
+    },
+    {
       label: 'message',
       nameUrl: 'Login',
     },
