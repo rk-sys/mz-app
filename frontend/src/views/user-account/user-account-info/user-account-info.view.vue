@@ -36,7 +36,7 @@
 
       <div class="user-account-info__form">
         <div class="form__container">
-          <div class="form__container__icon icon-tag"></div>
+          <div class="form__container__icon icon-tag--green"></div>
 
           <mz-input v-model="userTag"
                     :holder="$t(`form.tag`)"

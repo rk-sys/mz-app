@@ -1,7 +1,7 @@
 export default {
   links: {
     editProfile: 'Edytuj profil',
-    accountInformation: 'Informacje o koncie',
+    accountInformation: 'Informacje ogólne',
     message: 'Wiadomości',
     calendar: 'Kalendarz',
   },

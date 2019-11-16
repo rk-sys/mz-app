@@ -25,6 +25,11 @@
     background-size: contain;
   }
 
+  &-tag--green {
+    background: url("~@/assets/icons/tag/tag--green.svg") no-repeat center;
+    background-size: contain;
+  }
+
   &-tag {
     background: url("~@/assets/icons/tag/tag.svg") no-repeat center;
     background-size: contain;
