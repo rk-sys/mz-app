@@ -1,5 +1,5 @@
 <template>
-  <div class="user-account-info">
+  <div class="mz-user-account-info">
     <mz-box-with-title :title="$t(`boxTitle.description`)"
                        :tooltip-message="$t(`tooltip.description`)"
                        :hint="true">
@@ -8,7 +8,7 @@
                :form-ref.sync="form"
                :model="displayDescriptionForm"
                :rules="descriptionRules"
-               class="user-account-info__form"
+               class="mz-user-account-info__form"
                id="displayDescriptionForm">
 
         <div class="form__container">
@@ -21,7 +21,7 @@
           </mz-form-item>
         </div>
 
-        <div class="user-account-info__form__button">
+        <div class="mz-user-account-info__form__button">
           <mz-button buttonStyle="primary"
                      form="displayDescriptionForm"
                      native-type="submit">{{$t(`form.save`)}}
@@ -34,7 +34,7 @@
                        :tooltip-message="$t(`tooltip.tags`)"
                        :hint="true">
 
-      <div class="user-account-info__form">
+      <div class="mz-user-account-info__form">
         <div class="form__container">
           <div class="form__container__icon icon-tag--green"></div>
 
@@ -62,7 +62,7 @@
                   :removeTag="removeTag" />
         </div>
 
-        <div class="user-account-info__form__button">
+        <div class="mz-user-account-info__form__button">
           <mz-button buttonStyle="primary"
                      @click="updateTags()">
 
@@ -82,22 +82,24 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue }              from 'vue-property-decorator';
-import { registerStoreModule }         from '@/helpers/helpers';
-import { namespace }                   from 'vuex-class';
-import { i18n, loadTranslationsAsync } from '@/i18n/i18n';
-import Store                           from '@/store/store';
-import { Route }                       from 'vue-router';
-import { IVueElementFormReference }    from '../store/user-account.state';
-import mzUserAccountModule             from '../store/user-account.module';
-import mzInput                         from '@/components/input/mz-input.component.vue';
-import mzForm                          from '@/components/form/form/form.component.vue';
-import mzFormItem                      from '@/components/form/form-item/form-item.component.vue';
-import mzBoxWithTitle                  from '@/components/box-with-title/box-with-title.component.vue';
-import mzButton                        from '@/components/buttons/button.component.vue';
-import mzUpload                        from '@/components/upload/upload.component.vue';
-import mzTag                           from './components/tag.component.vue';
-import mzContact                       from './components/contact.component.vue';
+import { Component, Vue }                                    from 'vue-property-decorator';
+import { registerStoreModule }                               from '@/helpers/helpers';
+import { namespace }                                         from 'vuex-class';
+import { i18n, loadTranslationsAsync }                       from '@/i18n/i18n';
+import Store                                                 from '@/store/store';
+import { Route }                                             from 'vue-router';
+import { IVueElementFormReference }                          from '../store/user-account.state';
+import mzUserAccountModule                                   from '../store/user-account.module';
+import mzInput                                               from '@/components/input/mz-input.component.vue';
+import mzForm                                                from '@/components/form/form/form.component.vue';
+import mzFormItem                                            from '@/components/form/form-item/form-item.component.vue';
+import mzBoxWithTitle
+                                                             from '@/components/box-with-title/box-with-title.component.vue';
+import mzButton                                              from '@/components/buttons/button.component.vue';
+import mzUpload                                              from '@/components/upload/upload.component.vue';
+import mzTag                                                 from '@/components/tag/tag.component.vue';
+import mzContact                                             from './components/contact.component.vue';
+import { IUserDisplayDescriptionForm, IUserDisplayTagsForm } from '@/views/user-account/store/user-account.interface';
 
 const LOCAL_STORE = 'userAccount';
 const local = namespace(LOCAL_STORE);
@@ -115,12 +117,12 @@ const local = namespace(LOCAL_STORE);
   },
 })
 export default class mzUserAccountInfo extends Vue {
-  @local.State((state: mzUserAccountModule) => state.mzUserDisplayTagsForm) public displayTagsForm!: any;
-  @local.State((state: mzUserAccountModule) => state.mzUserDisplayDescriptionForm) public displayDescriptionForm!: any;
+  @local.State((state: mzUserAccountModule) => state.mzUserDisplayTagsForm) public displayTagsForm!: IUserDisplayTagsForm;
+  @local.State((state: mzUserAccountModule) => state.mzUserDisplayDescriptionForm) public displayDescriptionForm!: IUserDisplayDescriptionForm;
   @local.Mutation public addTagToList!: (arg: string) => void;
   @local.Mutation public removeTagFromList!: (arg: number) => void;
-  @local.Action public updateTags!: () => any;
-  @local.Action public updateDescription!: () => any;
+  @local.Action public updateTags!: () => void;
+  @local.Action public updateDescription!: () => void;
   public userTag: string = '';
 
   public form: HTMLElement | null = null;
@@ -189,7 +191,7 @@ export default class mzUserAccountInfo extends Vue {
 <style lang="scss"
        scoped>
 
-.user-account-info {
+.mz-user-account-info {
   width: 75rem;
   margin-left: 10rem;
 

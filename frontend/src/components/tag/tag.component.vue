@@ -11,11 +11,8 @@
 </template>
 
 <script lang="ts">
-import { Vue }                         from 'vue-property-decorator';
-import { Component, Prop }             from 'vue-property-decorator';
-import { i18n, loadTranslationsAsync } from '@/i18n/i18n';
-import Store                           from '@/store/store';
-import { Route }                       from 'vue-router';
+import { Vue }             from 'vue-property-decorator';
+import { Component, Prop } from 'vue-property-decorator';
 
 @Component({
   components: {},
@@ -24,11 +21,6 @@ export default class mzTag extends Vue {
   @Prop(String) public tag!: string;
   @Prop(Number) public index!: number;
   @Prop(Function) public removeTag!: any;
-
-  private beforeRouteEnter(to: Route, from: Route, next: any) {
-    const lang = Store.state.global.defaultLang;
-
-  }
 }
 </script>
 
