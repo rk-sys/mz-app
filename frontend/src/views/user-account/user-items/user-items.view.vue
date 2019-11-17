@@ -1,18 +1,12 @@
 <template>
-  <div class="user-items">
-    <div class="user-items__summary-menu">
+  <div class="mz-user-items">
+    <div class="mz-user-items__summary-menu">
       summary menu
     </div>
-    <div class="user-items__items-wrapper">
-      <mz-user-item />
-      <mz-user-item />
-      <mz-user-item />
-      <mz-user-item />
-      <mz-user-item />
-      <mz-user-item />
-      <mz-user-item />
-      <mz-user-item />
-      <mz-user-item />
+    <div class="mz-user-items__items-wrapper">
+      <mz-user-item v-for="(item, i) in items"
+                    :item="item"
+                    :key="i" />
     </div>
   </div>
 </template>
@@ -36,14 +30,14 @@ const local = namespace(LOCAL_STORE);
   },
 })
 export default class mzUserItems extends Vue {
+  @local.State((state: mzUserAccountModule) => state.mzItems) public items!: any;
 
   private async beforeRouteEnter(to: Route, from: Route, next: any) {
     const lang = Store.state.global.defaultLang;
 
     try {
       await loadTranslationsAsync(lang, import(`./i18n/${lang}`));
-      registerStoreModule(LOCAL_STORE.split('/'), mzUserAccountModule);
-      ;
+
       next();
     } catch (e) {
       next(false);
@@ -57,7 +51,7 @@ export default class mzUserItems extends Vue {
 <style lang="scss"
        scoped>
 
-.user-items {
+.mz-user-items {
   width: 75rem;
   margin-left: 10rem;
 

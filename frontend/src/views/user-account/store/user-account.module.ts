@@ -1,6 +1,6 @@
 import { Action, Module, Mutation, VuexModule } from 'vuex-module-decorators';
 import cloneDeep                                from 'lodash/cloneDeep';
-import { contactList, userAccountMenu }         from './user-account.state';
+import { contactList, items, userAccountMenu }  from './user-account.state';
 import * as userAccountService                  from './user-account.service';
 import 'firebase/auth';
 import {
@@ -21,6 +21,7 @@ import 'firebase/storage';
 export default class mzUserAccountModule extends VuexModule {
   public mzUserAccountMenuState: IUserAccountMenu = cloneDeep(userAccountMenu);
   public mzContactList: IContact[] = cloneDeep(contactList);
+  public mzItems: any = cloneDeep(items);
 
   public mzUserDisplayNameForm: IUserDisplayNameForm = {
     displayName: '',
