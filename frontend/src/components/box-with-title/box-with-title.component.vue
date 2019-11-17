@@ -6,7 +6,7 @@
       <mz-tooltip :content="tooltipMessage"
                   placement="top">
 
-        <div class="box-with-title__icon icon-help"
+        <div class="box-with-title__icon icon-help--green"
              v-if="hint"></div>
       </mz-tooltip>
 

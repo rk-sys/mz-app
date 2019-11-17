@@ -37,3 +37,16 @@ export interface IUserDisplayDescriptionForm {
 export interface IUserDisplayTagsForm {
   tagList: string[];
 }
+
+export interface IUserDisplayContactForm {
+  phone: string,
+  email: string,
+  facebook: string,
+  website: string,
+  address: string,
+}
+
+export interface IContact {
+  type: string;
+  icon: string;
+}

@@ -1,4 +1,4 @@
-import { IUserAccountMenu } from '@/views/user-account/store/user-account.interface';
+import { IContact, IUserAccountMenu } from '@/views/user-account/store/user-account.interface';
 
 export const userAccountMenu: IUserAccountMenu = {
   userInfo: {
@@ -31,6 +31,29 @@ export const userAccountMenu: IUserAccountMenu = {
     },
   ],
 };
+
+export const contactList: IContact[] = [
+  {
+    type: 'phone',
+    icon: 'phone',
+  },
+  {
+    type: 'email',
+    icon: 'mail',
+  },
+  {
+    type: 'facebook',
+    icon: 'facebook',
+  },
+  {
+    type: 'website',
+    icon: 'domain',
+  },
+  {
+    type: 'address',
+    icon: 'pin',
+  },
+];
 
 export interface IVueElementFormReference {
   validate: (arg: (valid: boolean) => void) => any;

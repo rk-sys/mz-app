@@ -1,72 +1,27 @@
 <template>
   <mz-form @submit.prevent.native="updateAccountContact()"
-           class="contact__form"
+           class="mz-contact__form"
            :form-ref.sync="form"
            :model="displayContactForm"
            :rules="contactRules"
            id="displayContactForm">
 
-    <div class="form__container">
-      <div class="form__container__icon icon-call"></div>
+    <div class="form__container"
+         v-for="(contact, i) in contactList"
+         :key="i">
+
+      <div :class="[ `form__container__icon icon-${contact.icon}--green` ]"></div>
 
       <mz-form-item class="form__container__item"
-                    prop="phone">
+                    :prop="contact.type">
 
-        <mz-input :holder="$t(`form.phone`)"
-                  v-model="displayContactForm.phone"
-                  id="phone"></mz-input>
+        <mz-input :holder="$t(`form.${contact.type}`)"
+                  v-model="displayContactForm[contact.type]"
+                  :id="contact.type"></mz-input>
       </mz-form-item>
     </div>
 
-    <div class="form__container">
-      <div class="form__container__icon icon-mail--green"></div>
-
-      <mz-form-item class="form__container__item"
-                    prop="email">
-
-        <mz-input :holder="$t(`form.email`)"
-                  v-model="displayContactForm.email"
-                  id="email"></mz-input>
-      </mz-form-item>
-    </div>
-
-    <div class="form__container">
-      <div class="form__container__icon icon-facebook--color"></div>
-
-      <mz-form-item class="form__container__item"
-                    prop="facebook">
-
-        <mz-input :holder="$t(`form.facebook`)"
-                  v-model="displayContactForm.facebook"
-                  id="facebook"></mz-input>
-      </mz-form-item>
-    </div>
-
-    <div class="form__container">
-      <div class="form__container__icon icon-domain"></div>
-
-      <mz-form-item class="form__container__item"
-                    prop="website">
-
-        <mz-input :holder="$t(`form.website`)"
-                  v-model="displayContactForm.website"
-                  id="website"></mz-input>
-      </mz-form-item>
-    </div>
-
-    <div class="form__container">
-      <div class="form__container__icon icon-pin"></div>
-
-      <mz-form-item class="form__container__item"
-                    prop="address">
-
-        <mz-input :holder="$t(`form.address`)"
-                  v-model="displayContactForm.address"
-                  id="address"></mz-input>
-      </mz-form-item>
-    </div>
-
-    <div class="contact__form__button">
+    <div class="mz-contact__form__button">
       <mz-button buttonStyle="primary"
                  form="displayContactForm"
                  native-type="submit">{{$t(`form.save`)}}
@@ -76,18 +31,19 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue }              from 'vue-property-decorator';
-import { registerStoreModule }         from '@/helpers/helpers';
-import { namespace }                   from 'vuex-class';
-import { i18n, loadTranslationsAsync } from '@/i18n/i18n';
-import Store                           from '@/store/store';
-import { Route }                       from 'vue-router';
-import { IVueElementFormReference }    from '../../store/user-account.state';
-import mzUserAccountModule             from '../../store/user-account.module';
-import mzInput                         from '@/components/input/mz-input.component.vue';
-import mzForm                          from '@/components/form/form/form.component.vue';
-import mzFormItem                      from '@/components/form/form-item/form-item.component.vue';
-import mzButton                        from '@/components/buttons/button.component.vue';
+import { Component, Vue }                    from 'vue-property-decorator';
+import { registerStoreModule }               from '@/helpers/helpers';
+import { namespace }                         from 'vuex-class';
+import { i18n, loadTranslationsAsync }       from '@/i18n/i18n';
+import Store                                 from '@/store/store';
+import { Route }                             from 'vue-router';
+import { IVueElementFormReference }          from '../../store/user-account.state';
+import mzUserAccountModule                   from '../../store/user-account.module';
+import mzInput                               from '@/components/input/mz-input.component.vue';
+import mzForm                                from '@/components/form/form/form.component.vue';
+import mzFormItem                            from '@/components/form/form-item/form-item.component.vue';
+import mzButton                              from '@/components/buttons/button.component.vue';
+import { IContact, IUserDisplayContactForm } from '../../store/user-account.interface';
 
 const LOCAL_STORE = 'userAccount';
 const local = namespace(LOCAL_STORE);
@@ -101,7 +57,8 @@ const local = namespace(LOCAL_STORE);
   },
 })
 export default class mzContact extends Vue {
-  @local.State((state: mzUserAccountModule) => state.mzUserDisplayContactForm) public displayContactForm!: any;
+  @local.State((state: mzUserAccountModule) => state.mzUserDisplayContactForm) public displayContactForm!: IUserDisplayContactForm;
+  @local.State((state: mzUserAccountModule) => state.mzContactList) public contactList!: IContact[];
   @local.Action public updateContact!: () => any;
 
   public form: HTMLElement | null = null;
@@ -161,7 +118,7 @@ export default class mzContact extends Vue {
 <style lang="scss"
        scoped>
 
-.contact__form {
+.mz-contact__form {
   margin: 2rem 3rem 0;
 
   .form__container {
