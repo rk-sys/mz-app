@@ -1,8 +1,13 @@
 <template>
   <div class="mz-user-items">
     <div class="mz-user-items__summary-menu">
-      summary menu
+      <mz-summary-item v-for="(summaryItem, j) in summaryList"
+                       :summary-label="summaryItem"
+                       :key="j">
+
+      </mz-summary-item>
     </div>
+
     <div class="mz-user-items__items-wrapper">
       <mz-user-item v-for="(item, i) in items"
                     :item="item"
@@ -13,13 +18,13 @@
 
 <script lang="ts">
 import { Component, Vue }              from 'vue-property-decorator';
-import { registerStoreModule }         from '@/helpers/helpers';
 import { namespace }                   from 'vuex-class';
 import { i18n, loadTranslationsAsync } from '@/i18n/i18n';
 import Store                           from '@/store/store';
 import { Route }                       from 'vue-router';
 import mzUserAccountModule             from '../store/user-account.module';
 import mzUserItem                      from './components/user-item.component.vue';
+import mzSummaryItem                   from '@/views/user-account/user-items/components/summary-item.component.vue';
 
 const LOCAL_STORE = 'userAccount';
 const local = namespace(LOCAL_STORE);
@@ -27,10 +32,13 @@ const local = namespace(LOCAL_STORE);
 @Component({
   components: {
     mzUserItem,
+    mzSummaryItem,
   },
 })
 export default class mzUserItems extends Vue {
   @local.State((state: mzUserAccountModule) => state.mzItems) public items!: any;
+  @local.Mutation public filterUserItems!: (arg: string) => any;
+  public summaryList: string[] = [ 'active', 'in-progress', 'ended' ];
 
   private async beforeRouteEnter(to: Route, from: Route, next: any) {
     const lang = Store.state.global.defaultLang;
@@ -57,6 +65,8 @@ export default class mzUserItems extends Vue {
 
   &__summary-menu {
     height: 2.5rem;
+    margin-bottom: 1rem;
+    display: flex;
   }
 
   &__items-wrapper {

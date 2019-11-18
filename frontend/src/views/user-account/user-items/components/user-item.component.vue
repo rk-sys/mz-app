@@ -4,7 +4,7 @@
       <div class="mz-user-item__status"
            :class="[ `mz-user-item__status--${item.status}` ]">
 
-        {{ item.status }}
+        {{ $t(`item.status.${ item.status }`) }}
       </div>
 
       <div class="mz-user-item__price">{{ item.price }}$</div>
@@ -20,17 +20,17 @@
         <router-link class="mz-user-item__link mz-user-item__link--details"
                      to="home">
 
-          szczegóły
+          {{ $t(`item.action.details`) }}
         </router-link>
         <router-link class="mz-user-item__link mz-user-item__link--edit"
                      to="home">
 
-          edytuj
+          {{ $t(`item.action.edit`) }}
         </router-link>
         <router-link class="mz-user-item__link mz-user-item__link--delete"
                      to="home">
 
-          usuń
+          {{ $t(`item.action.delete`) }}
         </router-link>
       </div>
     </div>
@@ -38,13 +38,29 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue, Prop } from 'vue-property-decorator';
+import { Component, Vue, Prop }        from 'vue-property-decorator';
+import { i18n, loadTranslationsAsync } from '@/i18n/i18n';
+import Store                           from '@/store/store';
+import { Route }                       from 'vue-router';
 
 @Component({
   components: {},
 })
 export default class mzUserItems extends Vue {
   @Prop(Object) public item!: any;
+
+  private async beforeRouteEnter(to: Route, from: Route, next: any) {
+    const lang = Store.state.global.defaultLang;
+
+    try {
+      await loadTranslationsAsync(lang, import(`../i18n/${lang}`));
+
+      next();
+    } catch (e) {
+      next(false);
+      throw new Error(e);
+    }
+  }
 }
 </script>
 
@@ -52,6 +68,10 @@ export default class mzUserItems extends Vue {
        scoped>
 
 .mz-user-item {
+
+  &:hover {
+    box-shadow: 0 0 1rem 0 var(--gray-450);
+  }
 
   &__background {
     height: 15rem;
@@ -107,7 +127,7 @@ export default class mzUserItems extends Vue {
     font-size: 1.4rem;
     font-weight: var(--font-medium);
     background-color: var(--white);
-    height: 7rem;
+    height: 8.5rem;
     max-width: 27rem;
     display: block;
     white-space: nowrap;
@@ -117,9 +137,33 @@ export default class mzUserItems extends Vue {
   }
 
   &__wrapper {
-    margin-top: 1rem;
+    margin-top: 2.2rem;
     display: flex;
     justify-content: space-between;
+  }
+
+  &__link {
+    text-decoration: none;
+
+    &--details {
+      color: #000;
+    }
+
+    &--edit {
+      color: var(--primary-color);
+    }
+
+    &--transaction {
+      color: var(--secondary-color);
+    }
+
+    &--history {
+      color: var(--gray-900);
+    }
+
+    &--delete {
+      color: var(--error);
+    }
   }
 }
 </style>
