@@ -1,18 +1,45 @@
-import { Action, Module, Mutation, VuexModule }                                                 from 'vuex-module-decorators';
-import cloneDeep                                                                                from 'lodash/cloneDeep';
-import { userAccountMenu }                                                                      from './user-account.state';
-import * as userAccountService                                                                  from './user-account.service';
+import { Action, Module, Mutation, VuexModule } from 'vuex-module-decorators';
+import cloneDeep                                from 'lodash/cloneDeep';
+import { contactList, userAccountMenu }         from './user-account.state';
+import * as userAccountService                  from './user-account.service';
 import 'firebase/auth';
-import { IUserAccountMenu, IUserDisplayNameForm, IUserEmailForm, IUserInfo, IUserPasswordForm } from '@/views/user-account/store/user-account.interface';
-import Notification                                                                             from '@/components/notification/notifications';
-import { i18n }                                                                                 from '@/i18n/i18n';
-
+import {
+  IUserAccountMenu,
+  IUserDisplayNameForm,
+  IUserEmailForm,
+  IUserInfo,
+  IUserPasswordForm,
+  IUserDisplayDescriptionForm,
+  IUserDisplayTagsForm, IContact, IUserDisplayContactForm,
+}                                               from '@/views/user-account/store/user-account.interface';
+import Notification                             from '@/components/notification/notifications';
+import { i18n }                                 from '@/i18n/i18n';
+import firebase                                 from 'firebase';
+import 'firebase/storage';
 
 @Module({ namespaced: true, stateFactory: true })
 export default class mzUserAccountModule extends VuexModule {
   public mzUserAccountMenuState: IUserAccountMenu = cloneDeep(userAccountMenu);
+  public mzContactList: IContact[] = cloneDeep(contactList);
+
   public mzUserDisplayNameForm: IUserDisplayNameForm = {
     displayName: '',
+  };
+
+  public mzUserDisplayContactForm: IUserDisplayContactForm = {
+    phone: '',
+    email: '',
+    facebook: '',
+    website: '',
+    address: '',
+  };
+
+  public mzUserDisplayDescriptionForm: IUserDisplayDescriptionForm = {
+    description: '',
+  };
+
+  public mzUserDisplayTagsForm: IUserDisplayTagsForm = {
+    tagList: [],
   };
 
   public mzUserEmailForm: IUserEmailForm = {
@@ -31,6 +58,23 @@ export default class mzUserAccountModule extends VuexModule {
 
   get userAccountInfo() {
     return this.mzUserAccountMenuState.userInfo;
+  }
+
+  @Mutation
+  public addTagToList(payload: string): void {
+    this.mzUserDisplayTagsForm.tagList.push(payload);
+  }
+
+  @Mutation
+  public removeTagFromList(payload: number): void {
+    this.mzUserDisplayTagsForm.tagList.splice(payload, 1);
+  }
+
+  @Mutation
+  public setAccountDetails(payload: any): void {
+    this.mzUserDisplayDescriptionForm.description = payload.description;
+    this.mzUserDisplayTagsForm.tagList = payload.tagList;
+    this.mzUserDisplayContactForm = payload.contact;
   }
 
   @Mutation
@@ -154,5 +198,90 @@ export default class mzUserAccountModule extends VuexModule {
       Notification.errorNotification(i18n.t(`notification.error`) as string, i18n.t(`notification.somethingWrong`) as string);
       throw new Error(err);
     }
+  }
+
+  @Action
+  public getAccountDetails() {
+    const docRef = firebase
+      .firestore()
+      .collection('users')
+      .doc(`${this.mzUserAccountMenuState.userInfo.uid}`);
+
+    docRef.get().then((doc) => {
+      if (doc.exists) {
+        this.context.commit('setAccountDetails', doc.data());
+      }
+    }).catch((error) => {
+      console.log('Error getting document:', error);
+      Notification.errorNotification(i18n.t(`notification.error`) as string, i18n.t(`notification.somethingWrong`) as string);
+    });
+  }
+
+  @Action
+  public updateDescription() {
+    const docRef = firebase
+      .firestore()
+      .collection('users')
+      .doc(`${this.mzUserAccountMenuState.userInfo.uid}`);
+
+    docRef.get().then((doc) => {
+      if (doc.exists) {
+        docRef.update({
+          description: this.mzUserDisplayDescriptionForm.description,
+        });
+        Notification.successNotification(i18n.t(`notification.success`) as string, i18n.t(`notification.savedData`) as string);
+      } else {
+        docRef.set(this.mzUserDisplayDescriptionForm);
+      }
+    }).catch((error) => {
+      console.log('Error getting document:', error);
+      Notification.errorNotification(i18n.t(`notification.error`) as string, i18n.t(`notification.somethingWrong`) as string);
+    });
+  }
+
+  @Action
+  public updateTags() {
+    const docRef = firebase
+      .firestore()
+      .collection('users')
+      .doc(`${this.mzUserAccountMenuState.userInfo.uid}`);
+
+    docRef.get().then((doc) => {
+      if (doc.exists) {
+        docRef.update({
+          tagList: this.mzUserDisplayTagsForm.tagList,
+        });
+        Notification.successNotification(i18n.t(`notification.success`) as string, i18n.t(`notification.savedData`) as string);
+      } else {
+        docRef.set(this.mzUserDisplayTagsForm);
+      }
+    }).catch((error) => {
+      console.log('Error getting document:', error);
+      Notification.errorNotification(i18n.t(`notification.error`) as string, i18n.t(`notification.somethingWrong`) as string);
+    });
+  }
+
+  @Action
+  public updateContact() {
+    const docRef = firebase
+      .firestore()
+      .collection('users')
+      .doc(`${this.mzUserAccountMenuState.userInfo.uid}`);
+
+    docRef.get().then((doc) => {
+      if (doc.exists) {
+        docRef.update({
+          contact: {
+            ...this.mzUserDisplayContactForm,
+          },
+        });
+        Notification.successNotification(i18n.t(`notification.success`) as string, i18n.t(`notification.savedData`) as string);
+      } else {
+        docRef.set(this.mzUserDisplayContactForm);
+      }
+    }).catch((error) => {
+      console.log('Error getting document:', error);
+      Notification.errorNotification(i18n.t(`notification.error`) as string, i18n.t(`notification.somethingWrong`) as string);
+    });
   }
 }

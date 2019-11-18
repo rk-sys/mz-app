@@ -128,20 +128,25 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue }                                                            from 'vue-property-decorator';
-import { registerStoreModule }                                                       from '@/helpers/helpers';
-import { namespace }                                                                 from 'vuex-class';
-import { i18n, loadTranslationsAsync }                                               from '@/i18n/i18n';
-import Store                                                                         from '@/store/store';
-import { Route }                                                                     from 'vue-router';
-import { IUserAccountMenu, IUserDisplayNameForm, IUserEmailForm, IUserPasswordForm } from '@/views/user-account/store/user-account.interface';
-import mzUserAccountModule                                                           from '../store/user-account.module';
-import mzInput                                                                       from '@/components/input/mz-input.component.vue';
-import mzForm                                                                        from '@/components/form/form/form.component.vue';
-import mzFormItem                                                                    from '@/components/form/form-item/form-item.component.vue';
-import mzBoxWithTitle                                                                from '@/components/box-with-title/box-with-title.component.vue';
-import mzButton                                                                      from '@/components/buttons/button.component.vue';
-import mzUpload                                                                      from '@/components/upload/upload.component.vue';
+import { Component, Vue }              from 'vue-property-decorator';
+import { registerStoreModule }         from '@/helpers/helpers';
+import { namespace }                   from 'vuex-class';
+import { i18n, loadTranslationsAsync } from '@/i18n/i18n';
+import Store                           from '@/store/store';
+import { Route }                       from 'vue-router';
+import {
+  IUserAccountMenu,
+  IUserDisplayNameForm,
+  IUserEmailForm,
+  IUserPasswordForm,
+}                                      from '@/views/user-account/store/user-account.interface';
+import mzUserAccountModule             from '../store/user-account.module';
+import mzInput                         from '@/components/input/mz-input.component.vue';
+import mzForm                          from '@/components/form/form/form.component.vue';
+import mzFormItem                      from '@/components/form/form-item/form-item.component.vue';
+import mzBoxWithTitle                  from '@/components/box-with-title/box-with-title.component.vue';
+import mzButton                        from '@/components/buttons/button.component.vue';
+import mzUpload                        from '@/components/upload/upload.component.vue';
 
 const LOCAL_STORE = 'userAccount';
 const local = namespace(LOCAL_STORE);

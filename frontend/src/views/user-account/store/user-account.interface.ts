@@ -29,3 +29,24 @@ export interface IUserPasswordForm {
 export interface IUserDisplayNameForm {
   displayName: string;
 }
+
+export interface IUserDisplayDescriptionForm {
+  description: string;
+}
+
+export interface IUserDisplayTagsForm {
+  tagList: string[];
+}
+
+export interface IUserDisplayContactForm {
+  phone: string,
+  email: string,
+  facebook: string,
+  website: string,
+  address: string,
+}
+
+export interface IContact {
+  type: string;
+  icon: string;
+}

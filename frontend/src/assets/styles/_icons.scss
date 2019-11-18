@@ -1,6 +1,47 @@
 .icon {
+
+  &-pin--green {
+    background: url("~@/assets/icons/pin/pin--green.svg") no-repeat center;
+    background-size: contain;
+  }
+
+  &-pin {
+    background: url("~@/assets/icons/pin/pin.svg") no-repeat center;
+    background-size: contain;
+  }
+
+  &-domain--green {
+    background: url("~@/assets/icons/domain/domain--green.svg") no-repeat center;
+    background-size: contain;
+  }
+
+  &-domain {
+    background: url("~@/assets/icons/domain/domain.svg") no-repeat center;
+    background-size: contain;
+  }
+
+  &-phone--green {
+    background: url("~@/assets/icons/phone/phone--green.svg") no-repeat center;
+    background-size: contain;
+  }
+
+  &-phone {
+    background: url("~@/assets/icons/phone/phone.svg") no-repeat center;
+    background-size: contain;
+  }
+
+  &-help--green {
+    background: url("~@/assets/icons/help/help--green.svg") no-repeat center;
+    background-size: contain;
+  }
+
   &-locked {
     background: url("~@/assets/icons/locked/locked.svg") no-repeat center;
+    background-size: contain;
+  }
+
+  &-tag--green {
+    background: url("~@/assets/icons/tag/tag--green.svg") no-repeat center;
     background-size: contain;
   }
 
@@ -79,8 +120,8 @@
     background-size: contain;
   }
 
-  &-facebook--color {
-    background: url("~@/assets/icons/facebook/facebook--color.svg") no-repeat center;
+  &-facebook--green {
+    background: url("~@/assets/icons/facebook/facebook--green.svg") no-repeat center;
     background-size: contain;
   }
 

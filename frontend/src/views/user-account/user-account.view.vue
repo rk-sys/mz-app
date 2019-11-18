@@ -43,6 +43,10 @@ export default class mzUserAccount extends Vue {
       throw new Error(e);
     }
   }
+
+  private destroyed() {
+    Store.unregisterModule(LOCAL_STORE);
+  }
 }
 </script>
 

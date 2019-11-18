@@ -3,7 +3,7 @@
 
     <div :class="{'icon--light': isLight,
              'icon--dark': !isLight,
-             'icon-facebook--color': facebookWhite && !isLight,}"
+             'icon-facebook--green': facebookWhite && !isLight,}"
          @mouseleave="removeColor($event.target)"
          @mouseover="changeColor($event.target)"
          class="mz-social-media__icon icon-facebook"></div>
