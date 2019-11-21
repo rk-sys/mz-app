@@ -1,17 +1,32 @@
 <template>
   <div class="mz-user-items">
     <div class="mz-user-items__summary-menu">
-      <mz-summary-item v-for="(summaryItem, j) in summaryList"
-                       :summary-label="summaryItem"
-                       :key="j">
+      <div class="summary-menu__counter">
+        <mz-summary-item v-for="(summaryItem, i) in summaryList"
+                         :summary-label="summaryItem"
+                         :key="i">
+        </mz-summary-item>
+      </div>
 
-      </mz-summary-item>
+      <div class="summary-menu__category-select">
+        {{ $t('item.action.show') }}
+
+        <mz-select v-model="selectValue"
+                   size="mini">
+
+          <mz-option v-for="(option, index) in summaryList"
+                     :value="option"
+                     :label="$t(`item.status.${ option }`)"
+                     :key="index" />
+
+        </mz-select>
+      </div>
     </div>
 
     <div class="mz-user-items__items-wrapper">
-      <mz-user-item v-for="(item, i) in items"
+      <mz-user-item v-for="(item, j) in items"
                     :item="item"
-                    :key="i" />
+                    :key="j" />
     </div>
   </div>
 </template>
@@ -25,6 +40,8 @@ import { Route }                       from 'vue-router';
 import mzUserAccountModule             from '../store/user-account.module';
 import mzUserItem                      from './components/user-item.component.vue';
 import mzSummaryItem                   from '@/views/user-account/user-items/components/summary-item.component.vue';
+import mzSelect                        from '@/components/form/select/select.component.vue';
+import mzOption                        from '@/components/form/option/option.component.vue';
 
 const LOCAL_STORE = 'userAccount';
 const local = namespace(LOCAL_STORE);
@@ -33,12 +50,14 @@ const local = namespace(LOCAL_STORE);
   components: {
     mzUserItem,
     mzSummaryItem,
+    mzSelect,
+    mzOption,
   },
 })
 export default class mzUserItems extends Vue {
   @local.State((state: mzUserAccountModule) => state.mzItems) public items!: any;
-  @local.Mutation public filterUserItems!: (arg: string) => any;
   public summaryList: string[] = [ 'active', 'in-progress', 'ended' ];
+  public selectValue: string = '';
 
   private async beforeRouteEnter(to: Route, from: Route, next: any) {
     const lang = Store.state.global.defaultLang;
@@ -67,6 +86,28 @@ export default class mzUserItems extends Vue {
     height: 2.5rem;
     margin-bottom: 1rem;
     display: flex;
+    justify-content: space-between;
+
+    .summary-menu {
+      &__counter {
+        display: flex;
+      }
+
+      &__category-select {
+        display: flex;
+        font-size: 1.4rem;
+        margin-right: 2.5rem;
+        position: relative;
+
+        .mz-select {
+          position: absolute;
+          top: -0.5rem;
+          left: 5rem;
+          height: 2rem;
+          width: 12rem;
+        }
+      }
+    }
   }
 
   &__items-wrapper {

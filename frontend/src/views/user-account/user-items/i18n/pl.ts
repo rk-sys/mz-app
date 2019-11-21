@@ -3,7 +3,7 @@ export default {
     status: {
       'active': 'Aktywne',
       'in-progress': 'W trakcie',
-      'ended': 'Zakończono',
+      'ended': 'Zakończone',
     },
     action: {
       details: 'szczegóły',
@@ -11,6 +11,7 @@ export default {
       transaction: 'transakcja',
       history: 'historia',
       delete: 'usuń',
+      show: 'Pokaż:',
     },
   },
 };

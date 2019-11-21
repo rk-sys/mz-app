@@ -146,11 +146,19 @@ export default class mzUserItems extends Vue {
     text-decoration: none;
 
     &--details {
-      color: #000;
+      color: var(--black);
+
+      &:hover {
+        border-bottom: 0.1rem solid var(--black);
+      }
     }
 
     &--edit {
       color: var(--primary-color);
+
+      &:hover {
+        border-bottom: 0.1rem solid var(--primary-color);
+      }
     }
 
     &--transaction {
@@ -163,6 +171,10 @@ export default class mzUserItems extends Vue {
 
     &--delete {
       color: var(--error);
+
+      &:hover {
+        border-bottom: 0.1rem solid var(--error);
+      }
     }
   }
 }
