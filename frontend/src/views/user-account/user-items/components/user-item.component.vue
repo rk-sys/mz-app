@@ -8,7 +8,11 @@
         {{ $t(`item.status.${ item.status }`) }}
       </div>
 
-      <div class="mz-user-item__price">{{ item.price }}$</div>
+      <div class="mz-user-item__price"
+           v-if="!isListViewOn">
+
+        {{ item.price }}$
+      </div>
 
       <img class="mz-user-item__avatar"
            :src="item.avatar"
@@ -19,6 +23,7 @@
 
       <div class="mz-user-item__wrapper">
         <router-link class="mz-user-item__link mz-user-item__link--details"
+                     v-if="!isListViewOn"
                      to="home">
 
           {{ $t(`item.action.details`) }}
@@ -184,7 +189,6 @@ export default class mzUserItems extends Vue {
     height: 9rem;
 
     .mz-user-item {
-      border: 1px solid red;
 
       &__background {
         height: 100%;
@@ -200,15 +204,29 @@ export default class mzUserItems extends Vue {
       }
 
       &__avatar {
-        width: 12.5rem;
-        background-repeat: no-repeat;
-        background-size: cover;
-        background-position: center;
+        width: 14rem;
       }
 
       &__content {
         height: 100%;
-        max-width: 72rem;
+        max-width: 70rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      &__title {
+        height: 100%;
+        word-wrap: break-word;
+        white-space: normal;
+      }
+
+      &__wrapper {
+        margin: 0;
+      }
+
+      &__link {
+        margin: 0 2rem;
       }
     }
   }
