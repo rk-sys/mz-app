@@ -119,6 +119,27 @@ export const items: any = [
     price: 230,
     status: 'ended',
   },
+  {
+    avatar: 'https://marketplace.canva.com/MADGyBSJY_o/4/thumbnail_large/canva-brown-hatchet-on-log-MADGyBSJY_o.jpg',
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+    name: 'Włócznia',
+    price: 300,
+    status: 'active',
+  },
+  {
+    avatar: 'https://marketplace.canva.com/MADGyBSJY_o/4/thumbnail_large/canva-brown-hatchet-on-log-MADGyBSJY_o.jpg',
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+    name: 'Hełm',
+    price: 100,
+    status: 'active',
+  },
+  {
+    avatar: 'https://marketplace.canva.com/MADGyBSJY_o/4/thumbnail_large/canva-brown-hatchet-on-log-MADGyBSJY_o.jpg',
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+    name: 'Miecz',
+    price: 230,
+    status: 'ended',
+  },
 ];
 
 export interface IVueElementFormReference {

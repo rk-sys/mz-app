@@ -1,8 +1,9 @@
 <template>
-  <div class="mz-user-item">
+  <div class="mz-user-item"
+       :class="{ 'mz-user-item--list-view': isListViewOn }">
     <div class="mz-user-item__background">
       <div class="mz-user-item__status"
-           :class="[ `mz-user-item__status--${item.status}` ]">
+           :class="[ `mz-user-item__status--${ item.status }` ]">
 
         {{ $t(`item.status.${ item.status }`) }}
       </div>
@@ -48,6 +49,7 @@ import { Route }                       from 'vue-router';
 })
 export default class mzUserItems extends Vue {
   @Prop(Object) public item!: any;
+  @Prop(Boolean) public isListViewOn!: boolean;
 
   private async beforeRouteEnter(to: Route, from: Route, next: any) {
     const lang = Store.state.global.defaultLang;
@@ -75,7 +77,6 @@ export default class mzUserItems extends Vue {
 
   &__background {
     height: 15rem;
-    background-color: #0CCE92;
     position: relative;
   }
 
@@ -174,6 +175,40 @@ export default class mzUserItems extends Vue {
 
       &:hover {
         border-bottom: 0.1rem solid var(--error);
+      }
+    }
+  }
+
+  &--list-view {
+    display: flex;
+    height: 9rem;
+
+    .mz-user-item {
+      border: 1px solid red;
+
+      &__background {
+        height: 100%;
+      }
+
+      &__status {
+        transform: rotate(-90deg);
+        border-radius: 0;
+        position: absolute;
+        top: 3.5rem;
+        left: -3.5rem;
+        width: 9rem;
+      }
+
+      &__avatar {
+        width: 12.5rem;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+      }
+
+      &__content {
+        height: 100%;
+        max-width: 72rem;
       }
     }
   }

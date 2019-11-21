@@ -2,6 +2,9 @@
   <div class="mz-user-items">
     <div class="mz-user-items__summary-menu">
       <div class="summary-menu__counter">
+        <div class="summary-menu__toggle-view icon-tile"
+             @click="toggleView()"></div>
+
         <mz-summary-item v-for="(summaryItem, i) in summaryList"
                          :summary-label="summaryItem"
                          :key="i">
@@ -23,8 +26,11 @@
       </div>
     </div>
 
-    <div class="mz-user-items__items-wrapper">
+    <div class="mz-user-items__items-wrapper"
+         :class="{ 'mz-user-items__items-wrapper--list-view': isListViewOn }">
+
       <mz-user-item v-for="(item, j) in items"
+                    :isListViewOn="isListViewOn"
                     :item="item"
                     :key="j" />
     </div>
@@ -42,6 +48,7 @@ import mzUserItem                      from './components/user-item.component.vu
 import mzSummaryItem                   from '@/views/user-account/user-items/components/summary-item.component.vue';
 import mzSelect                        from '@/components/form/select/select.component.vue';
 import mzOption                        from '@/components/form/option/option.component.vue';
+import mzIconsBox                      from '@/components/icons-box/icons-box.component.vue';
 
 const LOCAL_STORE = 'userAccount';
 const local = namespace(LOCAL_STORE);
@@ -52,12 +59,18 @@ const local = namespace(LOCAL_STORE);
     mzSummaryItem,
     mzSelect,
     mzOption,
+    mzIconsBox,
   },
 })
 export default class mzUserItems extends Vue {
   @local.State((state: mzUserAccountModule) => state.mzItems) public items!: any;
   public summaryList: string[] = [ 'active', 'in-progress', 'ended' ];
   public selectValue: string = '';
+  public isListViewOn: boolean = false;
+
+  public toggleView(): void {
+    this.isListViewOn = !this.isListViewOn;
+  }
 
   private async beforeRouteEnter(to: Route, from: Route, next: any) {
     const lang = Store.state.global.defaultLang;
@@ -89,8 +102,16 @@ export default class mzUserItems extends Vue {
     justify-content: space-between;
 
     .summary-menu {
+
       &__counter {
         display: flex;
+      }
+
+      &__toggle-view {
+        height: 2rem;
+        width: 2rem;
+        margin-right: 2rem;
+        cursor: pointer;
       }
 
       &__category-select {
@@ -115,6 +136,10 @@ export default class mzUserItems extends Vue {
     grid-template-columns: repeat(3, 1fr);
     grid-column-gap: 2rem;
     grid-row-gap: 2rem;
+
+    &--list-view {
+      grid-template-columns: repeat(1, 1fr);
+    }
   }
 }
 
