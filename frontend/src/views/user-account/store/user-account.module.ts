@@ -106,9 +106,10 @@ export default class mzUserAccountModule extends VuexModule {
 
   @Mutation
   public setUserItems(payload: any): void {
-    this.mzItems = payload.status === 'all' ?
-      payload.data.items :
-      payload.data.items.filter((item: any) => item.status === payload.status);
+    this.mzItems =
+      payload.status === 'all' ?
+        payload.data.items :
+        payload.data.items.filter((item: any) => item.status === payload.status);
   }
 
   @Action

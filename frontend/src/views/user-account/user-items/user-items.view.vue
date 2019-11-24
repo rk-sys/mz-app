@@ -1,14 +1,12 @@
 <template>
   <div class="mz-user-items">
     <div class="mz-user-items__summary-menu">
-      <div class="summary-menu__counter">
-        <div class="summary-menu__toggle-view"
-             @click="toggleView()"
-             :class="{
-                  'icon-tile': isListViewOn,
-                  'icon-list': !isListViewOn
-                   }"></div>
+      <mz-switch inactive-text="Tile mode"
+                 active-text="List mode"
+                 @change="toggleView()"
+                 :value="isListViewOn" />
 
+      <div class="summary-menu__items-counter">
         <mz-summary-item v-for="(summaryItem, i) in summaryList"
                          :summary-label="summaryItem"
                          :key="i">
@@ -53,6 +51,7 @@ import mzSummaryItem                   from '@/views/user-account/user-items/com
 import mzSelect                        from '@/components/form/select/select.component.vue';
 import mzOption                        from '@/components/form/option/option.component.vue';
 import mzIconsBox                      from '@/components/icons-box/icons-box.component.vue';
+import mzSwitch                        from '@/components/form/switch/switch.component.vue';
 
 const LOCAL_STORE = 'userAccount';
 const local = namespace(LOCAL_STORE);
@@ -64,6 +63,7 @@ const local = namespace(LOCAL_STORE);
     mzSelect,
     mzOption,
     mzIconsBox,
+    mzSwitch,
   },
 })
 export default class mzUserItems extends Vue {
@@ -101,27 +101,18 @@ export default class mzUserItems extends Vue {
   margin-left: 10rem;
 
   &__summary-menu {
-    height: 2.5rem;
-    margin-bottom: 1rem;
+    font-size: 1.4rem;
     display: flex;
     justify-content: space-between;
+    margin-bottom: 1rem;
 
     .summary-menu {
-
-      &__counter {
+      &__items-counter {
         display: flex;
-      }
-
-      &__toggle-view {
-        height: 2rem;
-        width: 2rem;
-        margin-right: 2rem;
-        cursor: pointer;
       }
 
       &__category-select {
         display: flex;
-        font-size: 1.4rem;
         margin-right: 2.5rem;
         position: relative;
 

@@ -24,19 +24,14 @@ export default class mzSelect extends Mixins(mzTransparentWrapper) {
 }
 </script>
 
-<style lang="scss"
-       scoped>
+<style lang="scss">
 
-/*@import '~element-ui/lib/theme-chalk/select.css';*/
 @import url("//unpkg.com/element-ui@2.12.0/lib/theme-chalk/index.css");
 
 .mz-select {
-
-  /*/deep/ {*/
-  /*  .el-input.is-focus .el-input__inner,*/
-  /*  .el-input__inner:focus {*/
-  /*    border-color: var(--secondary-color);*/
-  /*  }*/
-  /*}*/
+  .el-input.is-focus .el-input__inner,
+  .el-input__inner:focus {
+    border-color: var(--primary-color);
+  }
 }
 </style>
