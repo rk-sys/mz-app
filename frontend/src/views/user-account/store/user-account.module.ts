@@ -1,6 +1,6 @@
 import { Action, Module, Mutation, VuexModule } from 'vuex-module-decorators';
 import cloneDeep                                from 'lodash/cloneDeep';
-import { contactList, items, userAccountMenu }  from './user-account.state';
+import { contactList, userAccountMenu }         from './user-account.state';
 import * as userAccountService                  from './user-account.service';
 import 'firebase/auth';
 import {
@@ -21,7 +21,7 @@ import 'firebase/storage';
 export default class mzUserAccountModule extends VuexModule {
   public mzUserAccountMenuState: IUserAccountMenu = cloneDeep(userAccountMenu);
   public mzContactList: IContact[] = cloneDeep(contactList);
-  public mzItems: any = cloneDeep(items);
+  public mzItems: any = [];
 
   public mzUserDisplayNameForm: IUserDisplayNameForm = {
     displayName: '',
@@ -102,6 +102,21 @@ export default class mzUserAccountModule extends VuexModule {
       email: payload.email,
       uid: payload.uid,
     };
+  }
+
+  @Mutation
+  public setUserItems(payload: any): void {
+    this.mzItems = payload.items;
+  }
+
+  @Mutation
+  public filterUserItems(payload: string): void {
+    if (payload === 'all') {
+      console.log('wszystkie');
+    } else {
+      this.mzItems = this.mzItems.filter((item: any) => item.status === payload);
+
+    }
   }
 
   @Action
@@ -284,5 +299,21 @@ export default class mzUserAccountModule extends VuexModule {
       console.log('Error getting document:', error);
       Notification.errorNotification(i18n.t(`notification.error`) as string, i18n.t(`notification.somethingWrong`) as string);
     });
+  }
+
+  @Action
+  public async getUserItems(): Promise<void> {
+    try {
+      const { data } = await userAccountService.getUserItems();
+      this.context.commit('setUserItems', data);
+    } catch (e) {
+      throw Error(e);
+    }
+  }
+
+  @Action
+  public test(payload: string) {
+    this.context.dispatch('getUserItems')
+      .then(() => this.context.commit('filterUserItems', payload));
   }
 }

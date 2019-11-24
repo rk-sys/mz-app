@@ -189,7 +189,6 @@ export default class mzUserItems extends Vue {
     height: 9rem;
 
     .mz-user-item {
-
       &__background {
         height: 100%;
       }

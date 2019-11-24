@@ -4,6 +4,7 @@ export default {
       'active': 'Aktywne',
       'in-progress': 'W trakcie',
       'ended': 'Zakończone',
+      'all': 'Wszystkie',
     },
     action: {
       details: 'szczegóły',

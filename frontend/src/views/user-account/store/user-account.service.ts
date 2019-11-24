@@ -1,3 +1,4 @@
+import axios    from 'axios';
 import firebase from 'firebase/app';
 import 'firebase/auth';
 import 'firebase/storage';
@@ -47,3 +48,8 @@ export async function getUserPicture() {
     return newUserPicture;
   }
 }
+
+export function getUserItems() {
+  return axios.get('https://api.myjson.com/bins/12f7uy');
+}
+

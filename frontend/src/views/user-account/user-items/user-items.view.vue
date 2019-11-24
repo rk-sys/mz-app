@@ -2,8 +2,12 @@
   <div class="mz-user-items">
     <div class="mz-user-items__summary-menu">
       <div class="summary-menu__counter">
-        <div class="summary-menu__toggle-view icon-tile"
-             @click="toggleView()"></div>
+        <div class="summary-menu__toggle-view"
+             @click="toggleView()"
+             :class="{
+                  'icon-tile': isListViewOn,
+                  'icon-list': !isListViewOn
+                   }"></div>
 
         <mz-summary-item v-for="(summaryItem, i) in summaryList"
                          :summary-label="summaryItem"
@@ -15,13 +19,13 @@
         {{ $t('item.action.show') }}
 
         <mz-select v-model="selectValue"
+                   @change="test(selectValue)"
                    size="mini">
 
           <mz-option v-for="(option, index) in summaryList"
                      :value="option"
                      :label="$t(`item.status.${ option }`)"
                      :key="index" />
-
         </mz-select>
       </div>
     </div>
@@ -64,7 +68,8 @@ const local = namespace(LOCAL_STORE);
 })
 export default class mzUserItems extends Vue {
   @local.State((state: mzUserAccountModule) => state.mzItems) public items!: any;
-  public summaryList: string[] = [ 'active', 'in-progress', 'ended' ];
+  @local.Action test!: (arg: string) => void;
+  public summaryList: string[] = [ 'active', 'in-progress', 'ended', 'all' ];
   public selectValue: string = '';
   public isListViewOn: boolean = false;
 
@@ -77,7 +82,7 @@ export default class mzUserItems extends Vue {
 
     try {
       await loadTranslationsAsync(lang, import(`./i18n/${lang}`));
-
+      await Store.dispatch(`${LOCAL_STORE}/getUserItems`);
       next();
     } catch (e) {
       next(false);
