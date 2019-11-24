@@ -50,6 +50,6 @@ export async function getUserPicture() {
 }
 
 export function getUserItems() {
-  return axios.get('https://api.myjson.com/bins/12f7uy');
+  return axios.get('https://api.myjson.com/bins/io3ju');
 }
 

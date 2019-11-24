@@ -20,9 +20,25 @@
            alt="item">
     </div>
     <div class="mz-user-item__content">
-      <span class="mz-user-item__title">{{ item.name }}, {{ item.description }}</span>
+      <div class="mz-user-item__text-wrapper">
+        <span class="mz-user-item__title">
+        {{ item.name }}
+        </span>
 
-      <div class="mz-user-item__wrapper">
+        <span class="mz-user-item__description"
+              v-if="isListViewOn">
+
+        {{ item.description }}
+        </span>
+
+        <span class="mz-user-item__price"
+              v-if="isListViewOn">
+
+          {{ item.price }}$
+        </span>
+      </div>
+
+      <div class="mz-user-item__link-wrapper">
         <router-link class="mz-user-item__link mz-user-item__link--details"
                      v-if="!isListViewOn"
                      to="home">
@@ -139,6 +155,7 @@ export default class mzUserItems extends Vue {
   }
 
   &__title {
+    font-size: 1.6rem;
     width: 20rem;
     display: block;
     overflow: hidden;
@@ -146,7 +163,7 @@ export default class mzUserItems extends Vue {
     text-overflow: ellipsis;
   }
 
-  &__wrapper {
+  &__link-wrapper {
     margin-top: 2.2rem;
     display: flex;
     justify-content: space-between;
@@ -190,7 +207,7 @@ export default class mzUserItems extends Vue {
 
   &--list-view {
     display: flex;
-    height: 9rem;
+    height: 10rem;
 
     .mz-user-item {
       width: 100%;
@@ -203,28 +220,52 @@ export default class mzUserItems extends Vue {
         transform: rotate(-90deg);
         border-radius: 0;
         position: absolute;
-        top: 3.5rem;
-        left: -3.5rem;
-        width: 9rem;
+        top: 4rem;
+        left: -4rem;
+        width: 10rem;
       }
 
       &__avatar {
-        width: 14rem;
+        width: 15rem;
       }
 
       &__content {
         height: 100%;
+        padding: 1rem 2rem;
         display: flex;
         justify-content: space-between;
         align-items: center;
       }
 
-      &__title {
-        height: 100%;
-
+      &__text-wrapper {
+        align-self: flex-start;
       }
 
-      &__wrapper {
+      &__title {
+        width: auto;
+        height: 100%;
+        white-space: unset;
+        margin-bottom: 0.6rem;
+      }
+
+      &__description {
+        font-size: 1.2rem;
+        font-weight: var(--font-light);
+        width: 40rem;
+        display: block;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+      }
+
+      &__price {
+        margin-top: 2rem;
+        position: unset;
+        font-size: 1.6rem;
+        justify-content: flex-start;
+      }
+
+      &__link-wrapper {
         margin: 0;
       }
 
