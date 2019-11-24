@@ -106,17 +106,9 @@ export default class mzUserAccountModule extends VuexModule {
 
   @Mutation
   public setUserItems(payload: any): void {
-    this.mzItems = payload.items;
-  }
-
-  @Mutation
-  public filterUserItems(payload: string): void {
-    if (payload === 'all') {
-      console.log('wszystkie');
-    } else {
-      this.mzItems = this.mzItems.filter((item: any) => item.status === payload);
-
-    }
+    this.mzItems = payload.status === 'all' ?
+      payload.data.items :
+      payload.data.items.filter((item: any) => item.status === payload.status);
   }
 
   @Action
@@ -302,18 +294,12 @@ export default class mzUserAccountModule extends VuexModule {
   }
 
   @Action
-  public async getUserItems(): Promise<void> {
+  public async getUserItems(status: string): Promise<void> {
     try {
       const { data } = await userAccountService.getUserItems();
-      this.context.commit('setUserItems', data);
+      await this.context.commit('setUserItems', { data, status });
     } catch (e) {
       throw Error(e);
     }
-  }
-
-  @Action
-  public test(payload: string) {
-    this.context.dispatch('getUserItems')
-      .then(() => this.context.commit('filterUserItems', payload));
   }
 }

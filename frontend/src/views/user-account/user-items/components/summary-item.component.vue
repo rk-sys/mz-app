@@ -1,7 +1,7 @@
 <template>
   <div class="mz-summary-item"
        v-if="summaryLabel !== 'all'">
-    
+
     {{ $t(`item.status.${ summaryLabel }`) }}:
 
     <span class="mz-summary-item__result">

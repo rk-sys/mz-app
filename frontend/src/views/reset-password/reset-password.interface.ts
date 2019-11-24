@@ -1,6 +1,6 @@
 export interface IResetPassword {
-  resetPasswordForm: IResetPasswordForm,
-  resetPasswordFormErrors: IFieldFormError,
+  resetPasswordForm: IResetPasswordForm;
+  resetPasswordFormErrors: IFieldFormError;
   icons: IIcon[];
 }
 

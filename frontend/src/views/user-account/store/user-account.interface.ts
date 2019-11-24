@@ -39,11 +39,11 @@ export interface IUserDisplayTagsForm {
 }
 
 export interface IUserDisplayContactForm {
-  phone: string,
-  email: string,
-  facebook: string,
-  website: string,
-  address: string,
+  phone: string;
+  email: string;
+  facebook: string;
+  website: string;
+  address: string;
 }
 
 export interface IContact {

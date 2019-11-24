@@ -19,7 +19,7 @@
         {{ $t('item.action.show') }}
 
         <mz-select v-model="selectValue"
-                   @change="test(selectValue)"
+                   @change="getUserItems(selectValue)"
                    size="mini">
 
           <mz-option v-for="(option, index) in summaryList"
@@ -68,7 +68,7 @@ const local = namespace(LOCAL_STORE);
 })
 export default class mzUserItems extends Vue {
   @local.State((state: mzUserAccountModule) => state.mzItems) public items!: any;
-  @local.Action test!: (arg: string) => void;
+  @local.Action public getUserItems!: (arg: string) => void;
   public summaryList: string[] = [ 'active', 'in-progress', 'ended', 'all' ];
   public selectValue: string = '';
   public isListViewOn: boolean = false;
@@ -82,7 +82,7 @@ export default class mzUserItems extends Vue {
 
     try {
       await loadTranslationsAsync(lang, import(`./i18n/${lang}`));
-      await Store.dispatch(`${LOCAL_STORE}/getUserItems`);
+      await Store.dispatch(`${LOCAL_STORE}/getUserItems`, 'all');
       next();
     } catch (e) {
       next(false);
