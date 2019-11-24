@@ -1,6 +1,7 @@
 <template>
   <div class="mz-user-item"
        :class="{ 'mz-user-item--list-view': isListViewOn }">
+
     <div class="mz-user-item__background">
       <div class="mz-user-item__status"
            :class="[ `mz-user-item__status--${ item.status }` ]">
@@ -75,7 +76,6 @@ export default class mzUserItems extends Vue {
        scoped>
 
 .mz-user-item {
-
   &:hover {
     box-shadow: 0 0 1rem 0 var(--gray-450);
   }
@@ -134,12 +134,16 @@ export default class mzUserItems extends Vue {
     font-weight: var(--font-medium);
     background-color: var(--white);
     height: 8.5rem;
-    max-width: 27rem;
+    width: 100%;
+    padding: 1rem;
+  }
+
+  &__title {
+    width: 20rem;
     display: block;
+    overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
-    overflow: hidden;
-    padding: 1rem;
   }
 
   &__wrapper {
@@ -189,6 +193,8 @@ export default class mzUserItems extends Vue {
     height: 9rem;
 
     .mz-user-item {
+      width: 100%;
+
       &__background {
         height: 100%;
       }
@@ -208,7 +214,6 @@ export default class mzUserItems extends Vue {
 
       &__content {
         height: 100%;
-        max-width: 70rem;
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -216,8 +221,7 @@ export default class mzUserItems extends Vue {
 
       &__title {
         height: 100%;
-        word-wrap: break-word;
-        white-space: normal;
+
       }
 
       &__wrapper {

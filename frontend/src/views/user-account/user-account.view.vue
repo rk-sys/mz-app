@@ -68,7 +68,7 @@ export default class mzUserAccount extends Vue {
   height: 100%;
   display: grid;
   grid-template-rows: 6.4rem 7rem auto;
-  grid-template-columns: 1fr 3fr 1fr;
+  grid-template-columns: 1fr 4fr 1fr;
 
   &__container {
     display: flex;

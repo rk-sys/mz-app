@@ -1,11 +1,12 @@
 <template>
   <div class="mz-user-items">
-    <div class="mz-user-items__summary-menu">
-      <mz-switch inactive-text="Tile mode"
-                 active-text="List mode"
-                 @change="toggleView()"
-                 :value="isListViewOn" />
+    <mz-switch class="mz-user-items__list-view-switcher"
+               inactive-text="Tile mode"
+               active-text="List mode"
+               @change="toggleView()"
+               :value="isListViewOn" />
 
+    <div class="mz-user-items__summary-menu">
       <div class="summary-menu__items-counter">
         <mz-summary-item v-for="(summaryItem, i) in summaryList"
                          :summary-label="summaryItem"
@@ -97,14 +98,19 @@ export default class mzUserItems extends Vue {
        scoped>
 
 .mz-user-items {
-  width: 75rem;
   margin-left: 10rem;
+  width: 80rem;
+
+  &__list-view-switcher {
+    margin-bottom: 1rem;
+  }
 
   &__summary-menu {
     font-size: 1.4rem;
     display: flex;
     justify-content: space-between;
     margin-bottom: 1rem;
+    line-height: 3rem;
 
     .summary-menu {
       &__items-counter {
@@ -113,14 +119,9 @@ export default class mzUserItems extends Vue {
 
       &__category-select {
         display: flex;
-        margin-right: 2.5rem;
-        position: relative;
 
         .mz-select {
-          position: absolute;
-          top: -0.5rem;
-          left: 5rem;
-          height: 2rem;
+          margin-left: 1rem;
           width: 12rem;
         }
       }
