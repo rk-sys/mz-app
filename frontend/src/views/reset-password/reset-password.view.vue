@@ -239,7 +239,7 @@ export default class mzResetPassword extends Vue {
     grid-template-columns: auto;
 
     &__logo {
-      align-self: start;
+      align-self: flex-start;
     }
 
     &__box {

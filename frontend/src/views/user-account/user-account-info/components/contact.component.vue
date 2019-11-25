@@ -123,7 +123,7 @@ export default class mzContact extends Vue {
 
   .form__container {
     display: flex;
-    justify-content: start;
+    justify-content: flex-start;
     align-items: center;
     width: 36rem;
     margin: 0.1rem 0;

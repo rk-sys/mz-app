@@ -14,8 +14,9 @@ import {
 }                                               from '@/views/user-account/store/user-account.interface';
 import Notification                             from '@/components/notification/notifications';
 import { i18n }                                 from '@/i18n/i18n';
-import firebase                                 from 'firebase';
+import firebase                                 from 'firebase/app';
 import 'firebase/storage';
+import 'firebase/firestore';
 
 @Module({ namespaced: true, stateFactory: true })
 export default class mzUserAccountModule extends VuexModule {
