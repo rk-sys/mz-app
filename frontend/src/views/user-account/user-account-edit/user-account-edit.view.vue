@@ -334,7 +334,7 @@ export default class mzUserAccountEdit extends Vue {
        scoped>
 
 .user-account-edit {
-  width: 75rem;
+  width: 80rem;
   margin-left: 10rem;
 
   &__form {

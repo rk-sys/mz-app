@@ -193,7 +193,7 @@ export default class mzUserAccountInfo extends Vue {
        scoped>
 
 .mz-user-account-info {
-  width: 75rem;
+  width: 80rem;
   margin-left: 10rem;
 
   &__form {
