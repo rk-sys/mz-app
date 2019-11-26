@@ -1,13 +1,14 @@
 <template>
   <div class="mz-user-items">
-    <mz-switch class="mz-user-items__list-view-switcher"
-               inactive-text="Tile mode"
-               active-text="List mode"
-               @change="toggleView()"
-               :value="isListViewOn" />
-
     <div class="mz-user-items__summary-menu">
       <div class="summary-menu__items-counter">
+        <div class="summary-menu__toggle-button"
+             @click="toggleView()"
+             :class="{
+                  'icon-tile--green': isListViewOn,
+                  'icon-list--green': !isListViewOn
+                   }"></div>
+
         <mz-summary-item v-for="(summaryItem, i) in summaryList"
                          :summary-label="summaryItem"
                          :key="i">
@@ -93,7 +94,16 @@ export default class mzUserItems extends Vue {
 }
 </script>
 
+<style lang="scss">
 
+.el-select {
+  .el-input.is-focus .el-input__inner,
+  .el-input__inner:focus {
+    border-color: var(--primary-color);
+  }
+}
+
+</style>
 <style lang="scss"
        scoped>
 
@@ -115,6 +125,15 @@ export default class mzUserItems extends Vue {
     .summary-menu {
       &__items-counter {
         display: flex;
+      }
+
+      &__toggle-button {
+        width: 2rem;
+        height: 2rem;
+        align-self: center;
+        margin-right: 1rem;
+        cursor: pointer;
+        transition: .3s;
       }
 
       &__category-select {

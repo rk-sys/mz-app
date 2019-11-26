@@ -1,4 +1,14 @@
 .icon {
+  &-list--green {
+    background: url("~@/assets/icons/list/list--green.svg") no-repeat center;
+    background-size: contain;
+  }
+
+  &-tile--green {
+    background: url("~@/assets/icons/tile/tile--green.svg") no-repeat center;
+    background-size: contain;
+  }
+
   &-pin--green {
     background: url("~@/assets/icons/pin/pin--green.svg") no-repeat center;
     background-size: contain;

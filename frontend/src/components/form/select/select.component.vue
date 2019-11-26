@@ -24,9 +24,9 @@ export default class mzSelect extends Mixins(mzTransparentWrapper) {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss"
+       scoped>
 
-/*@import url("//unpkg.com/element-ui@2.12.0/lib/theme-chalk/index.css");*/
 @import '~element-ui/lib/theme-chalk/select.css';
 
 </style>
