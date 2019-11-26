@@ -17,6 +17,7 @@ import { i18n, loadTranslationsAsync } from '@/i18n/i18n';
 import Store                           from '@/store/store';
 import { Route }                       from 'vue-router';
 import mzUserAccountModule             from '../../store/user-account.module';
+import { IUserItem }                   from '../../store/user-account.interface';
 
 const LOCAL_STORE = 'userAccount';
 const local = namespace(LOCAL_STORE);
@@ -25,11 +26,11 @@ const local = namespace(LOCAL_STORE);
   components: {},
 })
 export default class mzSummaryItem extends Vue {
-  @local.State((state: mzUserAccountModule) => state.mzItems) public items!: any;
-  @Prop(String) public summaryLabel!: any;
+  @local.State((state: mzUserAccountModule) => state.mzItems) public items!: IUserItem[];
+  @Prop(String) public summaryLabel!: string;
 
-  public filterUserItems(arg: string) {
-    const filteredItems = this.items.filter((item: any) => item.status === arg);
+  public filterUserItems(arg: string): number {
+    const filteredItems = this.items.filter((item: IUserItem) => item.status === arg);
     return filteredItems.length;
   }
 

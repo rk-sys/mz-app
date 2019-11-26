@@ -65,12 +65,13 @@ import { Component, Vue, Prop }        from 'vue-property-decorator';
 import { i18n, loadTranslationsAsync } from '@/i18n/i18n';
 import Store                           from '@/store/store';
 import { Route }                       from 'vue-router';
+import { IUserItem }                   from '@/views/user-account/store/user-account.interface';
 
 @Component({
   components: {},
 })
 export default class mzUserItems extends Vue {
-  @Prop(Object) public item!: any;
+  @Prop(Object) public item!: IUserItem;
   @Prop(Boolean) public isListViewOn!: boolean;
 
   private async beforeRouteEnter(to: Route, from: Route, next: any) {

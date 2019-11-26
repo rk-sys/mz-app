@@ -54,6 +54,7 @@ import mzSelect                        from '@/components/form/select/select.com
 import mzOption                        from '@/components/form/option/option.component.vue';
 import mzIconsBox                      from '@/components/icons-box/icons-box.component.vue';
 import mzSwitch                        from '@/components/form/switch/switch.component.vue';
+import { IUserItem }                   from '@/views/user-account/store/user-account.interface';
 
 const LOCAL_STORE = 'userAccount';
 const local = namespace(LOCAL_STORE);
@@ -69,7 +70,7 @@ const local = namespace(LOCAL_STORE);
   },
 })
 export default class mzUserItems extends Vue {
-  @local.State((state: mzUserAccountModule) => state.mzItems) public items!: any;
+  @local.State((state: mzUserAccountModule) => state.mzItems) public items!: IUserItem[];
   @local.Action public getUserItems!: (arg: string) => void;
   public summaryList: string[] = [ 'active', 'in-progress', 'ended', 'all' ];
   public selectValue: string = '';
