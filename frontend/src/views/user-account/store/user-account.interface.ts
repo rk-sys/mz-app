@@ -50,3 +50,16 @@ export interface IContact {
   type: string;
   icon: string;
 }
+
+export interface IUserItem {
+  avatar: string;
+  description: string;
+  name: string;
+  price: number;
+  status: string;
+}
+
+export interface IUserItemStatus {
+  items: IUserItem[];
+  status: string;
+}

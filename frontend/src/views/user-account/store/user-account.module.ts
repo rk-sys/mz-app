@@ -10,7 +10,7 @@ import {
   IUserInfo,
   IUserPasswordForm,
   IUserDisplayDescriptionForm,
-  IUserDisplayTagsForm, IContact, IUserDisplayContactForm,
+  IUserDisplayTagsForm, IContact, IUserDisplayContactForm, IUserItem, IUserItemStatus,
 }                                               from '@/views/user-account/store/user-account.interface';
 import Notification                             from '@/components/notification/notifications';
 import { i18n }                                 from '@/i18n/i18n';
@@ -22,7 +22,7 @@ import 'firebase/firestore';
 export default class mzUserAccountModule extends VuexModule {
   public mzUserAccountMenuState: IUserAccountMenu = cloneDeep(userAccountMenu);
   public mzContactList: IContact[] = cloneDeep(contactList);
-  public mzItems: any = [];
+  public mzItems: IUserItem[] = [];
 
   public mzUserDisplayNameForm: IUserDisplayNameForm = {
     displayName: '',
@@ -106,11 +106,11 @@ export default class mzUserAccountModule extends VuexModule {
   }
 
   @Mutation
-  public setUserItems(payload: any): void {
+  public setUserItems(payload: IUserItemStatus): void {
     this.mzItems =
       payload.status === 'all' ?
-        payload.data.items :
-        payload.data.items.filter((item: any) => item.status === payload.status);
+        payload.items :
+        payload.items.filter((item: IUserItem) => item.status === payload.status);
   }
 
   @Action
@@ -299,7 +299,7 @@ export default class mzUserAccountModule extends VuexModule {
   public async getUserItems(status: string): Promise<void> {
     try {
       const { data } = await userAccountService.getUserItems();
-      await this.context.commit('setUserItems', { data, status });
+      await this.context.commit('setUserItems', { ...data, status });
     } catch (e) {
       throw Error(e);
     }
