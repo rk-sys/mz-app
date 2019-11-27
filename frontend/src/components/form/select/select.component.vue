@@ -24,9 +24,18 @@ export default class mzSelect extends Mixins(mzTransparentWrapper) {
 }
 </script>
 
-<style lang="scss"
-       scoped>
+<style lang="scss">
 
 @import '~element-ui/lib/theme-chalk/select.css';
 
+.el-select-dropdown {
+  .mz-option {
+    color: var(--black);
+
+    &:hover {
+      background: var(--primary-color);
+      color: var(--white);
+    }
+  }
+}
 </style>

@@ -110,6 +110,7 @@ export default class mzUserItems extends Vue {
 
 .mz-user-items {
   margin-left: 10rem;
+  margin-bottom: 5rem;
   width: 80rem;
 
   &__list-view-switcher {

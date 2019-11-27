@@ -219,10 +219,10 @@ export default class mzUserAccountModule extends VuexModule {
 
     docRef.get().then((doc) => {
       if (doc.exists) {
+
         this.context.commit('setAccountDetails', doc.data());
       }
     }).catch((error) => {
-      console.log('Error getting document:', error);
       Notification.errorNotification(i18n.t(`notification.error`) as string, i18n.t(`notification.somethingWrong`) as string);
     });
   }
@@ -244,8 +244,8 @@ export default class mzUserAccountModule extends VuexModule {
         docRef.set(this.mzUserDisplayDescriptionForm);
       }
     }).catch((error) => {
-      console.log('Error getting document:', error);
       Notification.errorNotification(i18n.t(`notification.error`) as string, i18n.t(`notification.somethingWrong`) as string);
+      throw new Error(error);
     });
   }
 
@@ -266,8 +266,8 @@ export default class mzUserAccountModule extends VuexModule {
         docRef.set(this.mzUserDisplayTagsForm);
       }
     }).catch((error) => {
-      console.log('Error getting document:', error);
       Notification.errorNotification(i18n.t(`notification.error`) as string, i18n.t(`notification.somethingWrong`) as string);
+      throw new Error(error);
     });
   }
 
@@ -290,8 +290,8 @@ export default class mzUserAccountModule extends VuexModule {
         docRef.set(this.mzUserDisplayContactForm);
       }
     }).catch((error) => {
-      console.log('Error getting document:', error);
       Notification.errorNotification(i18n.t(`notification.error`) as string, i18n.t(`notification.somethingWrong`) as string);
+      throw new Error(error);
     });
   }
 
