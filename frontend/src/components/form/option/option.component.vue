@@ -22,18 +22,13 @@ export default class mzOption extends Mixins(mzTransparentWrapper) {
 </script>
 
 
-<style lang="scss"
-       scoped>
+<style lang="scss">
 
 @import '~element-ui/lib/theme-chalk/option.css';
+
 .el-select-dropdown {
   &__item.selected {
-    color: var(--secondary-color);
-  }
-  &.is-multiple {
-    .el-select-dropdown__item.selected {
-      color: var(--secondary-color);
-    }
+    color: var(--primary-color);
   }
 }
 

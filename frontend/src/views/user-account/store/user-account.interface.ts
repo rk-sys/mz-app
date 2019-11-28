@@ -39,14 +39,27 @@ export interface IUserDisplayTagsForm {
 }
 
 export interface IUserDisplayContactForm {
-  phone: string,
-  email: string,
-  facebook: string,
-  website: string,
-  address: string,
+  phone: string;
+  email: string;
+  facebook: string;
+  website: string;
+  address: string;
 }
 
 export interface IContact {
   type: string;
   icon: string;
+}
+
+export interface IUserItem {
+  avatar: string;
+  description: string;
+  name: string;
+  price: number;
+  status: string;
+}
+
+export interface IUserItemStatus {
+  items: IUserItem[];
+  status: string;
 }

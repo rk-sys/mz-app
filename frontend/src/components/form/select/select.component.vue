@@ -12,7 +12,7 @@
 <script lang="ts">
 import { Component, Mixins } from 'vue-property-decorator';
 import ElSelect              from 'element-ui/lib/select.js';
-import mzTransparentWrapper   from '@/components/transparent-component.mixin';
+import mzTransparentWrapper  from '@/components/transparent-component.mixin';
 
 @Component({
   components: {
@@ -24,16 +24,17 @@ export default class mzSelect extends Mixins(mzTransparentWrapper) {
 }
 </script>
 
-<style lang="scss"
-       scoped>
+<style lang="scss">
 
 @import '~element-ui/lib/theme-chalk/select.css';
 
-.el-select {
-  /deep/ {
-    .el-input.is-focus .el-input__inner,
-    .el-input__inner:focus {
-      border-color: var(--secondary-color);
+.el-select-dropdown {
+  .mz-option {
+    color: var(--black);
+
+    &:hover {
+      background: var(--primary-color);
+      color: var(--white);
     }
   }
 }

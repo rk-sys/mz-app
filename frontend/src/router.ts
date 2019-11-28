@@ -48,6 +48,11 @@ const router = new Router({
           name: 'User account information',
           component: () => import('./views/user-account/user-account-info/user-account-info.view.vue'),
         },
+        {
+          path: 'items',
+          name: 'User items',
+          component: () => import('./views/user-account/user-items/user-items.view.vue'),
+        },
       ],
     },
     {

@@ -2,6 +2,7 @@ export default {
   links: {
     editProfile: 'Edytuj profil',
     accountInformation: 'Informacje ogólne',
+    items: 'Moje przedmioty',
     message: 'Wiadomości',
     calendar: 'Kalendarz',
   },

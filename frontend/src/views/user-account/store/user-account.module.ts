@@ -10,17 +10,19 @@ import {
   IUserInfo,
   IUserPasswordForm,
   IUserDisplayDescriptionForm,
-  IUserDisplayTagsForm, IContact, IUserDisplayContactForm,
+  IUserDisplayTagsForm, IContact, IUserDisplayContactForm, IUserItem, IUserItemStatus,
 }                                               from '@/views/user-account/store/user-account.interface';
 import Notification                             from '@/components/notification/notifications';
 import { i18n }                                 from '@/i18n/i18n';
-import firebase                                 from 'firebase';
+import firebase                                 from 'firebase/app';
 import 'firebase/storage';
+import 'firebase/firestore';
 
 @Module({ namespaced: true, stateFactory: true })
 export default class mzUserAccountModule extends VuexModule {
   public mzUserAccountMenuState: IUserAccountMenu = cloneDeep(userAccountMenu);
   public mzContactList: IContact[] = cloneDeep(contactList);
+  public mzItems: IUserItem[] = [];
 
   public mzUserDisplayNameForm: IUserDisplayNameForm = {
     displayName: '',
@@ -101,6 +103,14 @@ export default class mzUserAccountModule extends VuexModule {
       email: payload.email,
       uid: payload.uid,
     };
+  }
+
+  @Mutation
+  public setUserItems(payload: IUserItemStatus): void {
+    this.mzItems =
+      payload.status === 'all' ?
+        payload.items :
+        payload.items.filter((item: IUserItem) => item.status === payload.status);
   }
 
   @Action
@@ -209,10 +219,10 @@ export default class mzUserAccountModule extends VuexModule {
 
     docRef.get().then((doc) => {
       if (doc.exists) {
+
         this.context.commit('setAccountDetails', doc.data());
       }
     }).catch((error) => {
-      console.log('Error getting document:', error);
       Notification.errorNotification(i18n.t(`notification.error`) as string, i18n.t(`notification.somethingWrong`) as string);
     });
   }
@@ -234,8 +244,8 @@ export default class mzUserAccountModule extends VuexModule {
         docRef.set(this.mzUserDisplayDescriptionForm);
       }
     }).catch((error) => {
-      console.log('Error getting document:', error);
       Notification.errorNotification(i18n.t(`notification.error`) as string, i18n.t(`notification.somethingWrong`) as string);
+      throw new Error(error);
     });
   }
 
@@ -256,8 +266,8 @@ export default class mzUserAccountModule extends VuexModule {
         docRef.set(this.mzUserDisplayTagsForm);
       }
     }).catch((error) => {
-      console.log('Error getting document:', error);
       Notification.errorNotification(i18n.t(`notification.error`) as string, i18n.t(`notification.somethingWrong`) as string);
+      throw new Error(error);
     });
   }
 
@@ -280,8 +290,18 @@ export default class mzUserAccountModule extends VuexModule {
         docRef.set(this.mzUserDisplayContactForm);
       }
     }).catch((error) => {
-      console.log('Error getting document:', error);
       Notification.errorNotification(i18n.t(`notification.error`) as string, i18n.t(`notification.somethingWrong`) as string);
+      throw new Error(error);
     });
+  }
+
+  @Action
+  public async getUserItems(status: string): Promise<void> {
+    try {
+      const { data } = await userAccountService.getUserItems();
+      await this.context.commit('setUserItems', { ...data, status });
+    } catch (e) {
+      throw Error(e);
+    }
   }
 }

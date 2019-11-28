@@ -8,7 +8,7 @@
 
 <script lang="ts">
 import { Component, Mixins } from 'vue-property-decorator';
-import mzTransparentWrapper   from 'src/components/transparent-component.mixin';
+import mzTransparentWrapper  from '@/components/transparent-component.mixin';
 import ElSwitch              from 'element-ui/lib/switch.js';
 
 @Component({
