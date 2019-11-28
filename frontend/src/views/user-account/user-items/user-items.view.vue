@@ -4,14 +4,12 @@
       <div class="summary-menu__items-counter">
         <div class="summary-menu__toggle-button"
              @click="toggleView()"
-             :class="{
-                  'icon-tile--green': isListViewOn,
-                  'icon-list--green': !isListViewOn
-                   }"></div>
+             :class="{ 'icon-tile--green': isListViewOn,
+                       'icon-list--green': !isListViewOn }"></div>
 
-        <mz-summary-item v-for="(summaryItem, i) in summaryList"
+        <mz-summary-item v-for="(summaryItem, index) in summaryList"
                          :summary-label="summaryItem"
-                         :key="i">
+                         :key="index">
         </mz-summary-item>
       </div>
 
@@ -33,10 +31,10 @@
     <div class="mz-user-items__items-wrapper"
          :class="{ 'mz-user-items__items-wrapper--list-view': isListViewOn }">
 
-      <mz-user-item v-for="(item, j) in items"
+      <mz-user-item v-for="(item, index) in items"
                     :isListViewOn="isListViewOn"
                     :item="item"
-                    :key="j" />
+                    :key="index" />
     </div>
   </div>
 </template>
@@ -47,7 +45,7 @@ import { namespace }                   from 'vuex-class';
 import { i18n, loadTranslationsAsync } from '@/i18n/i18n';
 import Store                           from '@/store/store';
 import { Route }                       from 'vue-router';
-import mzUserAccountModule             from '../store/user-account.module';
+import mzUserAccountModule             from '@/views/user-account/store/user-account.module';
 import mzUserItem                      from './components/user-item.component.vue';
 import mzSummaryItem                   from '@/views/user-account/user-items/components/summary-item.component.vue';
 import mzSelect                        from '@/components/form/select/select.component.vue';

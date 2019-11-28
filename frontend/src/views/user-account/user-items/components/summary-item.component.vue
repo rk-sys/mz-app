@@ -13,11 +13,8 @@
 <script lang="ts">
 import { Component, Vue, Prop }        from 'vue-property-decorator';
 import { namespace }                   from 'vuex-class';
-import { i18n, loadTranslationsAsync } from '@/i18n/i18n';
-import Store                           from '@/store/store';
-import { Route }                       from 'vue-router';
-import mzUserAccountModule             from '../../store/user-account.module';
-import { IUserItem }                   from '../../store/user-account.interface';
+import mzUserAccountModule             from '@/views/user-account/store/user-account.module';
+import { IUserItem }                   from '@/views/user-account/store/user-account.interface';
 
 const LOCAL_STORE = 'userAccount';
 const local = namespace(LOCAL_STORE);
@@ -32,19 +29,6 @@ export default class mzSummaryItem extends Vue {
   public filterUserItems(arg: string): number {
     const filteredItems = this.items.filter((item: IUserItem) => item.status === arg);
     return filteredItems.length;
-  }
-
-  private async beforeRouteEnter(to: Route, from: Route, next: any) {
-    const lang = Store.state.global.defaultLang;
-
-    try {
-      await loadTranslationsAsync(lang, import(`../i18n/${lang}`));
-
-      next();
-    } catch (e) {
-      next(false);
-      throw new Error(e);
-    }
   }
 }
 </script>
