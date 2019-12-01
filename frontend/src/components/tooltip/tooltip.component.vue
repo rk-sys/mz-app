@@ -29,4 +29,7 @@ export default class mzTooltip extends Mixins(mzTransparentWrapper) {
 
 @import '~element-ui/lib/theme-chalk/tooltip.css';
 
+.mz-tooltip {
+  margin-left: .5rem;
+}
 </style>

@@ -22,6 +22,10 @@ export const userAccountMenu: IUserAccountMenu = {
       nameUrl: 'User items',
     },
     {
+      label: 'addItem',
+      nameUrl: 'General info',
+    },
+    {
       label: 'message',
       nameUrl: 'Login',
     },

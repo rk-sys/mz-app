@@ -118,7 +118,7 @@ export default class mzUserAccountMenu extends Vue {
 }
 
 .user-account-menu {
-  max-width: 20rem;
+  width: 19rem;
 
   &__info {
     display: flex;
@@ -188,8 +188,8 @@ export default class mzUserAccountMenu extends Vue {
       font-size: 1.8rem;
       color: var(--gray-950);
       text-decoration: none;
-      margin-bottom: 2.5rem;
-      font-weight: var(--font-regular);
+      margin-bottom: 2rem;
+      font-weight: var(--font-medium);
       display: inline-block;
       padding: .5rem 0;
       border-bottom: 2px solid var(--transparent);

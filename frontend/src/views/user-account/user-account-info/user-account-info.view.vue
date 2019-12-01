@@ -141,7 +141,7 @@ export default class mzUserAccountInfo extends Vue {
     }
   }
 
-  public removeTag(index: number) {
+  public removeTag(index: number): void {
     this.removeTagFromList(index);
   }
 
@@ -206,9 +206,9 @@ export default class mzUserAccountInfo extends Vue {
       margin: 2rem 0;
 
       &__add-btn {
-        color: var(--white);
-        background-color: var(--primary-color);
+        color: var(--primary-color);
         border: 0.2rem solid var(--primary-color);
+        background-color: var(--white);
         border-radius: 50%;
         height: 2.5rem;
         width: 2.5rem;
@@ -221,9 +221,9 @@ export default class mzUserAccountInfo extends Vue {
         transition: .4s;
 
         &:hover {
-          color: var(--primary-color);
+          color: var(--white);
+          background-color: var(--primary-color);
           border: 0.2rem solid var(--primary-color);
-          background-color: var(--white);
         }
       }
 

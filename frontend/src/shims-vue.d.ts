@@ -34,4 +34,5 @@ declare module 'element-ui/lib/locale';
 declare module 'element-ui/lib/checkbox.js';
 declare module 'element-ui/lib/checkbox-group.js';
 declare module 'element-ui/lib/upload.js';
+declare module 'element-ui/lib/steps.js';
 declare module 'element-ui/lib/tooltip.js';

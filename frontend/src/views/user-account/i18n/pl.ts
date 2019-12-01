@@ -4,6 +4,7 @@ export default {
     accountInformation: 'Informacje ogólne',
     items: 'Moje przedmioty',
     message: 'Wiadomości',
+    addItem: 'Wystaw przedmiot',
     calendar: 'Kalendarz',
   },
   notification: {

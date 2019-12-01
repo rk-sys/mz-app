@@ -1,6 +1,8 @@
 <template>
   <div class="box-with-title">
-    <span class="box-with-title__text">
+    <div class="box-with-title__text"
+         v-if="title">
+
       {{title}}
 
       <mz-tooltip :content="tooltipMessage"
@@ -13,7 +15,7 @@
       <span v-if="subTitle"
             class="subtitle"
             :class="{'subtitle--error': !addColor}">( {{subTitle}} )</span>
-    </span>
+    </div>
 
     <slot></slot>
   </div>
@@ -45,13 +47,15 @@ export default class mzBoxWithTitle extends Vue {
   margin-bottom: 5rem;
 
   &__text {
-    display: block;
+    display: flex;
     padding: 1rem 0;
     font-weight: 500;
     font-size: 2.2rem;
     margin: 0 3rem;
+    align-items: center;
 
     .subtitle {
+      margin-left: 1rem;
       font-size: 1.4rem;
       color: var(--gray-450);
     }

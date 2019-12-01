@@ -194,13 +194,43 @@
     background-size: contain;
   }
 
+  &-sword--white {
+    background: url("~@/assets/icons/sword/sword--white.svg") no-repeat center;
+    background-size: contain;
+  }
+
+  &-sword--gray {
+    background: url("~@/assets/icons/sword/sword--gray.svg") no-repeat center;
+    background-size: contain;
+  }
+
   &-armor {
     background: url("~@/assets/icons/armor/armor.svg") no-repeat center;
     background-size: contain;
   }
 
+  &-armor--white {
+    background: url("~@/assets/icons/armor/armor--white.svg") no-repeat center;
+    background-size: contain;
+  }
+
+  &-armor--gray {
+    background: url("~@/assets/icons/armor/armor--gray.svg") no-repeat center;
+    background-size: contain;
+  }
+
   &-masks {
     background: url("~@/assets/icons/masks/masks.svg") no-repeat center;
+    background-size: contain;
+  }
+
+  &-masks--white {
+    background: url("~@/assets/icons/masks/masks--white.svg") no-repeat center;
+    background-size: contain;
+  }
+
+  &-masks--gray {
+    background: url("~@/assets/icons/masks/masks--gray.svg") no-repeat center;
     background-size: contain;
   }
 
@@ -214,9 +244,33 @@
     background-size: contain;
   }
 
+  &-tunic--white {
+    background: url("~@/assets/icons/tunic/tunic--white.svg") no-repeat center;
+    background-size: contain;
+  }
+
+  &-tunic--gray {
+    background: url("~@/assets/icons/tunic/tunic--gray.svg") no-repeat center;
+    background-size: contain;
+  }
+
   &-spray {
     background: url("~@/assets/icons/tunic/tunic.svg") no-repeat center;
     background-size: contain;
   }
 
+  &-success-green {
+    background: url("~@/assets/icons/success/success-fill.svg") no-repeat center;
+    background-size: contain;
+  }
+
+  &-upload {
+    background: url("~@/assets/icons/upload/upload.svg") no-repeat center;
+    background-size: contain;
+  }
+
+  &-empty {
+    background: url("~@/assets/icons/empty/empty.svg") no-repeat center;
+    background-size: contain;
+  }
 }

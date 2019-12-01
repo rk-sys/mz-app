@@ -27,7 +27,6 @@ export default class mzRadioGroup extends Mixins(mzTransparentWrapper) {
        scoped>
 @import '~element-ui/lib/theme-chalk/radio-group.css';
 
-/deep/ {
   .el-radio__input {
     &.is-checked {
       .el-radio__inner {
@@ -36,5 +35,4 @@ export default class mzRadioGroup extends Mixins(mzTransparentWrapper) {
       }
     }
   }
-}
 </style>

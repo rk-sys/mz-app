@@ -30,6 +30,7 @@ export default class mzFormItem extends Mixins(mzTransparentWrapper) {
 
   .el-form-item__content {
     line-height: 1rem;
+    width: 100%;
   }
 
   .el-form-item__label {
