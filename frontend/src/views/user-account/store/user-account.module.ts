@@ -62,6 +62,27 @@ export default class mzUserAccountModule extends VuexModule {
     return this.mzUserAccountMenuState.userInfo;
   }
 
+  get accountProgress(): number {
+    let percentage = 0;
+    const list = [
+      this.mzUserDisplayDescriptionForm.description,
+      this.mzUserDisplayTagsForm.tagList,
+      this.mzUserDisplayContactForm.phone,
+      this.mzUserDisplayContactForm.phone,
+      this.mzUserDisplayContactForm.email,
+      this.mzUserDisplayContactForm.facebook,
+      this.mzUserDisplayContactForm.website,
+      this.mzUserDisplayContactForm.address,
+    ];
+    const partialValue = 100 / list.length;
+    list.forEach(element => {
+      if (element.length) {
+        percentage += partialValue;
+      }
+    });
+    return percentage;
+  }
+
   @Mutation
   public addTagToList(payload: string): void {
     this.mzUserDisplayTagsForm.tagList.push(payload);

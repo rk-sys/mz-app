@@ -36,3 +36,5 @@ declare module 'element-ui/lib/checkbox-group.js';
 declare module 'element-ui/lib/upload.js';
 declare module 'element-ui/lib/steps.js';
 declare module 'element-ui/lib/tooltip.js';
+declare module 'element-ui/lib/progress.js';
+
