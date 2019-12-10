@@ -1,5 +1,7 @@
 <template>
   <div class="mz-user-account-info">
+    <mz-progress :percentage="accountProgress" />
+
     <mz-box-with-title :title="$t(`boxTitle.description`)"
                        :tooltip-message="$t(`tooltip.description`)"
                        :hint="true">
@@ -85,7 +87,7 @@
 <script lang="ts">
 import { Component, Vue }                                    from 'vue-property-decorator';
 import { registerStoreModule }                               from '@/helpers/helpers';
-import { namespace }                                         from 'vuex-class';
+import { namespace, Getter }                                 from 'vuex-class';
 import { i18n, loadTranslationsAsync }                       from '@/i18n/i18n';
 import Store                                                 from '@/store/store';
 import { Route }                                             from 'vue-router';
@@ -101,6 +103,7 @@ import mzUpload                                              from '@/components/
 import mzTag                                                 from '@/components/tag/tag.component.vue';
 import mzContact                                             from './components/contact.component.vue';
 import { IUserDisplayDescriptionForm, IUserDisplayTagsForm } from '@/views/user-account/store/user-account.interface';
+import mzProgress                                            from '@/components/progress/progress.component.vue';
 
 const LOCAL_STORE = 'userAccount';
 const local = namespace(LOCAL_STORE);
@@ -115,9 +118,11 @@ const local = namespace(LOCAL_STORE);
     mzUpload,
     mzTag,
     mzContact,
+    mzProgress,
   },
 })
 export default class mzUserAccountInfo extends Vue {
+  @local.Getter public accountProgress!: () => number;
   @local.State((state: mzUserAccountModule) => state.mzUserDisplayTagsForm) public displayTagsForm!: IUserDisplayTagsForm;
   @local.State((state: mzUserAccountModule) => state.mzUserDisplayDescriptionForm) public displayDescriptionForm!: IUserDisplayDescriptionForm;
   @local.Mutation public addTagToList!: (arg: string) => void;
