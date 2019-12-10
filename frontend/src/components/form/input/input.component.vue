@@ -28,12 +28,19 @@ export default class mzInput extends Mixins(mzTransparentWrapper) {
 
 @import '~element-ui/lib/theme-chalk/input.css';
 
+
 .mz-input {
   .el-input__inner {
     box-shadow: inset 10rem 10rem var(--transparent);
     border: none;
     background: var(--transparent);
     padding: 0;
+  }
+
+  .el-input.is-disabled {
+    .el-input__inner {
+      background: var(--gray-100);
+    }
   }
 }
 </style>

@@ -193,6 +193,7 @@ export default class mzUserAccountModule extends VuexModule {
             email: response.email,
             uid: response.uid,
           };
+
           this.context.commit('setCurrentUser', { currentUser }, { root: true });
           this.context.commit('setUserInfo', currentUser);
         }

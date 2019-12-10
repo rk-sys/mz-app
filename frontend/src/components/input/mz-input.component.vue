@@ -1,6 +1,7 @@
 <template>
   <div class="mz-input">
     <div class="mz-input__container">
+
       <mz-input class="mz-input__container__box"
                 :id="id"
                 :show-password="isPassword"
@@ -9,17 +10,20 @@
                 @input="emit"
                 @focus="changeInputStyle"
                 @blur="changeInputStyle"
+                :disabled="disabled"
                 required>
       </mz-input>
 
       <label class="mz-input__container__label"
+             :for="id"
              :class="{'set-top-label': greenInput || value !== '',
-				    		'error-text': error}"
-             :for="id">{{holder}}</label>
+                      'disabled': disabled,
+				    		      'error-text': error}">
+        {{holder}}</label>
 
       <div class="mz-input__container__border"
            :class="{'show-border': greenInput,
-				    	  'error-border': error}"></div>
+				    	      'error-border': error}"></div>
 
     </div>
   </div>
@@ -41,8 +45,9 @@ export default class Home extends Vue {
   @Prop(String) public readonly type!: string;
   @Prop(String) public readonly value!: string;
   @Prop(Boolean) public readonly error!: boolean;
+  @Prop(Boolean) public readonly disabled!: boolean;
 
-  public greenInput = false;
+  public greenInput: boolean = false;
 
   public changeInputStyle() {
     this.greenInput = !this.greenInput;
@@ -93,7 +98,7 @@ export default class Home extends Vue {
       font-size: 1.6rem;
       font-weight: 400;
       z-index: 0;
-      transition: all 0.2s ease-in-out;
+      transition: all .2s ease-in-out;
       color: var(--gray-700);
     }
 
@@ -103,7 +108,7 @@ export default class Home extends Vue {
       top: -.2rem;
       left: .5rem;
       font-size: 1.2rem;
-      transition: all 0.2s ease-in-out;
+      transition: all .2s ease-in-out;
     }
 
     &__border {
@@ -121,6 +126,11 @@ export default class Home extends Vue {
 
     .show-border {
       transform: scaleX(1);
+    }
+
+    .disabled {
+      z-index: 3;
+      cursor: not-allowed;
     }
 
     .error-text {

@@ -75,7 +75,6 @@ export default class mzUserAccountModule extends VuexModule {
   @Action
   public goToStep1() {
     this.context.commit('setNumberOfActiveStep', 0);
-    router.push({ name: 'General info' });
   }
 
   @Action
@@ -84,19 +83,16 @@ export default class mzUserAccountModule extends VuexModule {
       && this.newItem.mainCategory !== ''
       && this.newItem.mainRange !== '') {
       this.context.commit('setNumberOfActiveStep', 1);
-      router.push({ name: 'Item description' });
     }
   }
 
   @Action
   public goToStep3() {
     this.context.commit('setNumberOfActiveStep', 2);
-    router.push({ name: 'Upload pictures' });
   }
 
   @Action
   public goToStep4() {
     this.context.commit('setNumberOfActiveStep', 3);
-    router.push({ name: 'Item summary' });
   }
 }

@@ -11,10 +11,10 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue, Prop }        from 'vue-property-decorator';
-import { namespace }                   from 'vuex-class';
-import mzUserAccountModule             from '@/views/user-account/store/user-account.module';
-import { IUserItem }                   from '@/views/user-account/store/user-account.interface';
+import { Component, Vue, Prop } from 'vue-property-decorator';
+import { namespace }            from 'vuex-class';
+import mzUserAccountModule      from '@/views/user-account/store/user-account.module';
+import { IUserItem }            from '@/views/user-account/store/user-account.interface';
 
 const LOCAL_STORE = 'userAccount';
 const local = namespace(LOCAL_STORE);

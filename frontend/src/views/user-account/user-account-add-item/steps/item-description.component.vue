@@ -18,7 +18,7 @@
             <mz-input :holder="$t(`itemDescription.form.addTitle`)"
                       :is-password="false"
                       id="title"
-                      v-model="newItem.title"></mz-input>
+                      v-model="newItem.title" />
           </mz-form-item>
         </div>
 
@@ -31,7 +31,26 @@
             <mz-input :holder="$t(`itemDescription.form.addPrice`)"
                       :is-password="false"
                       id="price"
-                      v-model="newItem.price"></mz-input>
+                      v-model.trim="newItem.price" />
+          </mz-form-item>
+        </div>
+
+        <div class="mz-item-description__form__container mz-item-description__form__container--gender">
+          <p class="label">{{ $t('itemDescription.form.currency') }}</p>
+
+          <mz-form-item class="form__container__item"
+                        prop="currency">
+
+            <mz-radio v-for="(option, index) in addItemGeneralInfo.currency"
+                      :key="index"
+                      v-model="newItem.currency"
+                      :label="option.label"
+                      class="gender-box">
+
+              <span class="main-category__text">
+                {{ $t(`itemDescription.form.${option.label}`) }}
+              </span>
+            </mz-radio>
           </mz-form-item>
         </div>
 
@@ -91,27 +110,33 @@
                         prop="description">
 
             <mz-input-textarea id="description"
-                               v-model="newItem.description"></mz-input-textarea>
+                               v-model="newItem.description" />
           </mz-form-item>
         </div>
       </mz-form>
     </mz-box-with-title>
 
     <mz-box-with-title :title="$t(`itemDescription.title.addTags`)"
+                       :sub-title="lengthOfTags() + $t('itemDescription.lengthOfTags')"
+                       :add-color="true"
                        :tooltip-message="$t(`tooltip.addTags`)"
                        :hint="true">
 
       <div class="mz-item-description__tags">
-        <p class="mz-item-description__tags__label">{{ $t('itemDescription.form.tags') }}</p>
+        <p class="mz-item-description__tags__label"
+           :class="{'disabled': disabledTags}">
+          {{ $t('itemDescription.form.tags') }}</p>
 
         <mz-input v-model="itemTag"
                   :holder="$t(`itemDescription.form.addTags`)"
                   id="itemTag"
+                  :disabled="disabledTags"
                   class="mz-item-description__tags__input"
                   @keyup.enter.native="addTag(itemTag)">
         </mz-input>
 
         <div class="mz-item-description__tags__add-btn"
+             v-if="!disabledTags"
              @click="addTag(itemTag)">
 
           +
@@ -160,6 +185,8 @@ import mzForm                                   from '@/components/form/form/for
 import mzBoxWithTitle                           from '@/components/box-with-title/box-with-title.component.vue';
 import mzTag                                    from '@/components/tag/tag.component.vue';
 import mzRadio                                  from '@/components/form/radio/radio.component.vue';
+import mzSelect                                 from '@/components/form/select/select.component.vue';
+import mzOption                                 from '@/components/form/option/option.component.vue';
 
 const LOCAL_STORE = 'addItem';
 const local = namespace(LOCAL_STORE);
@@ -169,6 +196,8 @@ const local = namespace(LOCAL_STORE);
     mzFormItem,
     mzInput,
     mzForm,
+    mzOption,
+    mzSelect,
     mzButton,
     mzBoxWithTitle,
     mzInputTextarea,
@@ -186,7 +215,9 @@ export default class mzUserAccount extends Vue {
   @local.Mutation public parsePrice!: (payload: string) => void;
   @local.Action public goToStep1!: () => void;
   @local.Action public goToStep3!: () => void;
+
   public itemTag: string = '';
+  public disabledTags: boolean = false;
 
   public formItemDescription: HTMLElement | null = null;
 
@@ -220,13 +251,23 @@ export default class mzUserAccount extends Vue {
 
   public removeTag(index: number): void {
     this.removeTagFromList(index);
+    this.checkDisabledTags();
   }
 
   public addTag(newTag: string): void {
-    if (newTag) {
+    if (newTag && this.newItem.tags.length < 11) {
       this.addTagToList(newTag);
       this.itemTag = '';
+      this.checkDisabledTags();
     }
+  }
+
+  public lengthOfTags(): number {
+    return this.newItem.tags.length;
+  }
+
+  public checkDisabledTags(): void {
+    this.disabledTags = this.newItem.tags.length === 10;
   }
 
   public goToNextStep(): void {

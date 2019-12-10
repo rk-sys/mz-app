@@ -48,7 +48,6 @@
       <div v-for="link in menuLinks"
            :key="link.label"
            class="user-account-menu__list__wrapper">
-
         <router-link :to="{name: link.nameUrl}"
                      class="user-account-menu__list__link">
 

@@ -40,11 +40,13 @@ export default class Home extends Vue {
 </script>
 
 <style lang="scss">
-.el-textarea__inner {
-  height: 20rem;
+.el-textarea {
+  .el-textarea__inner {
+    height: 20rem;
 
-  &:focus {
-    border: 2px solid var(--primary-color);
+    &:focus {
+      border: 2px solid var(--primary-color);
+    }
   }
 }
 

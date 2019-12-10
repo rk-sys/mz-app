@@ -1,7 +1,7 @@
 export default {
   links: {
+    editAccount: 'Edytuj konto',
     editProfile: 'Edytuj profil',
-    accountInformation: 'Informacje ogólne',
     items: 'Moje przedmioty',
     message: 'Wiadomości',
     addItem: 'Wystaw przedmiot',

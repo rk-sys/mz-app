@@ -19,7 +19,7 @@
 
             <textarea id="description"
                       class="form__container__profile-description"
-                      v-model="displayDescriptionForm.description"></textarea>
+                      v-model="displayDescriptionForm.description" />
           </mz-form-item>
         </div>
 
@@ -34,6 +34,8 @@
 
     <mz-box-with-title :title="$t(`boxTitle.tags.newTag`)"
                        :tooltip-message="$t(`tooltip.tags`)"
+                       :sub-title="lengthOfTags() + $t('boxTitle.tags.lengthOfTags')"
+                       :add-color="true"
                        :hint="true">
 
       <div class="mz-user-account-info__form">
@@ -42,11 +44,13 @@
 
           <mz-input v-model="userTag"
                     :holder="$t(`form.tag`)"
+                    :disabled="displayTagsForm.tagList.length >= 10"
                     @keyup.enter.native="addTag(userTag)">
 
           </mz-input>
 
-          <div class="form__container__add-btn"
+          <div v-if="!(displayTagsForm.tagList.length >= 10)"
+               class="form__container__add-btn"
                @click="addTag(userTag)">
 
             {{ $t(`removeButton`) }}
@@ -129,7 +133,9 @@ export default class mzUserAccountInfo extends Vue {
   @local.Mutation public removeTagFromList!: (arg: number) => void;
   @local.Action public updateTags!: () => void;
   @local.Action public updateDescription!: () => void;
+
   public userTag: string = '';
+  public disabledTagInput: boolean = false;
 
   public form: HTMLElement | null = null;
 
@@ -143,11 +149,17 @@ export default class mzUserAccountInfo extends Vue {
     if (userTag) {
       this.addTagToList(userTag);
       this.userTag = '';
+      this.checkDisabledTags();
     }
   }
 
   public removeTag(index: number): void {
     this.removeTagFromList(index);
+    this.checkDisabledTags();
+  }
+
+  public checkDisabledTags(): void {
+    this.disabledTagInput = this.displayTagsForm.tagList.length === 10;
   }
 
   public async updateAccountDescription() {
@@ -162,6 +174,10 @@ export default class mzUserAccountInfo extends Vue {
         return false;
       }
     });
+  }
+
+  public lengthOfTags(): number {
+    return this.displayTagsForm.tagList.length;
   }
 
   private async beforeRouteEnter(to: Route, from: Route, next: any) {
@@ -212,7 +228,7 @@ export default class mzUserAccountInfo extends Vue {
 
       &__add-btn {
         color: var(--primary-color);
-        border: 0.2rem solid var(--primary-color);
+        border: .2rem solid var(--primary-color);
         background-color: var(--white);
         border-radius: 50%;
         height: 2.5rem;
@@ -228,7 +244,7 @@ export default class mzUserAccountInfo extends Vue {
         &:hover {
           color: var(--white);
           background-color: var(--primary-color);
-          border: 0.2rem solid var(--primary-color);
+          border: .2rem solid var(--primary-color);
         }
       }
 

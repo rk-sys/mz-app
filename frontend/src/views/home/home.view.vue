@@ -9,7 +9,7 @@
     <div class="home__register">
       <p class="home__register__title">{{$t(`registerTitle`)}}!</p>
       <p class="home__register__info"
-         v-html="$t(`registerInfo`)"></p>
+         v-html="$t(`registerInfo`)" />
 
 
       <router-link class="home__register__button"
@@ -87,7 +87,7 @@ export default class yHome extends Vue {
       display: block;
       width: 20rem;
       height: 4rem;
-      border-radius: 0.2rem;
+      border-radius: .2rem;
       padding: 1rem 2rem;
       cursor: pointer;
       font-size: var(--font-size-16);

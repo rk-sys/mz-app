@@ -34,7 +34,10 @@ export default {
       noMatter: 'Nie dotyczy',
       new: 'Nowy',
       used: 'Używany',
+      currency: 'Waluta',
+      zl: 'zł',
     },
+    lengthOfTags: ' z 10',
   },
   uploadPicture: {
     title: 'Wrzuć zdjęcie przedmiotu',
@@ -93,6 +96,7 @@ export default {
     currency: 'zł',
     mainPicture: 'Główne zdjęcie',
     mainPictureEmpty: 'Brak zdjęcia głównego',
+    pictureSection: 'Galeria zdjęć',
   },
   notification: {
     success: 'Sukces!',

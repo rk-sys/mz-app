@@ -33,6 +33,6 @@ export default class mzNavBar extends Vue {
   justify-content: space-around;
   background: var(--white);
   box-shadow: 0 2px 3px 0 var(--gray-300);
-  z-index: 2;
+  z-index: 4;
 }
 </style>

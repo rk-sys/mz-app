@@ -4,6 +4,7 @@ export default {
     tags: {
       newTag: 'Tagi',
       activeTags: 'Aktywne tagi',
+      lengthOfTags: ' z 10',
     },
     contact: 'Kontakt',
   },

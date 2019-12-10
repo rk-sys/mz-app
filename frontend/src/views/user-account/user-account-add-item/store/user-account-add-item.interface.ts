@@ -1,6 +1,7 @@
 export interface IAddItemGeneralInfo {
   listOfMainRange: IAddItemList[];
   listOfCategory: IAddItemListOfCategory[];
+  currency: IAddItemList[];
   gender: IAddItemList[];
 }
 
@@ -26,6 +27,7 @@ export interface IAddItemNewItem {
   isNew: boolean;
   pictures: IAddItemPicture[];
   mainPicture: IAddItemPicture;
+  currency: string;
 }
 
 export interface IAddItemPicture {

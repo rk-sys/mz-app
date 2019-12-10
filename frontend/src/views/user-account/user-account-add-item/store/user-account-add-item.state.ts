@@ -12,6 +12,11 @@ export const addItemGeneralInfo: IAddItemGeneralInfo = {
       label: 'reconstruction',
     },
   ],
+  currency: [
+    {
+      label: 'zl',
+    },
+  ],
   gender: [
     {
       label: 'he',
@@ -167,4 +172,5 @@ export const newItem: IAddItemNewItem = {
     url: '',
     file: null,
   },
+  currency: 'zl',
 };

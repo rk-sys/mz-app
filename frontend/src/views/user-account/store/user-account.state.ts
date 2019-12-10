@@ -10,11 +10,11 @@ export const userAccountMenu: IUserAccountMenu = {
   },
   links: [
     {
-      label: 'editProfile',
+      label: 'editAccount',
       nameUrl: 'User account edit',
     },
     {
-      label: 'accountInformation',
+      label: 'editProfile',
       nameUrl: 'User account information',
     },
     {
@@ -23,7 +23,7 @@ export const userAccountMenu: IUserAccountMenu = {
     },
     {
       label: 'addItem',
-      nameUrl: 'General info',
+      nameUrl: 'Add item',
     },
     {
       label: 'message',

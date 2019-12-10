@@ -4,8 +4,36 @@
     <mz-steps :labels="['Informacje ogólne', 'Dodaj opis', 'Wrzuć zdjęcie', 'Podsumowanie'] "
               :active="activeNumber" />
 
-    <transition name="fade" mode="out-in">
-      <router-view />
+    <transition name="fade"
+                mode="out-in">
+
+      <template v-if="activeNumber === 0">
+        <mz-general-info />
+      </template>
+    </transition>
+
+    <transition name="fade"
+                mode="out-in">
+
+      <template v-if="activeNumber === 1">
+        <mz-item-description />
+      </template>
+    </transition>
+
+    <transition name="fade"
+                mode="out-in">
+
+      <template v-if="activeNumber === 2">
+        <mz-upload-pictures />
+      </template>
+    </transition>
+
+    <transition name="fade"
+                mode="out-in">
+
+      <template v-if="activeNumber === 3">
+        <mz-item-summary />
+      </template>
     </transition>
 
   </div>
@@ -20,21 +48,32 @@ import { loadTranslationsAsync } from '@/i18n/i18n';
 import { Route }                 from 'vue-router';
 import Store                     from '@/store/store';
 
-import mzAddItemModule from '@/views/user-account/user-account-add-item/store/user-account-add-item.module';
-import MzSteps         from '@/components/steps/steps.component.vue';
-import mzButton        from '@/components/buttons/button.component.vue';
+import mzAddItemModule   from '@/views/user-account/user-account-add-item/store/user-account-add-item.module';
+import mzSteps           from '@/components/steps/steps.component.vue';
+import mzItemSummary     from '@/views/user-account/user-account-add-item/steps/item-summary.component.vue';
+import mzGeneralInfo     from '@/views/user-account/user-account-add-item/steps/general-info.component.vue';
+import mzItemDescription from '@/views/user-account/user-account-add-item/steps/item-description.component.vue';
+import mzUploadPictures  from '@/views/user-account/user-account-add-item/steps/upload-pictures.component.vue';
+
 
 const LOCAL_STORE = 'addItem';
 const local = namespace(LOCAL_STORE);
 
 @Component({
   components: {
-    MzSteps,
-    mzButton,
+    mzSteps,
+    mzGeneralInfo,
+    mzItemDescription,
+    mzItemSummary,
+    mzUploadPictures,
   },
 })
 export default class mzUserAccount extends Vue {
   @local.State((state: mzAddItemModule) => state.numberOfActiveStep) public activeNumber!: number;
+
+  public destroyed(): void {
+    Store.unregisterModule(LOCAL_STORE);
+  }
 
   private async beforeRouteEnter(to: Route, from: Route, next: any) {
     const lang = Store.state.global.defaultLang;

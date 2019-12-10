@@ -57,28 +57,6 @@ const router = new Router({
           path: 'add-item',
           name: 'Add item',
           component: () => import('./views/user-account/user-account-add-item/user-account-add-item.view.vue'),
-          children: [
-            {
-              path: 'general-info',
-              name: 'General info',
-              component: () => import('./views/user-account/user-account-add-item/steps/general-info/general-info.view.vue'),
-            },
-            {
-              path: 'item-description',
-              name: 'Item description',
-              component: () => import('./views/user-account/user-account-add-item/steps/item-description/item-description.view.vue'),
-            },
-            {
-              path: 'upload-pictures',
-              name: 'Upload pictures',
-              component: () => import('./views/user-account/user-account-add-item/steps/upload-pictures/upload-pictures.view.vue'),
-            },
-            {
-              path: 'item-summary',
-              name: 'Item summary',
-              component: () => import('./views/user-account/user-account-add-item/steps/item-summary/item-summary.view.vue'),
-            },
-          ],
         },
       ],
     },

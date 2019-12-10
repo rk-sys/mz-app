@@ -28,6 +28,18 @@ export default class mzSelect extends Mixins(mzTransparentWrapper) {
 
 @import '~element-ui/lib/theme-chalk/select.css';
 
+.el-select .el-input.is-focus .el-input__inner:focus {
+    border-color: var(--primary-color);
+}
+
+.el-select .el-input.is-focus .el-input__inner {
+    border-color: var(--primary-color);
+}
+
+.el-select .el-input__inner:focus {
+    border-color: var(--primary-color);
+}
+
 .el-select-dropdown {
   .mz-option {
     color: var(--black);

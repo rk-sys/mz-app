@@ -4,13 +4,13 @@
 
     <div class="mz-user-item__background">
       <span class="mz-user-item__status"
-           :class="[ `mz-user-item__status--${ item.status }` ]">
+            :class="[ `mz-user-item__status--${ item.status }` ]">
 
         {{ $t(`item.status.${ item.status }`) }}
       </span>
 
       <span class="mz-user-item__price"
-           v-if="!isListViewOn">
+            v-if="!isListViewOn">
 
         {{ item.price }}$
       </span>

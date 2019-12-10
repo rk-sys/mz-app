@@ -25,7 +25,7 @@
       </div>
     </mz-box-with-title>
 
-    <mz-box-with-title>
+    <mz-box-with-title :title="$t(`itemSummary.pictureSection`)">
       <img class="mz-item-summary__big-picture"
            :src="newItem.mainPicture.url"
            v-if="url === '' && newItem.mainPicture.url"
@@ -65,10 +65,7 @@
       </div>
     </mz-box-with-title>
 
-    <mz-box-with-title>
-      <span class="mz-item-summary__description-label">
-        {{ $t(`itemDescription.title.description`) }}
-      </span>
+    <mz-box-with-title :title="$t(`itemDescription.title.description`)">
 
       <div class="mz-item-summary__item-description">
         {{ newItem.description }}
@@ -169,13 +166,10 @@ export default class mzItemSummary extends Vue {
     margin-top: 3rem;
   }
 
-  &__description-label {
-    font-size: 2.2rem;
-  }
-
   &__big-picture {
     width: 100%;
     height: 45rem;
+    padding: 0 3rem;
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -206,7 +200,7 @@ export default class mzItemSummary extends Vue {
 
   &__gallery {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
     margin: 4rem 0 2rem;
 
     &__picture-wrapper {
@@ -214,17 +208,20 @@ export default class mzItemSummary extends Vue {
     }
 
     &__small-picture {
-      width: 8.5rem;
-      height: 7.5rem;
+      width: 12.5rem;
+      height: 12.5rem;
       cursor: pointer;
 
       &:hover {
         transition: .2s;
-        border: .3rem solid var(--primary-color);
+        padding: 0.2rem;
+        border: .2rem dashed var(--primary-color);
       }
 
       &--select {
-        border: .3rem solid var(--primary-color);
+        border: .2rem dashed var(--primary-color);
+        padding: 0.2rem;
+        border-radius: 2px;
       }
     }
 
@@ -241,7 +238,7 @@ export default class mzItemSummary extends Vue {
   }
 
   &__item-description {
-    padding: 1.5rem 2rem;
+    padding: 1.5rem 3rem;
     line-height: 2.5rem;
     overflow-wrap: break-word;
   }
