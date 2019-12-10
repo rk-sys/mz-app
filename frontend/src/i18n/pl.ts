@@ -15,4 +15,15 @@ export default {
     signIn: 'Zaloguj się',
     signUp: 'Zarejestruj się',
   },
+  progressBar: {
+    profileEfficiency: 'Efektywność profilu:',
+    beginning: 'Poziom podstawowy',
+    middle: 'Poziom średniozaawansowany',
+    end: 'Poziom optymalny',
+    tooltip: {
+      beginning: 'Efektywność Twojego profilu jest na poziomie podstawowym',
+      middle: 'Efektywność Twojego profilu jest na poziomie średniozaawansowanym',
+      end: 'Efektywność Twojego profilu jest na poziomie optymalnym',
+    },
+  },
 };

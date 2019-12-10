@@ -1,7 +1,6 @@
 <template>
   <div class="mz-user-account-info">
-    <mz-progress :percentage="accountProgress"
-                 :format="format" />
+    <mz-progress :percentage="accountProgress" />
 
     <mz-box-with-title :title="$t(`boxTitle.description`)"
                        :tooltip-message="$t(`tooltip.description`)"
@@ -133,10 +132,6 @@ export default class mzUserAccountInfo extends Vue {
   public userTag: string = '';
 
   public form: HTMLElement | null = null;
-
-  public format(): string {
-    return (this.accountProgress as unknown) === 100 ? 'Complete' : `${this.accountProgress}%`;
-  }
 
   public descriptionRules: any = {
     description: [
