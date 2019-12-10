@@ -8,7 +8,7 @@
           {{ $t('progressBar.profileEfficiency') }}
 
           <span class="mz-progress__level"
-                :class="[ `mz-progress__level--${ customLabel() }` ]">
+                :class="`mz-progress__level--${ customLabel() }`">
 
             {{ $t(`progressBar.${ customLabel() }`) }}
           </span>
