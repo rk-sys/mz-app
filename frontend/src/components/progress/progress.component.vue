@@ -9,6 +9,7 @@
 
           <span class="mz-progress__level"
                 :class="[ `mz-progress__level--${ customLabel() }` ]">
+
             {{ $t(`progressBar.${ customLabel() }`) }}
           </span>
         </span>
