@@ -63,8 +63,8 @@ export default class mzUserAccountModule extends VuexModule {
   }
 
   get accountProgress(): number {
-    let percentage = 0;
-    const list = [
+    let percentage: number = 0;
+    const list: (string | string[])[] = [
       this.mzUserDisplayDescriptionForm.description,
       this.mzUserDisplayTagsForm.tagList,
       this.mzUserDisplayContactForm.phone,
@@ -74,8 +74,8 @@ export default class mzUserAccountModule extends VuexModule {
       this.mzUserDisplayContactForm.website,
       this.mzUserDisplayContactForm.address,
     ];
-    const partialValue = 100 / list.length;
-    list.forEach(element => {
+    const partialValue: number = 100 / list.length;
+    list.forEach((element: string | string[]) => {
       if (element.length) {
         percentage += partialValue;
       }
