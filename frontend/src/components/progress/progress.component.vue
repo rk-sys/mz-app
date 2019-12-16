@@ -39,7 +39,7 @@ import mzTooltip                   from '@/components/tooltip/tooltip.component.
   },
 })
 export default class mzProgress extends Mixins(mzTransparentWrapper) {
-  @Prop(Number) percentage!: number;
+  @Prop(Number) public percentage!: number;
 
   public customColor(): string {
     if (this.percentage < 30) {

@@ -17,7 +17,7 @@
 
         <mz-input :holder="$t(`form.${contact.type}`)"
                   v-model="displayContactForm[contact.type]"
-                  :id="contact.type"></mz-input>
+                  :id="contact.type" />
       </mz-form-item>
     </div>
 
@@ -67,6 +67,7 @@ export default class mzContact extends Vue {
     phone: [
       { min: 9, message: i18n.t('rules.phoneLength'), trigger: 'submit' },
       { max: 9, message: i18n.t('rules.phoneLength'), trigger: 'submit' },
+      { type: 'number', message: i18n.t('rules.correctPhone'), trigger: 'submit' },
     ],
     email: [
       { type: 'email', message: i18n.t('rules.correctEmail'), trigger: 'submit' },

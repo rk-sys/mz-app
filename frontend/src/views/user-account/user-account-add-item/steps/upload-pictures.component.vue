@@ -140,7 +140,7 @@ export default class mzUploadPictures extends Vue {
   &__container {
     margin: 3.5rem 2rem 0 2rem;
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     height: 12.5rem;
 
     &__input-upload {

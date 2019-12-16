@@ -49,10 +49,6 @@ export default class Home extends Vue {
     }
   }
 }
-
-.el-form-item.is-error .el-textarea__inner {
-  border-color: #C0C4CC !important;
-}
 </style>
 
 <style lang="scss"

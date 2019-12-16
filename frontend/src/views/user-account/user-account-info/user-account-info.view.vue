@@ -17,9 +17,9 @@
           <mz-form-item class="form__container__item"
                         prop="description">
 
-            <textarea id="description"
-                      class="form__container__profile-description"
-                      v-model="displayDescriptionForm.description" />
+            <mz-input-textarea id="description"
+                               class="form__container__profile-description"
+                               v-model="displayDescriptionForm.description" />
           </mz-form-item>
         </div>
 
@@ -91,7 +91,7 @@
 <script lang="ts">
 import { Component, Vue }                                    from 'vue-property-decorator';
 import { registerStoreModule }                               from '@/helpers/helpers';
-import { namespace, Getter }                                 from 'vuex-class';
+import { namespace }                                 from 'vuex-class';
 import { i18n, loadTranslationsAsync }                       from '@/i18n/i18n';
 import Store                                                 from '@/store/store';
 import { Route }                                             from 'vue-router';
@@ -100,8 +100,8 @@ import mzUserAccountModule                                   from '../store/user
 import mzInput                                               from '@/components/input/mz-input.component.vue';
 import mzForm                                                from '@/components/form/form/form.component.vue';
 import mzFormItem                                            from '@/components/form/form-item/form-item.component.vue';
-import mzBoxWithTitle
-                                                             from '@/components/box-with-title/box-with-title.component.vue';
+import mzBoxWithTitle                                        from '@/components/box-with-title/box-with-title.component.vue';
+import mzInputTextarea                                       from '@/components/input-textarea/mz-input-textarea.component.vue';
 import mzButton                                              from '@/components/buttons/button.component.vue';
 import mzUpload                                              from '@/components/upload/upload.component.vue';
 import mzTag                                                 from '@/components/tag/tag.component.vue';
@@ -123,6 +123,7 @@ const local = namespace(LOCAL_STORE);
     mzTag,
     mzContact,
     mzProgress,
+    mzInputTextarea,
   },
 })
 export default class mzUserAccountInfo extends Vue {
@@ -184,7 +185,7 @@ export default class mzUserAccountInfo extends Vue {
     const lang = Store.state.global.defaultLang;
 
     try {
-      await loadTranslationsAsync(lang, import(`./i18n/${lang}`));
+      await loadTranslationsAsync(lang, import(`./i18n/${lang}` as string));
       registerStoreModule(LOCAL_STORE.split('/'), mzUserAccountModule);
       await Store.dispatch(`${LOCAL_STORE}/getAccountDetails`);
       next();

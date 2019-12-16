@@ -1,10 +1,7 @@
 <template>
   <div class="mz-item-summary">
-    <mz-box-with-title>
+    <mz-box-with-title :title="newItem.title">
       <div class="mz-item-summary__header">
-        <span class="mz-item-summary__item-title">
-          {{ newItem.title }}
-        </span>
 
         <span class="mz-item-summary__item-price">
           {{ `${newItem.price}` }} {{ $t('itemSummary.currency') }}
@@ -131,6 +128,7 @@ export default class mzItemSummary extends Vue {
 
 .mz-item-summary {
   margin-top: 6rem;
+  position: relative;
 
   .box-with-title {
     margin-bottom: 3rem;
@@ -140,10 +138,13 @@ export default class mzItemSummary extends Vue {
     display: flex;
     justify-content: space-between;
     font-size: 2.2rem;
+    position: absolute;
+    top: 30px;
+    right: 50px;
   }
 
   &__condition {
-    margin-top: 2rem;
+    margin: 2rem 3rem 0;
 
     &__title {
       font-weight: var(--font-medium);
@@ -163,13 +164,13 @@ export default class mzItemSummary extends Vue {
   &__tag-list {
     display: flex;
     flex-wrap: wrap;
-    margin-top: 3rem;
+    margin: 3rem 3rem 0;
   }
 
   &__big-picture {
     width: 100%;
     height: 45rem;
-    padding: 0 3rem;
+    padding: 3rem;
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -200,11 +201,12 @@ export default class mzItemSummary extends Vue {
 
   &__gallery {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     margin: 4rem 0 2rem;
 
     &__picture-wrapper {
       position: relative;
+      margin-right: 2.1rem;
     }
 
     &__small-picture {

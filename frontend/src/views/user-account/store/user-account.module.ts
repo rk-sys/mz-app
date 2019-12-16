@@ -64,7 +64,7 @@ export default class mzUserAccountModule extends VuexModule {
 
   get accountProgress(): number {
     let percentage: number = 0;
-    const list: (string | string[])[] = [
+    const list: Array<string | string[]> = [
       this.mzUserDisplayDescriptionForm.description,
       this.mzUserDisplayTagsForm.tagList,
       this.mzUserDisplayContactForm.phone,

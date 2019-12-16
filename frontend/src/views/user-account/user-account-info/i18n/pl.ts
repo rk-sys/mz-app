@@ -29,6 +29,7 @@ export default {
     phoneLength: 'Wymagany 9-cio cyfrowy numer telefonu',
     descriptionLength: 'Nie więcej niż {0} znaków',
     correctEmail: 'Błędny adres e-mail',
+    correctPhone: 'Błędny numer telefonu',
   },
   removeButton: '+',
 };

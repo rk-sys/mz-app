@@ -17,7 +17,7 @@
             :class="{'subtitle--error': !addColor}">( {{subTitle}} )</span>
     </div>
 
-    <slot></slot>
+    <slot />
   </div>
 </template>
 

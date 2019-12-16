@@ -1,11 +1,12 @@
 export default {
   links: {
-    editAccount: 'Edytuj konto',
     editProfile: 'Edytuj profil',
+    editAccount: 'Ustawienia konta',
     items: 'Moje przedmioty',
     message: 'Wiadomości',
     addItem: 'Wystaw przedmiot',
     calendar: 'Kalendarz',
+    portfolio: 'Portfolio',
   },
   notification: {
     success: 'Sukces!',

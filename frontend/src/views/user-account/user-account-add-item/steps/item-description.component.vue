@@ -415,7 +415,6 @@ export default class mzUserAccount extends Vue {
       display: flex;
       align-items: center;
       margin: 0 2rem 0 0;
-      min-width: 8rem;
       justify-content: flex-end;
     }
 

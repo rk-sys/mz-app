@@ -26,12 +26,12 @@ export const userAccountMenu: IUserAccountMenu = {
       nameUrl: 'Add item',
     },
     {
-      label: 'message',
+      label: 'portfolio',
       nameUrl: 'Login',
     },
     {
-      label: 'calendar',
-      nameUrl: 'Registration',
+      label: 'message',
+      nameUrl: 'Login',
     },
   ],
 };
