@@ -45,7 +45,7 @@
                       :key="index"
                       v-model="newItem.currency"
                       :label="option.label"
-                      class="gender-box">
+                      class="radio-box">
 
               <span class="main-category__text">
                 {{ $t(`itemDescription.form.${option.label}`) }}
@@ -64,7 +64,7 @@
                       :key="index"
                       v-model="newItem.gender"
                       :label="gender.label"
-                      class="gender-box">
+                      class="radio-box">
 
               <span class="main-category__text">
                 {{ $t(`itemDescription.form.${gender.label}`) }}
@@ -82,7 +82,7 @@
             <mz-radio v-model="newItem.isNew"
                       :value="true"
                       :label="true"
-                      class="gender-box">
+                      class="radio-box">
 
               <span class="main-category__text">
                 {{ $t(`itemDescription.form.new`) }}
@@ -92,7 +92,7 @@
             <mz-radio v-model="newItem.isNew"
                       :value="false"
                       :label="false"
-                      class="gender-box">
+                      class="radio-box">
 
               <span class="main-category__text">
                 {{ $t(`itemDescription.form.used`) }}
@@ -284,7 +284,8 @@ export default class mzUserAccount extends Vue {
 
 <style lang="scss">
 .el-form-item__error {
-  bottom: 0;
+  bottom: -1rem;
+  font-size: 1.6rem;
   top: auto;
   font-weight: bold;
   left: auto;
@@ -337,7 +338,7 @@ export default class mzUserAccount extends Vue {
         display: flex;
         align-items: center;
 
-        .gender-box {
+        .radio-box {
           margin-right: 2rem;
           color: var(--gray-500);
           padding: .5rem 1rem;
@@ -395,7 +396,7 @@ export default class mzUserAccount extends Vue {
 
     .button-next,
     .button-previous {
-      width: 14.5rem;
+      width: auto;
     }
 
     .button-next {
@@ -445,6 +446,56 @@ export default class mzUserAccount extends Vue {
         color: var(--white);
         background-color: var(--primary-color);
         border: .2rem solid var(--primary-color);
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 425px) and (min-width: 300px) {
+  .mz-item-description {
+    &__form {
+      margin: 0 1rem;
+
+      &__container {
+        flex-direction: column;
+        height: auto;
+        margin-top: 3.5rem;
+
+        .label {
+          font-size: 2.4rem;
+          margin: 0;
+          width: auto;
+          justify-content: flex-start;
+        }
+      }
+    }
+
+    &__tags {
+      margin: 3.5rem 0 0 0;
+      flex-direction: column;
+      align-items: flex-start;
+      position: relative;
+
+      &__label {
+        font-size: 2.4rem;
+      }
+
+      &__add-btn {
+        position: absolute;
+        right: 3rem;
+        bottom: 3rem;
+      }
+
+      &__list {
+        margin: 2rem 0;
+      }
+    }
+
+    .form__container__item {
+      .radio-box {
+        display: block;
+        margin: 1rem 0;
+        border: 1px solid var(--gray-400);
       }
     }
   }

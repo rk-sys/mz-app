@@ -104,7 +104,7 @@ export default class mzContact extends Vue {
     const lang = Store.state.global.defaultLang;
 
     try {
-      await loadTranslationsAsync(lang, import(`../i18n/${lang}`));
+      await loadTranslationsAsync(lang, import(`../i18n/${lang}` as string));
       registerStoreModule(LOCAL_STORE.split('/'), mzUserAccountModule);
       await Store.dispatch(`${LOCAL_STORE}/getAccountDetails`);
       next();
@@ -151,6 +151,17 @@ export default class mzContact extends Vue {
 
     .form__container {
       margin: 0;
+    }
+  }
+}
+
+
+@media screen and (max-width: 560px) and (min-width: 300px) {
+  .mz-contact__form {
+    margin: 2rem 1.5rem 0;
+
+    &__button {
+      max-width: fit-content;
     }
   }
 }

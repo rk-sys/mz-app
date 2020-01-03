@@ -13,7 +13,7 @@
 <script lang="ts">
 import { Component, Mixins } from 'vue-property-decorator';
 import ElTable               from 'element-ui/lib/table.js';
-import mzTransparentWrapper   from '@/components/transparent-component.mixin';
+import mzTransparentWrapper  from '@/components/transparent-component.mixin';
 
 @Component({
   components: {

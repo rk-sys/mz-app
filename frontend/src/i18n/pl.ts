@@ -14,6 +14,7 @@ export default {
     manage: 'Zarządzaj',
     signIn: 'Zaloguj się',
     signUp: 'Zarejestruj się',
+    menu: 'MENU',
   },
   progressBar: {
     profileEfficiency: 'Efektywność profilu:',

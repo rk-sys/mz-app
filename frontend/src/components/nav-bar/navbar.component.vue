@@ -34,5 +34,9 @@ export default class mzNavBar extends Vue {
   background: var(--white);
   box-shadow: 0 2px 3px 0 var(--gray-300);
   z-index: 4;
+
+  @media screen and (max-width: 768px) {
+    display: none;
+  }
 }
 </style>

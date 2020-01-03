@@ -141,7 +141,7 @@ export default class mzUploadPictures extends Vue {
     margin: 3.5rem 2rem 0 2rem;
     display: flex;
     justify-content: flex-start;
-    height: 12.5rem;
+    height: auto;
 
     &__input-upload {
       display: none;
@@ -154,7 +154,6 @@ export default class mzUploadPictures extends Vue {
       position: relative;
 
       &__action {
-        height: 100%;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -162,6 +161,8 @@ export default class mzUploadPictures extends Vue {
         border: 2px dashed var(--primary-color);
         border-radius: .2rem;
         cursor: pointer;
+        width: 12.5rem;
+        height: 12.5rem;
 
         .icon {
           padding: 0 1rem;
@@ -292,7 +293,7 @@ export default class mzUploadPictures extends Vue {
 
     .button-next,
     .button-previous {
-      width: 14.5rem;
+      width: auto;
     }
 
     .button-next {
@@ -301,4 +302,70 @@ export default class mzUploadPictures extends Vue {
     }
   }
 }
+
+@media screen and (max-width: 768px) and (min-width: 300px) {
+  .mz-upload-pictures {
+    &__container {
+      font-size: 2.2rem;
+
+      .upload-wrapper {
+        width: 14.5rem;
+        height: 14.5rem;
+
+        &__action {
+          width: 14.5rem;
+          height: 14.5rem;
+        }
+
+        &__picture {
+          width: 14.5rem;
+          height: 14.5rem;
+        }
+
+        .overlay-picture {
+          font-size: 1.6rem;
+        }
+      }
+    }
+
+    &__main-picture {
+      width: 45rem;
+      height: 45rem;
+
+      .label {
+        width: 20rem;
+        text-align: center;
+        font-size: 2.2rem;
+        top: -4rem;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 425px) and (min-width: 300px) {
+  .mz-upload-pictures {
+    &__container {
+      flex-wrap: wrap;
+      margin: 2rem 0 0 0;
+      justify-content: space-evenly;
+
+      .upload-wrapper {
+        margin: 0 0 3rem 0;
+      }
+    }
+
+    &__main-picture {
+      width: 39rem;
+      height: 39rem;
+
+      .label {
+        width: 20rem;
+        text-align: center;
+        font-size: 2.2rem;
+        top: -4rem;
+      }
+    }
+  }
+}
+
 </style>

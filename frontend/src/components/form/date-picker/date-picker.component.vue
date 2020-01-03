@@ -12,7 +12,7 @@
 <script lang="ts">
 import { Component, Mixins } from 'vue-property-decorator';
 import ElDatePicker          from 'element-ui/lib/date-picker.js';
-import mzTransparentWrapper   from '@/components/transparent-component.mixin';
+import mzTransparentWrapper  from '@/components/transparent-component.mixin';
 
 @Component({
   components: {

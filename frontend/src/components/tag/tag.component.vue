@@ -61,6 +61,10 @@ export default class mzTag extends Vue {
     border: 1px solid var(--primary-color);
     border-right: none;
     padding: .5rem 1rem;
+
+    @media screen and (max-width: 560px) and (min-width: 300px) {
+      font-size: 2.4rem;
+    }
   }
 
   &--presentation {
@@ -71,6 +75,36 @@ export default class mzTag extends Vue {
       background-color: var(--primary-color);
       color: var(--white);
       width: 100%;
+    }
+  }
+}
+
+@media screen and (max-width: 768px) and (min-width: 426px) {
+  .mz-tag {
+    &__remove-button,
+    &__text {
+      font-size: 2.2rem;
+    }
+
+    &--presentation {
+      &__text {
+        font-size: 2.2rem;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 425px) and (min-width: 300px) {
+  .mz-tag {
+    &__remove-button,
+    &__text {
+      font-size: 1.8rem;
+    }
+
+    &--presentation {
+      &__text {
+        font-size: 1.8rem;
+      }
     }
   }
 }

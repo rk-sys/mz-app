@@ -82,7 +82,7 @@ export default class mzUserItems extends Vue {
     const lang = Store.state.global.defaultLang;
 
     try {
-      await loadTranslationsAsync(lang, import(`./i18n/${lang}`));
+      await loadTranslationsAsync(lang, import(`./i18n/${lang}` as string));
       await Store.dispatch(`${LOCAL_STORE}/getUserItems`, 'all');
       next();
     } catch (e) {
@@ -109,7 +109,7 @@ export default class mzUserItems extends Vue {
 .mz-user-items {
   margin-left: 10rem;
   margin-bottom: 5rem;
-  width: 80rem;
+  width: 85rem;
 
   &__list-view-switcher {
     margin-bottom: 1rem;
@@ -155,6 +155,88 @@ export default class mzUserItems extends Vue {
 
     &--list-view {
       grid-template-columns: repeat(1, 1fr);
+    }
+  }
+}
+
+@media screen and (max-width: 768px) and (min-width: 426px) {
+  .mz-user-items {
+    margin-left: 0;
+
+    &__items-wrapper {
+      grid-template-columns: repeat(2, 1fr);
+      grid-column-gap: 1rem;
+      grid-row-gap: 4rem;
+    }
+
+    &__summary-menu {
+      .summary-menu {
+        &__items-counter {
+          align-items: center;
+        }
+
+        &__toggle-button {
+          width: 2.8rem;
+          height: 2.8rem;
+        }
+
+        &__items-counter {
+
+          .mz-summary-item {
+            font-size: 1.8rem;
+          }
+        }
+
+        &__category-select {
+          font-size: 1.8rem;
+          align-items: center;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 425px) and (min-width: 300px) {
+  .mz-user-items {
+    margin-left: 0;
+    max-width: 45rem;
+
+    &__items-wrapper {
+      grid-template-columns: repeat(1, 1fr);
+      grid-column-gap: 0;
+      grid-row-gap: 4rem;
+    }
+
+    &__summary-menu {
+      .summary-menu {
+        &__items-counter {
+          flex-direction: column;
+          align-items: flex-start;
+          margin-left: 1.5rem;
+        }
+
+        &__toggle-button {
+          width: 2.8rem;
+          height: 2.8rem;
+          align-self: flex-start;
+        }
+
+        &__items-counter {
+
+          .mz-summary-item {
+            font-size: 1.8rem;
+            margin: 0;
+            width: 16rem;
+            display: flex;
+            justify-content: space-between;
+          }
+        }
+
+        &__category-select {
+          font-size: 1.8rem;
+          align-items: center;
+        }
+      }
     }
   }
 }

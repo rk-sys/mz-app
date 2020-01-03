@@ -141,4 +141,28 @@ export default class mzButton extends Mixins(mzTransparentWrapper) {
   }
 }
 
+@media screen and (max-width: 768px) and (min-width: 561px) {
+  .mz-button {
+    font-size: 2.2rem;
+    width: auto;
+    height: 5rem;
+  }
+}
+
+@media screen and (max-width: 560px) and (min-width: 426px) {
+  .mz-button {
+    font-size: 2.4rem;
+    width: auto;
+    height: 6rem;
+  }
+}
+
+@media screen and (max-width: 425px) and (min-width: 300px) {
+  .mz-button {
+    font-size: 2rem;
+    width: auto;
+    height: 4rem;
+  }
+}
+
 </style>

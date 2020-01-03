@@ -4,12 +4,12 @@
     <div class="mz-steps__wrapper"
          v-for="(step, index) in labels">
 
-      <div v-if="index !== 0" class="mz-steps__line"
-           :class="{'mz-steps__line--green': index <= active}"></div>
-
       <div class="mz-steps__circle"
            :class="{'mz-steps__circle--active': index === active,
                     'mz-steps__circle--done': index < active}">
+
+        <div v-if="index !== 0" class="mz-steps__line"
+             :class="{'mz-steps__line--green': index <= active}"></div>
 
         <template v-if="index < active">
           <div class="mz-steps__circle__icon icon-success-green"></div>
@@ -59,15 +59,15 @@ export default class mzSteps extends Mixins(mzTransparentWrapper) {
     align-items: center;
     flex-direction: column;
     position: relative;
+    width: 16.5rem;
   }
 
   &__line {
     position: absolute;
-    width: 18rem;
-    height: .2rem;
+    width: 13rem;
+    height: 2px;
     background-color: var(--gray-500);
-    right: 6rem;
-    top: 2rem;
+    left: -7.5rem;
     z-index: 0;
 
     &--green {
@@ -83,7 +83,7 @@ export default class mzSteps extends Mixins(mzTransparentWrapper) {
     width: 4rem;
     height: 4rem;
     border-radius: 50%;
-    border: .22rem solid var(--gray-500);
+    border: 2px solid var(--gray-500);
     color: var(--white);
     background-color: var(--background-color);
 
@@ -101,8 +101,8 @@ export default class mzSteps extends Mixins(mzTransparentWrapper) {
       display: flex;
       justify-content: center;
       align-items: center;
-      width: 4rem;
-      height: 4rem;
+      width: 4.5rem;
+      height: 4.5rem;
       border-radius: 50%;
       background-color: var(--primary-color);
       color: var(--white);
@@ -117,7 +117,7 @@ export default class mzSteps extends Mixins(mzTransparentWrapper) {
         border: .22rem solid var(--white);
         border-radius: 50%;
         font-weight: var(--font-bold);
-        color: var(--white)
+        color: var(--white);
       }
     }
 
@@ -125,10 +125,10 @@ export default class mzSteps extends Mixins(mzTransparentWrapper) {
       border: none;
     }
 
-      &__icon {
-        width: 100%;
-        height: 100%;
-        border: none
+    &__icon {
+      width: 100%;
+      height: 100%;
+      border: none
     }
   }
 
@@ -146,6 +146,54 @@ export default class mzSteps extends Mixins(mzTransparentWrapper) {
     &--done {
       font-weight: var(--font-bold);
       color: var(--primary-color);
+    }
+  }
+}
+
+@media screen and (max-width: 768px) and (min-width: 560px) {
+  .mz-steps {
+    &__label {
+      font-size: 1.8rem;
+    }
+
+    &__wrapper {
+      width: 20rem;
+    }
+
+    &__line {
+      left: -7rem;
+    }
+  }
+}
+
+@media screen and (max-width: 560px) and (min-width: 300px) {
+  .mz-steps {
+    flex-direction: column;
+
+    &__wrapper {
+      flex-direction: row;
+      width: 40rem;
+      justify-content: flex-start;
+    }
+
+    &__line {
+      display: none;
+    }
+
+    &__circle {
+      width: 5rem;
+      height: 5rem;
+    }
+
+    &__label {
+      font-size: 2.2rem;
+      margin: 1.6rem 0 1.6rem 4rem;
+    }
+
+    .step-number {
+      width: 4.5rem;
+      height: 4.5rem;
+      font-size: 2.2rem;
     }
   }
 }

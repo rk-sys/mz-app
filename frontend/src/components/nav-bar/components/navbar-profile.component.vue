@@ -93,7 +93,24 @@ export default class mzNavBarProfile extends Vue {
       &:hover {
         cursor: pointer;
       }
+
+      @media screen and (max-width: 768px) {
+        width: 4rem;
+        height: 4rem;
+      }
     }
+
+
+    @media screen and (max-width: 768px) {
+      padding: 0 4rem;
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    grid-row-start: 1;
+    grid-column-start: 2;
+    display: flex;
+    justify-content: center;
   }
 }
 </style>

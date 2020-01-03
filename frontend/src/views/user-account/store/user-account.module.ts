@@ -23,6 +23,7 @@ export default class mzUserAccountModule extends VuexModule {
   public mzUserAccountMenuState: IUserAccountMenu = cloneDeep(userAccountMenu);
   public mzContactList: IContact[] = cloneDeep(contactList);
   public mzItems: IUserItem[] = [];
+  public mzMobileMenu: boolean = true;
 
   public mzUserDisplayNameForm: IUserDisplayNameForm = {
     displayName: '',
@@ -86,6 +87,11 @@ export default class mzUserAccountModule extends VuexModule {
   @Mutation
   public addTagToList(payload: string): void {
     this.mzUserDisplayTagsForm.tagList.push(payload);
+  }
+
+  @Mutation
+  public changeStateOfMobileMenu(): void {
+    this.mzMobileMenu = !this.mzMobileMenu;
   }
 
   @Mutation

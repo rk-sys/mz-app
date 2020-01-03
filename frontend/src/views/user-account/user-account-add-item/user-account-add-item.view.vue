@@ -79,7 +79,7 @@ export default class mzUserAccount extends Vue {
     const lang = Store.state.global.defaultLang;
 
     try {
-      await loadTranslationsAsync(lang, import(`./i18n/${lang}`));
+      await loadTranslationsAsync(lang, import(`./i18n/${lang}` as string));
       registerStoreModule(LOCAL_STORE.split('/'), mzAddItemModule);
       next();
     } catch (e) {
@@ -105,6 +105,19 @@ export default class mzUserAccount extends Vue {
 .mz-add-item {
   width: 75rem;
   margin-left: 10rem;
+}
 
+@media screen and (max-width: 768px) and (min-width: 426px) {
+  .mz-add-item {
+    margin-left: 0;
+    width: 85rem;
+  }
+}
+
+@media screen and (max-width: 425px) and (min-width: 300px) {
+  .mz-add-item {
+    margin-left: 0;
+    width: 43rem;
+  }
 }
 </style>

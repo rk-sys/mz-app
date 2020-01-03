@@ -34,7 +34,7 @@ export default class yHome extends Vue {
 
     try {
       await loadTranslationsAsync(lang,
-        import(/* webpackChunkName: "user/[request]" */ `./i18n/${lang}`));
+        import(/* webpackChunkName: "user/[request]" */ `./i18n/${lang}` as string));
       next();
     } catch (e) {
       next(false);

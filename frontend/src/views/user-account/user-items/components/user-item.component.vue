@@ -144,7 +144,7 @@ export default class mzUserItems extends Vue {
 
   &__title {
     font-size: 1.6rem;
-    width: 20rem;
+    width: auto;
     display: block;
     overflow: hidden;
     white-space: nowrap;
@@ -260,6 +260,82 @@ export default class mzUserItems extends Vue {
       &__link {
         margin: 0 2rem;
       }
+    }
+  }
+}
+
+@media screen and (max-width: 768px) and (min-width: 426px) {
+  .mz-user-item {
+    &__content {
+      height: 10rem;
+    }
+
+    &__background {
+      height: 30rem;
+    }
+
+    &__status {
+      top: 1rem;
+      min-width: 12rem;
+      height: 3rem;
+      font-size: 2.2rem;
+    }
+
+    &__price {
+      top: 5rem;
+      font-size: 2.2rem;
+      width: 7.5rem;
+      height: 3rem;
+    }
+
+    &__title {
+      text-overflow: ellipsis;
+      overflow: hidden;
+      white-space: nowrap;
+      width: 38rem;
+    }
+
+    &__title,
+    &__link {
+      font-size: 2.2rem;
+    }
+  }
+}
+
+@media screen and (max-width: 425px) and (min-width: 300px) {
+  .mz-user-item {
+    &__content {
+      height: 12rem;
+    }
+
+    &__background {
+      height: 30rem;
+    }
+
+    &__status {
+      top: 1rem;
+      min-width: 12rem;
+      height: 3rem;
+      font-size: 2rem;
+    }
+
+    &__price {
+      top: 5rem;
+      font-size: 2rem;
+      width: 7.5rem;
+      height: 3rem;
+    }
+
+    &__title {
+      text-overflow: ellipsis;
+      overflow: hidden;
+      white-space: nowrap;
+      width: 40rem;
+    }
+
+    &__title,
+    &__link {
+      font-size: 2.2rem;
     }
   }
 }

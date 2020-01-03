@@ -91,7 +91,7 @@
 <script lang="ts">
 import { Component, Vue }                                    from 'vue-property-decorator';
 import { registerStoreModule }                               from '@/helpers/helpers';
-import { namespace }                                 from 'vuex-class';
+import { namespace }                                         from 'vuex-class';
 import { i18n, loadTranslationsAsync }                       from '@/i18n/i18n';
 import Store                                                 from '@/store/store';
 import { Route }                                             from 'vue-router';
@@ -199,7 +199,8 @@ export default class mzUserAccountInfo extends Vue {
 
 <style lang="scss">
 .el-form-item__error {
-  bottom: 0;
+  bottom: -1rem;
+  font-size: 1.6rem;
   top: auto;
   font-weight: bold;
   left: auto;
@@ -215,7 +216,7 @@ export default class mzUserAccountInfo extends Vue {
        scoped>
 
 .mz-user-account-info {
-  width: 80rem;
+  width: 85rem;
   margin-left: 10rem;
 
   &__form {
@@ -266,7 +267,6 @@ export default class mzUserAccountInfo extends Vue {
         width: 100%;
         height: 20rem;
         resize: none;
-        padding: 2rem;
       }
 
       &__tag-list {
@@ -293,6 +293,34 @@ export default class mzUserAccountInfo extends Vue {
 
       .form__container {
         margin: 0;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 768px) and (min-width: 426px) {
+  .mz-user-account-info {
+    margin-left: 0;
+
+    &__form {
+
+      &__button {
+        max-width: fit-content;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 425px) and (min-width: 300px) {
+  .mz-user-account-info {
+    margin-left: 0;
+    width: 43rem;
+
+    &__form {
+      margin: 0;
+
+      &__button {
+        max-width: fit-content;
       }
     }
   }

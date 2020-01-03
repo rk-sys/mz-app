@@ -232,10 +232,74 @@ export default class mzUserAccount extends Vue {
     margin-bottom: 4rem;
 
     .button-next {
-      width: 14.5rem;
+      width: auto;
       margin-right: 0;
       margin-left: auto;
       display: block;
+    }
+  }
+}
+
+@media screen and (max-width: 560px) and (min-width: 300px) {
+  .mz-general-info {
+
+    &__range,
+    &__category,
+    &__subcategory {
+
+      .title {
+        font-size: 3.2rem;
+      }
+    }
+
+    &__category {
+      &__container {
+        .main-category-box {
+          min-width: 17rem;
+          min-height: 17rem;
+
+          &__wrapper {
+            font-size: 2.8rem;
+
+            .icon {
+              width: 8rem;
+              height: 8rem;
+            }
+          }
+        }
+      }
+    }
+
+    &__buttons {
+      .button-next {
+        width: auto;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 425px) and (min-width: 300px) {
+  .mz-general-info {
+    &__range,
+    &__subcategory {
+      &__container {
+        flex-direction: column;
+
+        .main-range-box {
+          margin: 0 0 2rem 0;
+        }
+      }
+    }
+
+    &__category {
+      &__container {
+        flex-wrap: wrap;
+        justify-content: center;
+
+        .main-category-box {
+          margin-bottom: 2rem;
+        }
+      }
     }
   }
 }

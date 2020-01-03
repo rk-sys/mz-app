@@ -12,7 +12,7 @@
 
 <script lang="ts">
 import { Component, Mixins, Prop } from 'vue-property-decorator';
-import mzTransparentWrapper         from '@/components/transparent-component.mixin';
+import mzTransparentWrapper        from '@/components/transparent-component.mixin';
 import elCollapse                  from 'element-ui/lib/collapse.js';
 
 @Component({

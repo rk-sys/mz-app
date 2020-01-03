@@ -161,7 +161,7 @@ export default class mzLogin extends Vue {
 
     try {
       await loadTranslationsAsync(lang,
-        import(/* webpackChunkName: "user/[request]" */ `./i18n/${lang}`));
+        import(/* webpackChunkName: "user/[request]" */ `./i18n/${lang}` as string));
 
       registerStoreModule(LOCAL_STORE.split('/'), mzLoginModule);
       next();
@@ -174,7 +174,8 @@ export default class mzLogin extends Vue {
 </script>
 <style lang="scss">
 .el-form-item__error {
-  bottom: 0;
+  bottom: -1rem;
+  font-size: 1.6rem;
   top: auto;
   font-weight: bold;
   left: auto;

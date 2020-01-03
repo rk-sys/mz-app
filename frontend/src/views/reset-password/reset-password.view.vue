@@ -42,7 +42,7 @@
     </div>
 
     <mz-footer :is-light="true"
-               class="mz-reset-password__footer"></mz-footer>
+               class="mz-reset-password__footer" />
 
     <mz-social-media :is-light="true" class="mz-reset-password__social-media" />
   </div>
@@ -131,7 +131,7 @@ export default class mzResetPassword extends Vue {
     const lang = Store.state.global.defaultLang;
 
     try {
-      await loadTranslationsAsync(lang, import(/* webpackChunkName: "user/[request]" */ `./i18n/${lang}`));
+      await loadTranslationsAsync(lang, import(/* webpackChunkName: "user/[request]" */ `./i18n/${lang}` as string));
       registerStoreModule(LOCAL_STORE.split('/'), mzResetPasswordModule);
       next();
     } catch (e) {

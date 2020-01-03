@@ -25,12 +25,12 @@
       <router-link :to="{name: 'User account edit'}"
                    class="mz-nav-bar-account-sign-in__item__link">
 
-      {{$t(`navBar.settings`)}}
+        {{$t(`navBar.settings`)}}
       </router-link>
     </mz-dropdown-item>
 
     <mz-dropdown-item class="mz-nav-bar-account-sign-in__item">
-      <router-link :to="{name: 'User account'}"
+      <router-link :to="{name: 'User items'}"
                    class="mz-nav-bar-account-sign-in__item__link">
 
         {{$t(`navBar.myItems`)}}
@@ -84,7 +84,7 @@ export default class mzNavBarAccountSignIn extends Vue {
   min-width: 24rem;
 
   &__item {
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     padding: 0;
 
     &:hover {
@@ -122,6 +122,10 @@ export default class mzNavBarAccountSignIn extends Vue {
       object-fit: cover;
     }
   }
+
+  &__account__name {
+    font-size: 1.8rem;
+  }
 }
 
 .separator {
@@ -130,7 +134,28 @@ export default class mzNavBarAccountSignIn extends Vue {
   margin: .4rem 0;
   color: var(--black);
   font-weight: var(--font-medium);
-  font-size: 1.4rem;
+  font-size: 1.6rem;
   padding: 0.8rem;
+}
+
+@media screen and (max-width: 768px) and (min-width: 561px) {
+  .mz-nav-bar-account-sign-in__account__name,
+  .mz-nav-bar-account-sign-in__item__link {
+    font-size: 2.2rem;
+  }
+}
+
+@media screen and (max-width: 560px) and (min-width: 426px) {
+  .mz-nav-bar-account-sign-in__account__name,
+  .mz-nav-bar-account-sign-in__item__link {
+    font-size: 2.6rem;
+  }
+}
+
+@media screen and (max-width: 425px) and (min-width: 300px) {
+  .mz-nav-bar-account-sign-in__account__name,
+  .mz-nav-bar-account-sign-in__item__link {
+    font-size: 2rem;
+  }
 }
 </style>

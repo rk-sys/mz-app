@@ -19,7 +19,7 @@
             <mz-input :holder="$t(`form.displayName`)"
                       :is-password="false"
                       id="displayName"
-                      v-model="displayNameForm.displayName"></mz-input>
+                      v-model="displayNameForm.displayName" />
           </mz-form-item>
         </div>
 
@@ -53,7 +53,7 @@
             <mz-input :holder="$t(`form.email`)"
                       :is-password="false"
                       id="email"
-                      v-model="emailForm.email"></mz-input>
+                      v-model="emailForm.email" />
           </mz-form-item>
         </div>
 
@@ -66,7 +66,7 @@
             <mz-input :holder="$t(`form.repeatEmail`)"
                       :is-password="false"
                       id="repeatEmail"
-                      v-model="emailForm.repeatEmail"></mz-input>
+                      v-model="emailForm.repeatEmail" />
           </mz-form-item>
         </div>
 
@@ -97,7 +97,7 @@
             <mz-input :holder="$t(`form.password`)"
                       :is-password="true"
                       id="password"
-                      v-model="passwordForm.password"></mz-input>
+                      v-model="passwordForm.password" />
           </mz-form-item>
         </div>
 
@@ -110,7 +110,7 @@
             <mz-input :holder="$t(`form.repeatPassword`)"
                       :is-password="true"
                       id="repeatPassword"
-                      v-model="passwordForm.repeatPassword"></mz-input>
+                      v-model="passwordForm.repeatPassword" />
           </mz-form-item>
         </div>
 
@@ -305,7 +305,7 @@ export default class mzUserAccountEdit extends Vue {
 
 
     try {
-      await loadTranslationsAsync(lang, import(`./i18n/${lang}`));
+      await loadTranslationsAsync(lang, import(`./i18n/${lang}` as string));
       registerStoreModule(LOCAL_STORE.split('/'), mzUserAccountModule);
       await Store.dispatch(`${LOCAL_STORE}/getCurrentUserInfo`);
       next();
@@ -318,7 +318,8 @@ export default class mzUserAccountEdit extends Vue {
 </script>
 <style lang="scss">
 .el-form-item__error {
-  bottom: 0;
+  bottom: -1rem;
+  font-size: 1.6rem;
   top: auto;
   font-weight: bold;
   left: auto;
@@ -334,7 +335,7 @@ export default class mzUserAccountEdit extends Vue {
        scoped>
 
 .user-account-edit {
-  width: 80rem;
+  width: 85rem;
   margin-left: 10rem;
 
   &__form {
@@ -361,6 +362,25 @@ export default class mzUserAccountEdit extends Vue {
     &__button {
       margin: 0 0 0 auto;
       max-width: 14rem;
+    }
+  }
+}
+
+@media screen and (max-width: 768px) and (min-width: 300px) {
+  .user-account-edit {
+    margin-left: 0;
+  }
+}
+
+@media screen and (max-width: 425px) and (min-width: 300px) {
+  .user-account-edit {
+    width: 46rem;
+
+    &__form {
+      &__button {
+        display: flex;
+        justify-content: flex-end;
+      }
     }
   }
 }

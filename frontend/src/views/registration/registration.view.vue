@@ -53,7 +53,7 @@ export default class mzRegistration extends Vue {
     const lang = Store.state.global.defaultLang;
 
     try {
-      await loadTranslationsAsync(lang, import(`./i18n/${lang}`));
+      await loadTranslationsAsync(lang, import(`./i18n/${lang}` as string));
       registerStoreModule(LOCAL_STORE.split('/'), mzRegistrationModule);
       next();
     } catch (e) {

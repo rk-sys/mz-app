@@ -76,7 +76,7 @@ export default class Home extends Vue {
 
     &__box {
       width: calc(100% - 1rem);
-      font-size: 1.6rem;
+      font-size: 2.2rem;
       font-weight: 300;
       padding: .5rem 1rem 0;
       border: none;
@@ -93,22 +93,24 @@ export default class Home extends Vue {
 
     &__label {
       position: absolute;
-      top: 2rem;
+      top: 20px;
       left: 1rem;
-      font-size: 1.6rem;
+      font-size: 2rem;
       font-weight: 400;
       z-index: 0;
       transition: all .2s ease-in-out;
       color: var(--gray-700);
+      line-height: 2.2rem;
     }
 
     .set-top-label {
       color: var(--primary-color);
       font-weight: 600;
-      top: -.2rem;
+      top: -.8rem;
       left: .5rem;
-      font-size: 1.2rem;
+      font-size: 1.6rem;
       transition: all .2s ease-in-out;
+      z-index: 1;
     }
 
     &__border {
@@ -147,6 +149,7 @@ export default class Home extends Vue {
   .mz-input__container {
     min-width: 26rem;
     max-width: 28rem;
+    margin: 1.1rem 0;
   }
 }
 </style>

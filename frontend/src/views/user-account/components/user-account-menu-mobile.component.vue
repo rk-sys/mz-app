@@ -1,6 +1,10 @@
 <template>
-  <div class="user-account-menu">
-    <div class="user-account-menu__info">
+  <div class="user-account-menu-mobile"
+       :class="{'show-menu' : mobileMenu}">
+
+    <div class="user-account-menu-mobile__cross icon-close--black"
+         @click="changeStateOfMobileMenu"></div>
+    <div class="user-info">
 
       <mz-upload width='17.5rem'
                  height='17.5rem'
@@ -9,7 +13,7 @@
                  :show-file-list='false'
                  :on-success='handleAvatarSuccess'
                  :before-upload='beforeAvatarUpload'
-                 class="user-account-menu__info__wrapper">
+                 class="user-info__wrapper">
 
 
         <transition name="fade">
@@ -39,17 +43,17 @@
              @mouseleave="showLabel = false"></div>
       </mz-upload>
 
-      <span class="user-account-menu__info__display-name">
+      <span class="user-info__display-name">
         {{ userInfo.displayName }}
       </span>
     </div>
 
-    <div class="user-account-menu__list">
+    <div class="menu-links">
       <div v-for="link in menuLinks"
            :key="link.label"
-           class="user-account-menu__list__wrapper">
+           class="menu-links__wrapper">
         <router-link :to="{name: link.nameUrl}"
-                     class="user-account-menu__list__link">
+                     class="menu-links__wrapper__link">
 
           {{ $t(`links.${link.label}`) }}
         </router-link>
@@ -74,12 +78,15 @@ const local = namespace(LOCAL_STORE);
     mzUpload,
   },
 })
-export default class mzUserAccountMenu extends Vue {
+export default class mzUserAccountMenuMobile extends Vue {
   @local.State((state: mzUserAccountModule) => state.mzUserAccountMenuState.userInfo) public userInfo!: string;
   @local.State((state: mzUserAccountModule) => state.mzUserAccountMenuState.links) public menuLinks!: string;
+  @local.State((state: mzUserAccountModule) => state.mzMobileMenu) public mobileMenu!: boolean;
   @local.Action public changeUserPicture!: (file: any) => void;
+  @local.Mutation public changeStateOfMobileMenu!: (payload: boolean) => void;
 
   public showLabel: boolean = false;
+  public isMenuShow: boolean = false;
 
   public beforeAvatarUpload(file: any) {
     const isJPG = file.type === 'image/jpeg';
@@ -98,32 +105,46 @@ export default class mzUserAccountMenu extends Vue {
     Notification.successNotification(i18n.t(`notification.success`) as string, i18n.t(`notification.pictureWasChange`) as string);
   }
 
+  public hideMenu() {
+    this.isMenuShow = !this.isMenuShow;
+  }
+
   public uploadPicture(file: any) {
     this.changeUserPicture(file);
   }
-}
+};
 </script>
 
 <style lang="scss"
        scoped>
-.fade-enter-active {
-  transition: opacity .5s;
-}
 
-.fade-enter /* .fade-leave-active below version 2.1.8 */
-{
-  opacity: 0;
-}
+.user-account-menu-mobile {
+  background: var(--white);
+  min-height: 100vh;
+  height: 100%;
+  width: 40rem;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 4;
+  transition: .5s ease-in-out;
 
-.user-account-menu {
-  width: 19rem;
+  &__cross {
+    top: 2rem;
+    position: absolute;
+    right: 2.5rem;
+    width: 2rem;
+    height: 2rem;
+    cursor: pointer
+  }
 
-  &__info {
-    display: flex;
-    flex-direction: column;;
+  .user-info {
+    margin-top: 10rem;
+    position: relative;
 
     &__wrapper {
       position: relative;
+      margin: 0 auto;
 
       .picture {
         width: 17.5rem;
@@ -157,6 +178,7 @@ export default class mzUserAccountMenu extends Vue {
         z-index: 1;
         color: var(--white);
         font-weight: var(--font-medium);
+        font-size: 2rem;
         position: absolute;
         top: 50%;
         left: 50%;
@@ -165,16 +187,19 @@ export default class mzUserAccountMenu extends Vue {
     }
 
     &__display-name {
-      margin-top: 1rem;
-      font-size: 2.2rem;
+      margin-top: 3rem;
+      font-size: 3.4rem;
       font-weight: var(--font-medium);
       color: var(--black);
       text-align: center;
       margin-bottom: 7rem;
+      display: block;
     }
   }
 
-  &__list {
+  .menu-links {
+    width: auto;
+    margin-left: 7rem;
 
     .router-link-active {
       color: var(--primary-color);
@@ -182,11 +207,11 @@ export default class mzUserAccountMenu extends Vue {
       border-bottom: 2px solid var(--primary-color);
     }
 
-    &__link {
-      font-size: 1.8rem;
+    &__wrapper__link {
+      font-size: 2.4rem;
       color: var(--gray-950);
       text-decoration: none;
-      margin-bottom: 2rem;
+      margin-bottom: 1.8rem;
       font-weight: var(--font-medium);
       display: inline-block;
       padding: .5rem 0;
@@ -215,9 +240,59 @@ export default class mzUserAccountMenu extends Vue {
       }
     }
   }
+}
 
-  @media screen and (max-width: 768px) {
+.show-menu {
+  left: -40rem;
+  transition: .5s ease-in-out;
+}
+
+@media screen and (min-width: 769px) {
+  .user-account-menu-mobile {
     display: none;
+  }
+}
+
+@media screen and (max-width: 650px) and (min-width: 426px) {
+  .user-account-menu-mobile {
+    width: 45rem;
+
+    .menu-links {
+      &__wrapper__link {
+        font-size: 2.8rem;
+      }
+
+      margin-left: 8.5rem;
+    }
+  }
+
+  .show-menu {
+    left: -45rem;
+  }
+}
+
+
+@media screen and (max-width: 425px) and (min-width: 300px) {
+  .user-account-menu-mobile {
+    width: 43rem;
+
+    .menu-links {
+      margin-left: 10rem;
+
+      &__wrapper__link {
+        font-size: 2.2rem;
+      }
+    }
+
+    .user-info {
+      &__display-name {
+        font-size: 2.8rem;
+      }
+    }
+  }
+
+  .show-menu {
+    left: -43rem;
   }
 }
 </style>

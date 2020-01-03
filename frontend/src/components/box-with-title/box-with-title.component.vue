@@ -50,13 +50,12 @@ export default class mzBoxWithTitle extends Vue {
     display: flex;
     padding: 1rem 0;
     font-weight: 500;
-    font-size: 2.2rem;
+    font-size: 2.4rem;
     margin: 0 3rem;
     align-items: center;
 
     .subtitle {
-      margin-left: 1rem;
-      font-size: 1.4rem;
+      font-size: 2rem;
       color: var(--gray-450);
     }
 
@@ -70,6 +69,22 @@ export default class mzBoxWithTitle extends Vue {
     height: 2rem;
     width: 2rem;
     cursor: pointer;
+    margin: 0 1.5rem 0 .5rem;
+  }
+}
+
+
+@media screen and (max-width: 425px) and (min-width: 300px) {
+  .box-with-title {
+    &__text {
+      flex-wrap: wrap;
+      margin: 0 1rem 0 0;
+      align-items: center;
+
+      .subtitle {
+        margin-top: .6rem;
+      }
+    }
   }
 }
 </style>

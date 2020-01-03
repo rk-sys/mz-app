@@ -11,7 +11,7 @@
 <script lang="ts">
 import { Component, Mixins } from 'vue-property-decorator';
 import ElRadioGroup          from 'element-ui/lib/radio.js';
-import mzTransparentWrapper   from '@/components/transparent-component.mixin';
+import mzTransparentWrapper  from '@/components/transparent-component.mixin';
 
 @Component({
   components: {
@@ -27,12 +27,12 @@ export default class mzRadioGroup extends Mixins(mzTransparentWrapper) {
        scoped>
 @import '~element-ui/lib/theme-chalk/radio-group.css';
 
-  .el-radio__input {
-    &.is-checked {
-      .el-radio__inner {
-        background: #3F55E2;
-        border-color: #3F55E2;
-      }
+.el-radio__input {
+  &.is-checked {
+    .el-radio__inner {
+      background: #3F55E2;
+      border-color: #3F55E2;
     }
   }
+}
 </style>

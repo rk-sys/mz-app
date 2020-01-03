@@ -201,17 +201,21 @@ export default class mzItemSummary extends Vue {
 
   &__gallery {
     display: flex;
-    justify-content: flex-start;
+    justify-content: center;
     margin: 4rem 0 2rem;
 
     &__picture-wrapper {
       position: relative;
       margin-right: 2.1rem;
+
+      &:last-child {
+        margin-right: 0;
+      }
     }
 
     &__small-picture {
-      width: 12.5rem;
-      height: 12.5rem;
+      width: 14.5rem;
+      height: 14.5rem;
       cursor: pointer;
 
       &:hover {
@@ -234,7 +238,7 @@ export default class mzItemSummary extends Vue {
       top: -2.2rem;
       left: 50%;
       transform: translateX(-50%);
-      font-size: 1.2rem;
+      font-size: 1.4rem;
       font-weight: var(--font-bold);
     }
   }
@@ -254,12 +258,65 @@ export default class mzItemSummary extends Vue {
 
     .button-next,
     .button-previous {
-      width: 14.5rem;
+      width: auto;
     }
 
     .button-next {
       margin-right: 0;
       margin-left: auto;
+    }
+  }
+}
+
+@media screen and (max-width: 560px) and (min-width: 300px) {
+  .mz-item-summary {
+    &__condition {
+      &__title {
+        font-size: 2.2rem;
+      }
+
+      &__subtitle {
+        font-size: 2.2rem;
+      }
+    }
+
+    &__gallery {
+      margin: 4rem 3.5rem 2rem;
+      justify-content: space-between;
+    }
+  }
+}
+
+@media screen and (max-width: 425px) and (min-width: 300px) {
+  .mz-item-summary {
+    &__tag-list {
+      margin: 3rem 0;
+    }
+
+    &__condition {
+      margin: 3rem 0;
+
+      &__title {
+        font-size: 2.2rem;
+      }
+
+      &__subtitle {
+        font-size: 2.2rem;
+      }
+    }
+
+    &__gallery {
+      margin: 3rem 0 0 0;
+      justify-content: space-evenly;
+      flex-wrap: wrap;
+
+      &__picture-wrapper {
+        margin: 0 2rem 3rem 0;
+      }
+    }
+
+    &__big-picture {
+      padding: 0;
     }
   }
 }

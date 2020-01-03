@@ -15,7 +15,25 @@ body {
 }
 
 html {
-  font-size: var(--base);
+  @media screen and (min-width: 1441px) {
+    font-size: var(--desktop-large);
+  }
+
+  @media screen and (max-width: 1440px) and (min-width: 1025px) {
+    font-size: var(--base);
+  }
+
+  @media screen and (max-width: 1024px) and (min-width: 769px) {
+    font-size: var(--desktop-view);
+  }
+
+  @media screen and (max-width: 768px) and (min-width: 426px) {
+    font-size: var(--tablet-view);
+  }
+
+  @media screen and (max-width: 425px) {
+    font-size: var(--mobile-view);
+  }
 }
 
 body {

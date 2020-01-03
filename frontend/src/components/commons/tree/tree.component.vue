@@ -16,7 +16,7 @@
 <script lang="ts">
 import { Component, Mixins } from 'vue-property-decorator';
 import ElTree                from 'element-ui/lib/tree.js';
-import mzTransparentWrapper   from 'src/components/transparent-component.mixin';
+import mzTransparentWrapper  from 'src/components/transparent-component.mixin';
 
 @Component({
   components: {

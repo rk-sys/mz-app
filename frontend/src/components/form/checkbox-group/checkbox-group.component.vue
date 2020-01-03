@@ -1,7 +1,7 @@
 <template>
   <el-checkbox-group class="mz-checkbox-group"
-               v-bind="attributes"
-               v-on="listeners">
+                     v-bind="attributes"
+                     v-on="listeners">
 
     <slot :name="slot"
           :slot="slot"
@@ -11,8 +11,8 @@
 
 <script lang="ts">
 import { Component, Mixins } from 'vue-property-decorator';
-import ElCheckboxGroup            from 'element-ui/lib/checkbox-group.js';
-import mzTransparentWrapper   from '@/components/transparent-component.mixin';
+import ElCheckboxGroup       from 'element-ui/lib/checkbox-group.js';
+import mzTransparentWrapper  from '@/components/transparent-component.mixin';
 
 @Component({
   components: {
