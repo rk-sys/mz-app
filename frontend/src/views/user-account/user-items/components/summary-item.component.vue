@@ -38,8 +38,8 @@ export default class mzSummaryItem extends Vue {
        scoped>
 
 .mz-summary-item {
-  font-size: 1.4rem;
   margin-right: 2rem;
+  font-size: 1.8rem;
 
   &__result {
     color: var(--primary-color);

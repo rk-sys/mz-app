@@ -349,8 +349,8 @@ export default class mzUserAccountEdit extends Vue {
       margin: 2rem 0;
 
       &__icon {
-        width: 3.5rem;
-        height: 3.5rem;
+        width: 3.7rem;
+        height: 3.8rem;
         margin-right: 1rem;
       }
 

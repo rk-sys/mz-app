@@ -130,7 +130,7 @@ export default class mzContact extends Vue {
     margin: 0.1rem 0;
 
     &__icon {
-      width: 3.5rem;
+      min-width: 3.8rem;
       height: 3.5rem;
       margin-right: 1rem;
     }

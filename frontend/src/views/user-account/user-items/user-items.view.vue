@@ -42,7 +42,7 @@
 <script lang="ts">
 import { Component, Vue }              from 'vue-property-decorator';
 import { namespace }                   from 'vuex-class';
-import { i18n, loadTranslationsAsync } from '@/i18n/i18n';
+import { loadTranslationsAsync } from '@/i18n/i18n';
 import Store                           from '@/store/store';
 import { Route }                       from 'vue-router';
 import mzUserAccountModule             from '@/views/user-account/store/user-account.module';
@@ -125,11 +125,12 @@ export default class mzUserItems extends Vue {
     .summary-menu {
       &__items-counter {
         display: flex;
+        align-items: center;
       }
 
       &__toggle-button {
-        width: 2rem;
-        height: 2rem;
+        width: 2.2rem;
+        height: 2.2rem;
         align-self: center;
         margin-right: 1rem;
         cursor: pointer;
@@ -137,7 +138,7 @@ export default class mzUserItems extends Vue {
       }
 
       &__category-select {
-        display: flex;
+        font-size: 1.8rem;
 
         .mz-select {
           margin-left: 1rem;

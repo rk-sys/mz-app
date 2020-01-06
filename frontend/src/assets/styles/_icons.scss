@@ -289,4 +289,34 @@
     background: url("~@/assets/icons/empty/empty.svg") no-repeat center;
     background-size: contain;
   }
+
+  &-edit {
+    background: url("~@/assets/icons/edit/edit.svg") no-repeat center;
+    background-size: contain;
+  }
+
+  &-edit--white {
+    background: url("~@/assets/icons/edit/edit--white.svg") no-repeat center;
+    background-size: contain;
+  }
+
+  &-eye {
+    background: url("~@/assets/icons/eye/eye.svg") no-repeat center;
+    background-size: contain;
+  }
+
+  &-eye--white {
+    background: url("~@/assets/icons/eye/eye--white.svg") no-repeat center;
+    background-size: contain;
+  }
+
+  &-delete {
+    background: url("~@/assets/icons/delete/delete.svg") no-repeat center;
+    background-size: contain;
+  }
+
+  &-delete--white {
+    background: url("~@/assets/icons/delete/delete--white.svg") no-repeat center;
+    background-size: contain;
+  }
 }

@@ -1,6 +1,7 @@
 <template>
   <div class="mz-user-item"
-       :class="{ 'mz-user-item--list-view': isListViewOn }">
+       :class="[ {'mz-user-item--list-view': isListViewOn},
+                  `background--${item.status}` ]">
 
     <div class="mz-user-item__background">
       <span class="mz-user-item__status"
@@ -42,18 +43,17 @@
         <router-link class="mz-user-item__link mz-user-item__link--details"
                      v-if="!isListViewOn"
                      to="home">
-
-          {{ $t(`item.action.details`) }}
+          <div class="icon icon-edit--white"></div>
         </router-link>
         <router-link class="mz-user-item__link mz-user-item__link--edit"
                      to="home">
+          <div class="icon icon-eye--white"></div>
 
-          {{ $t(`item.action.edit`) }}
         </router-link>
         <router-link class="mz-user-item__link mz-user-item__link--delete"
                      to="home">
 
-          {{ $t(`item.action.delete`) }}
+          <div class="icon icon-delete--white"></div>
         </router-link>
       </div>
     </div>
@@ -62,9 +62,6 @@
 
 <script lang="ts">
 import { Component, Vue, Prop }        from 'vue-property-decorator';
-import { i18n, loadTranslationsAsync } from '@/i18n/i18n';
-import Store                           from '@/store/store';
-import { Route }                       from 'vue-router';
 import { IUserItem }                   from '@/views/user-account/store/user-account.interface';
 
 @Component({
@@ -78,6 +75,20 @@ export default class mzUserItems extends Vue {
 
 <style lang="scss"
        scoped>
+
+.background {
+  &--active {
+    background: var(--primary-color);
+  }
+
+  &--ended {
+    background: var(--gray-900);
+  }
+
+  &--in-progress {
+    background: var(--secondary-color);
+  }
+}
 
 .mz-user-item {
   &:hover {
@@ -136,7 +147,6 @@ export default class mzUserItems extends Vue {
   &__content {
     font-size: 1.4rem;
     font-weight: var(--font-medium);
-    background-color: var(--white);
     height: 8.5rem;
     width: 100%;
     padding: 1rem;
@@ -144,51 +154,30 @@ export default class mzUserItems extends Vue {
 
   &__title {
     font-size: 1.6rem;
-    width: auto;
+    width: 25rem;
     display: block;
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
+    color: var(--white)
   }
 
   &__link-wrapper {
-    margin-top: 2.2rem;
+    margin: 1rem;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
   }
 
   &__link {
     text-decoration: none;
 
-    &--details {
-      color: var(--black);
-
-      &:hover {
-        border-bottom: 0.1rem solid var(--black);
-      }
-    }
-
-    &--edit {
-      color: var(--primary-color);
-
-      &:hover {
-        border-bottom: .1rem solid var(--primary-color);
-      }
-    }
-
-    &--transaction {
-      color: var(--secondary-color);
-    }
-
-    &--history {
-      color: var(--gray-900);
-    }
-
+    &--details,
+    &--edit,
     &--delete {
-      color: var(--error);
-
-      &:hover {
-        border-bottom: 0.1rem solid var(--error);
+      .icon {
+        height: 2.5rem;
+        width: 2.5rem;
+        cursor: pointer;
       }
     }
   }

@@ -112,7 +112,7 @@ export default class mzUserAccountMenuMobile extends Vue {
   public uploadPicture(file: any) {
     this.changeUserPicture(file);
   }
-};
+}
 </script>
 
 <style lang="scss"
