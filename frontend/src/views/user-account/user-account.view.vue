@@ -125,6 +125,7 @@ export default class mzUserAccount extends Vue {
       height: 4.5rem;
       background: var(--primary-color);
       transition: .2s;
+      z-index: 3;
 
       &:hover {
         width: 3.2rem;

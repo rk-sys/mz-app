@@ -40,19 +40,19 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue }              from 'vue-property-decorator';
-import { namespace }                   from 'vuex-class';
+import { Component, Vue }        from 'vue-property-decorator';
+import { namespace }             from 'vuex-class';
 import { loadTranslationsAsync } from '@/i18n/i18n';
-import Store                           from '@/store/store';
-import { Route }                       from 'vue-router';
-import mzUserAccountModule             from '@/views/user-account/store/user-account.module';
-import mzUserItem                      from './components/user-item.component.vue';
-import mzSummaryItem                   from '@/views/user-account/user-items/components/summary-item.component.vue';
-import mzSelect                        from '@/components/form/select/select.component.vue';
-import mzOption                        from '@/components/form/option/option.component.vue';
-import mzIconsBox                      from '@/components/icons-box/icons-box.component.vue';
-import mzSwitch                        from '@/components/form/switch/switch.component.vue';
-import { IUserItem }                   from '@/views/user-account/store/user-account.interface';
+import Store                     from '@/store/store';
+import { Route }                 from 'vue-router';
+import mzUserAccountModule       from '@/views/user-account/store/user-account.module';
+import mzUserItem                from './components/user-item.component.vue';
+import mzSummaryItem             from '@/views/user-account/user-items/components/summary-item.component.vue';
+import mzSelect                  from '@/components/form/select/select.component.vue';
+import mzOption                  from '@/components/form/option/option.component.vue';
+import mzIconsBox                from '@/components/icons-box/icons-box.component.vue';
+import mzSwitch                  from '@/components/form/switch/switch.component.vue';
+import { IUserItem }             from '@/views/user-account/store/user-account.interface';
 
 const LOCAL_STORE = 'userAccount';
 const local = namespace(LOCAL_STORE);
@@ -73,9 +73,25 @@ export default class mzUserItems extends Vue {
   public summaryList: string[] = [ 'active', 'in-progress', 'ended', 'all' ];
   public selectValue: string = '';
   public isListViewOn: boolean = false;
+  public windowWidth: number = 0;
+  public tabletBreakpoint: number = 768;
 
   public toggleView(): void {
     this.isListViewOn = !this.isListViewOn;
+  }
+
+  public getWindowWidth() {
+    this.windowWidth = document.documentElement.clientWidth;
+    if (this.windowWidth <= this.tabletBreakpoint) {
+      this.isListViewOn = false;
+    }
+  }
+
+  public mounted() {
+    this.$nextTick(() => {
+      window.addEventListener('resize', this.getWindowWidth);
+      this.getWindowWidth();
+    });
   }
 
   private async beforeRouteEnter(to: Route, from: Route, next: any) {
@@ -160,7 +176,7 @@ export default class mzUserItems extends Vue {
   }
 }
 
-@media screen and (max-width: 768px) and (min-width: 426px) {
+@include respond-to(tablet) {
   .mz-user-items {
     margin-left: 0;
 
@@ -177,8 +193,7 @@ export default class mzUserItems extends Vue {
         }
 
         &__toggle-button {
-          width: 2.8rem;
-          height: 2.8rem;
+          display: none;
         }
 
         &__items-counter {
@@ -197,7 +212,7 @@ export default class mzUserItems extends Vue {
   }
 }
 
-@media screen and (max-width: 425px) and (min-width: 300px) {
+@include respond-to(mobile) {
   .mz-user-items {
     margin-left: 0;
     max-width: 45rem;
@@ -217,9 +232,7 @@ export default class mzUserItems extends Vue {
         }
 
         &__toggle-button {
-          width: 2.8rem;
-          height: 2.8rem;
-          align-self: flex-start;
+          display: none;
         }
 
         &__items-counter {

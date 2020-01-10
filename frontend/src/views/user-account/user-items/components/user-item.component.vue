@@ -61,8 +61,8 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue, Prop }        from 'vue-property-decorator';
-import { IUserItem }                   from '@/views/user-account/store/user-account.interface';
+import { Component, Vue, Prop } from 'vue-property-decorator';
+import { IUserItem }            from '@/views/user-account/store/user-account.interface';
 
 @Component({
   components: {},
@@ -253,7 +253,7 @@ export default class mzUserItems extends Vue {
   }
 }
 
-@media screen and (max-width: 768px) and (min-width: 426px) {
+@include respond-to(tablet) {
   .mz-user-item {
     &__content {
       height: 10rem;
@@ -291,7 +291,7 @@ export default class mzUserItems extends Vue {
   }
 }
 
-@media screen and (max-width: 425px) and (min-width: 300px) {
+@include respond-to(mobile) {
   .mz-user-item {
     &__content {
       height: 12rem;
