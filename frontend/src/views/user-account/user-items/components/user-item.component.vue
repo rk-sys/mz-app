@@ -43,17 +43,28 @@
         <router-link class="mz-user-item__link mz-user-item__link--details"
                      v-if="!isListViewOn"
                      to="home">
+
           <div class="icon icon-edit--white"></div>
         </router-link>
+
         <router-link class="mz-user-item__link mz-user-item__link--edit"
                      to="home">
-          <div class="icon icon-eye--white"></div>
 
+          <div class="icon icon-eye--white"
+               v-if="!isListViewOn"></div>
+
+          <div class="icon icon-eye"
+               v-else></div>
         </router-link>
+
         <router-link class="mz-user-item__link mz-user-item__link--delete"
                      to="home">
 
-          <div class="icon icon-delete--white"></div>
+          <div class="icon icon-delete--white"
+               v-if="!isListViewOn"></div>
+
+          <div class="icon icon-delete"
+               v-else></div>
         </router-link>
       </div>
     </div>
@@ -131,7 +142,6 @@ export default class mzUserItems extends Vue {
   }
 
   &__price {
-    background-color: var(--white);
     min-width: 5.2rem;
     top: 3rem;
   }
@@ -212,6 +222,7 @@ export default class mzUserItems extends Vue {
         display: flex;
         justify-content: space-between;
         align-items: center;
+        background-color: var(--white);
       }
 
       &__text-wrapper {
@@ -223,6 +234,7 @@ export default class mzUserItems extends Vue {
         height: 100%;
         white-space: unset;
         margin-bottom: .6rem;
+        color: var(--black);
       }
 
       &__description {
