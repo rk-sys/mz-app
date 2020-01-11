@@ -43,17 +43,28 @@
         <router-link class="mz-user-item__link mz-user-item__link--details"
                      v-if="!isListViewOn"
                      to="home">
+
           <div class="icon icon-edit--white"></div>
         </router-link>
+
         <router-link class="mz-user-item__link mz-user-item__link--edit"
                      to="home">
-          <div class="icon icon-eye--white"></div>
 
+          <div class="icon icon-eye--white"
+               v-if="!isListViewOn"></div>
+
+          <div class="icon icon-eye"
+               v-else></div>
         </router-link>
+
         <router-link class="mz-user-item__link mz-user-item__link--delete"
                      to="home">
 
-          <div class="icon icon-delete--white"></div>
+          <div class="icon icon-delete--white"
+               v-if="!isListViewOn"></div>
+
+          <div class="icon icon-delete"
+               v-else></div>
         </router-link>
       </div>
     </div>
@@ -61,8 +72,8 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue, Prop }        from 'vue-property-decorator';
-import { IUserItem }                   from '@/views/user-account/store/user-account.interface';
+import { Component, Vue, Prop } from 'vue-property-decorator';
+import { IUserItem }            from '@/views/user-account/store/user-account.interface';
 
 @Component({
   components: {},
@@ -131,7 +142,6 @@ export default class mzUserItems extends Vue {
   }
 
   &__price {
-    background-color: var(--white);
     min-width: 5.2rem;
     top: 3rem;
   }
@@ -212,6 +222,7 @@ export default class mzUserItems extends Vue {
         display: flex;
         justify-content: space-between;
         align-items: center;
+        background-color: var(--white);
       }
 
       &__text-wrapper {
@@ -223,6 +234,7 @@ export default class mzUserItems extends Vue {
         height: 100%;
         white-space: unset;
         margin-bottom: .6rem;
+        color: var(--black);
       }
 
       &__description {
@@ -253,7 +265,7 @@ export default class mzUserItems extends Vue {
   }
 }
 
-@media screen and (max-width: 768px) and (min-width: 426px) {
+@include respond-to(tablet) {
   .mz-user-item {
     &__content {
       height: 10rem;
@@ -291,7 +303,7 @@ export default class mzUserItems extends Vue {
   }
 }
 
-@media screen and (max-width: 425px) and (min-width: 300px) {
+@include respond-to(mobile) {
   .mz-user-item {
     &__content {
       height: 12rem;
