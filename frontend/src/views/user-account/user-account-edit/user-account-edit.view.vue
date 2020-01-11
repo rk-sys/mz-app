@@ -366,13 +366,13 @@ export default class mzUserAccountEdit extends Vue {
   }
 }
 
-@media screen and (max-width: 768px) and (min-width: 300px) {
+@media screen and (max-width: 768px) {
   .user-account-edit {
     margin-left: 0;
   }
 }
 
-@media screen and (max-width: 425px) and (min-width: 300px) {
+@media screen and (max-width: 425px) {
   .user-account-edit {
     width: 46rem;
 

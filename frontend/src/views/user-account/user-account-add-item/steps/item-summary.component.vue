@@ -268,7 +268,7 @@ export default class mzItemSummary extends Vue {
   }
 }
 
-@media screen and (max-width: 560px) and (min-width: 300px) {
+@media screen and (max-width: 560px) {
   .mz-item-summary {
     &__condition {
       &__title {
@@ -287,7 +287,7 @@ export default class mzItemSummary extends Vue {
   }
 }
 
-@media screen and (max-width: 425px) and (min-width: 300px) {
+@media screen and (max-width: 425px) {
   .mz-item-summary {
     &__tag-list {
       margin: 3rem 0;

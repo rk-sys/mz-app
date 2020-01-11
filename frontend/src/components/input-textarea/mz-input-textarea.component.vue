@@ -48,7 +48,7 @@ export default class Home extends Vue {
       border: 2px solid var(--primary-color);
     }
 
-    @media screen and (max-width: 560px) and (min-width: 300px) {
+    @media screen and (max-width: 560px) {
       font-size: 2.4rem;
     }
   }

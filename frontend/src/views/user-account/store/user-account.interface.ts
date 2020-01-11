@@ -1,5 +1,5 @@
 export interface IUserAccountMenu {
-  userInfo: IUserInfo;
+  userInfo: IUserInfo[];
   links: IUserAccountMenuLinks[];
 }
 

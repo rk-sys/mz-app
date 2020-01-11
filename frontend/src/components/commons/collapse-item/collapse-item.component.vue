@@ -35,9 +35,12 @@ export default class mzCollapseItem extends Mixins(mzTransparentWrapper) {
 @import '~element-ui/lib/theme-chalk/collapse-item.css';
 
 .el-collapse-item__header {
-  padding: 0 3rem;
-  font-size: 1.8rem;
-  height: 6.8rem;
+  padding: 0;
+  font-size: 2rem;
+  color: var(--black);
+  font-weight: var(--font-medium);
+  height: 5rem;
+  border-bottom: 1px solid var(--white);
 
   &.is-active {
     border-bottom: 1px solid var(--gray-200);
@@ -45,17 +48,20 @@ export default class mzCollapseItem extends Mixins(mzTransparentWrapper) {
 }
 
 .mz-collapse-item {
-
   &--section {
     .el-collapse-item {
-
       &__wrap,
       &__header {
         border: none;
       }
     }
-
   }
 }
 
+
+@media screen and (max-width: 768px) and (min-width: 425px) {
+  .el-collapse-item__header {
+    padding: 2rem 2rem;
+  }
+}
 </style>

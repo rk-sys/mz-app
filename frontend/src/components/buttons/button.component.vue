@@ -157,7 +157,7 @@ export default class mzButton extends Mixins(mzTransparentWrapper) {
   }
 }
 
-@media screen and (max-width: 425px) and (min-width: 300px) {
+@media screen and (max-width: 425px) {
   .mz-button {
     font-size: 2rem;
     width: auto;

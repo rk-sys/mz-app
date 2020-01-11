@@ -74,7 +74,7 @@ export default class mzBoxWithTitle extends Vue {
 }
 
 
-@media screen and (max-width: 425px) and (min-width: 300px) {
+@media screen and (max-width: 425px) {
   .box-with-title {
     &__text {
       flex-wrap: wrap;

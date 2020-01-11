@@ -190,8 +190,18 @@
     background-size: contain;
   }
 
+  &-wool--black {
+    background: url("~@/assets/icons/wool/wool--black.svg") no-repeat center;
+    background-size: contain;
+  }
+
   &-anvil {
     background: url("~@/assets/icons/anvil/anvil.svg") no-repeat center;
+    background-size: contain;
+  }
+
+  &-anvil--black {
+    background: url("~@/assets/icons/anvil/anvil--black.svg") no-repeat center;
     background-size: contain;
   }
 
@@ -200,8 +210,18 @@
     background-size: contain;
   }
 
+  &-leather--black {
+    background: url("~@/assets/icons/leather/leather--black.svg") no-repeat center;
+    background-size: contain;
+  }
+
   &-wooden {
     background: url("~@/assets/icons/wooden/wooden.svg") no-repeat center;
+    background-size: contain;
+  }
+
+  &-wooden--black {
+    background: url("~@/assets/icons/wooden/wooden--black.svg") no-repeat center;
     background-size: contain;
   }
 
@@ -255,6 +275,11 @@
     background-size: contain;
   }
 
+  &-puzzle--black {
+    background: url("~@/assets/icons/puzzle/puzzle--black.svg") no-repeat center;
+    background-size: contain;
+  }
+
   &-tunic {
     background: url("~@/assets/icons/tunic/tunic.svg") no-repeat center;
     background-size: contain;
@@ -271,7 +296,12 @@
   }
 
   &-spray {
-    background: url("~@/assets/icons/tunic/tunic.svg") no-repeat center;
+    background: url("~@/assets/icons/spray/spray.svg") no-repeat center;
+    background-size: contain;
+  }
+
+  &-spray--black {
+    background: url("~@/assets/icons/spray/spray--black.svg") no-repeat center;
     background-size: contain;
   }
 

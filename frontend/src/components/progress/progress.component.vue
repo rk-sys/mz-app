@@ -105,7 +105,7 @@ export default class mzProgress extends Mixins(mzTransparentWrapper) {
   }
 }
 
-@media screen and (max-width: 425px) and (min-width: 300px) {
+@media screen and (max-width: 425px) {
   .mz-progress {
     font-size: 1.8rem;
   }

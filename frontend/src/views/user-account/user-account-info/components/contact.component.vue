@@ -156,7 +156,7 @@ export default class mzContact extends Vue {
 }
 
 
-@media screen and (max-width: 560px) and (min-width: 300px) {
+@media screen and (max-width: 560px) {
   .mz-contact__form {
     margin: 2rem 1.5rem 0;
 

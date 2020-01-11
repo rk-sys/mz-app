@@ -37,6 +37,8 @@ export default class mzCollapse extends Mixins(mzTransparentWrapper) {
 @import '~element-ui/lib/theme-chalk/collapse.css';
 
 .mz-collapse {
+  border-top: 0;
+  border-bottom: 0;
 
   &--section {
     border: none;

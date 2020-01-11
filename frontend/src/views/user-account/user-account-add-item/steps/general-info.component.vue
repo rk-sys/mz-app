@@ -240,7 +240,7 @@ export default class mzUserAccount extends Vue {
   }
 }
 
-@media screen and (max-width: 560px) and (min-width: 300px) {
+@media screen and (max-width: 560px) {
   .mz-general-info {
 
     &__range,
@@ -278,7 +278,7 @@ export default class mzUserAccount extends Vue {
   }
 }
 
-@media screen and (max-width: 425px) and (min-width: 300px) {
+@media screen and (max-width: 425px) {
   .mz-general-info {
     &__range,
     &__subcategory {

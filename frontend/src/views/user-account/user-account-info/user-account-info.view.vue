@@ -311,7 +311,7 @@ export default class mzUserAccountInfo extends Vue {
   }
 }
 
-@media screen and (max-width: 425px) and (min-width: 300px) {
+@media screen and (max-width: 425px) {
   .mz-user-account-info {
     margin-left: 0;
     width: 43rem;

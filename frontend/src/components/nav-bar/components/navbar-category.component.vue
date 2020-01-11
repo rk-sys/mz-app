@@ -3,7 +3,7 @@
     <mz-logo :is-green="true" class="nav-bar-category__logo" />
 
     <router-link class="nav-bar-category__craftsmen"
-                 to="/#">
+                 :to="{name: 'Craftsmen'}">
 
       <div class="icon icon-hammer"></div>
       {{$t(`navBar.craftsmen`)}}

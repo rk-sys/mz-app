@@ -152,7 +152,7 @@ export default class mzNavBarAccountSignIn extends Vue {
   }
 }
 
-@media screen and (max-width: 425px) and (min-width: 300px) {
+@media screen and (max-width: 425px) {
   .mz-nav-bar-account-sign-in__account__name,
   .mz-nav-bar-account-sign-in__item__link {
     font-size: 2rem;

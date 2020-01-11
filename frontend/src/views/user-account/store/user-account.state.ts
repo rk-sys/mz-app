@@ -1,13 +1,7 @@
 import { IContact, IUserAccountMenu } from '@/views/user-account/store/user-account.interface';
 
 export const userAccountMenu: IUserAccountMenu = {
-  userInfo: {
-    displayName: '',
-    photoURL: '',
-    emailVerified: '',
-    email: '',
-    uid: '',
-  },
+  userInfo: [],
   links: [
     {
       label: 'editAccount',

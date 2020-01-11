@@ -114,7 +114,7 @@ export default class mzUserAccount extends Vue {
   }
 }
 
-@media screen and (max-width: 425px) and (min-width: 300px) {
+@media screen and (max-width: 425px) {
   .mz-add-item {
     margin-left: 0;
     width: 43rem;

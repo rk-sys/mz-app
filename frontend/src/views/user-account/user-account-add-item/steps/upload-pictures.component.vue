@@ -303,7 +303,7 @@ export default class mzUploadPictures extends Vue {
   }
 }
 
-@media screen and (max-width: 768px) and (min-width: 300px) {
+@media screen and (max-width: 768px) {
   .mz-upload-pictures {
     &__container {
       font-size: 2.2rem;
@@ -342,7 +342,7 @@ export default class mzUploadPictures extends Vue {
   }
 }
 
-@media screen and (max-width: 425px) and (min-width: 300px) {
+@media screen and (max-width: 425px) {
   .mz-upload-pictures {
     &__container {
       flex-wrap: wrap;

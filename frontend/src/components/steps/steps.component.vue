@@ -166,7 +166,7 @@ export default class mzSteps extends Mixins(mzTransparentWrapper) {
   }
 }
 
-@media screen and (max-width: 560px) and (min-width: 300px) {
+@media screen and (max-width: 560px) {
   .mz-steps {
     flex-direction: column;
 

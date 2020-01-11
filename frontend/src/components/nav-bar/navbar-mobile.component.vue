@@ -31,13 +31,13 @@ export default class mzNavBarMobile extends Vue {
   justify-content: space-around;
   z-index: 4;
   display: none;
-  padding: 2rem 0 5rem;
+  padding: 2rem 0 4rem;
   background: var(--gray-150);
   grid-template-rows: auto auto;
   grid-template-columns: 1fr 4fr 1fr;
 }
 
-@media screen and (max-width: 768px) and (min-width: 300px) {
+@media screen and (max-width: 768px) {
   .nav-bar-mobile {
     display: grid;
   }

@@ -434,8 +434,6 @@ export default class mzUserAccount extends Vue {
       width: 2.5rem;
       font-size: 3.5rem;
       font-weight: 100;
-      display: -webkit-box;
-      display: -ms-flexbox;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -451,7 +449,7 @@ export default class mzUserAccount extends Vue {
   }
 }
 
-@media screen and (max-width: 425px) and (min-width: 300px) {
+@media screen and (max-width: 425px) {
   .mz-item-description {
     &__form {
       margin: 0 1rem;

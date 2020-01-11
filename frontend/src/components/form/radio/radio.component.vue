@@ -39,7 +39,7 @@ export default class mzRadio extends Mixins(mzTransparentWrapper) {
     color: var(--gray-500);
     font-size: 1.6rem;
 
-    @media screen and (max-width: 560px) and (min-width: 300px) {
+    @media screen and (max-width: 560px) {
       font-size: 2.4rem;
     }
   }

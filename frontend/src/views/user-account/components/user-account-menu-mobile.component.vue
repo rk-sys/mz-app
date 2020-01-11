@@ -272,7 +272,7 @@ export default class mzUserAccountMenuMobile extends Vue {
 }
 
 
-@media screen and (max-width: 425px) and (min-width: 300px) {
+@media screen and (max-width: 425px) {
   .user-account-menu-mobile {
     width: 43rem;
 
