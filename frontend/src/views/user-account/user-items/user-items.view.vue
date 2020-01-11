@@ -80,7 +80,7 @@ export default class mzUserItems extends Vue {
     this.isListViewOn = !this.isListViewOn;
   }
 
-  public getWindowWidth() {
+  public getWindowWidth(): void {
     this.windowWidth = document.documentElement.clientWidth;
     if (this.windowWidth <= this.tabletBreakpoint) {
       this.isListViewOn = false;
