@@ -27,4 +27,5 @@ export interface ICraftsmen {
   rating: number;
   tags: string[];
   image: string;
+  id: number | null;
 }

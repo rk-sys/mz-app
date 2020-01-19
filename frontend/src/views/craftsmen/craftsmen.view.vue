@@ -13,6 +13,7 @@
 
           <mz-craftsmen-card v-for="craftsmen in craftsmenList"
                              class="craftsmen-list__item"
+                             :craftsmen-id="craftsmen.id"
                              :city="craftsmen.city"
                              :rating="craftsmen.rating"
                              :name="craftsmen.name"
@@ -29,7 +30,7 @@
 import { Component, Vue }        from 'vue-property-decorator';
 import { loadTranslationsAsync } from '@/i18n/i18n';
 import { registerStoreModule }   from '@/helpers/helpers';
-import { namespace, State }      from 'vuex-class';
+import { namespace }      from 'vuex-class';
 import { Route }                 from 'vue-router';
 import Store                     from '@/store/store';
 import mzCraftsmenModule         from '@/views/craftsmen/store/craftsmen.module';

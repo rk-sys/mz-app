@@ -57,6 +57,9 @@ export default class mzNavBarCategoryMobile extends Vue {
 }
 </script>
 <style lang="scss">
+.el-collapse-item__wrap {
+  border-bottom: none;
+}
 .nav-bar-category-mobile {
   .el-collapse-item__content {
     padding-bottom: 0;

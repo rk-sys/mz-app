@@ -214,8 +214,8 @@ export default class mzItemSummary extends Vue {
     }
 
     &__small-picture {
-      width: 14.5rem;
-      height: 14.5rem;
+      width: 12.5rem;
+      height: 12.5rem;
       cursor: pointer;
 
       &:hover {
@@ -268,6 +268,18 @@ export default class mzItemSummary extends Vue {
   }
 }
 
+@media screen and (max-width: 768px) {
+  .mz-item-summary {
+    &__gallery {
+
+      &__small-picture {
+        width: 13.5rem;
+        height: 13.5rem;
+      }
+    }
+  }
+}
+
 @media screen and (max-width: 560px) {
   .mz-item-summary {
     &__condition {
@@ -283,6 +295,11 @@ export default class mzItemSummary extends Vue {
     &__gallery {
       margin: 4rem 3.5rem 2rem;
       justify-content: space-between;
+
+      &__small-picture {
+        width: 13.5rem;
+        height: 13.5rem;
+      }
     }
   }
 }

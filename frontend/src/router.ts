@@ -35,6 +35,19 @@ const router = new Router({
       component: () => import ('./views/reset-password/reset-password.view.vue'),
     },
     {
+      path: '/craftsmen/:uuid/detail',
+      name: 'Craftsmen detail',
+      redirect: '/craftsmen/:uuid/detail/info',
+      component: () => import ('./views/craftsmen-detail/craftsmen-detail.view.vue'),
+      children: [
+        {
+          path: 'info',
+          name: 'Craftsmen detail info',
+          component: () => import ('./views/craftsmen-detail/craftsmen-detail-general-info/craftsmen-detail-general-info.view.vue'),
+        },
+      ],
+    },
+    {
       path: '/account',
       name: 'User account',
       redirect: '/account/edit',

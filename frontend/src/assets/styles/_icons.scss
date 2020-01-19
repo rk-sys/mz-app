@@ -1,5 +1,15 @@
 .icon {
 
+  &-instagram {
+    background: url("~@/assets/icons/instagram/instagram.svg") no-repeat center;
+    background-size: contain;
+  }
+
+  &-instagram--green {
+    background: url("~@/assets/icons/instagram/instagram--green.svg") no-repeat center;
+    background-size: contain;
+  }
+
   &-arrow--white {
     background: url("~@/assets/icons/arrow/arrow.svg") no-repeat center;
     background-size: contain;

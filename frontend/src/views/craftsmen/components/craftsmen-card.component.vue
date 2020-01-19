@@ -13,35 +13,39 @@
                  score-template="{value} points" />
       </div>
     </div>
+    {{craftsmenId}}
 
     <div class="mz-craftsmen-card__info"
          @mouseenter="isHover = !isHover"
          @mouseleave="isHover = !isHover">
 
-      <div class="mz-craftsmen-card__info__img">
-        <template v-if="image && image !== ''">
-          <img :src="image"
-               :alt="name"
-               class="picture">
-        </template>
+      <router-link :to="{name: 'Craftsmen detail', params: {uuid: craftsmenId}}"
+                   class="mz-craftsmen-card__info__link">
 
-        <template v-else>
-          <img src="@/assets/img/user.png"
-               :alt="name"
-               class="picture">
-        </template>
+        <div class="mz-craftsmen-card__info__img">
+          <template v-if="image && image !== ''">
+            <img :src="image"
+                 :alt="name"
+                 class="picture">
+          </template>
+          <template v-else>
+            <img src="@/assets/img/user.png"
+                 :alt="name"
+                 class="picture">
+          </template>
 
-        <div v-if="isHover"
-             class="picture--hover">
-          {{$t(`pictureHover`)}}
+          <div v-if="isHover"
+               class="picture--hover">
+            {{$t(`pictureHover`)}}
+          </div>
         </div>
-      </div>
 
-      <span class="display-name"
-            :class="{'hover': isHover}">
+        <span class="display-name"
+              :class="{'hover': isHover}">
 
         {{name}}
       </span>
+      </router-link>
     </div>
 
     <div class="mz-craftsmen-card__tags">
@@ -71,6 +75,7 @@ import mzRate                   from '@/components/rate/rate.component.vue';
 export default class mzCraftsmenCard extends Vue {
   @Prop(String) public readonly city!: string;
   @Prop(Number) public readonly rating!: number;
+  @Prop(Number) public readonly craftsmenId!: number;
   @Prop(String) public readonly image!: string;
   @Prop(String) public readonly name!: string;
   @Prop(Array) public readonly tags!: string[];
@@ -119,6 +124,16 @@ export default class mzCraftsmenCard extends Vue {
     align-items: center;
     margin: 2rem auto;
     cursor: pointer;
+    text-decoration: none;
+    color: var(--black);
+
+    &__link {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-decoration: none;
+      color: var(--black);
+    }
 
     &__img {
       position: relative;

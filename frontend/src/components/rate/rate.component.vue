@@ -23,6 +23,10 @@ export default class mzRate extends Mixins(mzTransparentWrapper) {
 }
 </script>
 <style lang="scss">
+.mz-rate.el-rate {
+  height: auto;
+  transform: scaleX(-1);
+}
 
 .el-rate__item {
   .el-rate__icon {

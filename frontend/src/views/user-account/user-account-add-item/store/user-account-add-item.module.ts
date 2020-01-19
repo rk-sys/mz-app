@@ -3,13 +3,11 @@ import cloneDeep                                from 'lodash/cloneDeep';
 import {
   IAddItemGeneralInfo,
   IAddItemNewItem,
-  IAddItemPicture,
 }                                               from '@/views/user-account/user-account-add-item/store/user-account-add-item.interface';
 import {
   addItemGeneralInfo,
   newItem,
 }                                               from '@/views/user-account/user-account-add-item/store/user-account-add-item.state';
-import router                                   from '@/router';
 
 @Module({ namespaced: true, stateFactory: true })
 export default class mzUserAccountModule extends VuexModule {

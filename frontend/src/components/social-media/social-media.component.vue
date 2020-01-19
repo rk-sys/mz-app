@@ -1,26 +1,40 @@
 <template>
   <div class="mz-social-media">
-
-    <div :class="{'icon--light': isLight,
+    <a v-if="facebookUrl"
+       :href="facebookUrl"
+       :class="{'icon--light': isLight,
              'icon--dark': !isLight,
              'icon-facebook--green': facebookWhite && !isLight,}"
-         @mouseleave="removeColor($event.target)"
-         @mouseover="changeColor($event.target)"
-         class="mz-social-media__icon icon-facebook"></div>
+       @mouseleave="removeColor($event.target)"
+       @mouseover="changeColor($event.target)"
+       class="mz-social-media__icon icon-facebook"></a>
 
-    <div :class="{'icon--light': isLight,
+    <a v-if="youtubeUrl"
+       :href="youtubeUrl"
+       :class="{'icon--light': isLight,
              'icon--dark': !isLight,
              'icon-youtube--color': youtubeWhite && !isLight}"
-         @mouseleave="removeColor($event.target)"
-         @mouseover="changeColor($event.target)"
-         class="mz-social-media__icon icon-youtube"></div>
+       @mouseleave="removeColor($event.target)"
+       @mouseover="changeColor($event.target)"
+       class="mz-social-media__icon icon-youtube"></a>
 
-    <div :class="{'icon--light': isLight,
+    <a v-if="twitterUrl"
+       :href="twitterUrl"
+       :class="{'icon--light': isLight,
              'icon--dark': !isLight,
              'icon-twitter--color': twitterWhite && !isLight,}"
-         @mouseleave="removeColor($event.target)"
-         @mouseover="changeColor($event.target)"
-         class="mz-social-media__icon icon-twitter"></div>
+       @mouseleave="removeColor($event.target)"
+       @mouseover="changeColor($event.target)"
+       class="mz-social-media__icon icon-twitter"></a>
+
+    <a v-if="instagramUrl"
+       :href="instagramUrl"
+       :class="{'icon--light': isLight,
+             'icon--dark': !isLight,
+             'icon-instagram--green': instagramWhite && !isLight,}"
+       @mouseleave="removeColor($event.target)"
+       @mouseover="changeColor($event.target)"
+       class="mz-social-media__icon icon-instagram"></a>
 
   </div>
 </template>
@@ -30,10 +44,15 @@ import { Component, Emit, Prop, Vue } from 'vue-property-decorator';
 
 @Component
 export default class mzSocialMedia extends Vue {
+  @Prop(String) public facebookUrl!: string;
+  @Prop(String) public youtubeUrl!: string;
+  @Prop(String) public twitterUrl!: string;
+  @Prop(String) public instagramUrl!: string;
   @Prop(Boolean) public readonly isLight!: boolean;
   public facebookWhite: boolean = false;
   public youtubeWhite: boolean = false;
   public twitterWhite: boolean = false;
+  public instagramWhite: boolean = false;
 
   @Emit()
   public changeColor(e: any) {
@@ -44,6 +63,8 @@ export default class mzSocialMedia extends Vue {
       this.youtubeWhite = true;
     } else if (classes.includes('twitter')) {
       this.twitterWhite = true;
+    } else if (classes.includes('instagram')) {
+      this.instagramWhite = true;
     }
   }
 
@@ -56,6 +77,8 @@ export default class mzSocialMedia extends Vue {
       this.youtubeWhite = false;
     } else if (classes.includes('twitter')) {
       this.twitterWhite = false;
+    } else if (classes.includes('instagram')) {
+      this.instagramWhite = false;
     }
   }
 }
