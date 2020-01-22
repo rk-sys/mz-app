@@ -5,13 +5,13 @@
            alt="craftsmen-image"
            class="picture">
 
-      <h1 class="name">{{baseInfo.name}}</h1>
+      <h1 class="name">{{ baseInfo.name }}</h1>
       <div class="rating">
         <div v-for="item in baseInfo.ratings"
              class="rating__item">
 
           <span class="label">
-            {{$t(`craftsmenDetailMenu.rating.${item.label}`)}}
+            {{ $t(`craftsmenDetailMenu.rating.${item.label}`) }}
           </span>
           <mz-rate v-model="item.value"
                    disabled />
@@ -20,33 +20,12 @@
     </div>
 
     <div class="mz-craftsmen-detail-menu__links">
-      <div class="mz-craftsmen-detail-menu__links__wrapper">
-        <router-link to="#"
+      <div v-for="item in menuLinks"
+           class="mz-craftsmen-detail-menu__links__wrapper">
+
+        <router-link :to="{name: item.nameUrl, params: {uuid: '1'}}"
                      class="link">
-          Informacje
-        </router-link>
-      </div>
-
-
-      <div class="mz-craftsmen-detail-menu__links__wrapper">
-        <router-link to="#"
-                     class="link">
-          Produkty
-        </router-link>
-      </div>
-
-
-      <div class="mz-craftsmen-detail-menu__links__wrapper">
-        <router-link to="#"
-                     class="link">
-          Portfolio
-        </router-link>
-      </div>
-
-      <div class="mz-craftsmen-detail-menu__links__wrapper">
-        <router-link to="#"
-                     class="link">
-          Oceny i komentarze
+          {{ $t(`menuLinks.${item.label}`) }}
         </router-link>
       </div>
     </div>
@@ -55,19 +34,20 @@
       <mz-social-media :facebook-url="baseInfo.socialMedia.facebook"
                        :twitter-url="baseInfo.socialMedia.twitter"
                        :youtube-url="baseInfo.socialMedia.youtube"
-                       :instagram-url="baseInfo.socialMedia.instagram"/>
+                       :instagram-url="baseInfo.socialMedia.instagram" />
     </div>
   </div>
 </template>
 
 <script lang="ts">
-import { Component, Vue, Prop } from 'vue-property-decorator';
-import { namespace }            from 'vuex-class';
-import { ICraftsmenBaseInfo }   from '@/views/craftsmen-detail/store/craftsmen-detail.interface';
-import mzSocialMedia            from '@/components/social-media/social-media.component.vue';
-import mzRate                   from '@/components/rate/rate.component.vue';
+import { Component, Vue, Prop }                    from 'vue-property-decorator';
+import { namespace }                               from 'vuex-class';
+import { ICraftsmenBaseInfo, ICraftsmenMenuLinks } from '@/views/craftsmen-detail/store/craftsmen-detail.interface';
+import mzCraftsmenDetailModule                     from '../store/craftsmen-detail.module';
+import mzSocialMedia                               from '@/components/social-media/social-media.component.vue';
+import mzRate                                      from '@/components/rate/rate.component.vue';
 
-const LOCAL_STORE = 'userAccount';
+const LOCAL_STORE = 'craftsmenDetail';
 const local = namespace(LOCAL_STORE);
 
 @Component({
@@ -77,6 +57,7 @@ const local = namespace(LOCAL_STORE);
   },
 })
 export default class mzCraftsmenDetailMenu extends Vue {
+  @local.State((state: mzCraftsmenDetailModule) => state.mzCraftsMenMenuLinks) public menuLinks!: ICraftsmenMenuLinks;
   @Prop(Object) public readonly baseInfo!: ICraftsmenBaseInfo;
 
 }
@@ -189,6 +170,39 @@ export default class mzCraftsmenDetailMenu extends Vue {
 @media only screen and (max-width: 768px) {
   .mz-craftsmen-detail-menu {
     margin-bottom: 4rem;
+    width: 45rem;
+    padding: 1rem;
+
+    &__info {
+      margin-bottom: 3.5rem;
+    }
+
+    .picture {
+      width: 25rem;
+      height: 25rem;
+    }
+
+    .name {
+      font-size: 3.5rem;
+    }
+
+    .rating__item {
+      .label {
+        font-size: 2.8rem;
+      }
+    }
+
+    &__links {
+      margin-bottom: 3.5rem;
+
+      &__wrapper {
+        text-align: center;
+
+        .link {
+          font-size: 2.8rem;
+        }
+      }
+    }
   }
 }
 </style>

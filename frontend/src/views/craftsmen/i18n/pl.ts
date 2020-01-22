@@ -11,6 +11,7 @@ export default {
     rate_DESC: 'Oceny: Od najlepszej',
   },
   filters: {
+    title: 'Filtry',
     category: {
       title: 'Kategoria:',
       leather: 'Skóra',

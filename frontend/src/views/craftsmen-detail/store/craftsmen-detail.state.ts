@@ -1,4 +1,4 @@
-import { ICraftsmenDetail } from './craftsmen-detail.interface';
+import { ICraftsmenDetail, ICraftsmenMenuLinks } from './craftsmen-detail.interface';
 
 export const craftsmenDetail: ICraftsmenDetail = {
   craftsmenBaseInfo: {
@@ -16,4 +16,24 @@ export const craftsmenDetail: ICraftsmenDetail = {
     contact: [],
     tags: [],
   },
+  craftsmenPortfolio: [],
 };
+
+export const craftsmenMenuLinks: ICraftsmenMenuLinks[] = [
+  {
+    label: 'info',
+    nameUrl: 'Craftsmen detail info',
+  },
+  {
+    label: 'portfolio',
+    nameUrl: 'Craftsmen detail portfolio',
+  },
+  {
+    label: 'products',
+    nameUrl: '',
+  },
+  {
+    label: 'comment',
+    nameUrl: '',
+  },
+];

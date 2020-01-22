@@ -45,6 +45,11 @@ const router = new Router({
           name: 'Craftsmen detail info',
           component: () => import ('./views/craftsmen-detail/craftsmen-detail-general-info/craftsmen-detail-general-info.view.vue'),
         },
+        {
+          path: 'portfolio',
+          name: 'Craftsmen detail portfolio',
+          component: () => import ('./views/craftsmen-detail/craftsmen-detail-portfolio/craftsmen-detail-portfolio.view.vue'),
+        },
       ],
     },
     {

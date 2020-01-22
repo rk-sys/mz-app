@@ -1,5 +1,13 @@
 export interface ICraftsmenDetail {
   craftsmenBaseInfo: ICraftsmenBaseInfo;
+  craftsmenPortfolio: IPortfolio[] | [];
+}
+
+export interface IPortfolio {
+  pictureUrl: string;
+  title: string;
+  description: string;
+  tags: string[] | null;
 }
 
 export interface ICraftsmenBaseInfo {
@@ -27,4 +35,9 @@ export interface ISocialMedia {
 export interface IContact {
   label: string;
   value: string;
+}
+
+export interface ICraftsmenMenuLinks {
+  label: string;
+  nameUrl: string;
 }

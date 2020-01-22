@@ -12,6 +12,7 @@
         <main class="craftsmen-list">
 
           <mz-craftsmen-card v-for="craftsmen in craftsmenList"
+                             :key="craftsmen.id"
                              class="craftsmen-list__item"
                              :craftsmen-id="craftsmen.id"
                              :city="craftsmen.city"

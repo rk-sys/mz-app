@@ -2,7 +2,7 @@
   <mz-collapse class="mz-craftsmen-filters"
                v-model="activeNames">
 
-    <mz-collapse-item title="Filtry"
+    <mz-collapse-item :title="$t(`filters.title`)"
                       name="0"
                       class="mz-craftsmen-filters__collapse">
 
@@ -61,15 +61,15 @@
 </template>
 
 <script lang="ts">
-import { Component, Prop, Vue } from 'vue-property-decorator';
-import { namespace }            from 'vuex-class';
-import { ICraftsmenFilters }    from '@/views/craftsmen/store/craftsmen.interface';
-import mzCraftsmenModule        from '@/views/craftsmen/store/craftsmen.module';
-import mzCheckbox               from '@/components/form/checkbox/checkbox.component.vue';
-import mzTag                    from '@/components/tag/tag.component.vue';
-import mzCollapse               from '@/components/commons/collapse/collapse.component.vue';
-import mzCollapseItem           from '@/components/commons/collapse-item/collapse-item.component.vue';
-import mzInput                  from '@/components/input/mz-input.component.vue';
+import { Component, Vue }    from 'vue-property-decorator';
+import { namespace }         from 'vuex-class';
+import { ICraftsmenFilters } from '@/views/craftsmen/store/craftsmen.interface';
+import mzCraftsmenModule     from '@/views/craftsmen/store/craftsmen.module';
+import mzCheckbox            from '@/components/form/checkbox/checkbox.component.vue';
+import mzTag                 from '@/components/tag/tag.component.vue';
+import mzCollapse            from '@/components/commons/collapse/collapse.component.vue';
+import mzCollapseItem        from '@/components/commons/collapse-item/collapse-item.component.vue';
+import mzInput               from '@/components/input/mz-input.component.vue';
 
 const LOCAL_STORE = 'craftsmen';
 const local = namespace(LOCAL_STORE);

@@ -33,46 +33,58 @@ export default class mzModal extends Mixins(mzTransparentWrapper) {
 }
 </script>
 
-<style lang="scss"
-       scoped>
+<style lang="scss">
 
 @import '~element-ui/lib/theme-chalk/dialog.css';
 
 .mz-modal {
-  /deep/ {
-    .el-dialog {
-      top: 50%;
+  .el-dialog {
+    margin-top: 1rem !important;
+    top: 50%;
+    transform: translateY(-50%);
+    position: relative;
+    width: 70rem;
+
+    &__header {
+      position: absolute;
+      top: 0;
+      background: none;
+      width: 100%;
+    }
+
+    &__title {
+      display: none;
+    }
+
+    &__headerbtn {
       transform: translateY(-50%);
+      right: -1.5rem;
+      top: 0;
+      z-index: 1;
+    }
 
-      &__header {
-        position: relative;
-        padding: 1.5rem;
-        background-color: var(--gray-200);
-      }
+    &__close {
+      background: var(--white);
+      border-radius: 50%;
+      font-size: 3.5rem;
 
-      &__title {
-        @extend %heading-4;
+      &:hover {
         color: var(--black);
       }
+    }
 
-      &__headerbtn {
-        top: 50%;
-        transform: translateY(-50%);
-      }
-
-      &__close {
-        font-size: var(--font-size-18);
-
-        &:hover {
-          color: var(--secondary-color);
-        }
-      }
-
-      &__body {
-        padding: 3rem 5rem;
-      }
+    &__body {
+      padding: 0;
+      position: relative;
     }
   }
 }
 
+@media only screen and (max-width: 425px) {
+  .mz-modal {
+    .el-dialog {
+      width: 46rem;
+    }
+  }
+}
 </style>

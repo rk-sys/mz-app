@@ -40,10 +40,7 @@
 
 <script lang="ts">
 import { Component, Vue }      from 'vue-property-decorator';
-import { registerStoreModule } from '@/helpers/helpers';
 import { namespace }           from 'vuex-class';
-import Store                   from '@/store/store';
-import { Route }               from 'vue-router';
 import mzCraftsmenDetailModule from '../store/craftsmen-detail.module';
 import mzBoxWithTitle          from '@/components/box-with-title/box-with-title.component.vue';
 import { ICraftsmenDetail }    from '@/views/craftsmen-detail/store/craftsmen-detail.interface';
@@ -139,6 +136,14 @@ export default class mzCraftsmenDetailGeneralInfo extends Vue {
   .mz-craftsmen-detail-general-info {
     margin-left: 0;
     width: 46rem;
+
+    .description {
+      padding: 1rem 0;
+    }
+
+    .tag-title, .tag-list, .contact {
+      padding: 1rem 0;
+    }
   }
 }
 </style>

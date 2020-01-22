@@ -13,7 +13,6 @@
                  score-template="{value} points" />
       </div>
     </div>
-    {{craftsmenId}}
 
     <div class="mz-craftsmen-card__info"
          @mouseenter="isHover = !isHover"
@@ -23,11 +22,13 @@
                    class="mz-craftsmen-card__info__link">
 
         <div class="mz-craftsmen-card__info__img">
+
           <template v-if="image && image !== ''">
             <img :src="image"
                  :alt="name"
                  class="picture">
           </template>
+
           <template v-else>
             <img src="@/assets/img/user.png"
                  :alt="name"
@@ -49,6 +50,7 @@
     </div>
 
     <div class="mz-craftsmen-card__tags">
+
       <template v-if="tags !== undefined && tags.length > 0">
         <span v-for="tag in tags"
               class="tag">

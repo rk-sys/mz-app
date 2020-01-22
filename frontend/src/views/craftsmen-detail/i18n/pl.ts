@@ -1,4 +1,10 @@
 export default {
+  menuLinks: {
+    info: 'Informacje',
+    portfolio: 'Portfolio',
+    products: 'Produkty',
+    comment: 'Oceny i komentarze',
+  },
   craftsmenDetailMenu: {
     rating: {
       contact: 'Kontakt:',
@@ -12,5 +18,8 @@ export default {
     tagListTitle: 'Aktywne tagi',
     itemsInfoTitle: 'Informacje o produktach',
     contactInfoTitle: 'Kontakt',
+  },
+  portfolio: {
+    detailPicture: 'Zobacz szczegóły',
   },
 };
