@@ -81,6 +81,11 @@ const router = new Router({
           name: 'Add item',
           component: () => import('./views/user-account/user-account-add-item/user-account-add-item.view.vue'),
         },
+        {
+          path: 'portfolio',
+          name: 'User portfolio',
+          component: () => import('./views/user-account/user-portfolio/user-portfolio.view.vue'),
+        },
       ],
     },
     {

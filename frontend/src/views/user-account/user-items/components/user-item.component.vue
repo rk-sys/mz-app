@@ -299,6 +299,15 @@ export default class mzUserItems extends Vue {
     &__title,
     &__link {
       font-size: 2.2rem;
+
+      &--details,
+      &--edit,
+      &--delete {
+        .icon {
+          height: 3.5rem;
+          width: 3.5rem;
+        }
+      }
     }
   }
 }
@@ -337,6 +346,15 @@ export default class mzUserItems extends Vue {
     &__title,
     &__link {
       font-size: 2.2rem;
+
+      &--details,
+      &--edit,
+      &--delete {
+        .icon {
+          height: 3.5rem;
+          width: 3.5rem;
+        }
+      }
     }
   }
 }

@@ -27,7 +27,7 @@ export const userAccountMenu: IUserAccountMenu = {
     },
     {
       label: 'portfolio',
-      nameUrl: 'Login',
+      nameUrl: 'User portfolio',
     },
     {
       label: 'message',

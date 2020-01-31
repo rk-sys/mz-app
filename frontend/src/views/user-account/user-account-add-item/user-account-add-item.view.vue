@@ -76,7 +76,7 @@ export default class mzUserAccount extends Vue {
   }
 
   private async beforeRouteEnter(to: Route, from: Route, next: any) {
-    const lang = Store.state.global.defaultLang;
+    const lang: string = Store.state.global.defaultLang;
 
     try {
       await loadTranslationsAsync(lang, import(`./i18n/${lang}` as string));
@@ -103,7 +103,7 @@ export default class mzUserAccount extends Vue {
 }
 
 .mz-add-item {
-  width: 75rem;
+  width: 85rem;
   margin-left: 10rem;
 }
 

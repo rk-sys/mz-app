@@ -38,4 +38,5 @@ declare module 'element-ui/lib/steps.js';
 declare module 'element-ui/lib/tooltip.js';
 declare module 'element-ui/lib/progress.js';
 declare module 'element-ui/lib/rate.js';
+declare module 'element-ui/lib/dialog.js';
 

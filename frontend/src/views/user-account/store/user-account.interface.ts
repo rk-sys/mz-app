@@ -63,3 +63,15 @@ export interface IUserItemStatus {
   items: IUserItem[];
   status: string;
 }
+
+export interface IItemPortfolio {
+  title: string;
+  description: string;
+  tags: string[];
+  picture: IPicture;
+}
+
+export interface IPicture {
+  url: string;
+  file: Blob | null;
+}

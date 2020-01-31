@@ -157,7 +157,7 @@ export default class mzLogin extends Vue {
   }
 
   private async beforeRouteEnter(to: Route, from: Route, next: any): Promise<void> {
-    const lang = Store.state.global.defaultLang;
+    const lang: string = Store.state.global.defaultLang;
 
     try {
       await loadTranslationsAsync(lang,

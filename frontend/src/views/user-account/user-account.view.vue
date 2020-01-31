@@ -45,7 +45,7 @@ export default class mzUserAccount extends Vue {
   @local.Mutation public changeStateOfMobileMenu!: () => void;
 
   private async beforeRouteEnter(to: Route, from: Route, next: any) {
-    const lang = Store.state.global.defaultLang;
+    const lang: string = Store.state.global.defaultLang;
 
     try {
       await loadTranslationsAsync(lang, import(`./i18n/${lang}` as string));

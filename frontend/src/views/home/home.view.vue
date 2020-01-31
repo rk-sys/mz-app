@@ -8,8 +8,7 @@
 
     <div class="home__register">
       <p class="home__register__title">{{$t(`registerTitle`)}}!</p>
-      <p class="home__register__info"
-         v-html="$t(`registerInfo`)" />
+      <p class="home__register__info" v-html="$t(`registerInfo`)"></p>
 
 
       <router-link class="home__register__button"
@@ -30,7 +29,7 @@ import Store                     from '@/store/store';
 export default class yHome extends Vue {
 
   private async beforeRouteEnter(to: Route, from: Route, next: any): Promise<void> {
-    const lang = Store.state.global.defaultLang;
+    const lang: string = Store.state.global.defaultLang;
 
     try {
       await loadTranslationsAsync(lang,

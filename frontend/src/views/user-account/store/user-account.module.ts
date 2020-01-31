@@ -10,8 +10,8 @@ import {
   IUserInfo,
   IUserPasswordForm,
   IUserDisplayDescriptionForm,
-  IUserDisplayTagsForm, IContact, IUserDisplayContactForm, IUserItem, IUserItemStatus,
-}                                               from '@/views/user-account/store/user-account.interface';
+  IUserDisplayTagsForm, IContact, IUserDisplayContactForm, IUserItem, IUserItemStatus, IItemPortfolio, IUserAccountMenuLinks,
+} from '@/views/user-account/store/user-account.interface';
 import Notification                             from '@/components/notification/notifications';
 import { i18n }                                 from '@/i18n/i18n';
 import firebase                                 from 'firebase/app';
@@ -23,7 +23,18 @@ export default class mzUserAccountModule extends VuexModule {
   public mzUserAccountMenuState: IUserAccountMenu = cloneDeep(userAccountMenu);
   public mzContactList: IContact[] = cloneDeep(contactList);
   public mzItems: IUserItem[] = [];
+  public mzItemsPortfolio: IItemPortfolio[] = [];
   public mzMobileMenu: boolean = true;
+  public dialogVisible: boolean = false;
+  public mzNewItemPortfolio: IItemPortfolio = {
+    title: '',
+    description: '',
+    tags: [],
+    picture: {
+      url: '',
+      file: null,
+    },
+  };
 
   public mzUserDisplayNameForm: IUserDisplayNameForm = {
     displayName: '',
@@ -55,11 +66,11 @@ export default class mzUserAccountModule extends VuexModule {
     repeatPassword: '',
   };
 
-  get userAccountMenuLinks() {
+  get userAccountMenuLinks(): IUserAccountMenuLinks[] {
     return this.mzUserAccountMenuState.links;
   }
 
-  get userAccountInfo() {
+  get userAccountInfo(): IUserInfo {
     return this.mzUserAccountMenuState.userInfo;
   }
 
@@ -85,6 +96,52 @@ export default class mzUserAccountModule extends VuexModule {
   }
 
   @Mutation
+  public setMzItemsPortfolio(payload: IItemPortfolio[]): void {
+    this.mzItemsPortfolio = payload;
+  }
+
+  @Mutation
+  public setMzNewItemPortfolio(payload: IItemPortfolio): void {
+    this.mzNewItemPortfolio = payload;
+  }
+
+  @Mutation
+  public resetNewItemPortfolio(): void {
+    this.mzNewItemPortfolio = {
+      title: '',
+      description: '',
+      tags: [],
+      picture: {
+        url: '',
+        file: null,
+      },
+    };
+  }
+
+  @Mutation
+  public setNewItemPortfolioPicture(payload: any): void {
+    this.mzNewItemPortfolio.picture = {
+      url: URL.createObjectURL(payload),
+      file: payload,
+    };
+  }
+
+  @Mutation
+  public setTagToNewItemPortfolio(payload: string): void  {
+    this.mzNewItemPortfolio.tags.push(payload);
+  }
+
+  @Mutation
+  public removeTagFromNewItemPortfolio(payload: number): void  {
+    this.mzNewItemPortfolio.tags.splice(payload, 1);
+  }
+
+  @Mutation
+  public setDialogVisible(payload: boolean): void {
+    this.dialogVisible = payload;
+  }
+
+  @Mutation
   public addTagToList(payload: string): void {
     this.mzUserDisplayTagsForm.tagList.push(payload);
   }
@@ -107,22 +164,22 @@ export default class mzUserAccountModule extends VuexModule {
   }
 
   @Mutation
-  public setUserPasswordForm(payload: IUserPasswordForm) {
+  public setUserPasswordForm(payload: IUserPasswordForm): void  {
     this.mzUserPasswordForm = payload;
   }
 
   @Mutation
-  public setUserDisplayNameForm(payload: IUserDisplayNameForm) {
+  public setUserDisplayNameForm(payload: IUserDisplayNameForm): void  {
     this.mzUserDisplayNameForm = payload;
   }
 
   @Mutation
-  public setUserEmailForm(payload: IUserEmailForm) {
+  public setUserEmailForm(payload: IUserEmailForm): void  {
     this.mzUserEmailForm = payload;
   }
 
   @Mutation
-  public setUserInfo(payload: IUserInfo) {
+  public setUserInfo(payload: IUserInfo): void  {
     this.mzUserAccountMenuState.userInfo = {
       displayName: payload.displayName,
       photoURL: payload.photoURL,
@@ -141,7 +198,7 @@ export default class mzUserAccountModule extends VuexModule {
   }
 
   @Action
-  public async getCurrentUserInfo() {
+  public async getCurrentUserInfo(): Promise<void> {
     try {
       const user = await userAccountService.getCurrentLoginUser();
       this.context.commit('setUserInfo', user);
@@ -151,7 +208,7 @@ export default class mzUserAccountModule extends VuexModule {
   }
 
   @Action
-  public async changeUserPassword() {
+  public async changeUserPassword(): Promise<void> {
     const newUserPassword = this.mzUserPasswordForm.password;
 
     if (newUserPassword !== undefined) {
@@ -167,7 +224,7 @@ export default class mzUserAccountModule extends VuexModule {
   }
 
   @Action
-  public async changeUserEmail() {
+  public async changeUserEmail(): Promise<void> {
     const newUserEmail = this.mzUserEmailForm.email;
 
     if (newUserEmail !== undefined) {
@@ -183,7 +240,7 @@ export default class mzUserAccountModule extends VuexModule {
   }
 
   @Action
-  public async changeUserDisplayName() {
+  public async changeUserDisplayName(): Promise<void> {
     const newUserDisplayName = this.mzUserDisplayNameForm.displayName;
 
     if (newUserDisplayName !== undefined && newUserDisplayName !== null) {
@@ -213,7 +270,7 @@ export default class mzUserAccountModule extends VuexModule {
   }
 
   @Action
-  public async changeUserPicture(payload: any) {
+  public async changeUserPicture(payload: any): Promise<void> {
     try {
       await userAccountService.updateUserPicture(payload);
       const picture = await userAccountService.getUserPicture();
@@ -239,7 +296,7 @@ export default class mzUserAccountModule extends VuexModule {
   }
 
   @Action
-  public getAccountDetails() {
+  public getAccountDetails(): void {
     const docRef = firebase
       .firestore()
       .collection('users')
@@ -252,11 +309,12 @@ export default class mzUserAccountModule extends VuexModule {
       }
     }).catch((error) => {
       Notification.errorNotification(i18n.t(`notification.error`) as string, i18n.t(`notification.somethingWrong`) as string);
+      throw new Error(error);
     });
   }
 
   @Action
-  public updateDescription() {
+  public updateDescription(): void {
     const docRef = firebase
       .firestore()
       .collection('users')
@@ -278,7 +336,7 @@ export default class mzUserAccountModule extends VuexModule {
   }
 
   @Action
-  public updateTags() {
+  public updateTags(): void {
     const docRef = firebase
       .firestore()
       .collection('users')
@@ -300,7 +358,7 @@ export default class mzUserAccountModule extends VuexModule {
   }
 
   @Action
-  public updateContact() {
+  public updateContact(): void  {
     const docRef = firebase
       .firestore()
       .collection('users')
@@ -331,5 +389,21 @@ export default class mzUserAccountModule extends VuexModule {
     } catch (e) {
       throw Error(e);
     }
+  }
+
+  @Action
+  public async getUserItemsPortfolio(): Promise<void> {
+    try {
+      const response = await userAccountService.getUserItemsPortfolio();
+      this.context.commit('setMzItemsPortfolio', response.data);
+    } catch (e) {
+      throw new Error(e);
+    }
+  }
+
+  @Action
+  public saveNewItemPortfolio(): void {
+    this.context.commit('resetNewItemPortfolio');
+    this.context.commit('setDialogVisible', false);
   }
 }

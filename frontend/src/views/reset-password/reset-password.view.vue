@@ -128,7 +128,7 @@ export default class mzResetPassword extends Vue {
   }
 
   private async beforeRouteEnter(to: Route, from: Route, next: any): Promise<void> {
-    const lang = Store.state.global.defaultLang;
+    const lang: string = Store.state.global.defaultLang;
 
     try {
       await loadTranslationsAsync(lang, import(/* webpackChunkName: "user/[request]" */ `./i18n/${lang}` as string));

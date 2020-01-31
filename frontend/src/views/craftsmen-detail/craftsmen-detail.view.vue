@@ -33,7 +33,7 @@ export default class mzCraftsmenDetail extends Vue {
   @local.State((state: mzCraftsmenDetailModule) => state.mzCraftsmenDetailState) public craftsmenDetail!: ICraftsmenDetail;
 
   private async beforeRouteEnter(to: Route, from: Route, next: any) {
-    const lang = Store.state.global.defaultLang;
+    const lang: string = Store.state.global.defaultLang;
 
     try {
       await loadTranslationsAsync(lang, import(`./i18n/${lang}` as string));

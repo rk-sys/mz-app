@@ -301,7 +301,7 @@ export default class mzUserAccountEdit extends Vue {
   }
 
   private async beforeRouteEnter(to: Route, from: Route, next: any) {
-    const lang = Store.state.global.defaultLang;
+    const lang: string = Store.state.global.defaultLang;
 
 
     try {
@@ -318,16 +318,16 @@ export default class mzUserAccountEdit extends Vue {
 </script>
 <style lang="scss">
 .el-form-item__error {
-  bottom: -1rem;
-  font-size: 1.6rem;
-  top: auto;
-  font-weight: bold;
-  left: auto;
-  right: 0;
+bottom: -1rem;
+font-size: 1.6rem;
+top: auto;
+font-weight: bold;
+left: auto;
+right: 0;
 }
 
 .el-form-item {
-  margin: 0;
+margin: 0;
 }
 </style>
 

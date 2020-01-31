@@ -53,3 +53,6 @@ export function getUserItems() {
   return axios.get('https://api.myjson.com/bins/io3ju');
 }
 
+export async function getUserItemsPortfolio() {
+  return axios.get('https://api.myjson.com/bins/w7to2');
+}
