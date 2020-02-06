@@ -12,6 +12,7 @@ export default {
   itemDescription: {
     title: {
       description: 'Opis przedmiotu',
+      information: 'Informacje podstawowe',
       addTags: 'Dodaj tagi',
     },
     isNew: {
@@ -22,7 +23,7 @@ export default {
       title: 'Tytuł:',
       addTitle: 'Dodał tytuł',
       price: 'Cena:',
-      addPrice: 'Dodaj cene predmiotu',
+      addPrice: 'Dodaj cene przedmiotu',
       description: 'Opis:',
       tags: 'Tagi:',
       addTags: 'Dodaj tagi',

@@ -30,10 +30,10 @@ export const craftsmenMenuLinks: ICraftsmenMenuLinks[] = [
   },
   {
     label: 'products',
-    nameUrl: '',
+    nameUrl: 'Login',
   },
   {
     label: 'comment',
-    nameUrl: '',
+    nameUrl: 'Login',
   },
 ];

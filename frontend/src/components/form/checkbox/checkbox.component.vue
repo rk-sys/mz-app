@@ -29,6 +29,12 @@ export default class mzCheckbox extends Mixins(mzTransparentWrapper) {
 
 @import '~element-ui/lib/theme-chalk/checkbox.css';
 
+.mz-checkbox {
+  .el-checkbox__label {
+    font-size: 2rem;
+  }
+}
+
 .el-checkbox {
   display: flex;
   white-space: initial;

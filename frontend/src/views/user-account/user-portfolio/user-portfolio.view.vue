@@ -6,8 +6,7 @@
 
         <span class="mz-user-portfolio__summary--success">
         {{ items.length }} / {{ portfolioLimit }}
-      </span>
-
+        </span>
       </div>
 
       <mz-button @click="dialogVisible = true"
@@ -24,6 +23,34 @@
     </div>
 
     <mz-portfolio-modal :dialogVisible="dialogVisible" />
+
+    <mz-dialog class="mz-user-portfolio__remove-item"
+               :title="$t(`modal.title`)"
+               :visible.sync="removeModalItemPortfolio">
+
+      <p class="mz-user-portfolio__remove-item__title">
+        {{ $t(`modal.description`) }}
+      </p>
+
+      <p class="mz-user-portfolio__remove-item__description">
+        "{{ mzRemovedItemFromPortfolio.title }}"
+      </p>
+
+      <div class="mz-user-portfolio__remove-item__btn-content">
+        <mz-button buttonStyle="info"
+                   class="mz-user-portfolio__remove-item__btn-content__btn"
+                   @click="removeModalItemPortfolio = false">
+
+          {{ $t(`modal.buttonCancel`) }}
+        </mz-button>
+
+        <mz-button buttonStyle="danger"
+                   class="mz-user-portfolio__remove-item__btn-content__btn">
+
+          {{ $t(`modal.buttonRemove`) }}
+        </mz-button>
+      </div>
+    </mz-dialog>
   </div>
 </template>
 
@@ -33,11 +60,12 @@ import { namespace }             from 'vuex-class';
 import { loadTranslationsAsync } from '@/i18n/i18n';
 import Store                     from '@/store/store';
 import { Route }                 from 'vue-router';
-import mzPortfolioItem           from './components/portfolio-item.component.vue';
 import { IItemPortfolio }        from '@/views/user-account/store/user-account.interface';
+import mzPortfolioItem           from './components/portfolio-item.component.vue';
 import mzUserAccountModule       from '@/views/user-account/store/user-account.module';
 import mzButton                  from '@/components/buttons/button.component.vue';
 import mzPortfolioModal          from '@/views/user-account/user-portfolio/components/portfolio-modal.component.vue';
+import mzDialog                  from '@/components/dialog/dialog.component.vue';
 
 const LOCAL_STORE = 'userAccount';
 const local = namespace(LOCAL_STORE);
@@ -47,14 +75,26 @@ const local = namespace(LOCAL_STORE);
     mzButton,
     mzPortfolioItem,
     mzPortfolioModal,
+    mzDialog,
   },
 })
 export default class mzUserPortfolio extends Vue {
   @local.State((state: mzUserAccountModule) => state.mzItemsPortfolio) public items!: IItemPortfolio[];
   @local.State((state: mzUserAccountModule) => state.dialogVisible) public isDialogVisible!: boolean;
+  @local.State((state: mzUserAccountModule) => state.mzRemoveModalItemPortfolio) public mzRemoveModalItemPortfolio!: boolean;
+  @local.State((state: mzUserAccountModule) => state.mzRemovedItemFromPortfolio) public mzRemovedItemFromPortfolio!: IItemPortfolio;
+  @local.Mutation public setMzRemoveModalItemPortfolio!: (payload: boolean) => void;
   @local.Mutation public setDialogVisible!: (status: boolean) => void;
 
   public portfolioLimit: number = 10;
+
+  set removeModalItemPortfolio(status: boolean) {
+    this.setMzRemoveModalItemPortfolio(status);
+  }
+
+  get removeModalItemPortfolio(): boolean {
+    return this.mzRemoveModalItemPortfolio;
+  }
 
   set dialogVisible(status: boolean) {
     this.setDialogVisible(status);
@@ -114,6 +154,32 @@ export default class mzUserPortfolio extends Vue {
     grid-template-columns: repeat(3, 1fr);
     grid-column-gap: 2rem;
     grid-row-gap: 2rem;
+  }
+
+  &__remove-item {
+
+    &__title {
+      font-size: 2rem;
+      margin: 2rem 0 1rem;
+    }
+
+    &__description {
+      font-size: 2.4rem;
+      font-weight: var(--font-bold);
+      margin: 0 0 2rem;
+    }
+
+    &__btn-content {
+      display: flex;
+      justify-content: flex-end;
+
+      &__btn {
+        width: 20rem;
+        margin-left: 2rem;
+        margin-right: 0;
+        display: block;
+      }
+    }
   }
 }
 

@@ -1,6 +1,7 @@
 export default {
   boxTitle: {
-    displayName: 'Zmień dane osobowe',
+    displayName: 'Dane osobowe',
+    targetsGroup: 'Grupy docelowe',
     email: 'Zmień adres e-mail',
     password: 'Zmień hasło',
   },
@@ -14,6 +15,13 @@ export default {
     save: 'Zapisz',
     remove: 'Usuń',
     addNewPicture: 'Dodaj nowe zdjęcie',
+  },
+  targetsGroup: {
+    reko: 'Rekonstrukcja',
+    larp: 'Larp',
+    cosplay: 'Cosplay',
+    myTargetsGroup: 'Pokazuje mnie / moje przedmioty w:',
+    showMeTargetsGroup: 'Zawsze pokazuj mi tylko rzemieślników / przedmioty z :',
   },
   rules: {
     required: 'Pole wymagane',

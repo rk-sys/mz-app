@@ -1,13 +1,14 @@
 <template>
   <div class="mz-item-description">
-    <mz-box-with-title :title="$t(`itemDescription.title.description`)">
 
-      <mz-form :form-ref.sync="formItemDescription"
-               :model="newItem"
-               :rules="itemDescriptionRules"
-               @submit.prevent.native=""
-               class="mz-item-description__form"
-               id="itemDescriptionForm">
+    <mz-form :form-ref.sync="formItemDescription"
+             :model="newItem"
+             :rules="itemDescriptionRules"
+             @submit.prevent.native=""
+             class="mz-item-description__form"
+             id="itemDescriptionForm">
+
+      <mz-box-with-title :title="$t(`itemDescription.title.description`)">
 
         <div class="mz-item-description__form__container">
           <p class="label"> {{ $t(`itemDescription.form.title`) }}</p>
@@ -21,6 +22,22 @@
                       v-model="newItem.title" />
           </mz-form-item>
         </div>
+
+        <div class="mz-item-description__form__container
+                    mz-item-description__form__container--textarea">
+
+          <p class="label"> {{ $t(`itemDescription.form.description`) }}</p>
+
+          <mz-form-item class="form__container__item form__container__item"
+                        prop="description">
+
+            <mz-input-textarea id="description"
+                               v-model="newItem.description" />
+          </mz-form-item>
+        </div>
+      </mz-box-with-title>
+
+      <mz-box-with-title :title="$t(`itemDescription.title.information`)">
 
         <div class="mz-item-description__form__container">
           <p class="label"> {{ $t(`itemDescription.form.price`)}}</p>
@@ -101,20 +118,8 @@
           </mz-form-item>
         </div>
 
-        <div class="mz-item-description__form__container
-                    mz-item-description__form__container--textarea">
-
-          <p class="label"> {{ $t(`itemDescription.form.description`) }}</p>
-
-          <mz-form-item class="form__container__item form__container__item"
-                        prop="description">
-
-            <mz-input-textarea id="description"
-                               v-model="newItem.description" />
-          </mz-form-item>
-        </div>
-      </mz-form>
-    </mz-box-with-title>
+      </mz-box-with-title>
+    </mz-form>
 
     <mz-box-with-title :title="$t(`itemDescription.title.addTags`)"
                        :sub-title="lengthOfTags() + $t('itemDescription.lengthOfTags')"
@@ -304,8 +309,6 @@ export default class mzUserAccount extends Vue {
   margin-top: 6rem;
 
   &__form {
-    margin: 0 3rem;
-
     &__container {
       display: flex;
 

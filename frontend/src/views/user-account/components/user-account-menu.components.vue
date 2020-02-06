@@ -176,7 +176,6 @@ export default class mzUserAccountMenu extends Vue {
   }
 
   &__list {
-
     .router-link-active {
       color: var(--primary-color);
       font-weight: var(--font-bold);

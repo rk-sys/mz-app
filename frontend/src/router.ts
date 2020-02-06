@@ -102,6 +102,9 @@ router.beforeEach((to: Route, from: Route, next: any) => {
   if (requiresAuth && !currentUser) {
     next({ name: 'Login' });
   } else if (!requiresAuth && currentUser) {
+    if (currentUser && (to.name === 'Login' || to.name === 'Registration')) {
+      next({ name: 'Home' });
+    }
     next();
   } else {
     next();

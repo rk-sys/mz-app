@@ -76,7 +76,7 @@ export default class Home extends Vue {
 
     &__box {
       width: calc(100% - 1rem);
-      font-size: 2.2rem;
+      font-size: 2.1rem;
       font-weight: 300;
       padding: .5rem 1rem 0;
       border: none;

@@ -1,7 +1,6 @@
 <template>
   <div class="mz-user-item"
-       :class="[ {'mz-user-item--list-view': isListViewOn},
-                  `background--${item.status}` ]">
+       :class="{'mz-user-item--list-view': isListViewOn}">
 
     <div class="mz-user-item__background">
       <span class="mz-user-item__status"
@@ -10,61 +9,78 @@
         {{ $t(`item.status.${ item.status }`) }}
       </span>
 
-      <span class="mz-user-item__price"
-            v-if="!isListViewOn">
+      <span v-if="!isListViewOn"
+            class="mz-user-item__price">
 
         {{ item.price }}$
       </span>
 
       <img class="mz-user-item__avatar"
-           :src="item.avatar"
-           alt="item">
+           alt="item"
+           :src="item.avatar">
     </div>
-    <div class="mz-user-item__content">
+    <div class="mz-user-item__content"
+         :class="[ `background--${item.status}` ]">
       <div class="mz-user-item__text-wrapper">
         <span class="mz-user-item__title">
         {{ item.name }}
         </span>
 
-        <span class="mz-user-item__description"
-              v-if="isListViewOn">
+        <span v-if="isListViewOn"
+              class="mz-user-item__description">
 
         {{ item.description }}
         </span>
 
-        <span class="mz-user-item__price"
-              v-if="isListViewOn">
+        <span v-if="isListViewOn"
+              class="mz-user-item__price">
 
           {{ item.price }}$
         </span>
       </div>
 
       <div class="mz-user-item__link-wrapper">
+        <router-link v-if="item.status === 'active'"
+                     class="mz-user-item__link mz-user-item__link--edit"
+                     to="home">
+
+          <div v-if="!isListViewOn"
+               class="icon icon-edit--white"></div>
+
+          <div v-else
+               class="icon icon-edit"></div>
+        </router-link>
+
+        <router-link v-if="item.status === 'in-progress'"
+                     class="mz-user-item__link mz-user-item__link--chat"
+                     to="home">
+
+          <div v-if="!isListViewOn"
+               class="icon icon-chat--white"></div>
+
+          <div v-else
+               class="icon icon-chat"></div>
+        </router-link>
+
         <router-link class="mz-user-item__link mz-user-item__link--details"
-                     v-if="!isListViewOn"
                      to="home">
 
-          <div class="icon icon-edit--white"></div>
+          <div v-if="!isListViewOn"
+               class="icon icon-eye--white"></div>
+
+          <div v-else
+               class="icon icon-eye"></div>
         </router-link>
 
-        <router-link class="mz-user-item__link mz-user-item__link--edit"
+        <router-link v-if="item.status !== 'in-progress'"
+                     class="mz-user-item__link mz-user-item__link--delete"
                      to="home">
 
-          <div class="icon icon-eye--white"
-               v-if="!isListViewOn"></div>
+          <div v-if="!isListViewOn"
+               class="icon icon-delete--white"></div>
 
-          <div class="icon icon-eye"
-               v-else></div>
-        </router-link>
-
-        <router-link class="mz-user-item__link mz-user-item__link--delete"
-                     to="home">
-
-          <div class="icon icon-delete--white"
-               v-if="!isListViewOn"></div>
-
-          <div class="icon icon-delete"
-               v-else></div>
+          <div v-else
+               class="icon icon-delete"></div>
         </router-link>
       </div>
     </div>
@@ -102,12 +118,18 @@ export default class mzUserItems extends Vue {
 }
 
 .mz-user-item {
+  position: relative;
+
   &:hover {
     box-shadow: 0 0 1rem 0 var(--gray-450);
+
+    .mz-user-item__content {
+      height: 8rem;
+    }
   }
 
   &__background {
-    height: 15rem;
+    height: 25rem;
     position: relative;
   }
 
@@ -157,9 +179,14 @@ export default class mzUserItems extends Vue {
   &__content {
     font-size: 1.4rem;
     font-weight: var(--font-medium);
-    height: 8.5rem;
     width: 100%;
     padding: 1rem;
+    position: absolute;
+    height: 4rem;
+    left: 0;
+    bottom: 0;
+    transition: .2s ease-in-out;
+    overflow: hidden;
   }
 
   &__title {
@@ -182,6 +209,7 @@ export default class mzUserItems extends Vue {
     text-decoration: none;
 
     &--details,
+    &--chat,
     &--edit,
     &--delete {
       .icon {
@@ -195,6 +223,14 @@ export default class mzUserItems extends Vue {
   &--list-view {
     display: flex;
     height: 10rem;
+
+    &:hover {
+      box-shadow: 0 0 1rem 0 var(--gray-450);
+
+      .mz-user-item__content {
+        height: 10rem;
+      }
+    }
 
     .mz-user-item {
       width: 100%;
@@ -217,6 +253,7 @@ export default class mzUserItems extends Vue {
       }
 
       &__content {
+        position: relative;
         height: 100%;
         padding: 1rem 2rem;
         display: flex;
@@ -267,6 +304,13 @@ export default class mzUserItems extends Vue {
 
 @include respond-to(tablet) {
   .mz-user-item {
+
+    &:hover {
+      .mz-user-item__content {
+        height: 10rem;
+      }
+    }
+
     &__content {
       height: 10rem;
     }
@@ -302,6 +346,7 @@ export default class mzUserItems extends Vue {
 
       &--details,
       &--edit,
+      &--chat,
       &--delete {
         .icon {
           height: 3.5rem;
@@ -314,8 +359,15 @@ export default class mzUserItems extends Vue {
 
 @include respond-to(mobile) {
   .mz-user-item {
+
+    &:hover {
+      .mz-user-item__content {
+        height: 10rem;
+      }
+    }
+
     &__content {
-      height: 12rem;
+      height: 10rem;
     }
 
     &__background {

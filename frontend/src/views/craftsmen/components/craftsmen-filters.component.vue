@@ -27,7 +27,7 @@
 
           <mz-checkbox v-model="item.isSelected"
                        @change="checkAllTargetGroup()">
-            <span class="label">{{$t(`filters.targetGroup.${item.value}`)}}</span>
+            <span class="label">{{ $t(`filters.targetGroup.${item.value}`) }}</span>
           </mz-checkbox>
         </div>
       </div>

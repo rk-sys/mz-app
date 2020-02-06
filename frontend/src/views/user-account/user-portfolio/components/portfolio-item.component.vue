@@ -20,12 +20,8 @@
           <div class="icon icon-edit--white"></div>
         </div>
 
-        <div class="mz-portfolio-item__link mz-portfolio-item__link--edit">
-
-          <div class="icon icon-eye--white"></div>
-        </div>
-
-        <div class="mz-portfolio-item__link mz-portfolio-item__link--delete">
+        <div class="mz-portfolio-item__link mz-portfolio-item__link--delete"
+             @click="removePortfolioItem(item)">
 
           <div class="icon icon-delete--white"></div>
         </div>
@@ -49,10 +45,13 @@ const local = namespace(LOCAL_STORE);
   components: {},
 })
 export default class mzPortfolioItem extends Vue {
+  @Prop(Object) public item!: IUserItem;
+
   @local.State((state: mzUserAccountModule) => state.dialogVisible) public isDialogVisible!: boolean;
   @local.Mutation public setDialogVisible!: (status: boolean) => void;
   @local.Mutation public setMzNewItemPortfolio!: (payload: IItemPortfolio) => void;
-  @Prop(Object) public item!: IUserItem;
+  @local.Mutation public setMzRemovedItemFromPortfolio!: (payload: IItemPortfolio) => void;
+  @local.Mutation public setMzRemoveModalItemPortfolio!: (payload: boolean) => void;
 
   set dialogVisible(status: boolean) {
     this.setDialogVisible(status);
@@ -66,6 +65,11 @@ export default class mzPortfolioItem extends Vue {
     this.setMzNewItemPortfolio(item);
     this.dialogVisible = true;
   }
+
+  public removePortfolioItem(item: IItemPortfolio): void {
+    this.setMzRemovedItemFromPortfolio(item);
+    this.setMzRemoveModalItemPortfolio(true);
+  }
 }
 </script>
 
@@ -74,7 +78,6 @@ export default class mzPortfolioItem extends Vue {
 
 .mz-portfolio-item {
   position: relative;
-  cursor: pointer;
 
   &:hover {
     box-shadow: 0 0 1rem 0 var(--gray-450);
@@ -108,7 +111,7 @@ export default class mzPortfolioItem extends Vue {
     position: absolute;
     left: 0;
     bottom: 0;
-    transition: .3s ease-in-out;
+    transition: .2s ease-in-out;
     overflow: hidden;
   }
 
@@ -145,6 +148,12 @@ export default class mzPortfolioItem extends Vue {
 
 @media only screen and (max-width: 768px) and (min-width: 426px) {
   .mz-portfolio-item {
+
+    &:hover {
+      .mz-portfolio-item__content {
+        height: 10rem;
+      }
+    }
 
     &__background {
       height: 30rem;

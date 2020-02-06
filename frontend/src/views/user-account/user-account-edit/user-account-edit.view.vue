@@ -33,6 +33,45 @@
       </mz-form>
     </mz-box-with-title>
 
+    <mz-box-with-title :title="$t(`boxTitle.targetsGroup`)">
+
+      <p class="user-account-edit__title">{{ $t(`targetsGroup.myTargetsGroup`) }}</p>
+      <div class="user-account-edit__my-targets-group">
+        <div v-for="item in userTargetsGroup.myTargetsGroup"
+             class="item">
+
+          <mz-checkbox v-model="item.isSelected"
+                       @change="checkAllMyTargetGroup()"
+                       class="item__container">
+
+            <span class="label">{{ $t(`targetsGroup.${item.value}`) }}</span>
+          </mz-checkbox>
+        </div>
+      </div>
+
+      <p class="user-account-edit__title">{{ $t(`targetsGroup.showMeTargetsGroup`) }}</p>
+      <div class="user-account-edit__show-me-targets-group">
+        <div v-for="item in userTargetsGroup.showMeTargetsGroup"
+             class="item">
+
+          <mz-checkbox v-model="item.isSelected"
+                       @change="checkAllShowMeTargetsGroup()"
+                       class="item__container">
+
+            <span class="label">{{ $t(`targetsGroup.${item.value}`) }}</span>
+          </mz-checkbox>
+        </div>
+      </div>
+
+      <div class="user-account-edit__form__button">
+        <mz-button buttonStyle="primary"
+                   :loading="loadingButtonDisplayName"
+                   native-type="submit">
+          {{ $t(`form.save`) }}
+        </mz-button>
+      </div>
+    </mz-box-with-title>
+
     <mz-box-with-title :title="$t(`boxTitle.email`)"
                        :sub-title="$t(`boxSubTitle.emailVerified.${userInfo.emailVerified}`)"
                        :add-color="userInfo.emailVerified">
@@ -135,7 +174,7 @@ import { i18n, loadTranslationsAsync } from '@/i18n/i18n';
 import Store                           from '@/store/store';
 import { Route }                       from 'vue-router';
 import {
-  IUserAccountMenu,
+  IUserAccountMenu, IUserAccountTarget,
   IUserDisplayNameForm,
   IUserEmailForm,
   IUserPasswordForm,
@@ -147,6 +186,7 @@ import mzFormItem                      from '@/components/form/form-item/form-it
 import mzBoxWithTitle                  from '@/components/box-with-title/box-with-title.component.vue';
 import mzButton                        from '@/components/buttons/button.component.vue';
 import mzUpload                        from '@/components/upload/upload.component.vue';
+import mzCheckbox                      from '@/components/form/checkbox/checkbox.component.vue';
 
 const LOCAL_STORE = 'userAccount';
 const local = namespace(LOCAL_STORE);
@@ -159,16 +199,20 @@ const local = namespace(LOCAL_STORE);
     mzBoxWithTitle,
     mzButton,
     mzUpload,
+    mzCheckbox,
   },
 })
 export default class mzUserAccountEdit extends Vue {
   @local.State((state: mzUserAccountModule) => state.mzUserDisplayNameForm) public displayNameForm!: IUserDisplayNameForm;
+  @local.State((state: mzUserAccountModule) => state.mzUserTargetsGroup) public userTargetsGroup!: IUserAccountTarget;
   @local.State((state: mzUserAccountModule) => state.mzUserEmailForm) public emailForm!: IUserEmailForm;
   @local.State((state: mzUserAccountModule) => state.mzUserPasswordForm) public passwordForm!: IUserPasswordForm;
   @local.State((state: mzUserAccountModule) => state.mzUserAccountMenuState.userInfo) public userInfo!: IUserAccountMenu;
   @local.Action public changeUserPassword!: () => Promise<void>;
   @local.Action public changeUserEmail!: () => Promise<void>;
   @local.Action public changeUserDisplayName!: () => Promise<void>;
+  @local.Action public checkShowMeTargetsGroup!: () => void;
+  @local.Action public checkMyTargetsGroup!: () => void;
 
   public loadingButtonPassword: boolean = false;
   public loadingButtonEmail: boolean = false;
@@ -247,6 +291,14 @@ export default class mzUserAccountEdit extends Vue {
     ],
   };
 
+  public checkAllMyTargetGroup(): void {
+    this.checkMyTargetsGroup();
+  }
+
+  public checkAllShowMeTargetsGroup(): void {
+    this.checkShowMeTargetsGroup();
+  }
+
   public validEmail() {
     return this.emailForm.email === this.emailForm.repeatEmail;
   }
@@ -318,16 +370,16 @@ export default class mzUserAccountEdit extends Vue {
 </script>
 <style lang="scss">
 .el-form-item__error {
-bottom: -1rem;
-font-size: 1.6rem;
-top: auto;
-font-weight: bold;
-left: auto;
-right: 0;
+  bottom: -1rem;
+  font-size: 1.6rem;
+  top: auto;
+  font-weight: bold;
+  left: auto;
+  right: 0;
 }
 
 .el-form-item {
-margin: 0;
+  margin: 0;
 }
 </style>
 
@@ -337,6 +389,38 @@ margin: 0;
 .user-account-edit {
   width: 85rem;
   margin-left: 10rem;
+
+  &__title {
+    font-size: 2.2rem;
+    margin: 2rem 3rem 1.5rem;
+  }
+
+  &__my-targets-group,
+  &__show-me-targets-group {
+    display: flex;
+    margin: 1rem 4.5rem;
+
+    .item {
+      margin-right: 2rem;
+
+      &__container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .label {
+          font-size: 2.2rem;
+          margin: 0.5rem 0;
+          padding: 0.5rem 0;
+          color: var(--black);
+        }
+      }
+    }
+  }
+
+  &__my-targets-group {
+    margin-bottom: 4.5rem;
+  }
 
   &__form {
     margin: 0 3rem;

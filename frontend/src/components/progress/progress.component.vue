@@ -19,7 +19,7 @@
     <el-progress :percentage="percentage"
                  :color="customColor"
                  :text-inside="true"
-                 :stroke-width="22"
+                 :stroke-width="18"
                  v-bind="attributes"
                  v-on="listeners">
     </el-progress>
@@ -96,6 +96,11 @@ export default class mzProgress extends Mixins(mzTransparentWrapper) {
 
   .el-progress-bar__inner {
     background-color: var(--primary-color);
+    border-radius: 2px;
+  }
+
+  .el-progress-bar__outer {
+    border-radius: 2px;
   }
 }
 

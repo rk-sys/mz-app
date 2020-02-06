@@ -148,6 +148,12 @@ export default class mzCraftsmenDetailMenu extends Vue {
         }
       }
     }
+
+    .router-link-active {
+      color: var(--primary-color);
+      font-weight: var(--font-bold);
+      border-bottom: 2px solid var(--primary-color);
+    }
   }
 
   &__social-media {

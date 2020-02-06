@@ -1,4 +1,35 @@
-import { IContact, IUserAccountMenu } from '@/views/user-account/store/user-account.interface';
+import { IContact, IUserAccountMenu, IUserAccountTarget } from '@/views/user-account/store/user-account.interface';
+
+export const userAccountTarget: IUserAccountTarget = {
+  myTargetsGroup: [
+    {
+      value: 'reko',
+      isSelected: true,
+    },
+    {
+      value: 'larp',
+      isSelected: true,
+    },
+    {
+      value: 'cosplay',
+      isSelected: true,
+    },
+  ],
+  showMeTargetsGroup: [
+    {
+      value: 'reko',
+      isSelected: true,
+    },
+    {
+      value: 'larp',
+      isSelected: true,
+    },
+    {
+      value: 'cosplay',
+      isSelected: true,
+    },
+  ],
+};
 
 export const userAccountMenu: IUserAccountMenu = {
   userInfo: {
@@ -28,10 +59,6 @@ export const userAccountMenu: IUserAccountMenu = {
     {
       label: 'portfolio',
       nameUrl: 'User portfolio',
-    },
-    {
-      label: 'message',
-      nameUrl: 'Login',
     },
   ],
 };

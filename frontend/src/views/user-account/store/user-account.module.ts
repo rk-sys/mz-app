@@ -1,7 +1,7 @@
-import { Action, Module, Mutation, VuexModule } from 'vuex-module-decorators';
-import cloneDeep                                from 'lodash/cloneDeep';
-import { contactList, userAccountMenu }         from './user-account.state';
-import * as userAccountService                  from './user-account.service';
+import { Action, Module, Mutation, VuexModule }            from 'vuex-module-decorators';
+import cloneDeep                                           from 'lodash/cloneDeep';
+import { contactList, userAccountMenu, userAccountTarget } from './user-account.state';
+import * as userAccountService                             from './user-account.service';
 import 'firebase/auth';
 import {
   IUserAccountMenu,
@@ -10,11 +10,11 @@ import {
   IUserInfo,
   IUserPasswordForm,
   IUserDisplayDescriptionForm,
-  IUserDisplayTagsForm, IContact, IUserDisplayContactForm, IUserItem, IUserItemStatus, IItemPortfolio, IUserAccountMenuLinks,
-} from '@/views/user-account/store/user-account.interface';
-import Notification                             from '@/components/notification/notifications';
-import { i18n }                                 from '@/i18n/i18n';
-import firebase                                 from 'firebase/app';
+  IUserDisplayTagsForm, IContact, IUserDisplayContactForm, IUserItem, IUserItemStatus, IItemPortfolio, IUserAccountMenuLinks, IUserAccountTarget,
+}                                                          from '@/views/user-account/store/user-account.interface';
+import Notification                                        from '@/components/notification/notifications';
+import { i18n }                                            from '@/i18n/i18n';
+import firebase                                            from 'firebase/app';
 import 'firebase/storage';
 import 'firebase/firestore';
 
@@ -22,10 +22,22 @@ import 'firebase/firestore';
 export default class mzUserAccountModule extends VuexModule {
   public mzUserAccountMenuState: IUserAccountMenu = cloneDeep(userAccountMenu);
   public mzContactList: IContact[] = cloneDeep(contactList);
+  public mzUserTargetsGroup: IUserAccountTarget = cloneDeep(userAccountTarget);
   public mzItems: IUserItem[] = [];
   public mzItemsPortfolio: IItemPortfolio[] = [];
   public mzMobileMenu: boolean = true;
   public dialogVisible: boolean = false;
+  public mzRemoveModalItemPortfolio: boolean = false;
+  public mzRemovedItemFromPortfolio: IItemPortfolio = {
+    title: '',
+    description: '',
+    tags: [],
+    picture: {
+      url: '',
+      file: null,
+    },
+  };
+
   public mzNewItemPortfolio: IItemPortfolio = {
     title: '',
     description: '',
@@ -96,8 +108,27 @@ export default class mzUserAccountModule extends VuexModule {
   }
 
   @Mutation
+  public setUserTargetsGroup(payload: IUserAccountTarget): void {
+    this.mzUserTargetsGroup = payload;
+  }
+
+  @Mutation
   public setMzItemsPortfolio(payload: IItemPortfolio[]): void {
     this.mzItemsPortfolio = payload;
+  }
+
+  @Mutation
+  public setShowMeTargetGroupSelectAll(): void {
+    this.mzUserTargetsGroup.showMeTargetsGroup.forEach((element) => {
+      element.isSelected = true;
+    });
+  }
+
+  @Mutation
+  public setMyTargetGroupSelectAll(): void {
+    this.mzUserTargetsGroup.myTargetsGroup.forEach((element) => {
+      element.isSelected = true;
+    });
   }
 
   @Mutation
@@ -127,13 +158,23 @@ export default class mzUserAccountModule extends VuexModule {
   }
 
   @Mutation
-  public setTagToNewItemPortfolio(payload: string): void  {
+  public setTagToNewItemPortfolio(payload: string): void {
     this.mzNewItemPortfolio.tags.push(payload);
   }
 
   @Mutation
-  public removeTagFromNewItemPortfolio(payload: number): void  {
+  public removeTagFromNewItemPortfolio(payload: number): void {
     this.mzNewItemPortfolio.tags.splice(payload, 1);
+  }
+
+  @Mutation
+  public setMzRemoveModalItemPortfolio(payload: boolean): void {
+    this.mzRemoveModalItemPortfolio = payload;
+  }
+
+  @Mutation
+  public setMzRemovedItemFromPortfolio(payload: IItemPortfolio): void {
+    this.mzRemovedItemFromPortfolio = payload;
   }
 
   @Mutation
@@ -164,22 +205,22 @@ export default class mzUserAccountModule extends VuexModule {
   }
 
   @Mutation
-  public setUserPasswordForm(payload: IUserPasswordForm): void  {
+  public setUserPasswordForm(payload: IUserPasswordForm): void {
     this.mzUserPasswordForm = payload;
   }
 
   @Mutation
-  public setUserDisplayNameForm(payload: IUserDisplayNameForm): void  {
+  public setUserDisplayNameForm(payload: IUserDisplayNameForm): void {
     this.mzUserDisplayNameForm = payload;
   }
 
   @Mutation
-  public setUserEmailForm(payload: IUserEmailForm): void  {
+  public setUserEmailForm(payload: IUserEmailForm): void {
     this.mzUserEmailForm = payload;
   }
 
   @Mutation
-  public setUserInfo(payload: IUserInfo): void  {
+  public setUserInfo(payload: IUserInfo): void {
     this.mzUserAccountMenuState.userInfo = {
       displayName: payload.displayName,
       photoURL: payload.photoURL,
@@ -195,6 +236,24 @@ export default class mzUserAccountModule extends VuexModule {
       payload.status === 'all' ?
         payload.items :
         payload.items.filter((item: IUserItem) => item.status === payload.status);
+  }
+
+  @Action
+  public checkShowMeTargetsGroup(): void {
+    if (!this.mzUserTargetsGroup.showMeTargetsGroup[ 0 ].isSelected
+      && !this.mzUserTargetsGroup.showMeTargetsGroup[ 1 ].isSelected
+      && !this.mzUserTargetsGroup.showMeTargetsGroup[ 2 ].isSelected) {
+      this.context.commit('setShowMeTargetGroupSelectAll');
+    }
+  }
+
+  @Action
+  public checkMyTargetsGroup(): void {
+    if (!this.mzUserTargetsGroup.myTargetsGroup[ 0 ].isSelected
+      && !this.mzUserTargetsGroup.myTargetsGroup[ 1 ].isSelected
+      && !this.mzUserTargetsGroup.myTargetsGroup[ 2 ].isSelected) {
+      this.context.commit('setMyTargetGroupSelectAll');
+    }
   }
 
   @Action
@@ -358,7 +417,7 @@ export default class mzUserAccountModule extends VuexModule {
   }
 
   @Action
-  public updateContact(): void  {
+  public updateContact(): void {
     const docRef = firebase
       .firestore()
       .collection('users')

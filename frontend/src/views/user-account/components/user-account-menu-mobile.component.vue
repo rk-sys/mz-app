@@ -51,9 +51,11 @@
     <div class="menu-links">
       <div v-for="link in menuLinks"
            :key="link.label"
-           class="menu-links__wrapper">
-        <router-link :to="{name: link.nameUrl}"
-                     class="menu-links__wrapper__link">
+           class="menu-links__wrapper"
+           @click="changeStateOfMobileMenu">
+
+        <router-link class="menu-links__wrapper__link"
+                     :to="{name: link.nameUrl}">
 
           {{ $t(`links.${link.label}`) }}
         </router-link>
@@ -83,10 +85,9 @@ export default class mzUserAccountMenuMobile extends Vue {
   @local.State((state: mzUserAccountModule) => state.mzUserAccountMenuState.links) public menuLinks!: string;
   @local.State((state: mzUserAccountModule) => state.mzMobileMenu) public mobileMenu!: boolean;
   @local.Action public changeUserPicture!: (file: any) => void;
-  @local.Mutation public changeStateOfMobileMenu!: (payload: boolean) => void;
+  @local.Mutation public changeStateOfMobileMenu!: () => void;
 
   public showLabel: boolean = false;
-  public isMenuShow: boolean = false;
 
   public beforeAvatarUpload(file: any) {
     const isJPG = file.type === 'image/jpeg';
@@ -103,10 +104,6 @@ export default class mzUserAccountMenuMobile extends Vue {
 
   public handleAvatarSuccess(res: any, file: any) {
     Notification.successNotification(i18n.t(`notification.success`) as string, i18n.t(`notification.pictureWasChange`) as string);
-  }
-
-  public hideMenu() {
-    this.isMenuShow = !this.isMenuShow;
   }
 
   public uploadPicture(file: any) {
@@ -221,7 +218,7 @@ export default class mzUserAccountMenuMobile extends Vue {
       &::before {
         content: "";
         left: 0;
-        bottom: -.2rem;
+        bottom: -.25rem;
         width: 100%;
         position: absolute;
         transform: scaleX(0);

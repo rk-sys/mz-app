@@ -11,8 +11,8 @@
 
 <script lang="ts">
 import { Component, Mixins } from 'vue-property-decorator';
-import mzTransparentWrapper        from '@/components/transparent-component.mixin';
-import ElDialog                    from 'element-ui/lib/dialog.js';
+import mzTransparentWrapper  from '@/components/transparent-component.mixin';
+import ElDialog              from 'element-ui/lib/dialog.js';
 
 @Component({
   components: {
@@ -24,6 +24,7 @@ export default class mzDialogUploadPortfolio extends Mixins(mzTransparentWrapper
 </script>
 
 <style lang="scss">
+@import '~element-ui/lib/theme-chalk/dialog.css';
 
 .mz-dialog-upload-portfolio {
 
@@ -43,7 +44,7 @@ export default class mzDialogUploadPortfolio extends Mixins(mzTransparentWrapper
   .mz-dialog-upload-portfolio {
 
     .el-dialog {
-    width: 85rem;
+      width: 85rem;
     }
   }
 }
@@ -52,7 +53,7 @@ export default class mzDialogUploadPortfolio extends Mixins(mzTransparentWrapper
   .mz-dialog-upload-portfolio {
 
     .el-dialog {
-    width: 45rem;
+      width: 45rem;
       margin-top: 10vh !important;
 
       &__body {
@@ -69,11 +70,5 @@ export default class mzDialogUploadPortfolio extends Mixins(mzTransparentWrapper
     }
   }
 }
-
-</style>
-<style lang="scss"
-       scoped>
-
-@import url("//unpkg.com/element-ui@2.13.0/lib/theme-chalk/index.css");
 
 </style>

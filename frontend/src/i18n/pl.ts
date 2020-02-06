@@ -8,7 +8,6 @@ export default {
     basket: 'Koszyk',
     account: 'Konto',
     myItems: 'Moje przedmioty',
-    message: 'Wiadomości',
     settings: 'Ustawienia',
     logout: 'Wyloguj sie',
     manage: 'Zarządzaj',

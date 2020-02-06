@@ -75,3 +75,13 @@ export interface IPicture {
   url: string;
   file: Blob | null;
 }
+
+export interface IUserAccountTarget {
+  myTargetsGroup: ITargetsGroup[];
+  showMeTargetsGroup: ITargetsGroup[];
+}
+
+export interface ITargetsGroup {
+  value: string;
+  isSelected: boolean;
+}

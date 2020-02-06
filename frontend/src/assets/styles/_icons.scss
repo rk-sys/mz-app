@@ -1,5 +1,15 @@
 .icon {
 
+  &-chat {
+    background: url("~@/assets/icons/chat/chat.svg") no-repeat center;
+    background-size: contain;
+  }
+
+  &-chat--white {
+    background: url("~@/assets/icons/chat/chat--white.svg") no-repeat center;
+    background-size: contain;
+  }
+
   &-instagram {
     background: url("~@/assets/icons/instagram/instagram.svg") no-repeat center;
     background-size: contain;

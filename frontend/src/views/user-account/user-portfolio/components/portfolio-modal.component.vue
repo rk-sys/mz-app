@@ -198,8 +198,9 @@ export default class mzPortfolioModal extends Vue {
 
 .mz-dialog {
   &__picture-content {
+    border-radius: 2px;
     margin-right: 1rem;
-    border: .2rem dashed var(--gray-500);
+    border: 2px dashed var(--gray-500);
     width: 50%;
     height: 50rem;
     display: flex;
@@ -210,8 +211,13 @@ export default class mzPortfolioModal extends Vue {
     cursor: pointer;
 
     &:hover {
-      border: .4rem dashed var(--primary-color);
+      background: var(--primary-color);
       color: var(--primary-color);
+      border: 2px solid var(--primary-color);
+
+      .label {
+        color: var(--white);
+      }
     }
 
     &__input-upload {

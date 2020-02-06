@@ -19,4 +19,10 @@ export default {
     correctEmail: 'Błędny adres e-mail',
     differenceEmail: 'Adresy email nie są takie same',
   },
+  modal: {
+    title: 'Usuwanie przedmiotu z portfolio',
+    description: 'Czy na pewno chcesz usunąć przedmiot:',
+    buttonRemove: 'Usuń',
+    buttonCancel: 'Anuluj',
+  },
 };

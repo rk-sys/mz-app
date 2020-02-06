@@ -37,14 +37,6 @@
       </router-link>
     </mz-dropdown-item>
 
-    <mz-dropdown-item class="mz-nav-bar-account-sign-in__item">
-      <router-link :to="{name: 'User account'}"
-                   class="mz-nav-bar-account-sign-in__item__link">
-
-        {{$t(`navBar.message`)}}
-      </router-link>
-    </mz-dropdown-item>
-
     <div class="separator">{{$t(`navBar.manage`)}}</div>
 
     <mz-dropdown-item @click.native="logout"
