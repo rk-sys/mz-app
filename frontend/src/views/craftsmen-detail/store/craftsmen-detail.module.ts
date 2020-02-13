@@ -1,8 +1,8 @@
-import { Module, Action, Mutation, VuexModule }  from 'vuex-module-decorators';
-import cloneDeep                                 from 'lodash/cloneDeep';
-import { craftsmenDetail, craftsmenMenuLinks }   from './craftsmen-detail.state';
-import { ICraftsmenDetail, ICraftsmenMenuLinks } from './craftsmen-detail.interface';
-import * as craftsmenDetailService               from './craftsmen-detail.service';
+import { Module, Action, Mutation, VuexModule }            from 'vuex-module-decorators';
+import cloneDeep                                           from 'lodash/cloneDeep';
+import { craftsmenDetail, craftsmenMenuLinks }             from './craftsmen-detail.state';
+import { IComment, ICraftsmenDetail, ICraftsmenMenuLinks } from './craftsmen-detail.interface';
+import * as craftsmenDetailService                         from './craftsmen-detail.service';
 
 @Module({ namespaced: true, stateFactory: true })
 export default class craftsmenDetailModule extends VuexModule {
@@ -45,6 +45,11 @@ export default class craftsmenDetailModule extends VuexModule {
     }
   }
 
+  @Mutation
+  public setCraftsmenCommentsAndRate(payload: IComment[]): void {
+    this.mzCraftsmenDetailState.craftsmenComments = payload;
+  }
+
   @Action
   public openModal(payload: number): void {
     this.context.commit('setActiveItemIndex', payload);
@@ -54,8 +59,18 @@ export default class craftsmenDetailModule extends VuexModule {
   @Action
   public async getCraftsmenDetail(payload: string): Promise<void> {
     try {
-      const request = await craftsmenDetailService.getCraftsmenDetail(payload);
-      this.context.commit('setCraftsmenDetail', request.data);
+      const response = await craftsmenDetailService.getCraftsmenDetail(payload);
+      this.context.commit('setCraftsmenDetail', response.data);
+    } catch (e) {
+      throw new Error(e);
+    }
+  }
+
+  @Action
+  public async getCraftsmenCommentsAndRate(payload: string): Promise<void> {
+    try {
+      const response = await craftsmenDetailService.getCraftsmenCommentsAndRating(payload);
+      this.context.commit('setCraftsmenCommentsAndRate', response.data);
     } catch (e) {
       throw new Error(e);
     }

@@ -22,4 +22,13 @@ export default {
   portfolio: {
     detailPicture: 'Zobacz szczegóły',
   },
+  comments: {
+    title: 'Oceny i komentarze',
+    addComment: ' wystawił(a) komentarz: ',
+    quality: 'Jakość: ',
+    price: 'Cena: ',
+    contact: 'Kontakt: ',
+    punctuality: 'Terminowość: ',
+    reply: 'odpowiedział(a)',
+  },
 };

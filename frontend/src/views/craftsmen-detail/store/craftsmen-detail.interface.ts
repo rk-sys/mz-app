@@ -1,6 +1,7 @@
 export interface ICraftsmenDetail {
   craftsmenBaseInfo: ICraftsmenBaseInfo;
   craftsmenPortfolio: IPortfolio[] | [];
+  craftsmenComments: IComment[];
 }
 
 export interface IPortfolio {
@@ -8,6 +9,29 @@ export interface IPortfolio {
   title: string;
   description: string;
   tags: string[] | null;
+}
+
+export interface IComment {
+  description: string;
+  customer: string;
+  customerId: string;
+  pictureUrl: string;
+  date: string;
+  rate: IRate;
+  reply: IReply | null;
+}
+
+export interface IReply {
+  description: string;
+  author: string;
+  date: string;
+}
+
+export interface IRate {
+  quality: string;
+  price: string;
+  contact: string;
+  punctuality: string;
 }
 
 export interface ICraftsmenBaseInfo {
@@ -32,6 +56,7 @@ export interface ISocialMedia {
   youtube: string | null;
   instagram: string | null;
 }
+
 export interface IContact {
   label: string;
   value: string;

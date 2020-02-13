@@ -9,6 +9,7 @@
 
       <div class="rating">
         <mz-rate v-model="rating"
+                 :is-reverse="true"
                  disabled
                  score-template="{value} points" />
       </div>

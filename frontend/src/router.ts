@@ -50,6 +50,11 @@ const router = new Router({
           name: 'Craftsmen detail portfolio',
           component: () => import ('./views/craftsmen-detail/craftsmen-detail-portfolio/craftsmen-detail-portfolio.view.vue'),
         },
+        {
+          path: 'comments',
+          name: 'Comments and rating',
+          component: () => import ('./views/craftsmen-detail/craftsmen-detail-comments/craftsmen-detail-comments.view.vue'),
+        },
       ],
     },
     {

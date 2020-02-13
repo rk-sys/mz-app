@@ -17,6 +17,7 @@ export const craftsmenDetail: ICraftsmenDetail = {
     tags: [],
   },
   craftsmenPortfolio: [],
+  craftsmenComments: [],
 };
 
 export const craftsmenMenuLinks: ICraftsmenMenuLinks[] = [
@@ -34,6 +35,6 @@ export const craftsmenMenuLinks: ICraftsmenMenuLinks[] = [
   },
   {
     label: 'comment',
-    nameUrl: 'Login',
+    nameUrl: 'Comments and rating',
   },
 ];

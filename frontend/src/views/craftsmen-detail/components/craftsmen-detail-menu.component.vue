@@ -14,6 +14,7 @@
             {{ $t(`craftsmenDetailMenu.rating.${item.label}`) }}
           </span>
           <mz-rate v-model="item.value"
+                   :is-reverse="true"
                    disabled />
         </div>
       </div>

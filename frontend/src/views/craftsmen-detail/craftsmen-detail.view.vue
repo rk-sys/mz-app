@@ -39,6 +39,7 @@ export default class mzCraftsmenDetail extends Vue {
       await loadTranslationsAsync(lang, import(`./i18n/${lang}` as string));
       registerStoreModule(LOCAL_STORE.split('/'), mzCraftsmenDetailModule);
       await Store.dispatch(`${LOCAL_STORE}/getCraftsmenDetail`, '1');
+      await Store.dispatch(`${LOCAL_STORE}/getCraftsmenCommentsAndRate`, '1');
       next();
     } catch (e) {
       next(false);

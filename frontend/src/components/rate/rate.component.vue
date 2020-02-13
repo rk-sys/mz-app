@@ -1,5 +1,6 @@
 <template>
   <el-rate class="mz-rate"
+           :class="{'reverse' : isReverse}"
            v-bind="attributes"
            v-on="listeners">
 
@@ -10,9 +11,9 @@
 </template>
 
 <script lang="ts">
-import { Component, Mixins } from 'vue-property-decorator';
-import mzTransparentWrapper  from '@/components/transparent-component.mixin';
-import ElRate                from 'element-ui/lib/rate.js';
+import { Component, Prop, Mixins } from 'vue-property-decorator';
+import mzTransparentWrapper        from '@/components/transparent-component.mixin';
+import ElRate                      from 'element-ui/lib/rate.js';
 
 @Component({
   components: {
@@ -20,10 +21,12 @@ import ElRate                from 'element-ui/lib/rate.js';
   },
 })
 export default class mzRate extends Mixins(mzTransparentWrapper) {
+  @Prop(Boolean) public readonly isReverse!: boolean;
 }
 </script>
 <style lang="scss">
-.mz-rate.el-rate {
+
+.mz-rate.reverse {
   height: auto;
   transform: scaleX(-1);
 }
@@ -36,7 +39,12 @@ export default class mzRate extends Mixins(mzTransparentWrapper) {
   }
 }
 
+.el-rate__text {
+  font-weight: var(--font-medium);
+}
+
 </style>
+
 <style lang="scss"
        scoped>
 
