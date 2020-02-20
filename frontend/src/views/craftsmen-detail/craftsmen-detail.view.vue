@@ -21,7 +21,7 @@ import { ICraftsmenDetail }      from '@/views/craftsmen-detail/store/craftsmen-
 import mzCraftsmenDetailMenu     from './components/craftsmen-detail-menu.component.vue';
 import mzCraftsmenDetailModule   from './store/craftsmen-detail.module';
 
-const LOCAL_STORE = 'craftsmenDetail';
+const LOCAL_STORE: string = 'craftsmenDetail';
 const local = namespace(LOCAL_STORE);
 
 @Component({

@@ -48,7 +48,7 @@ import mzCraftsmenDetailModule                     from '../store/craftsmen-deta
 import mzSocialMedia                               from '@/components/social-media/social-media.component.vue';
 import mzRate                                      from '@/components/rate/rate.component.vue';
 
-const LOCAL_STORE = 'craftsmenDetail';
+const LOCAL_STORE: string = 'craftsmenDetail';
 const local = namespace(LOCAL_STORE);
 
 @Component({

@@ -19,6 +19,12 @@ const router = new Router({
       name: 'Craftsmen',
       component: () => import('./views/craftsmen/craftsmen.view.vue'),
     },
+
+    {
+      path: '/products',
+      name: 'Products list',
+      component: () => import ('./views/products-list/products-list.view.vue'),
+    },
     {
       path: '/login',
       name: 'Login',

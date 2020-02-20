@@ -95,7 +95,7 @@ import mzForm                          from '@/components/form/form/form.compone
 import mzFormItem                      from '@/components/form/form-item/form-item.component.vue';
 
 
-const LOCAL_STORE = 'login';
+const LOCAL_STORE: string = 'login';
 const local = namespace(LOCAL_STORE);
 
 @Component({

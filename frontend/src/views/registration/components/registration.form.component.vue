@@ -108,7 +108,7 @@ import mzButton              from '@/components/buttons/button.component.vue';
 import yInput                from '@/components/form/input/input.component.vue';
 import { IRegistrationForm } from '@/views/registration/registration.interface';
 
-const LOCAL_STORE = 'registration';
+const LOCAL_STORE: string = 'registration';
 const local = namespace(LOCAL_STORE);
 
 @Component({
@@ -263,7 +263,7 @@ export default class mzRegistrationForm extends Vue {
     text-decoration: none;
     width: 100%;
     border-radius: .2rem;
-    border: solid 0.5px var(--gray-500);
+    border: solid .5px var(--gray-500);
     text-align: center;
     margin: 1rem auto 2rem;
     padding: 1rem 2rem;

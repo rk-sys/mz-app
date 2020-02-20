@@ -56,7 +56,7 @@ import mzItemDescription from '@/views/user-account/user-account-add-item/steps/
 import mzUploadPictures  from '@/views/user-account/user-account-add-item/steps/upload-pictures.component.vue';
 
 
-const LOCAL_STORE = 'addItem';
+const LOCAL_STORE: string = 'addItem';
 const local = namespace(LOCAL_STORE);
 
 @Component({

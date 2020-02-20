@@ -67,7 +67,7 @@ import mzButton                  from '@/components/buttons/button.component.vue
 import mzPortfolioModal          from '@/views/user-account/user-portfolio/components/portfolio-modal.component.vue';
 import mzDialog                  from '@/components/dialog/dialog.component.vue';
 
-const LOCAL_STORE = 'userAccount';
+const LOCAL_STORE: string = 'userAccount';
 const local = namespace(LOCAL_STORE);
 
 @Component({

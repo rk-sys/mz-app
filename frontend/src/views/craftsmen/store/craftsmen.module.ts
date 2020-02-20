@@ -52,8 +52,8 @@ export default class mzCraftsmenModule extends VuexModule {
   @Action
   public async getCraftsmenList(): Promise<void> {
     try {
-      const response = await craftsmenService.getCraftsmen();
-      this.context.commit('setCraftsmenList', response.data);
+      const { data } = await craftsmenService.getCraftsmen();
+      this.context.commit('setCraftsmenList', data);
     } catch (e) {
       throw new Error(e);
     }

@@ -35,8 +35,7 @@ export default class mzTree extends Mixins(mzTransparentWrapper) {
   background: none;
   margin-top: 3.5rem;
 
-  /deep/ {
-    .el-tree-node__label {
+      .el-tree-node__label {
       font-size: 1.8rem;
       font-weight: 500;
     }
@@ -65,5 +64,4 @@ export default class mzTree extends Mixins(mzTransparentWrapper) {
       }
     }
   }
-}
 </style>

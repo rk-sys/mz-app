@@ -67,7 +67,7 @@ import mzIconsBox                      from '@/components/icons-box/icons-box.co
 import { IResetPasswordForm }          from '@/views/reset-password/reset-password.interface';
 
 
-const LOCAL_STORE = 'resetPassword';
+const LOCAL_STORE: string = 'resetPassword';
 const local = namespace(LOCAL_STORE);
 
 @Component({

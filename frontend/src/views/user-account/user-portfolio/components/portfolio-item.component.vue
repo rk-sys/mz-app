@@ -38,7 +38,7 @@ import { IItemPortfolio, IUserItem } from '@/views/user-account/store/user-accou
 import mzUserAccountModule           from '@/views/user-account/store/user-account.module';
 
 
-const LOCAL_STORE = 'userAccount';
+const LOCAL_STORE: string = 'userAccount';
 const local = namespace(LOCAL_STORE);
 
 @Component({

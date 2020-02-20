@@ -21,7 +21,7 @@ import { Component, Prop, Vue } from 'vue-property-decorator';
 import { namespace }            from 'vuex-class';
 import { IPortfolio }           from '@/views/craftsmen-detail/store/craftsmen-detail.interface';
 
-const LOCAL_STORE = 'craftsmenDetail';
+const LOCAL_STORE: string = 'craftsmenDetail';
 const local = namespace(LOCAL_STORE);
 
 @Component({

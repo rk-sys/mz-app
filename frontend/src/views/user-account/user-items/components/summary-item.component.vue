@@ -16,7 +16,7 @@ import { namespace }            from 'vuex-class';
 import mzUserAccountModule      from '@/views/user-account/store/user-account.module';
 import { IUserItem }            from '@/views/user-account/store/user-account.interface';
 
-const LOCAL_STORE = 'userAccount';
+const LOCAL_STORE: string = 'userAccount';
 const local = namespace(LOCAL_STORE);
 
 @Component({

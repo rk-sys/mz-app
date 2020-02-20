@@ -41,7 +41,7 @@ export default class mzNavBarAccountNotSignIn extends Vue {
 <style lang="scss" scoped>
 
 .mz-nav-bar-account-not-sign-in {
-  border-radius: 0.2rem;
+  border-radius: .2rem;
   min-width: 24rem;
 
   &__item {
@@ -75,6 +75,6 @@ export default class mzNavBarAccountNotSignIn extends Vue {
   color: var(--black);
   font-weight: var(--font-medium);
   font-size: 1.4rem;
-  padding: 0.8rem;
+  padding: .8rem;
 }
 </style>

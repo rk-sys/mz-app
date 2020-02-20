@@ -19,10 +19,10 @@ export const addItemGeneralInfo: IAddItemGeneralInfo = {
   ],
   gender: [
     {
-      label: 'he',
+      label: 'male',
     },
     {
-      label: 'she',
+      label: 'female',
     },
     {
       label: 'unisex',

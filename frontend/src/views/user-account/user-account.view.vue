@@ -31,7 +31,7 @@ import mzUserAccountMenu         from './components/user-account-menu.components
 import mzUserAccountMenuMobile   from '@/views/user-account/components/user-account-menu-mobile.component.vue';
 import mzUserAccountModule       from './store/user-account.module';
 
-const LOCAL_STORE = 'userAccount';
+const LOCAL_STORE: string = 'userAccount';
 const local = namespace(LOCAL_STORE);
 
 @Component({

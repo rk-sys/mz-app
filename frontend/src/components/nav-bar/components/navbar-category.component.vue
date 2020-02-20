@@ -3,24 +3,24 @@
     <mz-logo :is-green="true" class="nav-bar-category__logo" />
 
     <router-link class="nav-bar-category__craftsmen"
-                 :to="{name: 'Craftsmen'}">
+                 :to="{ name: 'Craftsmen' }">
 
       <div class="icon icon-hammer"></div>
-      {{$t(`navBar.craftsmen`)}}
+      {{ $t(`navBar.craftsmen`) }}
     </router-link>
 
     <router-link class="nav-bar-category__items"
-                 to="/#">
+                 :to="{ name: 'Products list' }">
 
       <div class="icon icon-box"></div>
-      {{$t(`navBar.items`)}}
+      {{ $t(`navBar.items`) }}
     </router-link>
 
     <router-link class="nav-bar-category__services"
                  to="/#">
 
       <div class="icon icon-tag"></div>
-      {{$t(`navBar.services`)}}
+      {{ $t(`navBar.services`) }}
     </router-link>
   </div>
 </template>

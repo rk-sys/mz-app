@@ -54,7 +54,7 @@ import mzIconsBox                from '@/components/icons-box/icons-box.componen
 import mzSwitch                  from '@/components/form/switch/switch.component.vue';
 import { IUserItem }             from '@/views/user-account/store/user-account.interface';
 
-const LOCAL_STORE = 'userAccount';
+const LOCAL_STORE: string = 'userAccount';
 const local = namespace(LOCAL_STORE);
 
 @Component({

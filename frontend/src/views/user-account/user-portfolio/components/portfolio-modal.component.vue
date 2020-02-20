@@ -95,7 +95,7 @@ import mzForm                  from '@/components/form/form/form.component.vue';
 import { IItemPortfolio }      from '@/views/user-account/store/user-account.interface';
 
 
-const LOCAL_STORE = 'userAccount';
+const LOCAL_STORE: string = 'userAccount';
 const local = namespace(LOCAL_STORE);
 
 @Component({

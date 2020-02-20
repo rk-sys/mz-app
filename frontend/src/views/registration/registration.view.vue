@@ -34,7 +34,7 @@ import mzLogo                    from '@/components/logo/logo.component.vue';
 import mzRegistrationForm        from './components/registration.form.component.vue';
 import { loadTranslationsAsync } from '@/i18n/i18n';
 
-const LOCAL_STORE = 'registration';
+const LOCAL_STORE: string = 'registration';
 const local = namespace(LOCAL_STORE);
 
 @Component({

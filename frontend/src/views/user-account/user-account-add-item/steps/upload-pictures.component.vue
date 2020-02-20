@@ -90,7 +90,7 @@ import mzBoxWithTitle      from '@/components/box-with-title/box-with-title.comp
 import { IAddItemNewItem } from '@/views/user-account/user-account-add-item/store/user-account-add-item.interface';
 import mzButton            from '@/components/buttons/button.component.vue';
 
-const LOCAL_STORE = 'addItem';
+const LOCAL_STORE: string = 'addItem';
 const local = namespace(LOCAL_STORE);
 
 @Component({

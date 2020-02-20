@@ -15,7 +15,7 @@
         </router-link>
 
         <router-link class="nav-bar-category-mobile__items link"
-                     to="/#">
+                     :to="{ name: 'Products list' }">
 
           <div class="icon icon-box"></div>
           {{$t(`navBar.items`)}}

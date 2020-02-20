@@ -72,7 +72,7 @@ export default class mzNavBarAccountSignIn extends Vue {
 <style lang="scss" scoped>
 
 .mz-nav-bar-account-sign-in {
-  border-radius: 0.2rem;
+  border-radius: .2rem;
   min-width: 24rem;
 
   &__item {
@@ -127,7 +127,7 @@ export default class mzNavBarAccountSignIn extends Vue {
   color: var(--black);
   font-weight: var(--font-medium);
   font-size: 1.6rem;
-  padding: 0.8rem;
+  padding: .8rem;
 }
 
 @media screen and (max-width: 768px) and (min-width: 561px) {

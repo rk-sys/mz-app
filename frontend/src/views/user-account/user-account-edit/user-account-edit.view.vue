@@ -188,7 +188,7 @@ import mzButton                        from '@/components/buttons/button.compone
 import mzUpload                        from '@/components/upload/upload.component.vue';
 import mzCheckbox                      from '@/components/form/checkbox/checkbox.component.vue';
 
-const LOCAL_STORE = 'userAccount';
+const LOCAL_STORE: string = 'userAccount';
 const local = namespace(LOCAL_STORE);
 
 @Component({
@@ -410,8 +410,8 @@ export default class mzUserAccountEdit extends Vue {
 
         .label {
           font-size: 2.2rem;
-          margin: 0.5rem 0;
-          padding: 0.5rem 0;
+          margin: .5rem 0;
+          padding: .5rem 0;
           color: var(--black);
         }
       }

@@ -45,7 +45,7 @@ import mzFormItem                            from '@/components/form/form-item/f
 import mzButton                              from '@/components/buttons/button.component.vue';
 import { IContact, IUserDisplayContactForm } from '../../store/user-account.interface';
 
-const LOCAL_STORE = 'userAccount';
+const LOCAL_STORE: string = 'userAccount';
 const local = namespace(LOCAL_STORE);
 
 @Component({
@@ -127,7 +127,7 @@ export default class mzContact extends Vue {
     justify-content: flex-start;
     align-items: center;
     width: 36rem;
-    margin: 0.1rem 0;
+    margin: .1rem 0;
 
     &__icon {
       min-width: 3.8rem;

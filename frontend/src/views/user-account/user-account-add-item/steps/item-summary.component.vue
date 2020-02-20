@@ -97,7 +97,7 @@ import mzBoxWithTitle      from '@/components/box-with-title/box-with-title.comp
 import mzTag               from '@/components/tag/tag.component.vue';
 import mzRadio             from '@/components/form/radio/radio.component.vue';
 
-const LOCAL_STORE = 'addItem';
+const LOCAL_STORE: string = 'addItem';
 const local = namespace(LOCAL_STORE);
 
 @Component({
@@ -220,13 +220,13 @@ export default class mzItemSummary extends Vue {
 
       &:hover {
         transition: .2s;
-        padding: 0.2rem;
+        padding: .2rem;
         border: .2rem dashed var(--primary-color);
       }
 
       &--select {
         border: .2rem dashed var(--primary-color);
-        padding: 0.2rem;
+        padding: .2rem;
         border-radius: 2px;
       }
     }

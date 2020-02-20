@@ -88,7 +88,7 @@ import mzButton                                 from '@/components/buttons/butto
 import mzRadio                                  from '@/components/form/radio/radio.component.vue';
 import mzSteps                                  from '@/components/steps/steps.component.vue';
 
-const LOCAL_STORE = 'addItem';
+const LOCAL_STORE: string = 'addItem';
 const local = namespace(LOCAL_STORE);
 
 @Component({

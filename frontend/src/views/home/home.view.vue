@@ -92,13 +92,13 @@ export default class yHome extends Vue {
       font-size: var(--font-size-16);
       color: var(--white);
       background-color: var(--primary-color);
-      border: 0.1rem solid var(--primary-color);
+      border: .1rem solid var(--primary-color);
       text-decoration: none;
       text-align: center;
 
       &:hover {
         background-color: var(--primary-color-80);
-        border: 0.1rem solid var(--primary-color-80);
+        border: .1rem solid var(--primary-color-80);
       }
     }
   }

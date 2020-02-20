@@ -7,7 +7,7 @@
       </div>
 
       <div class="mz-craftsmen__container__list">
-        <mz-craftsmen-header-info />
+        <mz-craftsmen-header-info :quantity="craftsmenList.length" />
 
         <main class="craftsmen-list">
 
@@ -20,7 +20,6 @@
                              :name="craftsmen.name"
                              :image="craftsmen.image"
                              :tags="craftsmen.tags" />
-
         </main>
       </div>
     </div>
@@ -31,7 +30,7 @@
 import { Component, Vue }        from 'vue-property-decorator';
 import { loadTranslationsAsync } from '@/i18n/i18n';
 import { registerStoreModule }   from '@/helpers/helpers';
-import { namespace }      from 'vuex-class';
+import { namespace }             from 'vuex-class';
 import { Route }                 from 'vue-router';
 import Store                     from '@/store/store';
 import mzCraftsmenModule         from '@/views/craftsmen/store/craftsmen.module';
@@ -41,7 +40,7 @@ import mzCraftsmenFilters        from '@/views/craftsmen/components/craftsmen-fi
 import mzPagination              from '@/components/pagination/pagination.component.vue';
 import { ICraftsmenList }        from '@/views/craftsmen/store/craftsmen.interface';
 
-const LOCAL_STORE = 'craftsmen';
+const LOCAL_STORE: string = 'craftsmen';
 const local = namespace(LOCAL_STORE);
 
 @Component({

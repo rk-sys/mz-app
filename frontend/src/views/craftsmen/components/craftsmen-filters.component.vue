@@ -20,20 +20,22 @@
       </div>
 
       <div class="mz-craftsmen-filters__target-group">
-        <p class="title">{{$t(`filters.targetGroup.title`)}}</p>
+        <p class="title">{{ $t(`filters.targetGroup.title`) }}</p>
 
         <div class="item"
-             v-for="item in filters.targetGroup">
+             v-for="(item, index) in filters.targetGroup"
+        :key="index">
 
           <mz-checkbox v-model="item.isSelected"
                        @change="checkAllTargetGroup()">
+
             <span class="label">{{ $t(`filters.targetGroup.${item.value}`) }}</span>
           </mz-checkbox>
         </div>
       </div>
 
       <div class="mz-craftsmen-filters__tags">
-        <p class="title">{{$t(`filters.tags.title`)}}</p>
+        <p class="title">{{ $t(`filters.tags.title`) }}</p>
 
         <mz-input v-model="itemTag"
                   :holder="$t(`filters.tags.addTags`)"
@@ -71,7 +73,7 @@ import mzCollapse            from '@/components/commons/collapse/collapse.compon
 import mzCollapseItem        from '@/components/commons/collapse-item/collapse-item.component.vue';
 import mzInput               from '@/components/input/mz-input.component.vue';
 
-const LOCAL_STORE = 'craftsmen';
+const LOCAL_STORE: string = 'craftsmen';
 const local = namespace(LOCAL_STORE);
 
 @Component({
@@ -189,8 +191,8 @@ export default class mzCraftsmenFilters extends Vue {
 
       .label {
         font-size: 2.2rem;
-        margin: 0.5rem 0;
-        padding: 0.5rem 0;
+        margin: .5rem 0;
+        padding: .5rem 0;
         color: var(--black);
       }
 
@@ -249,9 +251,8 @@ export default class mzCraftsmenFilters extends Vue {
   }
 }
 
-@media screen and (max-width: 768px) and (min-width: 425px) {
+@media screen and (max-width: 768px) and (min-width: 426px) {
   .mz-craftsmen-filters {
-    position: initial;
     width: 100%;
 
     &__collapse {

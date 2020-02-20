@@ -99,7 +99,7 @@ export default class mzCraftsmenCard extends Vue {
 
   &:hover {
     border-color: var(--primary-color);
-    box-shadow: 0 0 1rem 0 var(--gray-450);
+    box-shadow: 0 0 1.5rem 0 var(--gray-500);
   }
 
   &__header {

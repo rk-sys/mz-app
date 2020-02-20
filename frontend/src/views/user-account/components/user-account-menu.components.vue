@@ -67,7 +67,7 @@ import mzUpload            from '@/components/upload/upload.component.vue';
 import Notification        from '@/components/notification/notifications';
 import { i18n }            from '@/i18n/i18n';
 
-const LOCAL_STORE = 'userAccount';
+const LOCAL_STORE: string = 'userAccount';
 const local = namespace(LOCAL_STORE);
 
 @Component({
@@ -146,7 +146,7 @@ export default class mzUserAccountMenu extends Vue {
           width: 100%;
           height: 100%;
           background: var(--transparent);
-          opacity: 0.5;
+          opacity: .5;
           position: absolute;
           border-radius: 50%;
           z-index: 2;

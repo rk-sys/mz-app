@@ -43,7 +43,8 @@ export default class mzTag extends Vue {
 
   &__remove-button {
     border: 1px solid var(--primary-color);
-    border-radius: 2px;
+    border-top-right-radius: 2px;
+    border-bottom-right-radius: 2px;
     border-left: none;
     font-size: 1.6rem;
     font-weight: var(--font-regular);
@@ -63,7 +64,9 @@ export default class mzTag extends Vue {
   &__text {
     border: 1px solid var(--primary-color);
     border-right: none;
-    padding: .5rem 1rem;
+    border-top-left-radius: 2px;
+    border-bottom-left-radius: 2px;
+    padding: .5rem;
 
     @media screen and (max-width: 560px) {
       font-size: 2.4rem;

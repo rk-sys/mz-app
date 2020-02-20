@@ -109,7 +109,7 @@ import mzContact                                             from './components/
 import { IUserDisplayDescriptionForm, IUserDisplayTagsForm } from '@/views/user-account/store/user-account.interface';
 import mzProgress                                            from '@/components/progress/progress.component.vue';
 
-const LOCAL_STORE = 'userAccount';
+const LOCAL_STORE: string = 'userAccount';
 const local = namespace(LOCAL_STORE);
 
 @Component({

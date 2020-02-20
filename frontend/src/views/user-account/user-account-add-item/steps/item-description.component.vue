@@ -193,7 +193,7 @@ import mzRadio                                  from '@/components/form/radio/ra
 import mzSelect                                 from '@/components/form/select/select.component.vue';
 import mzOption                                 from '@/components/form/option/option.component.vue';
 
-const LOCAL_STORE = 'addItem';
+const LOCAL_STORE: string = 'addItem';
 const local = namespace(LOCAL_STORE);
 
 @Component({

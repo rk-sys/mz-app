@@ -1,20 +1,20 @@
 <template>
-  <div class="mz-craftsmen-header-info">
+  <div class="mz-products-header-info">
     <div class="total-items">
-      <span class="total-items__label">{{ $t(`header.found`) }}</span>
-      <span class="total-items__quantity">{{ quantity }}</span>
-      <span class="total-items__label">{{ $t(`header.results`) }}</span>
+      <span class="total-items__label">{{$t(`header.found`)}}</span>
+      <span class="total-items__quantity">{{quantity}}</span>
+      <span class="total-items__label">{{$t(`header.results`)}}</span>
     </div>
 
     <div class="sort-items">
-      <span class="sort-items__label">{{ $t(`header.sortBy`) }}</span>
+      <span class="sort-items__label">{{$t(`header.sortBy`)}}</span>
 
       <mz-select class="sort-items__select"
-                 v-model="defaultCraftsmenSortOption"
-                 @change="changeCraftsmenSortOption(defaultCraftsmenSortOption)"
+                 v-model="defaultProductSortOption"
+                 @change="changeProductsSortOption(defaultProductSortOption)"
                  size="mini">
 
-        <mz-option v-for="(option, index) in craftsmenSortOption"
+        <mz-option v-for="(option, index) in productSortOption"
                    :value="option"
                    :label="$t(`sorting.${ option }`)"
                    :key="index" />
@@ -28,9 +28,9 @@ import { Component, Prop, Vue } from 'vue-property-decorator';
 import { namespace }            from 'vuex-class';
 import mzSelect                 from '@/components/form/select/select.component.vue';
 import mzOption                 from '@/components/form/option/option.component.vue';
-import mzCraftsmenModule        from '@/views/craftsmen/store/craftsmen.module';
+import mzProductsModule         from '../store/products.module';
 
-const LOCAL_STORE: string = 'craftsmen';
+const LOCAL_STORE: string = 'products-list';
 const local = namespace(LOCAL_STORE);
 
 @Component({
@@ -39,25 +39,26 @@ const local = namespace(LOCAL_STORE);
     mzOption,
   },
 })
-export default class mzCraftsmenHeaderInfo extends Vue {
-  @local.State((state: mzCraftsmenModule) => state.mzCraftsmenState.craftsmenSortOption) public craftsmenSortOption!: string[];
-  @local.State((state: mzCraftsmenModule) => state.mzCraftsmenState.defaultCraftsmenSortOption) public defaultOption!: string;
-  @local.Action public changeCraftsmenSortOption!: (value: string) => void;
+export default class mzProductsHeaderInfo extends Vue {
+  @local.State((state: mzProductsModule) => state.mzProductsState.productsSortOption) public productSortOption!: string[];
+  @local.State((state: mzProductsModule) => state.mzProductsState.defaultProductsSortOption) public defaultOption!: string;
+  @local.Action public changeProductsSortOption!: (value: string) => void;
   @Prop(Number) public readonly quantity!: number;
 
-  public get defaultCraftsmenSortOption() {
+  // TODO  Zmiana Quantity z 13 na to co serwer zwróci
+  public get defaultProductSortOption() {
     return this.defaultOption;
   }
 
-  public set defaultCraftsmenSortOption(value: string) {
-    this.changeCraftsmenSortOption(value);
+  public set defaultProductSortOption(value: string) {
+    this.changeProductsSortOption(value);
   }
 }
 </script>
 
 <style lang="scss"
        scoped>
-.mz-craftsmen-header-info {
+.mz-products-header-info {
   display: flex;
   justify-content: space-between;
 
@@ -90,7 +91,7 @@ export default class mzCraftsmenHeaderInfo extends Vue {
 }
 
 @media screen and (max-width: 425px) {
-  .mz-craftsmen-header-info {
+  .mz-products-header-info {
     flex-direction: column;
 
     .total-items {
