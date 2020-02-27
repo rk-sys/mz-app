@@ -46,7 +46,7 @@ import mzCraftsmenDetailModule        from '../store/craftsmen-detail.module';
 import mzCraftsmenDetailPortfolioCard from '../components/craftsmen-detail-portfolio-card.component.vue';
 import mzModal                        from '@/components/form/modal/modal.component.vue';
 
-const LOCAL_STORE: string = 'craftsmenDetail';
+const LOCAL_STORE: string = 'mzCraftsmenDetail';
 const local = namespace(LOCAL_STORE);
 
 @Component({

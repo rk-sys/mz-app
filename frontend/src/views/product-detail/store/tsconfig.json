@@ -1,0 +1,34 @@
+{
+  "craftsman": {
+    "name": "Kafał Rrukowski",
+    "ratings":[{"label":"contact","value":3.5},{"label":"date","value":2.2},{"label":"quantity","value":4.1},{"label":"price","value":4.8}],
+    "picture": "https://vignette.wikia.nocookie.net/warhammerfb/images/2/22/Warhammer_Nagash.jpg/revision/latest?cb=20170422025503",
+  "tags": ["drewno", "metal", "eva", "larpy", "rekonstrukcja", "coś", "xd"],
+    "id": "1",
+"socialMedia": {
+"facebook": "www.facebook.pl",
+"twitter": "www.twitter.pl",
+"youtube": "www.youtube.pl",
+"instagram": "www.instagram.pl"
+    }
+  },
+"product": {
+"title": "Siekierka nowa na grunwald, wiek VI p.n.e",
+"description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum",
+"price": "2345",
+"currency": "zl",
+"tags": ["drewno", "metal", "siekierka", "Rrukowaki", "Kafał"],
+"pictures": [
+  "https://images.unsplash.com/photo-1541543975512-86aad5d2cf93?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1351&q=80",
+  "https://images.unsplash.com/photo-1553986782-9f6de60b51b4?ixlib=rb-1.2.1&auto=format&fit=crop&w=1332&q=80",
+  "https://images.unsplash.com/photo-1563310978-dd47a28323ab?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80",
+  "https://images.unsplash.com/photo-1563310978-dd47a28323ab?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80",
+  "https://images.unsplash.com/photo-1563310978-dd47a28323ab?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80"
+],
+"mainRange": "Larp",
+"mainCategory": "Broń",
+"subCategory": "Siekierka",
+"gender": "Unisex",
+"isNew": true
+  }
+}

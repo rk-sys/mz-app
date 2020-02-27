@@ -26,6 +26,11 @@ const router = new Router({
       component: () => import ('./views/products-list/products-list.view.vue'),
     },
     {
+      path: '/products/:uuid/detail',
+      name: 'Product detail',
+      component: () => import ('./views/product-detail/product-detail.view.vue'),
+    },
+    {
       path: '/login',
       name: 'Login',
       component: () => import('./views/login/login.views.vue'),

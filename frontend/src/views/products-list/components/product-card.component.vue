@@ -5,6 +5,7 @@
     </span>
 
     <div class="mz-products-card__wrapper"
+         @click="goToProductDetail(product.id)"
          @mouseenter="showLayout(true)"
          @mouseleave="showLayout(false)">
 
@@ -31,6 +32,7 @@ import { Component, Prop, Vue } from 'vue-property-decorator';
 import mzSelect                 from '@/components/form/select/select.component.vue';
 import mzOption                 from '@/components/form/option/option.component.vue';
 import { IProduct }             from 'src/views/products-list/store/products.interface';
+import router                   from '@/router';
 
 @Component({
   components: {
@@ -45,6 +47,10 @@ export default class mzProductsHeaderInfo extends Vue {
 
   public showLayout(arg: boolean): void {
     this.isHover = arg;
+  }
+
+  public goToProductDetail(uuid: string): void {
+    router.push({name: 'Product detail', params: {uuid}});
   }
 }
 </script>

@@ -46,7 +46,7 @@ import mzBoxWithTitle          from '@/components/box-with-title/box-with-title.
 import { ICraftsmenDetail }    from '@/views/craftsmen-detail/store/craftsmen-detail.interface';
 import mzTag                   from '@/components/tag/tag.component.vue';
 
-const LOCAL_STORE: string  = 'craftsmenDetail';
+const LOCAL_STORE: string  = 'mzCraftsmenDetail';
 const local = namespace(LOCAL_STORE);
 
 @Component({
