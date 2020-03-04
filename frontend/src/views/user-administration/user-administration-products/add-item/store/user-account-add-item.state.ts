@@ -1,4 +1,4 @@
-import { IAddItemGeneralInfo, IAddItemNewItem } from '@/views/user-account/user-account-add-item/store/user-account-add-item.interface';
+import { IAddItemGeneralInfo, IAddItemNewItem } from './user-account-add-item.interface';
 
 export const addItemGeneralInfo: IAddItemGeneralInfo = {
   listOfMainRange: [

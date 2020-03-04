@@ -11,7 +11,7 @@
       <mz-box-with-title :title="$t(`itemDescription.title.description`)">
 
         <div class="mz-item-description__form__container">
-          <p class="label"> {{ $t(`itemDescription.form.title`) }}</p>
+          <p class="label">{{ $t(`itemDescription.form.title`) }}</p>
 
           <mz-form-item class="form__container__item"
                         prop="title">
@@ -26,7 +26,7 @@
         <div class="mz-item-description__form__container
                     mz-item-description__form__container--textarea">
 
-          <p class="label"> {{ $t(`itemDescription.form.description`) }}</p>
+          <p class="label">{{ $t(`itemDescription.form.description`) }}</p>
 
           <mz-form-item class="form__container__item form__container__item"
                         prop="description">
@@ -40,7 +40,7 @@
       <mz-box-with-title :title="$t(`itemDescription.title.information`)">
 
         <div class="mz-item-description__form__container">
-          <p class="label"> {{ $t(`itemDescription.form.price`)}}</p>
+          <p class="label">{{ $t(`itemDescription.form.price`)}}</p>
 
           <mz-form-item class="form__container__item"
                         prop="price">
@@ -72,7 +72,7 @@
         </div>
 
         <div class="mz-item-description__form__container mz-item-description__form__container--gender">
-          <p class="label"> {{ $t(`itemDescription.form.gender`) }}</p>
+          <p class="label">{{ $t(`itemDescription.form.gender`) }}</p>
 
           <mz-form-item class="form__container__item"
                         prop="gender">
@@ -91,7 +91,7 @@
         </div>
 
         <div class="mz-item-description__form__container mz-item-description__form__container--gender">
-          <p class="label"> {{ $t(`itemDescription.form.condition`) }}</p>
+          <p class="label">{{ $t(`itemDescription.form.condition`) }}</p>
 
           <mz-form-item class="form__container__item"
                         prop="isNew">
@@ -137,8 +137,7 @@
                   id="itemTag"
                   :disabled="disabledTags"
                   class="mz-item-description__tags__input"
-                  @keyup.enter.native="addTag(itemTag)">
-        </mz-input>
+                  @keyup.enter.native="addTag(itemTag)" />
 
         <div class="mz-item-description__tags__add-btn"
              v-if="!disabledTags"
@@ -179,9 +178,9 @@
 <script lang="ts">
 import { Component, Vue }                       from 'vue-property-decorator';
 import { namespace }                            from 'vuex-class';
-import { IAddItemGeneralInfo, IAddItemNewItem } from '@/views/user-account/user-account-add-item/store/user-account-add-item.interface';
 import { i18n }                                 from '@/i18n/i18n';
-import mzAddItemModule                          from '@/views/user-account/user-account-add-item/store/user-account-add-item.module';
+import { IAddItemGeneralInfo, IAddItemNewItem } from '../store/user-account-add-item.interface';
+import mzAddItemModule                          from '../store/user-account-add-item.module';
 import mzButton                                 from '@/components/buttons/button.component.vue';
 import mzInput                                  from '@/components/input/mz-input.component.vue';
 import mzInputTextarea                          from '@/components/input-textarea/mz-input-textarea.component.vue';
@@ -210,7 +209,7 @@ const local = namespace(LOCAL_STORE);
     mzRadio,
   },
 })
-export default class mzUserAccount extends Vue {
+export default class mzUserAdministrationItemDescription extends Vue {
   @local.State((state: mzAddItemModule) => state.mzAddItemGeneralInfo) public addItemGeneralInfo!: IAddItemGeneralInfo;
   @local.State((state: mzAddItemModule) => state.numberOfActiveStep) public activeNumber!: number;
   @local.State((state: mzAddItemModule) => state.newItem) public newItem!: IAddItemNewItem;

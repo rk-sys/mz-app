@@ -85,9 +85,9 @@ import { Component, Vue }  from 'vue-property-decorator';
 import { namespace }       from 'vuex-class';
 import { i18n }            from '@/i18n/i18n';
 import Notification        from '@/components/notification/notifications';
-import mzAddItemModule     from '@/views/user-account/user-account-add-item/store/user-account-add-item.module';
+import { IAddItemNewItem } from '../store/user-account-add-item.interface';
+import mzAddItemModule     from '../store/user-account-add-item.module';
 import mzBoxWithTitle      from '@/components/box-with-title/box-with-title.component.vue';
-import { IAddItemNewItem } from '@/views/user-account/user-account-add-item/store/user-account-add-item.interface';
 import mzButton            from '@/components/buttons/button.component.vue';
 
 const LOCAL_STORE: string = 'addItem';
@@ -99,7 +99,7 @@ const local = namespace(LOCAL_STORE);
     mzButton,
   },
 })
-export default class mzUploadPictures extends Vue {
+export default class mzUserAdministrationUploadPictures extends Vue {
   @local.State((state: mzAddItemModule) => state.newItem) public newItem!: IAddItemNewItem;
   @local.Mutation public uploadPicture!: (payload: any) => void;
   @local.Mutation public changeMainPicture!: (payload: number) => void;

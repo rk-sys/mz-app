@@ -3,11 +3,11 @@ import cloneDeep                                from 'lodash/cloneDeep';
 import {
   IAddItemGeneralInfo,
   IAddItemNewItem,
-}                                               from '@/views/user-account/user-account-add-item/store/user-account-add-item.interface';
+}                                               from './user-account-add-item.interface';
 import {
   addItemGeneralInfo,
   newItem,
-}                                               from '@/views/user-account/user-account-add-item/store/user-account-add-item.state';
+}                                               from './user-account-add-item.state';
 
 @Module({ namespaced: true, stateFactory: true })
 export default class mzUserAccountModule extends VuexModule {
@@ -34,12 +34,12 @@ export default class mzUserAccountModule extends VuexModule {
   }
 
   @Mutation
-  public addTagToList(payload: string) {
+  public addTagToList(payload: string): void {
     this.newItem.tags.push(payload);
   }
 
   @Mutation
-  public removeTagFromList(payload: number) {
+  public removeTagFromList(payload: number): void {
     this.newItem.tags.splice(payload, 1);
   }
 

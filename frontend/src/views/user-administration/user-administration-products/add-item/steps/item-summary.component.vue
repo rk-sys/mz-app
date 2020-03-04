@@ -16,9 +16,7 @@
         <mz-tag v-for="(tag, index) in newItem.tags"
                 :is-presentation="true"
                 :key="index"
-                :tag="tag">
-
-        </mz-tag>
+                :tag="tag" />
       </div>
     </mz-box-with-title>
 
@@ -73,7 +71,8 @@
 
       <mz-button class="button-previous"
                  @click="goToStep3()">
-        {{ $t(`button.goToPrevious`)}}
+
+        {{ $t(`button.goToPrevious`) }}
       </mz-button>
 
       <mz-button class="button-next">
@@ -86,8 +85,8 @@
 <script lang="ts">
 import { Component, Vue }  from 'vue-property-decorator';
 import { namespace }       from 'vuex-class';
-import { IAddItemNewItem } from '@/views/user-account/user-account-add-item/store/user-account-add-item.interface';
-import mzAddItemModule     from '@/views/user-account/user-account-add-item/store/user-account-add-item.module';
+import { IAddItemNewItem } from '../store/user-account-add-item.interface';
+import mzAddItemModule     from '../store/user-account-add-item.module';
 import mzButton            from '@/components/buttons/button.component.vue';
 import mzInput             from '@/components/input/mz-input.component.vue';
 import mzInputTextarea     from '@/components/input-textarea/mz-input-textarea.component.vue';
@@ -112,7 +111,7 @@ const local = namespace(LOCAL_STORE);
     mzRadio,
   },
 })
-export default class mzItemSummary extends Vue {
+export default class mzUserAdministrationItemSummary extends Vue {
   @local.State((state: mzAddItemModule) => state.newItem) public newItem!: IAddItemNewItem;
   @local.Action public goToStep3!: () => void;
   public url: string = '';

@@ -64,10 +64,10 @@ export default class mzSteps extends Mixins(mzTransparentWrapper) {
 
   &__line {
     position: absolute;
-    width: 14rem;
+    width: 15rem;
     height: 2px;
     background-color: var(--gray-500);
-    left: -9.5rem;
+    left: -10.5rem;
     z-index: 0;
 
     &--green {

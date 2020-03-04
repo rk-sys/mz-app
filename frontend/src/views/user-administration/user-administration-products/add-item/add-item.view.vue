@@ -1,5 +1,5 @@
 <template>
-  <div class="mz-add-item">
+  <div class="mz-user-administration-add-item">
 
     <mz-steps :labels="['Informacje ogólne', 'Dodaj opis', 'Wrzuć zdjęcie', 'Podsumowanie'] "
               :active="activeNumber" />
@@ -47,13 +47,12 @@ import { namespace }             from 'vuex-class';
 import { loadTranslationsAsync } from '@/i18n/i18n';
 import { Route }                 from 'vue-router';
 import Store                     from '@/store/store';
-
-import mzAddItemModule   from '@/views/user-account/user-account-add-item/store/user-account-add-item.module';
-import mzSteps           from '@/components/steps/steps.component.vue';
-import mzItemSummary     from '@/views/user-account/user-account-add-item/steps/item-summary.component.vue';
-import mzGeneralInfo     from '@/views/user-account/user-account-add-item/steps/general-info.component.vue';
-import mzItemDescription from '@/views/user-account/user-account-add-item/steps/item-description.component.vue';
-import mzUploadPictures  from '@/views/user-account/user-account-add-item/steps/upload-pictures.component.vue';
+import mzAddItemModule           from './store/user-account-add-item.module';
+import mzSteps                   from '@/components/steps/steps.component.vue';
+import mzItemSummary             from './steps/item-summary.component.vue';
+import mzGeneralInfo             from './steps/general-info.component.vue';
+import mzItemDescription         from './steps/item-description.component.vue';
+import mzUploadPictures          from './steps/upload-pictures.component.vue';
 
 
 const LOCAL_STORE: string = 'addItem';
@@ -68,7 +67,7 @@ const local = namespace(LOCAL_STORE);
     mzUploadPictures,
   },
 })
-export default class mzUserAccount extends Vue {
+export default class mzUserAdministrationAddItem extends Vue {
   @local.State((state: mzAddItemModule) => state.numberOfActiveStep) public activeNumber!: number;
 
   public destroyed(): void {
@@ -102,20 +101,20 @@ export default class mzUserAccount extends Vue {
   opacity: 0;
 }
 
-.mz-add-item {
-  width: 85rem;
-  margin-left: 10rem;
+.mz-user-administration-add-item {
+  width: 90rem;
+  margin: 0 auto;
 }
 
 @media screen and (max-width: 768px) and (min-width: 426px) {
-  .mz-add-item {
+  .mz-user-administration-add-item {
     margin-left: 0;
     width: 85rem;
   }
 }
 
 @media screen and (max-width: 425px) {
-  .mz-add-item {
+  .mz-user-administration-add-item {
     margin-left: 0;
     width: 43rem;
   }

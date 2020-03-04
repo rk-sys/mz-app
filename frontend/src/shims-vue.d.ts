@@ -39,4 +39,5 @@ declare module 'element-ui/lib/tooltip.js';
 declare module 'element-ui/lib/progress.js';
 declare module 'element-ui/lib/rate.js';
 declare module 'element-ui/lib/dialog.js';
-
+declare module 'element-ui/lib/tabs.js';
+declare module 'element-ui/lib/tab-pane.js';

@@ -49,14 +49,6 @@ export const userAccountMenu: IUserAccountMenu = {
       nameUrl: 'User account information',
     },
     {
-      label: 'items',
-      nameUrl: 'User items',
-    },
-    {
-      label: 'addItem',
-      nameUrl: 'Add item',
-    },
-    {
       label: 'portfolio',
       nameUrl: 'User portfolio',
     },

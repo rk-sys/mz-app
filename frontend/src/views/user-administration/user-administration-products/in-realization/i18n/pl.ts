@@ -1,11 +1,6 @@
 export default {
   item: {
-    status: {
-      'active': 'Aktywne',
-      'in-progress': 'W trakcie',
-      'ended': 'Zakończone',
-      'all': 'Wszystkie',
-    },
+    productInRealization: 'Przedmioty w realizacji:',
     action: {
       details: 'szczegóły',
       edit: 'edytuj',

@@ -33,12 +33,11 @@ import { registerStoreModule }   from '@/helpers/helpers';
 import { namespace }             from 'vuex-class';
 import { Route }                 from 'vue-router';
 import Store                     from '@/store/store';
+import { ICraftsmenList }        from '@/views/craftsmen/store/craftsmen.interface';
 import mzCraftsmenModule         from '@/views/craftsmen/store/craftsmen.module';
-import mzCraftsmenHeaderInfo     from './components/craftsmen-header-info.component.vue';
 import mzCraftsmenCard           from '@/views/craftsmen/components/craftsmen-card.component.vue';
 import mzCraftsmenFilters        from '@/views/craftsmen/components/craftsmen-filters.component.vue';
-import mzPagination              from '@/components/pagination/pagination.component.vue';
-import { ICraftsmenList }        from '@/views/craftsmen/store/craftsmen.interface';
+import mzCraftsmenHeaderInfo     from './components/craftsmen-header-info.component.vue';
 
 const LOCAL_STORE: string = 'craftsmen';
 const local = namespace(LOCAL_STORE);
@@ -48,7 +47,6 @@ const local = namespace(LOCAL_STORE);
     mzCraftsmenHeaderInfo,
     mzCraftsmenCard,
     mzCraftsmenFilters,
-    mzPagination,
   },
 })
 export default class mzCraftsmen extends Vue {

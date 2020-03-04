@@ -69,6 +69,45 @@ const router = new Router({
       ],
     },
     {
+      path: '/user-administration',
+      name: 'User administration',
+      redirect: '/user-administration/products/my-items',
+      component: () => import ('./views/user-administration/user-administration.view.vue'),
+      meta: {
+        requiresAuth: true,
+      },
+      children: [
+        {
+          path: 'products/my-items',
+          name: 'User administration my items',
+          component: () => import ('./views/user-administration/user-administration-products/my-items/my-items.view.vue'),
+        },
+        {
+          path: 'products/add-products',
+          name: 'User administration add product',
+          component: () => import ('./views/user-administration/user-administration-products/add-item/add-item.view.vue'),
+        },
+        {
+          path: 'products/add-products/edit/:uuid',
+          name: 'User administration edit product',
+          component: () => import ('./views/user-administration/user-administration-products/add-item/add-item.view.vue'),
+        },
+        {
+          path: 'products/in-realization',
+          name: 'User administration product in realization',
+          component: () => import ('./views/user-administration/user-administration-products/in-realization/in-realization.view.vue'),
+        },
+        {
+          path: 'offer',
+          name: 'User administration offer',
+        },
+        {
+          path: 'history',
+          name: 'User administration history',
+        },
+      ],
+    },
+    {
       path: '/account',
       name: 'User account',
       redirect: '/account/edit',
@@ -86,16 +125,6 @@ const router = new Router({
           path: 'info',
           name: 'User account information',
           component: () => import('./views/user-account/user-account-info/user-account-info.view.vue'),
-        },
-        {
-          path: 'items',
-          name: 'User items',
-          component: () => import('./views/user-account/user-items/user-items.view.vue'),
-        },
-        {
-          path: 'add-item',
-          name: 'Add item',
-          component: () => import('./views/user-account/user-account-add-item/user-account-add-item.view.vue'),
         },
         {
           path: 'portfolio',

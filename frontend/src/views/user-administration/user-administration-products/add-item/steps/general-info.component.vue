@@ -82,8 +82,8 @@
 <script lang="ts">
 import { Component, Vue }                       from 'vue-property-decorator';
 import { namespace }                            from 'vuex-class';
-import { IAddItemGeneralInfo, IAddItemNewItem } from '@/views/user-account/user-account-add-item/store/user-account-add-item.interface';
-import mzAddItemModule                          from '@/views/user-account/user-account-add-item/store/user-account-add-item.module';
+import { IAddItemGeneralInfo, IAddItemNewItem } from '../store/user-account-add-item.interface';
+import mzAddItemModule                          from '../store/user-account-add-item.module';
 import mzButton                                 from '@/components/buttons/button.component.vue';
 import mzRadio                                  from '@/components/form/radio/radio.component.vue';
 import mzSteps                                  from '@/components/steps/steps.component.vue';
@@ -98,7 +98,7 @@ const local = namespace(LOCAL_STORE);
     mzButton,
   },
 })
-export default class mzUserAccount extends Vue {
+export default class mzUserAdministrationGeneralInfo extends Vue {
   @local.State((state: mzAddItemModule) => state.mzAddItemGeneralInfo) public addItemGeneralInfo!: IAddItemGeneralInfo;
   @local.State((state: mzAddItemModule) => state.numberOfActiveStep) public activeNumber!: number;
   @local.State((state: mzAddItemModule) => state.newItem) public newItem!: IAddItemNewItem;

@@ -19,31 +19,65 @@
 			</span>
     </div>
 
-    <div class="separator">{{$t(`navBar.account`)}}</div>
+    <div class="separator"></div>
 
     <mz-dropdown-item class="mz-nav-bar-account-sign-in__item">
       <router-link :to="{name: 'User account edit'}"
                    class="mz-nav-bar-account-sign-in__item__link">
 
-        {{$t(`navBar.settings`)}}
+        {{ $t(`navBar.settings`) }}
       </router-link>
     </mz-dropdown-item>
 
     <mz-dropdown-item class="mz-nav-bar-account-sign-in__item">
-      <router-link :to="{name: 'User items'}"
+      <router-link :to="{name: 'User account information'}"
                    class="mz-nav-bar-account-sign-in__item__link">
 
-        {{$t(`navBar.myItems`)}}
+        {{ $t(`navBar.profile`) }}
       </router-link>
     </mz-dropdown-item>
 
-    <div class="separator">{{$t(`navBar.manage`)}}</div>
+    <mz-dropdown-item class="mz-nav-bar-account-sign-in__item">
+      <router-link :to="{name: 'User portfolio'}"
+                   class="mz-nav-bar-account-sign-in__item__link">
+
+        {{$t(`navBar.portfolio`)}}
+      </router-link>
+    </mz-dropdown-item>
+
+    <div class="separator"></div>
+
+    <mz-dropdown-item class="mz-nav-bar-account-sign-in__item">
+      <router-link :to="{name: 'User administration my items'}"
+                   class="mz-nav-bar-account-sign-in__item__link">
+
+        {{ $t(`navBar.myItems`) }}
+      </router-link>
+    </mz-dropdown-item>
+
+    <mz-dropdown-item class="mz-nav-bar-account-sign-in__item">
+      <router-link :to="{name: 'User administration offer'}"
+                   class="mz-nav-bar-account-sign-in__item__link">
+
+        {{ $t(`navBar.myOffer`) }}
+      </router-link>
+    </mz-dropdown-item>
+
+    <mz-dropdown-item class="mz-nav-bar-account-sign-in__item">
+      <router-link :to="{name: 'User administration history'}"
+                   class="mz-nav-bar-account-sign-in__item__link">
+
+        {{ $t(`navBar.myHistory`) }}
+      </router-link>
+    </mz-dropdown-item>
+
+    <div class="separator"></div>
 
     <mz-dropdown-item @click.native="logout"
                       class="mz-nav-bar-account-sign-in__item">
 
       <span class="mz-nav-bar-account-sign-in__item__link">
-        {{$t(`navBar.logout`)}}
+        {{ $t(`navBar.logout`) }}
       </span>
     </mz-dropdown-item>
   </mz-dropdown-menu>
@@ -73,10 +107,10 @@ export default class mzNavBarAccountSignIn extends Vue {
 
 .mz-nav-bar-account-sign-in {
   border-radius: .2rem;
-  min-width: 24rem;
+  min-width: 28rem;
 
   &__item {
-    font-size: 1.8rem;
+    font-size: 1.6rem;
     padding: 0;
 
     &:hover {
@@ -85,12 +119,13 @@ export default class mzNavBarAccountSignIn extends Vue {
     }
 
     &__link {
-      padding: 0 2rem;
-      color: var(--gray-950);
+      padding: .2rem 2rem;
+      color: var(--black);
       width: 100%;
       height: 100%;
       display: block;
       text-decoration: none;
+      font-weight: var(--font-medium);
 
       &:hover {
         color: var(--white);
@@ -103,7 +138,6 @@ export default class mzNavBarAccountSignIn extends Vue {
     padding: 0 2rem;
     display: flex;
     align-items: center;
-    margin: 1rem 0;
     font-size: 1.5rem;
 
     &__picture {
@@ -122,12 +156,8 @@ export default class mzNavBarAccountSignIn extends Vue {
 
 .separator {
   min-width: 100%;
-  background: var(--gray-150);
-  margin: .4rem 0;
-  color: var(--black);
-  font-weight: var(--font-medium);
-  font-size: 1.6rem;
-  padding: .8rem;
+  border-bottom: 1px solid var(--gray-300);
+  margin: 1rem 0;
 }
 
 @media screen and (max-width: 768px) and (min-width: 561px) {

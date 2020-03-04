@@ -22,13 +22,13 @@
 
 <script lang="ts">
 import { Component, Vue }        from 'vue-property-decorator';
-import { registerStoreModule }   from '@/helpers/helpers';
 import { namespace }             from 'vuex-class';
+import { Route }                 from 'vue-router';
+import { registerStoreModule }   from '@/helpers/helpers';
 import { loadTranslationsAsync } from '@/i18n/i18n';
 import Store                     from '@/store/store';
-import { Route }                 from 'vue-router';
-import mzUserAccountMenu         from './components/user-account-menu.components.vue';
 import mzUserAccountMenuMobile   from '@/views/user-account/components/user-account-menu-mobile.component.vue';
+import mzUserAccountMenu         from './components/user-account-menu.components.vue';
 import mzUserAccountModule       from './store/user-account.module';
 
 const LOCAL_STORE: string = 'userAccount';
