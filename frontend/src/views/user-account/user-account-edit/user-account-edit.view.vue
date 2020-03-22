@@ -1,39 +1,8 @@
 <template>
   <div class="user-account-edit">
 
-    <mz-box-with-title :title="$t(`boxTitle.displayName`)">
-
-      <mz-form :form-ref.sync="formDisplayedName"
-               :model="displayNameForm"
-               :rules="nameRules"
-               @submit.prevent.native="changeDisplayName"
-               class="user-account-edit__form"
-               id="displayNameForm">
-
-        <div class="form__container">
-          <div class="form__container__icon icon-user--green"></div>
-
-          <mz-form-item class="form__container__item"
-                        prop="displayName">
-
-            <mz-input :holder="$t(`form.displayName`)"
-                      :is-password="false"
-                      id="displayName"
-                      v-model="displayNameForm.displayName" />
-          </mz-form-item>
-        </div>
-
-        <div class="user-account-edit__form__button">
-          <mz-button buttonStyle="primary"
-                     :loading="loadingButtonDisplayName"
-                     form="displayNameForm"
-                     native-type="submit">{{$t(`form.save`)}}
-          </mz-button>
-        </div>
-      </mz-form>
-    </mz-box-with-title>
-
-    <mz-box-with-title :title="$t(`boxTitle.targetsGroup`)">
+    <mz-box-with-title :title="$t(`boxTitle.targetsGroup`)"
+                       icon-name="icon-network-group">
 
       <p class="user-account-edit__title">{{ $t(`targetsGroup.myTargetsGroup`) }}</p>
       <div class="user-account-edit__my-targets-group">
@@ -73,6 +42,7 @@
     </mz-box-with-title>
 
     <mz-box-with-title :title="$t(`boxTitle.email`)"
+                       icon-name="icon-mail"
                        :sub-title="$t(`boxSubTitle.emailVerified.${userInfo.emailVerified}`)"
                        :add-color="userInfo.emailVerified">
 
@@ -119,7 +89,9 @@
       </mz-form>
     </mz-box-with-title>
 
-    <mz-box-with-title :title="$t(`boxTitle.password`)">
+    <mz-box-with-title :title="$t(`boxTitle.password`)"
+                       icon-name="icon-locked">
+
       <mz-form :form-ref.sync="formPassword"
                :model="passwordForm"
                :rules="passwordRules"
@@ -210,7 +182,6 @@ export default class mzUserAccountEdit extends Vue {
   @local.State((state: mzUserAccountModule) => state.mzUserAccountMenuState.userInfo) public userInfo!: IUserAccountMenu;
   @local.Action public changeUserPassword!: () => Promise<void>;
   @local.Action public changeUserEmail!: () => Promise<void>;
-  @local.Action public changeUserDisplayName!: () => Promise<void>;
   @local.Action public checkShowMeTargetsGroup!: () => void;
   @local.Action public checkMyTargetsGroup!: () => void;
 
@@ -221,13 +192,6 @@ export default class mzUserAccountEdit extends Vue {
   public formDisplayedName: HTMLElement | null = null;
   public formEmail: HTMLElement | null = null;
   public formPassword: HTMLElement | null = null;
-
-  public nameRules: any = {
-    displayName: [
-      { required: true, message: i18n.t('rules.required'), trigger: 'submit' },
-      { min: 4, message: i18n.t('rules.minLength', [ 4 ]), trigger: 'submit' },
-    ],
-  };
 
   public emailRules: any = {
     email: [
@@ -332,21 +296,6 @@ export default class mzUserAccountEdit extends Vue {
           throw new Error(e);
         } finally {
           this.loadingButtonPassword = false;
-        }
-      }
-    });
-  }
-
-  public async changeDisplayName() {
-    (this.formDisplayedName as any).validate(async (valid: boolean) => {
-      if (valid) {
-        try {
-          this.loadingButtonDisplayName = true;
-          this.changeUserDisplayName();
-        } catch (e) {
-          throw new Error(e);
-        } finally {
-          this.loadingButtonDisplayName = false;
         }
       }
     });

@@ -299,36 +299,6 @@ export default class mzUserAccountModule extends VuexModule {
   }
 
   @Action
-  public async changeUserDisplayName(): Promise<void> {
-    const newUserDisplayName = this.mzUserDisplayNameForm.displayName;
-
-    if (newUserDisplayName !== undefined && newUserDisplayName !== null) {
-      try {
-        await userAccountService.updateDisplayName(newUserDisplayName);
-        const response = await userAccountService.getCurrentLoginUser();
-
-        if (response !== null) {
-          const currentUser = {
-            displayName: response.displayName,
-            photoURL: response.photoURL,
-            emailVerified: response.emailVerified,
-            email: response.email,
-            uid: response.uid,
-          };
-
-          this.context.commit('setCurrentUser', { currentUser }, { root: true });
-          this.context.commit('setUserInfo', currentUser);
-        }
-        this.context.commit('setUserDisplayNameForm', { name: '' });
-        Notification.successNotification(i18n.t(`notification.success`) as string, i18n.t(`notification.displayName`) as string);
-      } catch (e) {
-        Notification.errorNotification(i18n.t(`notification.error`) as string, i18n.t(`notification.${e.code}`) as string);
-        throw new Error(e);
-      }
-    }
-  }
-
-  @Action
   public async changeUserPicture(payload: any): Promise<void> {
     try {
       await userAccountService.updateUserPicture(payload);

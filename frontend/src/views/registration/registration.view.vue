@@ -148,7 +148,7 @@ export default class mzRegistration extends Vue {
 @include respond-to(mobile) {
 
   .mz-registration-view__box {
-    width: 30rem;
+    width: 45rem;
   }
 }
 </style>

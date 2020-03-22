@@ -8,7 +8,8 @@
              class="mz-item-description__form"
              id="itemDescriptionForm">
 
-      <mz-box-with-title :title="$t(`itemDescription.title.description`)">
+      <mz-box-with-title :title="$t(`itemDescription.title.description`)"
+                         icon-name="icon-file-edit">
 
         <div class="mz-item-description__form__container">
           <p class="label">{{ $t(`itemDescription.form.title`) }}</p>
@@ -37,7 +38,8 @@
         </div>
       </mz-box-with-title>
 
-      <mz-box-with-title :title="$t(`itemDescription.title.information`)">
+      <mz-box-with-title :title="$t(`itemDescription.title.information`)"
+                         icon-name="icon-file-edit">
 
         <div class="mz-item-description__form__container">
           <p class="label">{{ $t(`itemDescription.form.price`)}}</p>
@@ -122,6 +124,7 @@
     </mz-form>
 
     <mz-box-with-title :title="$t(`itemDescription.title.addTags`)"
+                       icon-name="icon-tag"
                        :sub-title="lengthOfTags() + $t('itemDescription.lengthOfTags')"
                        :add-color="true"
                        :tooltip-message="$t(`tooltip.addTags`)"

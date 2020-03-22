@@ -100,6 +100,16 @@ export default class mzButton extends Mixins(mzTransparentWrapper) {
     }
   }
 
+  &--cancel {
+    background-color: var(--gray-500);
+    border: .1rem solid var(--gray-500);
+
+    &:hover {
+      background-color: var(--gray-450);
+      border: .1rem solid var(--gray-450);
+    }
+  }
+
   &--light {
     background-color: var(--gray-100);
     border: .1rem solid var(--gray-500);

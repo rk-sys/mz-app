@@ -1,10 +1,34 @@
 .icon {
 
+  &-camera {
+    background: url("~@/assets/icons/camera/camera.svg") no-repeat center;
+    background-size: contain;
+  }
+
+  &-delivery {
+    background: url("~@/assets/icons/delivery/delivery.svg") no-repeat center;
+    background-size: contain;
+  }
+
+  &-file-edit {
+    background: url("~@/assets/icons/file-edit/file-edit.svg") no-repeat center;
+    background-size: contain;
+  }
+
+  &-rating {
+    background: url("~@/assets/icons/rating/rating.svg") no-repeat center;
+    background-size: contain;
+  }
+
   &-chat {
     background: url("~@/assets/icons/chat/chat.svg") no-repeat center;
     background-size: contain;
   }
 
+  &-network-group {
+    background: url("~@/assets/icons/network-group/network-group.svg") no-repeat center;
+    background-size: contain;
+  }
 
   &-chat--blue {
     background: url("~@/assets/icons/chat/chat--blue.svg") no-repeat center;
@@ -63,6 +87,11 @@
 
   &-pin {
     background: url("~@/assets/icons/pin/pin.svg") no-repeat center;
+    background-size: contain;
+  }
+
+  &-pin--stroke {
+    background: url("~@/assets/icons/pin/pin--stroke.svg") no-repeat center;
     background-size: contain;
   }
 

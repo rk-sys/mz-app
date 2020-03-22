@@ -1,6 +1,7 @@
 <template>
   <div class="mz-upload-pictures">
     <mz-box-with-title :title="$t(`uploadPicture.title`)"
+                       icon-name="icon-camera"
                        :sub-title="lengthOfPicture() + $t('uploadPicture.of5')"
                        :add-color="true">
 

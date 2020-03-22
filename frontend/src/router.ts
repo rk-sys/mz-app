@@ -31,6 +31,14 @@ const router = new Router({
       component: () => import ('./views/product-detail/product-detail.view.vue'),
     },
     {
+      path: '/products/:uuid/detail/checkout',
+      name: 'Product checkout',
+      component: () => import ('./views/product-checkout/product-checkout.view.vue'),
+      meta: {
+        requiresAuth: true,
+      },
+    },
+    {
       path: '/login',
       name: 'Login',
       component: () => import('./views/login/login.views.vue'),

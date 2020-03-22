@@ -1,6 +1,8 @@
 <template>
   <div class="mz-craftsmen-detail-general-info">
-    <mz-box-with-title :title="$t(`generalInfo.craftsmenInfoTitle`)">
+    <mz-box-with-title :title="$t(`generalInfo.craftsmenInfoTitle`)"
+                       icon-name="icon-user">
+
       <p class="description">
         {{craftsmenDetail.craftsmenBaseInfo.craftsmenDescription}}
       </p>
@@ -16,13 +18,17 @@
       </div>
     </mz-box-with-title>
 
-    <mz-box-with-title :title="$t(`generalInfo.itemsInfoTitle`)">
+    <mz-box-with-title :title="$t(`generalInfo.itemsInfoTitle`)"
+                       icon-name="icon-shop">
+
       <p class="description">
         {{craftsmenDetail.craftsmenBaseInfo.itemDescription}}
       </p>
     </mz-box-with-title>
 
-    <mz-box-with-title :title="$t(`generalInfo.contactInfoTitle`)">
+    <mz-box-with-title :title="$t(`generalInfo.contactInfoTitle`)"
+                       icon-name="icon-chat">
+
       <div class="contact">
 
         <div v-for="item in craftsmenDetail.craftsmenBaseInfo.contact"

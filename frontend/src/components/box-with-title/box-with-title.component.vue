@@ -1,9 +1,32 @@
 <template>
-  <div class="box-with-title">
+  <div class="box-with-title"
+       :class="{'box-with-title--hide' : isDisabled}">
+
+    <div v-if="title"
+         class="box-with-title__header">
+
+      <div class="box-with-title__header__circle"
+           :class="{'box-with-title__header__circle--disabled' : isDisabled}">
+
+        <div class="icon" :class="[ iconName ]"></div>
+      </div>
+
+      <div class="box-with-title__header__title"
+           :class="{'box-with-title__header__title--disabled' : isDisabled}">
+
+        <div class="box-with-title__header__title__arrow"
+             :class="{'box-with-title__header__title__arrow--disabled' : isDisabled}"></div>
+        {{ title }}
+
+
+        <span v-if="subTitle"
+              class="subtitle"
+              :class="{'subtitle--error': !addColor}">( {{subTitle}} )</span>
+
+      </div>
+    </div>
     <div class="box-with-title__text"
          v-if="title">
-
-      {{title}}
 
       <mz-tooltip :content="tooltipMessage"
                   placement="top">
@@ -11,10 +34,6 @@
         <div class="box-with-title__icon icon-help--green"
              v-if="hint"></div>
       </mz-tooltip>
-
-      <span v-if="subTitle"
-            class="subtitle"
-            :class="{'subtitle--error': !addColor}">( {{subTitle}} )</span>
     </div>
 
     <slot />
@@ -36,6 +55,8 @@ export default class mzBoxWithTitle extends Vue {
   @Prop(Boolean) public readonly addColor!: boolean;
   @Prop(Boolean) public readonly hint!: boolean;
   @Prop(String) public readonly tooltipMessage!: string;
+  @Prop(String) public readonly iconName!: string;
+  @Prop({ type: Boolean, default: false }) public readonly isDisabled!: boolean;
 }
 </script>
 
@@ -45,37 +66,94 @@ export default class mzBoxWithTitle extends Vue {
   background: var(--white);
   padding: 2rem;
   margin-bottom: 5rem;
+  position: relative;
 
-  &__text {
-    display: flex;
-    padding: 1rem 0;
-    font-weight: 500;
-    font-size: 2.4rem;
-    margin: 0 3rem;
-    align-items: center;
+  &__header {
+    position: absolute;
+    top: 0;
+    left: 0;
 
-    .subtitle {
-      font-size: 2rem;
-      color: var(--gray-450);
+    &__title {
+      position: absolute;
+      top: 0;
+      left: 7rem;
+      transform: translate(0, -50%);
+      min-width: max-content;
+      background: var(--primary-color);
+      color: var(--white);
+      padding: 1rem;
+      font-size: 1.8rem;
+      border-radius: 2px;
+      font-weight: var(--font-medium);
+
+      &__arrow {
+        width: 2.5rem;
+        height: 2.5rem;
+        background: var(--primary-color);
+        transform: rotate(45deg) translate(25%, 25%);
+        position: absolute;
+        left: -1rem;
+        top: 0;
+        z-index: -1;
+        border-radius: 2px;
+
+        &--disabled {
+          background: var(--gray-950);
+        }
+      }
+
+      .subtitle {
+        font-weight: var(--font-light);
+        color: var(--gray-450);
+      }
+
+      &--disabled {
+        background: var(--gray-950);
+      }
     }
 
-    .subtitle--error {
-      color: var(--error);
+    &__circle {
+      border: 2px solid var(--primary-color);
+      background: var(--white);
+      height: 6.4rem;
+      width: 6.4rem;
+      border-radius: 50%;
+      transform: translate(-30%, -50%);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      .icon {
+        height: 4rem;
+        width: 4rem;
+        padding: 2px;
+      }
+
+      &--disabled {
+        border: 2px solid var(--gray-950);
+      }
     }
   }
 
-  &__icon {
-    display: inline-block;
-    height: 2rem;
-    width: 2rem;
-    cursor: pointer;
-    margin: 0 1.5rem 0 .5rem;
+  &--hide {
+    background: transparent;
   }
 }
 
 
-@media screen and (max-width: 425px) {
+@include respond-to(mobile) {
   .box-with-title {
+
+    &__header {
+      &__circle {
+        transform: translate(0, -50%);
+      }
+
+      &__title {
+        left: 8.5rem;
+      }
+    }
+
     &__text {
       flex-wrap: wrap;
       margin: 0 1rem 0 0;
@@ -87,4 +165,5 @@ export default class mzBoxWithTitle extends Vue {
     }
   }
 }
+
 </style>

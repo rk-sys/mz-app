@@ -34,7 +34,8 @@
 
         <mz-button buttonStyle="primary"
                    form="resetPasswordForm"
-                   native-type="submit">
+                   native-type="submit"
+                   class="mz-reset-password__box__form__button">
 
           {{ $t(`resetPasswordForm.send`) }}
         </mz-button>
@@ -44,7 +45,8 @@
     <mz-footer :is-light="true"
                class="mz-reset-password__footer" />
 
-    <mz-social-media :is-light="true" class="mz-reset-password__social-media" />
+    <mz-social-media :is-light="true"
+                     class="mz-reset-password__social-media" />
   </div>
 </template>
 
@@ -142,6 +144,17 @@ export default class mzResetPassword extends Vue {
 }
 </script>
 
+<style lang="scss">
+.el-form-item__error {
+  bottom: -1rem;
+  font-size: 1.6rem;
+  top: auto;
+  font-weight: bold;
+  left: auto;
+  right: 0;
+}
+</style>
+
 <style lang="scss"
        scoped>
 
@@ -213,9 +226,8 @@ export default class mzResetPassword extends Vue {
   }
 
   &__info-message {
-    font-size: 1.2rem;
-    line-height: 1.8rem;
-    width: 26rem;
+    font-size: 2rem;
+    width: 100%;
     align-self: center;
     color: var(--gray-950);
   }
@@ -243,28 +255,30 @@ export default class mzResetPassword extends Vue {
     }
 
     &__box {
-      max-width: 40rem;
+      width: 65rem;
+      max-width: 65rem;
       padding: 1rem 2rem;
       grid-row-start: 2;
       grid-column-start: 1;
 
-      &__buttons {
-        margin-top: 3rem;
-        padding: 0 2rem;
-        display: flex;
-        justify-content: center;
-        font-size: 1.6rem;
-        margin-bottom: 2rem;
-        flex-direction: column;
+      &__form {
+        &__button {
+          margin: auto;
+          display: block;
+          width: 100%;
+        }
       }
     }
 
     &__title {
-      font-size: 2.8rem;
+      font-size: 3rem;
+      font-weight: var(--font-medium);
     }
 
     &__info-message {
-      font-size: 1rem;
+      font-size: 2.2rem;
+      width: 100%;
+      line-height: 1.2;
     }
 
     &__footer {
@@ -282,13 +296,27 @@ export default class mzResetPassword extends Vue {
 
 @include respond-to(mobile) {
   .mz-reset-password {
-
     &__box {
-      width: 30rem;
+      width: 45rem;
+
+      &__form {
+        &__button {
+          margin: auto;
+          display: block;
+          width: 100%;
+        }
+      }
     }
 
     &__title {
+      font-size: 3rem;
+      font-weight: var(--font-medium);
+    }
+
+    &__info-message {
       font-size: 2.2rem;
+      width: 100%;
+      line-height: 1.2;
     }
   }
 

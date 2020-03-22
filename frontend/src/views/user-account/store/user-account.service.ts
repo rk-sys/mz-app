@@ -21,13 +21,6 @@ export function updateEmail(payload: string) {
   }
 }
 
-export function updateDisplayName(payload: string) {
-  const user = getCurrentLoginUser();
-  if (user !== null) {
-    return user.updateProfile({ displayName: payload });
-  }
-}
-
 export function updateUserPicture(payload: any) {
   const user = getCurrentLoginUser();
 

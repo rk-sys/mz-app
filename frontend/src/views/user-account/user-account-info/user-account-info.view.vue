@@ -3,6 +3,7 @@
     <mz-progress :percentage="accountProgress" />
 
     <mz-box-with-title :title="$t(`boxTitle.description`)"
+                       icon-name="icon-user"
                        :tooltip-message="$t(`tooltip.description`)"
                        :hint="true">
 
@@ -33,6 +34,7 @@
     </mz-box-with-title>
 
     <mz-box-with-title :title="$t(`boxTitle.tags.newTag`)"
+                       icon-name="icon-tag"
                        :tooltip-message="$t(`tooltip.tags`)"
                        :sub-title="lengthOfTags() + $t('boxTitle.tags.lengthOfTags')"
                        :add-color="true"
@@ -80,6 +82,7 @@
     </mz-box-with-title>
 
     <mz-box-with-title :title="$t(`boxTitle.contact`)"
+                       icon-name="icon-chat"
                        :tooltip-message="$t(`tooltip.contact`)"
                        :hint="true">
 

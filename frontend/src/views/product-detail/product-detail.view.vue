@@ -14,6 +14,7 @@
       </main>
 
       <mz-product-detail-checkout :product-title="productDetail.product.title"
+                                  :product-id="productDetail.product.id"
                                   :price="productDetail.product.price"
                                   :currency="productDetail.product.currency" />
 
@@ -29,14 +30,14 @@ import { namespace }              from 'vuex-class';
 import { registerStoreModule }    from '@/helpers/helpers';
 import { loadTranslationsAsync }  from '@/i18n/i18n';
 import Store                      from '@/store/store';
-import { ICraftsmenDetail }       from '@/views/craftsmen-detail/store/craftsmen-detail.interface';
+import { IProductDetail }         from '@/views/product-detail/store/product-detail.interface';
 import mzProductDetailDescription from './components/product-detail-description.view.vue';
 import mzProductDetailCraftsman   from './components/product-detail-craftsman.view.vue';
 import mzProductDetailPicture     from './components/product-detail-pictures.view.vue';
 import mzProductDetailCheckout    from './components/product-detail-checkout.view.vue';
 import mzProductDetailModule      from './store/product-detail.module';
 
-const LOCAL_STORE: string = 'craftsmenDetail';
+const LOCAL_STORE: string = 'productDetail';
 const local = namespace(LOCAL_STORE);
 
 @Component({
@@ -48,7 +49,7 @@ const local = namespace(LOCAL_STORE);
   },
 })
 export default class mzProductDetail extends Vue {
-  @local.State((state: mzProductDetailModule) => state.mzProductDetail) public productDetail!: ICraftsmenDetail;
+  @local.State((state: mzProductDetailModule) => state.mzProductDetail) public productDetail!: IProductDetail;
 
   private async beforeRouteEnter(to: Route, from: Route, next: any) {
     const lang: string = Store.state.global.defaultLang;

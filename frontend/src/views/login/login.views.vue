@@ -355,7 +355,7 @@ export default class mzLogin extends Vue {
 
 @include respond-to(mobile) {
   .mz-login-views__box {
-    width: 30rem;
+    width: 45rem;
   }
 
   .form__container__icon {

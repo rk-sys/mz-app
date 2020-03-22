@@ -11,7 +11,7 @@ export default {
     condition: 'Stan',
     zl: 'zł',
     show: 'Wyświetl zdjęcie',
-    addToCheckout: 'Dodaj do koszyka',
+    addToCheckout: 'Kupuję',
   },
   craftsman: {
     rate: {

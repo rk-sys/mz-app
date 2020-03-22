@@ -1,6 +1,7 @@
 <template>
   <div class="mz-craftsmen-detail-comments">
     <mz-box-with-title :title="$t(`comments.title`)"
+                       icon-name="icon-rating"
                        class="mz-craftsmen-detail-comments__wrapper" />
 
     <mz-box-with-title class="mz-craftsmen-detail-comments__wrapper"

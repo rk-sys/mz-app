@@ -15,6 +15,7 @@ export const productDetail: IProductDetail = {
     },
   },
   product: {
+    id: '',
     title: '',
     description: '',
     price: 0,

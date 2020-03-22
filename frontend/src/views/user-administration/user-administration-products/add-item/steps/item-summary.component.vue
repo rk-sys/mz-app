@@ -1,6 +1,8 @@
 <template>
   <div class="mz-item-summary">
-    <mz-box-with-title :title="newItem.title">
+    <mz-box-with-title :title="newItem.title"
+                       icon-name="icon-shop">
+
       <div class="mz-item-summary__header">
 
         <span class="mz-item-summary__item-price">
@@ -20,7 +22,9 @@
       </div>
     </mz-box-with-title>
 
-    <mz-box-with-title :title="$t(`itemSummary.pictureSection`)">
+    <mz-box-with-title :title="$t(`itemSummary.pictureSection`)"
+                       icon-name="icon-camera">
+
       <img class="mz-item-summary__big-picture"
            :src="newItem.mainPicture.url"
            v-if="url === '' && newItem.mainPicture.url"
@@ -60,7 +64,8 @@
       </div>
     </mz-box-with-title>
 
-    <mz-box-with-title :title="$t(`itemDescription.title.description`)">
+    <mz-box-with-title :title="$t(`itemDescription.title.description`)"
+                       icon-name="icon-file-edit">
 
       <div class="mz-item-summary__item-description">
         {{ newItem.description }}

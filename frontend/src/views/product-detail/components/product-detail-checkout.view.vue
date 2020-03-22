@@ -4,13 +4,17 @@
     <h2 class="mz-product-detail-checkout__price">
       {{ $t(`product.price`) }} <span class="value">{{ price }} {{ $t(`product.${currency}`) }} </span>
     </h2>
-    <div class="mz-product-detail-checkout__button">{{ $t(`product.addToCheckout`) }}</div>
+
+    <div class="mz-product-detail-checkout__button"
+         @click="goToCheckout(productId)">
+      {{ $t(`product.addToCheckout`) }}
+    </div>
   </div>
 </template>
 
 <script lang="ts">
 import { Component, Prop, Vue } from 'vue-property-decorator';
-import { ICraftsman }           from '@/views/product-detail/store/product-detail.interface';
+import router                   from '@/router';
 
 @Component({
   components: {},
@@ -19,6 +23,11 @@ export default class mzProductsDetailCheckout extends Vue {
   @Prop(String) public readonly productTitle!: string;
   @Prop(String) public readonly price!: string;
   @Prop(String) public readonly currency!: string;
+  @Prop(String) public readonly productId!: string;
+
+  public goToCheckout(uuid: string): void {
+    router.push({ name: 'Product checkout', params: { uuid } });
+  }
 
 }
 </script>
@@ -27,7 +36,7 @@ export default class mzProductsDetailCheckout extends Vue {
        scoped>
 
 .mz-product-detail-checkout {
-  grid-row-start:1;
+  grid-row-start: 1;
   grid-row-end: 1;
   grid-column-start: 2;
   margin-bottom: 5rem;

@@ -26,6 +26,7 @@ export interface IProduct {
   subCategory: string;
   gender: string;
   isNew: boolean;
+  id: string;
 }
 
 export interface ISocialMedia {

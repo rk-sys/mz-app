@@ -148,7 +148,7 @@ export default class Home extends Vue {
 @media screen and (max-width: 425px) {
   .mz-input__container {
     min-width: 26rem;
-    max-width: 28rem;
+    max-width: 100%;
     margin: 1.1rem 0;
   }
 }
