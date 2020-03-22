@@ -19,6 +19,9 @@
                     :key="index" />
     </div>
 
+    <mz-empty-list-message v-if="!items.length"
+                           :pageName="pageName" />
+
     <mz-dialog :title="$t(`dialog.warning`)"
                :visible.sync="isModalOpen"
                class="mz-user-administration-my-items__modal"
@@ -66,6 +69,8 @@ import mzUserItem                        from './components/user-item.component.
 import mzSummaryItem                     from './components/summary-item.component.vue';
 import mzDialog                          from '@/components/dialog/dialog.component.vue';
 import mzButton                          from '@/components/buttons/button.component.vue';
+import { DEFAULT }                       from '@/helpers/variables';
+import mzEmptyListMessage                from '@/components/empty-list-message/empty-list-message.component.vue';
 
 const LOCAL_STORE: string = 'userAdministrationMyItems';
 const local = namespace(LOCAL_STORE);
@@ -76,6 +81,7 @@ const local = namespace(LOCAL_STORE);
     mzUserItem,
     mzDialog,
     mzButton,
+    mzEmptyListMessage,
   },
 })
 export default class mzUserItems extends Vue {
@@ -84,6 +90,11 @@ export default class mzUserItems extends Vue {
   @local.State((state: mzUserAdministrationMyItemsModule) => state.deleteItem) public deleteItem!: IDeleteItem;
   @local.Mutation public setIsModalOpen!: (payload: boolean) => void;
   @local.Action public getUserItems!: (arg: string) => void;
+  public pageName: string | undefined;
+
+  public created(): void {
+    this.pageName = this.$route.name ? this.$route.name.toLowerCase() : DEFAULT;
+  }
 
   private async beforeRouteEnter(to: Route, from: Route, next: any) {
     const lang: string = Store.state.global.defaultLang;

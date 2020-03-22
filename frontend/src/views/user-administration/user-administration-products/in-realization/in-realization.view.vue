@@ -16,6 +16,9 @@
                     :item="item"
                     :key="index" />
     </div>
+
+    <mz-empty-list-message v-if="!items.length"
+                           :pageName="pageName" />
   </div>
 </template>
 
@@ -30,6 +33,8 @@ import { IUserItem }                           from './store/in-realization.inte
 import mzUserAdministrationInRealizationModule from './store/in-realization.module';
 import mzUserItem                              from './components/user-item.component.vue';
 import mzSummaryItem                           from './components/summary-item.component.vue';
+import { DEFAULT }                             from '@/helpers/variables';
+import mzEmptyListMessage                      from '@/components/empty-list-message/empty-list-message.component.vue';
 
 const LOCAL_STORE: string = 'userAdministrationInRealization';
 const local = namespace(LOCAL_STORE);
@@ -38,11 +43,17 @@ const local = namespace(LOCAL_STORE);
   components: {
     mzUserItem,
     mzSummaryItem,
+    mzEmptyListMessage,
   },
 })
 export default class mzUserAdministrationInRealization extends Vue {
   @local.State((state: mzUserAdministrationInRealizationModule) => state.mzItems) public items!: IUserItem[];
   @local.Action public getUserItems!: (arg: string) => void;
+  public pageName: string | undefined;
+
+  public created(): void {
+    this.pageName = this.$route.name ? this.$route.name.toLowerCase() : DEFAULT;
+  }
 
   private async beforeRouteEnter(to: Route, from: Route, next: any) {
     const lang: string = Store.state.global.defaultLang;

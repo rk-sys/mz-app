@@ -20,7 +20,11 @@
       <mz-portfolio-item v-for="(item, index) in items"
                          :item="item"
                          :key="index" />
+
     </div>
+
+    <mz-empty-list-message v-if="!items.length"
+                           :pageName="pageName" />
 
     <mz-portfolio-modal :dialogVisible="dialogVisible" />
 
@@ -66,6 +70,8 @@ import mzUserAccountModule       from '@/views/user-account/store/user-account.m
 import mzButton                  from '@/components/buttons/button.component.vue';
 import mzPortfolioModal          from '@/views/user-account/user-portfolio/components/portfolio-modal.component.vue';
 import mzDialog                  from '@/components/dialog/dialog.component.vue';
+import mzEmptyListMessage        from '@/components/empty-list-message/empty-list-message.component.vue';
+import { DEFAULT }               from '@/helpers/variables';
 
 const LOCAL_STORE: string = 'userAccount';
 const local = namespace(LOCAL_STORE);
@@ -76,6 +82,7 @@ const local = namespace(LOCAL_STORE);
     mzPortfolioItem,
     mzPortfolioModal,
     mzDialog,
+    mzEmptyListMessage,
   },
 })
 export default class mzUserPortfolio extends Vue {
@@ -85,6 +92,7 @@ export default class mzUserPortfolio extends Vue {
   @local.State((state: mzUserAccountModule) => state.mzRemovedItemFromPortfolio) public mzRemovedItemFromPortfolio!: IItemPortfolio;
   @local.Mutation public setMzRemoveModalItemPortfolio!: (payload: boolean) => void;
   @local.Mutation public setDialogVisible!: (status: boolean) => void;
+  public pageName: string | undefined;
 
   public portfolioLimit: number = 10;
 
@@ -102,6 +110,10 @@ export default class mzUserPortfolio extends Vue {
 
   get dialogVisible(): boolean {
     return this.isDialogVisible;
+  }
+
+  public created(): void {
+    this.pageName = this.$route.name ? this.$route.name.toLowerCase() : DEFAULT;
   }
 
   private async beforeRouteEnter(to: Route, from: Route, next: any) {

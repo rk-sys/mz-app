@@ -14,6 +14,9 @@
                            :key="index"
                            :product="product"
                            class="product" />
+
+          <mz-empty-list-message v-if="!productList.length"
+                                 :pageName="pageName" />
         </main>
       </div>
     </div>
@@ -32,6 +35,8 @@ import mzProductsModule          from './store/products.module';
 import mzProductsFilters         from './components/products-filters.component.vue';
 import mzProductsHeaderInfo      from './components/products-header-info.component.vue';
 import mzProductCard             from './components/product-card.component.vue';
+import mzEmptyListMessage        from '@/components/empty-list-message/empty-list-message.component.vue';
+import { DEFAULT }               from '@/helpers/variables';
 
 const LOCAL_STORE: string = 'products-list';
 const local = namespace(LOCAL_STORE);
@@ -41,13 +46,19 @@ const local = namespace(LOCAL_STORE);
     mzProductsFilters,
     mzProductsHeaderInfo,
     mzProductCard,
+    mzEmptyListMessage,
   },
 })
 export default class yProductsList extends Vue {
   @local.State((state: mzProductsModule) => state.mzProductsState.productList) public productList!: IProduct[];
+  public pageName: string | undefined;
 
   public destroyed(): void {
     Store.unregisterModule(LOCAL_STORE);
+  }
+
+  public created(): void {
+    this.pageName = this.$route.name ? this.$route.name.toLowerCase() : DEFAULT;
   }
 
   private async beforeRouteEnter(to: Route, from: Route, next: any) {

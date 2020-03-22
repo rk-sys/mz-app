@@ -29,4 +29,12 @@ export default {
       end: 'Efektywność Twojego profilu jest na poziomie optymalnym',
     },
   },
+  emptyList: {
+    'craftsmen': 'Brak Rzemieślników',
+    'products list': 'Brak Produktów',
+    'user portfolio': 'Nie dodano jeszcze żadnej pracy',
+    'user administration my items': 'Brak wystawionych przedmiotów',
+    'user administration product in realization': 'Brak przedmiotów w realizacji',
+    'default': 'Brak dostępnej zawartości',
+  },
 };

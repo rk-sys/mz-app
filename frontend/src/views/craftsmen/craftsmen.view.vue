@@ -11,8 +11,8 @@
 
         <main class="craftsmen-list">
 
-          <mz-craftsmen-card v-for="craftsmen in craftsmenList"
-                             :key="craftsmen.id"
+          <mz-craftsmen-card v-for="(craftsmen, index) in craftsmenList"
+                             :key="index"
                              class="craftsmen-list__item"
                              :craftsmen-id="craftsmen.id"
                              :city="craftsmen.city"
@@ -20,6 +20,9 @@
                              :name="craftsmen.name"
                              :image="craftsmen.image"
                              :tags="craftsmen.tags" />
+
+          <mz-empty-list-message v-if="!craftsmenList.length"
+                                 :pageName="pageName" />
         </main>
       </div>
     </div>
@@ -38,6 +41,8 @@ import mzCraftsmenModule         from '@/views/craftsmen/store/craftsmen.module'
 import mzCraftsmenCard           from '@/views/craftsmen/components/craftsmen-card.component.vue';
 import mzCraftsmenFilters        from '@/views/craftsmen/components/craftsmen-filters.component.vue';
 import mzCraftsmenHeaderInfo     from './components/craftsmen-header-info.component.vue';
+import mzEmptyListMessage        from '@/components/empty-list-message/empty-list-message.component.vue';
+import { DEFAULT }               from '@/helpers/variables';
 
 const LOCAL_STORE: string = 'craftsmen';
 const local = namespace(LOCAL_STORE);
@@ -47,13 +52,19 @@ const local = namespace(LOCAL_STORE);
     mzCraftsmenHeaderInfo,
     mzCraftsmenCard,
     mzCraftsmenFilters,
+    mzEmptyListMessage,
   },
 })
 export default class mzCraftsmen extends Vue {
   @local.State((state: mzCraftsmenModule) => state.mzCraftsmenState.craftsmenList) public craftsmenList!: ICraftsmenList[];
+  public pageName: string | undefined;
 
   public destroyed(): void {
     Store.unregisterModule(LOCAL_STORE);
+  }
+
+  public created(): void {
+    this.pageName = this.$route.name ? this.$route.name.toLowerCase() : DEFAULT;
   }
 
   private async beforeRouteEnter(to: Route, from: Route, next: any) {

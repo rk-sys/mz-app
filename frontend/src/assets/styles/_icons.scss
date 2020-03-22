@@ -351,6 +351,11 @@
     background-size: contain;
   }
 
+  &-empty--gray {
+    background: url("~@/assets/icons/empty/empty--gray.svg") no-repeat center;
+    background-size: contain;
+  }
+
   &-edit--green {
     background: url("~@/assets/icons/edit/edit--green.svg") no-repeat center;
     background-size: contain;
