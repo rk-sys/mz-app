@@ -151,7 +151,7 @@ export default class yProductsList extends Vue {
   }
 }
 
-@media screen and (max-width: 768px) and (min-width: 426px) {
+@include respond-to(tablet) {
   .mz-product-list {
     grid-template-rows: auto;
 
@@ -196,7 +196,7 @@ export default class yProductsList extends Vue {
   }
 }
 
-@media screen and (max-width: 425px) {
+@include respond-to(mobile) {
   .mz-product-list {
     grid-template-rows: auto;
     grid-template-columns: 1fr 4fr 1fr;

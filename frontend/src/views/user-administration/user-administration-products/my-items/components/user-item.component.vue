@@ -29,7 +29,7 @@
       <div class="icon"
            @click="goToEdit(item)"
            :class="{'icon-edit': !isHoverEdit,
-                    'icon-edit--green': isHoverEdit}"
+                    'icon-edit--primary': isHoverEdit}"
            @mouseenter="isHoverEdit = true"
            @mouseleave="isHoverEdit = false"></div>
 
@@ -204,7 +204,8 @@ export default class mzUserItems extends Vue {
         margin-right: 0;
       }
 
-      .icon-edit {
+      .icon-edit,
+      .icon-edit--primary {
         margin-right: 3rem;
       }
     }

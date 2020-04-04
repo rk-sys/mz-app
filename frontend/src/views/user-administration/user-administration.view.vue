@@ -8,7 +8,7 @@
       <div class="mz-user-administration__wrapper__mobile-btn"
            @click="setOpenMenu(true)">
 
-        <div class="icon icon-arrow--white"></div>
+        <div class="icon icon-hamburger"></div>
       </div>
 
       <div class="mz-user-administration__wrapper__mobile-background"
@@ -16,9 +16,7 @@
 
       <div class="mz-user-administration__wrapper__menu-mobile">
 
-        <mz-user-administration-menu-mobile :class="{'show-menu' : !isOpen}">
-
-        </mz-user-administration-menu-mobile>
+        <mz-user-administration-menu-mobile :class="{'show-menu' : !isOpen}" />
       </div>
 
 
@@ -104,7 +102,7 @@ export default class mzUserAdministration extends Vue {
       left: 0;
       border-top-right-radius: 2px;
       border-bottom-right-radius: 2px;
-      width: 2.4rem;
+      width: 5rem;
       height: 4.5rem;
       background: var(--primary-color);
       transition: .2s;
@@ -112,7 +110,8 @@ export default class mzUserAdministration extends Vue {
       top: 20.5rem;
 
       &:hover {
-        width: 3.2rem;
+        box-shadow: 0 0 1rem 0 var(--gray-450);
+        background: var(--primary-color-80);
         cursor: pointer;
         transition: .2s;
       }
@@ -190,7 +189,7 @@ export default class mzUserAdministration extends Vue {
 
       &__mobile-btn {
         display: flex;
-        justify-content: flex-end;
+        justify-content: center;
       }
 
       &__menu {
@@ -227,7 +226,7 @@ export default class mzUserAdministration extends Vue {
 
       &__mobile-btn {
         display: flex;
-        justify-content: flex-end;
+        justify-content: center;
       }
 
       &__menu {

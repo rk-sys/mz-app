@@ -1,6 +1,6 @@
 <template>
   <div class="mz-reset-password">
-    <mz-logo :is-green="false"
+    <mz-logo :is-primary="false"
              class="mz-reset-password__logo" />
 
     <div class="mz-reset-password__box">
@@ -20,7 +20,7 @@
                id="resetPasswordForm">
 
         <div class="form__container">
-          <div class="form__container__icon icon-mail--green"></div>
+          <div class="form__container__icon icon-mail--primary"></div>
 
           <mz-form-item class="form__container__item"
                         prop="email">
@@ -41,9 +41,6 @@
         </mz-button>
       </mz-form>
     </div>
-
-    <mz-footer :is-light="true"
-               class="mz-reset-password__footer" />
 
     <mz-social-media :is-light="true"
                      class="mz-reset-password__social-media" />
@@ -102,20 +99,8 @@ export default class mzResetPassword extends Vue {
 
   public resetPasswordRules: any = {
     email: [
-      {
-        required: true,
-        message: i18n.t('rules.required'),
-        trigger: 'submit',
-      },
-      {
-        type: 'email',
-        message: i18n.t('rules.correctEmail'),
-        trigger:
-          [
-            'blur',
-            'submit',
-          ],
-      },
+      { required: true, message: i18n.t('rules.required'), trigger: 'submit' },
+      { type: 'email', message: i18n.t('rules.correctEmail'), trigger: [ 'blur', 'submit' ] },
     ],
   };
 
@@ -176,7 +161,7 @@ export default class mzResetPassword extends Vue {
 
   &__box {
     background: var(--white);
-    width: 50rem;
+    width: 55rem;
     height: auto;
     -webkit-border-radius: .2rem;
     -moz-border-radius: .2rem;
@@ -232,12 +217,6 @@ export default class mzResetPassword extends Vue {
     color: var(--gray-950);
   }
 
-  &__footer {
-    grid-row-start: 4;
-    grid-column-start: 1;
-    place-self: center;
-  }
-
   &__social-media {
     grid-row-start: 3;
     grid-column-start: 1;
@@ -279,11 +258,6 @@ export default class mzResetPassword extends Vue {
       font-size: 2.2rem;
       width: 100%;
       line-height: 1.2;
-    }
-
-    &__footer {
-      grid-row-start: 4;
-      grid-column-start: 1;
     }
 
     &__social-media {

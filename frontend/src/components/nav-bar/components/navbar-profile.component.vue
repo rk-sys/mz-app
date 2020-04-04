@@ -2,7 +2,7 @@
   <div class="nav-bar-profile">
 
     <div class="nav-bar-profile__search">
-      <div :class="searchHover? 'icon-search--green' : 'icon-search'"
+      <div :class="searchHover? 'icon-search--primary' : 'icon-search'"
            @mouseenter="searchHover = true"
            @mouseleave="searchHover = false"
            class="icon">
@@ -13,7 +13,7 @@
       <mz-dropdown class="nav-bar-profile__user--sign-in"
                    trigger="click">
 
-        <div :class="userHover? 'icon-user--green':'icon-user'"
+        <div :class="userHover? 'icon-user--primary':'icon-user'"
              @mouseenter="userHover = true"
              @mouseleave="userHover = false"
              class="icon"></div>
@@ -30,7 +30,7 @@
 
     <div class="nav-bar-profile__basket">
 
-      <div :class="basketHover? 'icon-shopping-cart--green':'icon-shopping-cart'"
+      <div :class="basketHover? 'icon-shopping-cart--primary':'icon-shopping-cart'"
            @mouseenter="basketHover = true"
            @mouseleave="basketHover = false"
            class="icon "></div>

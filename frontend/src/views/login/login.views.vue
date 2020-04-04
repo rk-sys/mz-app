@@ -1,6 +1,6 @@
 <template>
   <div class="mz-login-views">
-    <mz-logo :is-green="false"
+    <mz-logo :is-primary="false"
              class="mz-login-views__logo" />
 
     <div class="mz-login-views__box">
@@ -16,7 +16,7 @@
                id="loginForm">
 
         <div class="form__container">
-          <div class="form__container__icon icon-mail--green"></div>
+          <div class="form__container__icon icon-mail--primary"></div>
 
           <mz-form-item class="form__container__item"
                         prop="email">
@@ -30,7 +30,7 @@
         </div>
 
         <div class="form__container">
-          <div class="form__container__icon icon-locked--green"></div>
+          <div class="form__container__icon icon-locked--primary"></div>
 
           <mz-form-item class="form__container__item"
                         prop="password">
@@ -67,9 +67,6 @@
         {{$t(`rememberPassword`)}}
       </router-link>
     </div>
-
-    <mz-footer :is-light="true"
-               class="mz-login-views__footer" />
 
     <mz-social-media :is-light="true"
                      class="mz-login-views__social-media" />
@@ -296,12 +293,6 @@ export default class mzLogin extends Vue {
     }
   }
 
-  &__footer {
-    grid-row-start: 4;
-    grid-column-start: 1;
-    place-self: center;
-  }
-
   &__social-media {
     grid-row-start: 3;
     grid-column-start: 1;
@@ -319,7 +310,8 @@ export default class mzLogin extends Vue {
     }
 
     &__box {
-      max-width: 40rem;
+      max-width: 60rem;
+      width: 60rem;
       padding: 1rem 2rem;
       grid-row-start: 2;
       grid-column-start: 1;
@@ -338,11 +330,6 @@ export default class mzLogin extends Vue {
         margin-bottom: 2rem;
         flex-direction: column;
       }
-    }
-
-    &__footer {
-      grid-row-start: 4;
-      grid-column-start: 1;
     }
 
     &__social-media {

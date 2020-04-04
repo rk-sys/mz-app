@@ -12,7 +12,7 @@
       </div>
 
       <div class="mz-selected-product__city">
-        <div class="icon icon-pin--green"></div>
+        <div class="icon icon-pin--primary"></div>
         <span class="mz-selected-product__city__text">{{ productSummary.city }}</span>
       </div>
 

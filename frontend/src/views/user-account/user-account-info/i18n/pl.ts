@@ -1,6 +1,7 @@
 export default {
   boxTitle: {
     description: 'Informacje o mnie',
+    products: 'Informacje o produktach',
     tags: {
       newTag: 'Tagi',
       activeTags: 'Aktywne tagi',

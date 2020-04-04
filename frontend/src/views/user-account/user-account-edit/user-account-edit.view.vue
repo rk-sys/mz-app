@@ -54,7 +54,7 @@
                id="emailForm">
 
         <div class="form__container">
-          <div class="form__container__icon icon-mail--green"></div>
+          <div class="form__container__icon icon-mail--primary"></div>
 
           <mz-form-item class="form__container__item"
                         prop="email">
@@ -67,7 +67,7 @@
         </div>
 
         <div class="form__container">
-          <div class="form__container__icon icon-mail--green"></div>
+          <div class="form__container__icon icon-mail--primary"></div>
 
           <mz-form-item class="form__container__item"
                         prop="repeatEmail">
@@ -83,7 +83,9 @@
           <mz-button buttonStyle="primary"
                      :loading="loadingButtonEmail"
                      form="emailForm"
-                     native-type="submit">{{$t(`form.save`)}}
+                     native-type="submit">
+            {{ $t(`form.save`) }}
+
           </mz-button>
         </div>
       </mz-form>
@@ -100,7 +102,7 @@
                id="passwordForm">
 
         <div class="form__container">
-          <div class="form__container__icon icon-locked--green"></div>
+          <div class="form__container__icon icon-locked--primary"></div>
 
           <mz-form-item class="form__container__item"
                         prop="password">
@@ -113,7 +115,7 @@
         </div>
 
         <div class="form__container">
-          <div class="form__container__icon icon-locked--green"></div>
+          <div class="form__container__icon icon-locked--primary"></div>
 
           <mz-form-item class="form__container__item"
                         prop="repeatPassword">
@@ -189,7 +191,6 @@ export default class mzUserAccountEdit extends Vue {
   public loadingButtonEmail: boolean = false;
   public loadingButtonDisplayName: boolean = false;
 
-  public formDisplayedName: HTMLElement | null = null;
   public formEmail: HTMLElement | null = null;
   public formPassword: HTMLElement | null = null;
 
@@ -341,13 +342,15 @@ export default class mzUserAccountEdit extends Vue {
 
   &__title {
     font-size: 2.2rem;
-    margin: 2rem 3rem 1.5rem;
+    margin: 2rem 3rem 1rem;
   }
 
   &__my-targets-group,
   &__show-me-targets-group {
     display: flex;
-    margin: 1rem 4.5rem;
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 0 4.5rem;
 
     .item {
       margin-right: 2rem;
@@ -368,7 +371,7 @@ export default class mzUserAccountEdit extends Vue {
   }
 
   &__my-targets-group {
-    margin-bottom: 4.5rem;
+    margin-bottom: 2.5rem;
   }
 
   &__form {

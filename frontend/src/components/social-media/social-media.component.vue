@@ -4,7 +4,7 @@
        :href="facebookUrl"
        :class="{'icon--light': isLight,
              'icon--dark': !isLight,
-             'icon-facebook--green': facebookWhite && !isLight,}"
+             'icon-facebook--primary': facebookWhite && !isLight,}"
        @mouseleave="removeColor($event.target)"
        @mouseover="changeColor($event.target)"
        class="mz-social-media__icon icon-facebook"></a>
@@ -31,7 +31,7 @@
        :href="instagramUrl"
        :class="{'icon--light': isLight,
              'icon--dark': !isLight,
-             'icon-instagram--green': instagramWhite && !isLight,}"
+             'icon-instagram--primary': instagramWhite && !isLight,}"
        @mouseleave="removeColor($event.target)"
        @mouseover="changeColor($event.target)"
        class="mz-social-media__icon icon-instagram"></a>

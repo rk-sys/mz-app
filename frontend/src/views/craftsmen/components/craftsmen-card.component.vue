@@ -3,7 +3,7 @@
     <div class="mz-craftsmen-card__header">
 
       <div class="city">
-        <div class="icon icon-pin--green"></div>
+        <div class="icon icon-pin--primary"></div>
         {{city}}
       </div>
 

@@ -3,6 +3,15 @@
     <div class="mz-product-detail-description__wrapper">
       <h2 class="mz-product-detail-description__wrapper__title">{{ $t(`product.title`) }}</h2>
       <p class="mz-product-detail-description__wrapper__info">{{ description }}</p>
+
+      <div class="mz-product-detail-description__wrapper__tags">
+
+        <mz-tag v-for="(tag, index) in tags"
+                :tag="tag"
+                :index="index"
+                :key="index"
+                :is-presentation="true" />
+      </div>
     </div>
 
     <div class="mz-product-detail-description__wrapper">
@@ -35,14 +44,30 @@
     </div>
 
     <div class="mz-product-detail-description__wrapper">
-      <h2 class="mz-product-detail-description__wrapper__title">{{ $t(`product.tags`) }}</h2>
-      <div class="mz-product-detail-description__wrapper__tags">
+      <h2 class="mz-product-detail-description__wrapper__title">{{ $t(`product.delivery`) }}</h2>
 
-        <mz-tag v-for="(tag, index) in tags"
-                :tag="tag"
-                :index="index"
-                :key="index"
-                :is-presentation="true" />
+      <div v-for="item in delivery"
+           class="mz-product-detail-description__wrapper__delivery"
+           :class="{'without-options': !item.options}">
+
+        <span class="mz-product-detail-description__wrapper__delivery__title">
+          {{ $t(`delivery.${item.label}`) }}
+        </span>
+
+        <template v-if="item.label === 'personalPickup'">
+          <div class="icon icon-success--primary"></div>
+        </template>
+
+        <template v-if="item.options">
+          <p v-for="(option, index) in item.options"
+             :key="index"
+             class="option">
+
+            <span class="option__title">{{option.title}}</span>
+
+            <span class="option__price">{{option.price}} {{ $t(`product.zl`) }}</span>
+          </p>
+        </template>
       </div>
     </div>
   </div>
@@ -51,6 +76,7 @@
 <script lang="ts">
 import { Component, Prop, Vue } from 'vue-property-decorator';
 import mzTag                    from '@/components/tag/tag.component.vue';
+import { IAddItemNewItem }      from '@/views/user-administration/user-administration-products/add-item/store/user-account-add-item.interface';
 
 @Component({
   components: {
@@ -65,7 +91,7 @@ export default class mzProductsDetailPicture extends Vue {
   @Prop(String) public readonly subCategory!: string;
   @Prop(String) public readonly gender!: string;
   @Prop(Boolean) public readonly isNew!: boolean;
-
+  @Prop(Array) public readonly delivery!: IAddItemNewItem[];
 }
 </script>
 
@@ -86,7 +112,7 @@ export default class mzProductsDetailPicture extends Vue {
 
     &__info {
       font-size: 1.7rem;
-      margin-bottom: 4rem;
+      margin-bottom: 1.5rem;
       display: block;
     }
 
@@ -110,6 +136,43 @@ export default class mzProductsDetailPicture extends Vue {
     &__tags {
       display: flex;
       flex-wrap: wrap;
+    }
+
+    &__delivery {
+      border-bottom: 1px solid var(--gray-400);
+
+      &__title {
+        font-size: 2.3rem;
+        margin: 1rem 0;
+        display: block;
+      }
+
+      .option {
+        display: flex;
+        justify-content: space-between;
+        font-size: 1.8rem;
+        margin: 0;
+        padding: 1rem;
+
+        &__price {
+          font-weight: var(--font-medium);
+        }
+
+        &:nth-child(2n) {
+          background: var(--gray-100);
+        }
+      }
+    }
+
+    .without-options {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      .icon {
+        width: 3rem;
+        height: 3rem;
+      }
     }
   }
 }

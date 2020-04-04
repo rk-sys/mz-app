@@ -10,7 +10,7 @@
          v-for="(contact, i) in contactList"
          :key="i">
 
-      <div :class="[ `form__container__icon icon-${contact.icon}--green` ]"></div>
+      <div :class="[ `form__container__icon icon-${contact.icon}--primary` ]"></div>
 
       <mz-form-item class="form__container__item"
                     :prop="contact.type">

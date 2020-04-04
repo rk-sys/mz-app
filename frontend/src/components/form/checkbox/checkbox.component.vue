@@ -52,6 +52,13 @@ export default class mzCheckbox extends Mixins(mzTransparentWrapper) {
       background: var(--primary-color);
     }
   }
+
+
+  &__input.is-focus {
+    .el-checkbox__inner {
+      border-color: var(--primary-color);
+    }
+  }
 }
 
 

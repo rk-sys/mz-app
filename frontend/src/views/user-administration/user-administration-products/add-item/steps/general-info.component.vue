@@ -52,7 +52,8 @@
       <p class="title">{{$t(`categorySelection.title.subCategory`)}}</p>
 
       <div class="mz-general-info__subcategory__container"
-           v-for="(category, index) in addItemGeneralInfo.listOfCategory">
+           v-for="(category, categoryIndex) in addItemGeneralInfo.listOfCategory"
+           :key="categoryIndex">
 
         <template v-if="category.selected">
           <mz-radio v-for="(subcategory, index) in category.listOfSubCategory"
@@ -86,14 +87,12 @@ import { IAddItemGeneralInfo, IAddItemNewItem } from '../store/user-account-add-
 import mzAddItemModule                          from '../store/user-account-add-item.module';
 import mzButton                                 from '@/components/buttons/button.component.vue';
 import mzRadio                                  from '@/components/form/radio/radio.component.vue';
-import mzSteps                                  from '@/components/steps/steps.component.vue';
 
 const LOCAL_STORE: string = 'addItem';
 const local = namespace(LOCAL_STORE);
 
 @Component({
   components: {
-    mzSteps,
     mzRadio,
     mzButton,
   },

@@ -196,44 +196,29 @@ export default class mzUserAccountMenuMobile extends Vue {
 
   .menu-links {
     width: auto;
-    margin-left: 7rem;
 
     .router-link-active {
       color: var(--primary-color);
-      font-weight: var(--font-bold);
-      border-bottom: 2px solid var(--primary-color);
+
+      &:hover {
+        color: var(--white);
+      }
     }
 
     &__wrapper__link {
       font-size: 2.4rem;
-      color: var(--gray-950);
+      color: var(--black);
       text-decoration: none;
-      margin-bottom: 1.8rem;
       font-weight: var(--font-medium);
       display: inline-block;
-      padding: .5rem 0;
+      width: 100%;
+      padding: 1rem 5rem;
       border-bottom: 2px solid var(--transparent);
       position: relative;
 
-      &::before {
-        content: "";
-        left: 0;
-        bottom: -.25rem;
-        width: 100%;
-        position: absolute;
-        transform: scaleX(0);
-        transition: transform .3s ease-in-out;
-        transform-origin: left;
-        border-bottom: 2px solid var(--primary-color);
-      }
-
       &:hover {
-        color: var(--primary-color);
-
-        &::before {
-          transition: transform .3s ease-in-out;
-          transform: scaleX(1);
-        }
+        background: var(--primary-color);
+        color: var(--white);
       }
     }
   }
@@ -258,8 +243,6 @@ export default class mzUserAccountMenuMobile extends Vue {
       &__wrapper__link {
         font-size: 2.8rem;
       }
-
-      margin-left: 8.5rem;
     }
   }
 
@@ -269,13 +252,11 @@ export default class mzUserAccountMenuMobile extends Vue {
 }
 
 
-@media screen and (max-width: 425px) {
+@include respond-to(mobile) {
   .user-account-menu-mobile {
-    width: 43rem;
+    width: 40rem;
 
     .menu-links {
-      margin-left: 10rem;
-
       &__wrapper__link {
         font-size: 2.2rem;
       }
@@ -284,6 +265,7 @@ export default class mzUserAccountMenuMobile extends Vue {
     .user-info {
       &__display-name {
         font-size: 2.8rem;
+        margin-bottom: 5rem;
       }
     }
   }

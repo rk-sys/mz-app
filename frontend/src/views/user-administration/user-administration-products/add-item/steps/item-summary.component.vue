@@ -72,8 +72,99 @@
       </div>
     </mz-box-with-title>
 
-    <div class="mz-item-summary__buttons">
+    <mz-box-with-title :title="$t(`deliverySection.title`)"
+                       icon-name="icon-delivery">
 
+      <div v-if="newItem.personalPickupDelivery.isSelected"
+           class="mz-item-summary__delivery">
+
+        <p class="mz-item-summary__delivery__title">
+          {{ $t(`deliverySection.personalPickup.title`) }}
+        </p>
+        <p class="options">
+          <span class="options__label">
+          {{ $t(`deliverySection.personalPickup.addressLabel`) }}
+          </span>
+
+          <span class="options__value">
+          {{ newItem.personalPickupDelivery.name }}
+          {{ newItem.personalPickupDelivery.city }}
+          {{ newItem.personalPickupDelivery.address }}
+          </span>
+        </p>
+
+        <p class="options">
+          <span class="options__label">
+          {{ $t(`deliverySection.personalPickup.phoneLabel`) }}
+          </span>
+
+          <span class="options__value">
+            {{ newItem.personalPickupDelivery.phone }}
+          </span>
+        </p>
+
+        <p class="options">
+
+          <span class="options__label">
+          {{ $t(`deliverySection.personalPickup.mailLabel`) }}
+          </span>
+
+          <span class="options__value">
+            {{ newItem.personalPickupDelivery.mail }}
+          </span>
+        </p>
+      </div>
+
+      <div v-if="newItem.parcelLockerDelivery.length"
+           class="mz-item-summary__delivery">
+
+        <p class="mz-item-summary__delivery__title">
+          {{ $t(`deliverySection.parcelLocker.title`) }}
+        </p>
+
+        <p class="options"
+           v-for="(option, index) in newItem.parcelLockerDelivery"
+           :key="index">
+
+          <span class="options__label">{{ option.label }}</span>
+          <span class="options__value">{{ option.price }} {{ $t(`itemSummary.currency`) }}</span>
+        </p>
+      </div>
+
+      <div v-if="newItem.courierDelivery.length"
+           class="mz-item-summary__delivery">
+
+        <p class="mz-item-summary__delivery__title">
+          {{ $t(`deliverySection.courier.title`) }}
+        </p>
+
+        <p class="options"
+           v-for="(option, index) in newItem.courierDelivery"
+           :key="index">
+
+          <span class="options__label">{{ option.label }}</span>
+          <span class="options__value">{{ option.price }} {{ $t(`itemSummary.currency`) }}</span>
+        </p>
+      </div>
+
+      <div v-if="newItem.letterDelivery.length"
+           class="mz-item-summary__delivery">
+
+        <p class="mz-item-summary__delivery__title">
+          {{ $t(`deliverySection.letter.title`) }}
+        </p>
+
+        <p class="options"
+           v-for="(option, index) in newItem.letterDelivery"
+           :key="index">
+
+          <span class="options__label">{ {option.label }}</span>
+          <span class="options__value">{{ option.price }} {{ $t(`itemSummary.currency`) }}</span>
+        </p>
+      </div>
+    </mz-box-with-title>
+
+    <div class="mz-item-summary__buttons">
       <mz-button class="button-previous"
                  @click="goToStep3()">
 
@@ -268,6 +359,38 @@ export default class mzUserAdministrationItemSummary extends Vue {
     .button-next {
       margin-right: 0;
       margin-left: auto;
+    }
+  }
+
+  &__delivery {
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--gray-300);
+
+    &__title {
+      margin: 1.5rem 0;
+      font-size: 2.6rem;
+      font-weight: var(--font-medium);
+    }
+
+    .address,
+    .contact,
+    .options {
+      font-size: 2.2rem;
+      margin: .5rem;
+    }
+
+    .options {
+      display: flex;
+      justify-content: space-between;
+
+      &:nth-child(2n) {
+        background: var(--gray-200);
+      }
+
+      &__label,
+      &__value {
+        display: block;
+      }
     }
   }
 }

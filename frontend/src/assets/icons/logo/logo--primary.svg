@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="113" height="32.218" viewBox="0 0 113 32.218">
+  <g id="logo" transform="translate(-75 -23.827)">
+    <g id="Group_575" data-name="Group 575" transform="translate(16.204 6.821)">
+      <g id="Group_108" data-name="Group 108" transform="translate(118.188 32.356) rotate(180)">
+        <rect id="Rectangle_106" data-name="Rectangle 106" width="11.81" height="3.296" rx="1.648" transform="translate(0 8.351) rotate(-45)" fill="#cc6600"/>
+        <rect id="Rectangle_107" data-name="Rectangle 107" width="11.81" height="3.296" rx="1.648" transform="translate(10.711 13.02) rotate(-45)" fill="#cc6600"/>
+        <rect id="Rectangle_108" data-name="Rectangle 108" width="9.063" height="3.296" rx="1.648" transform="translate(12.451 8.739) rotate(-135)" fill="#cc6600"/>
+        <rect id="Rectangle_109" data-name="Rectangle 109" width="9.338" height="3.296" rx="1.648" transform="translate(12.745 15.35) rotate(-135)" fill="#cc6600"/>
+      </g>
+      <g id="Group_574" data-name="Group 574" transform="translate(133.544 32.356) rotate(180)">
+        <rect id="Rectangle_106-2" data-name="Rectangle 106" width="11.81" height="3.296" rx="1.648" transform="translate(0 8.351) rotate(-45)" fill="#cc6600"/>
+        <rect id="Rectangle_107-2" data-name="Rectangle 107" width="11.81" height="3.296" rx="1.648" transform="translate(10.711 13.02) rotate(-45)" fill="#cc6600"/>
+        <rect id="Rectangle_108-2" data-name="Rectangle 108" width="9.063" height="3.296" rx="1.648" transform="translate(12.451 8.739) rotate(-135)" fill="#cc6600"/>
+        <rect id="Rectangle_109-2" data-name="Rectangle 109" width="9.338" height="3.296" rx="1.648" transform="translate(12.745 15.35) rotate(-135)" fill="#cc6600"/>
+      </g>
+    </g>
+    <text id="MOJA-ZBROJA.PL" transform="translate(75 40.045)" fill="#cc6600" font-size="12" font-family="Montserrat-SemiBold, Montserrat" font-weight="600"><tspan x="0" y="12">MOJA-ZBROJA.PL</tspan></text>
+  </g>
+</svg>

@@ -6,7 +6,7 @@
       <div class="user-account__container__mobile-btn"
            @click="changeStateOfMobileMenu">
 
-        <div class="icon icon-arrow--white"></div>
+        <div class="icon icon-hamburger"></div>
       </div>
 
       <div class="user-account__container__mobile-background"
@@ -114,21 +114,22 @@ export default class mzUserAccount extends Vue {
       }
     }
 
-
     &__mobile-btn {
       display: none;
       position: fixed;
       left: 0;
       border-top-right-radius: 2px;
       border-bottom-right-radius: 2px;
-      width: 2.4rem;
+      width: 5rem;
       height: 4.5rem;
       background: var(--primary-color);
       transition: .2s;
       z-index: 3;
+      top: 20.5rem;
 
       &:hover {
-        width: 3.2rem;
+        box-shadow: 0 0 1rem 0 var(--gray-450);
+        background: var(--primary-color-80);
         cursor: pointer;
         transition: .2s;
       }
@@ -138,14 +139,15 @@ export default class mzUserAccount extends Vue {
         height: 4.5rem;
       }
 
-      @media screen and (max-width: 768px) {
+      @include respond-to(tablet) {
         display: flex;
-        justify-content: flex-end;
+        justify-content: center;
+        align-items: center;
       }
     }
   }
 
-  @media screen and (max-width: 768px) {
+  @include respond-to(tablet) {
     grid-template-rows: 0 0 auto;
   }
 }

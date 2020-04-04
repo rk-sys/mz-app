@@ -10,7 +10,8 @@
                                        :mainCategory="productDetail.product.mainCategory"
                                        :subCategory="productDetail.product.subCategory"
                                        :gender="productDetail.product.gender"
-                                       :isNew="productDetail.product.isNew" />
+                                       :isNew="productDetail.product.isNew"
+                                       :delivery="productDetail.product.productDeliveryOptions" />
       </main>
 
       <mz-product-detail-checkout :product-title="productDetail.product.title"

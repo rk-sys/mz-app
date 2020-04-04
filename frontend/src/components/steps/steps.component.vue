@@ -9,10 +9,10 @@
                     'mz-steps__circle--done': index < active}">
 
         <div v-if="index !== 0" class="mz-steps__line"
-             :class="{'mz-steps__line--green': index <= active}"></div>
+             :class="{'mz-steps__line--primary': index <= active}"></div>
 
         <template v-if="index < active">
-          <div class="mz-steps__circle__icon icon-success-green"></div>
+          <div class="mz-steps__circle__icon icon-success--primary"></div>
         </template>
 
         <template v-else>
@@ -64,13 +64,13 @@ export default class mzSteps extends Mixins(mzTransparentWrapper) {
 
   &__line {
     position: absolute;
-    width: 15rem;
+    width: 12rem;
     height: 2px;
     background-color: var(--gray-500);
-    left: -10.5rem;
+    left: -6.5rem;
     z-index: 0;
 
-    &--green {
+    &--primary {
       background-color: var(--primary-color);
     }
   }
@@ -152,8 +152,9 @@ export default class mzSteps extends Mixins(mzTransparentWrapper) {
 
 @media screen and (max-width: 768px) and (min-width: 560px) {
   .mz-steps {
+
     &__label {
-      font-size: 1.8rem;
+      font-size: 1.77rem;
     }
 
     &__wrapper {
@@ -161,7 +162,7 @@ export default class mzSteps extends Mixins(mzTransparentWrapper) {
     }
 
     &__line {
-      left: -7rem;
+      left: -6rem;
     }
   }
 }

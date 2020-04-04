@@ -35,7 +35,7 @@
              class="contact__wrapper">
 
           <div class="icon"
-               :class="[ `icon-${ item.label }--green` ]"></div>
+               :class="[ `icon-${ item.label }--primary` ]"></div>
 
           <span class="label">{{item.value}}</span>
         </div>

@@ -70,6 +70,11 @@ const router = new Router({
           component: () => import ('./views/craftsmen-detail/craftsmen-detail-portfolio/craftsmen-detail-portfolio.view.vue'),
         },
         {
+          path: 'items',
+          name: 'Craftsmen detail items',
+          component: () => import ('./views/craftsmen-detail/craftsmen-detail-items/craftsmen-detail-items.view.vue'),
+        },
+        {
           path: 'comments',
           name: 'Comments and rating',
           component: () => import ('./views/craftsmen-detail/craftsmen-detail-comments/craftsmen-detail-comments.view.vue'),

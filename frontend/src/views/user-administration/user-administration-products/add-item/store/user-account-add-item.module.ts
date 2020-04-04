@@ -2,18 +2,115 @@ import { Action, Module, Mutation, VuexModule } from 'vuex-module-decorators';
 import cloneDeep                                from 'lodash/cloneDeep';
 import {
   IAddItemGeneralInfo,
-  IAddItemNewItem,
+  IAddItemNewItem, IDeliveryOption, IPersonalPickupDeliveryOption, IDelivery,
 }                                               from './user-account-add-item.interface';
 import {
+  personalPickupDelivery,
+  parcelLockerDelivery,
   addItemGeneralInfo,
+  courierDelivery,
+  letterDelivery,
   newItem,
 }                                               from './user-account-add-item.state';
 
 @Module({ namespaced: true, stateFactory: true })
 export default class mzUserAccountModule extends VuexModule {
   public mzAddItemGeneralInfo: IAddItemGeneralInfo = cloneDeep(addItemGeneralInfo);
+  public mzPersonalPickupDelivery: IPersonalPickupDeliveryOption = cloneDeep(personalPickupDelivery);
+  public mzParcelLockerDelivery: IDeliveryOption = cloneDeep(parcelLockerDelivery);
+  public mzCourierDelivery: IDeliveryOption = cloneDeep(courierDelivery);
+  public mzLetterDelivery: IDeliveryOption = cloneDeep(letterDelivery);
   public newItem: IAddItemNewItem = cloneDeep(newItem);
   public numberOfActiveStep: number = 0;
+
+  public parcelLockerTempt: IDelivery = {
+    label: '',
+    price: '',
+  };
+
+  public courierTempt: IDelivery = {
+    label: '',
+    price: '',
+  };
+
+  public letterTempt: IDelivery = {
+    label: '',
+    price: '',
+  };
+
+  @Mutation
+  public resetTemptLetter(): void {
+    this.letterTempt = {
+      label: '',
+      price: '',
+    };
+  }
+
+  @Mutation
+  public resetTemptParcelLocker(): void {
+    this.parcelLockerTempt = {
+      label: '',
+      price: '',
+    };
+  }
+
+  @Mutation
+  public resetTemptCourier(): void {
+    this.courierTempt = {
+      label: '',
+      price: '',
+    };
+  }
+
+  @Mutation
+  public changeValueParcelLockerTempt(payload: string): void {
+    this.parcelLockerTempt.price = payload;
+  }
+
+  @Mutation
+  public changeValueLetterTempt(payload: string): void {
+    this.letterTempt.price = payload;
+  }
+
+  @Mutation
+  public changeValueCourierTempt(payload: string): void {
+    this.courierTempt.price = payload;
+  }
+
+  @Mutation
+  public addDeliveryToParcelLocker(payload: IDelivery): void {
+    this.newItem.parcelLockerDelivery.push(payload);
+  }
+
+  @Mutation
+  public addDeliveryToCourier(payload: IDelivery): void {
+    this.newItem.courierDelivery.push(payload);
+  }
+
+  @Mutation
+  public addDeliveryToLetter(payload: IDelivery): void {
+    this.newItem.letterDelivery.push(payload);
+  }
+
+  @Mutation
+  public addDeliveryPersonalPickup(payload: IPersonalPickupDeliveryOption): void {
+    this.newItem.personalPickupDelivery = payload;
+  }
+
+  @Mutation
+  public removeDeliveryParcelLocker(payload: number): void {
+    this.newItem.parcelLockerDelivery.splice(payload, 1);
+  }
+
+  @Mutation
+  public removeDeliveryLetter(payload: number): void {
+    this.newItem.letterDelivery.splice(payload, 1);
+  }
+
+  @Mutation
+  public removeDeliveryCourier(payload: number): void {
+    this.newItem.courierDelivery.splice(payload, 1);
+  }
 
   @Mutation
   public setMainCategory(payload: string): void {
@@ -92,5 +189,29 @@ export default class mzUserAccountModule extends VuexModule {
   @Action
   public goToStep4() {
     this.context.commit('setNumberOfActiveStep', 3);
+  }
+
+  @Action
+  public goToStep5() {
+    this.context.commit('addDeliveryPersonalPickup', this.mzPersonalPickupDelivery);
+    this.context.commit('setNumberOfActiveStep', 4);
+  }
+
+  @Action
+  public addOptionToParcelLocker(): void {
+    this.context.commit('addDeliveryToParcelLocker', this.parcelLockerTempt);
+    this.context.commit('resetTemptParcelLocker');
+  }
+
+  @Action
+  public addOptionToCourier(): void {
+    this.context.commit('addDeliveryToCourier', this.courierTempt);
+    this.context.commit('resetTemptCourier');
+  }
+
+  @Action
+  public addOptionToLetter(): void {
+    this.context.commit('addDeliveryToLetter', this.letterTempt);
+    this.context.commit('resetTemptLetter');
   }
 }

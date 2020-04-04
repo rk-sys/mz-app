@@ -1,8 +1,8 @@
 <template>
   <div class="mz-logo">
-    <router-link class="mz-logo__icon icon-logo--green"
+    <router-link class="mz-logo__icon icon-logo--primary"
                  to="/"
-                 v-if="isGreen"></router-link>
+                 v-if="isPrimary" />
 
     <router-link class="mz-logo__icon icon-logo" to="/" v-else></router-link>
   </div>
@@ -14,7 +14,7 @@ import { Component, Prop, Vue } from 'vue-property-decorator';
 
 @Component
 export default class mzLogo extends Vue {
-  @Prop(Boolean) public readonly isGreen!: boolean;
+  @Prop(Boolean) public readonly isPrimary!: boolean;
 }
 </script>
 

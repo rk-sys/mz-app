@@ -34,7 +34,7 @@ export const mzResetPasswordState: IResetPassword = {
       icon: 'icon-wooden',
       style: {
         top: '-6rem',
-        left: '44rem',
+        left: '49rem',
         padding: '4rem',
       },
     },
@@ -42,14 +42,14 @@ export const mzResetPasswordState: IResetPassword = {
       icon: 'icon-anvil',
       style: {
         top: '7rem',
-        left: '50rem',
+        left: '55rem',
       },
     },
     {
       icon: 'icon-wool',
       style: {
         top: '17rem',
-        left: '46rem',
+        left: '53rem',
         height: '4rem',
         width: '4rem',
       },

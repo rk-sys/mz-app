@@ -1,7 +1,10 @@
+import { IProduct } from '@/views/products-list/store/products.interface';
+
 export interface ICraftsmenDetail {
   craftsmenBaseInfo: ICraftsmenBaseInfo;
   craftsmenPortfolio: IPortfolio[] | [];
   craftsmenComments: IComment[];
+  craftsmenProducts: IProduct[];
 }
 
 export interface IPortfolio {

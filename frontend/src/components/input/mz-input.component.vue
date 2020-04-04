@@ -16,13 +16,13 @@
 
       <label class="mz-input__container__label"
              :for="id"
-             :class="{'set-top-label': greenInput || value !== '',
+             :class="{'set-top-label': primaryInput || value !== '',
                       'disabled': disabled,
 				    		      'error-text': error}">
         {{holder}}</label>
 
       <div class="mz-input__container__border"
-           :class="{'show-border': greenInput,
+           :class="{'show-border': primaryInput,
 				    	      'error-border': error}"></div>
 
     </div>
@@ -47,10 +47,10 @@ export default class Home extends Vue {
   @Prop(Boolean) public readonly error!: boolean;
   @Prop(Boolean) public readonly disabled!: boolean;
 
-  public greenInput: boolean = false;
+  public primaryInput: boolean = false;
 
-  public changeInputStyle() {
-    this.greenInput = !this.greenInput;
+  public changeInputStyle(): void {
+    this.primaryInput = !this.primaryInput;
   }
 
   public emit(event: any) {

@@ -160,9 +160,9 @@ export default class mzUserItems extends Vue {
         height: 3rem;
         width: 3rem;
         cursor: pointer;
-        margin-right: 0;
       }
 
+      .icon-edit--primary,
       .icon-edit {
         margin-right: 3rem;
       }

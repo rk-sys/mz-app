@@ -31,4 +31,8 @@ export default {
     punctuality: 'Terminowość: ',
     reply: 'odpowiedział(a)',
   },
+  pictureHover: 'Przejdź do produktu',
+  currency: {
+    zl: 'zł',
+  },
 };

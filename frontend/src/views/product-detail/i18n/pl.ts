@@ -12,6 +12,13 @@ export default {
     zl: 'zł',
     show: 'Wyświetl zdjęcie',
     addToCheckout: 'Kupuję',
+    delivery: 'Sposoby dostawy',
+  },
+  delivery: {
+    personalPickup: 'Odbiór osobisty',
+    courier: 'Wysyłka kurierem',
+    parcelLocker: 'Odbiór w paczkomacie',
+    letter: 'Wysyłka listowna',
   },
   craftsman: {
     rate: {

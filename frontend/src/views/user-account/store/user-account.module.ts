@@ -60,7 +60,11 @@ export default class mzUserAccountModule extends VuexModule {
     address: '',
   };
 
-  public mzUserDisplayDescriptionForm: IUserDisplayDescriptionForm = {
+  public craftsmanDescription: IUserDisplayDescriptionForm = {
+    description: '',
+  };
+
+  public productDescription: IUserDisplayDescriptionForm = {
     description: '',
   };
 
@@ -89,7 +93,8 @@ export default class mzUserAccountModule extends VuexModule {
   get accountProgress(): number {
     let percentage: number = 0;
     const list: Array<string | string[]> = [
-      this.mzUserDisplayDescriptionForm.description,
+      this.craftsmanDescription.description,
+      this.productDescription.description,
       this.mzUserDisplayTagsForm.tagList,
       this.mzUserDisplayContactForm.phone,
       this.mzUserDisplayContactForm.phone,
@@ -98,13 +103,15 @@ export default class mzUserAccountModule extends VuexModule {
       this.mzUserDisplayContactForm.website,
       this.mzUserDisplayContactForm.address,
     ];
+
     const partialValue: number = 100 / list.length;
     list.forEach((element: string | string[]) => {
       if (element.length) {
         percentage += partialValue;
       }
     });
-    return percentage;
+
+    return Math.round(percentage * 100) / 100;
   }
 
   @Mutation
@@ -199,7 +206,8 @@ export default class mzUserAccountModule extends VuexModule {
 
   @Mutation
   public setAccountDetails(payload: any): void {
-    this.mzUserDisplayDescriptionForm.description = payload.description;
+    this.craftsmanDescription.description = payload.craftsmanDescription;
+    this.productDescription.description = payload.productDescription;
     this.mzUserDisplayTagsForm.tagList = payload.tagList;
     this.mzUserDisplayContactForm = payload.contact;
   }
@@ -343,7 +351,7 @@ export default class mzUserAccountModule extends VuexModule {
   }
 
   @Action
-  public updateDescription(): void {
+  public updateDescriptionCraftsman(): void {
     const docRef = firebase
       .firestore()
       .collection('users')
@@ -352,11 +360,33 @@ export default class mzUserAccountModule extends VuexModule {
     docRef.get().then((doc) => {
       if (doc.exists) {
         docRef.update({
-          description: this.mzUserDisplayDescriptionForm.description,
+          craftsmanDescription: this.craftsmanDescription.description,
         });
         Notification.successNotification(i18n.t(`notification.success`) as string, i18n.t(`notification.savedData`) as string);
       } else {
-        docRef.set(this.mzUserDisplayDescriptionForm);
+        docRef.set(this.craftsmanDescription);
+      }
+    }).catch((error) => {
+      Notification.errorNotification(i18n.t(`notification.error`) as string, i18n.t(`notification.somethingWrong`) as string);
+      throw new Error(error);
+    });
+  }
+
+  @Action
+  public updateDescriptionProduct(): void {
+    const docRef = firebase
+      .firestore()
+      .collection('users')
+      .doc(`${this.mzUserAccountMenuState.userInfo.uid}`);
+
+    docRef.get().then((doc) => {
+      if (doc.exists) {
+        docRef.update({
+          productDescription: this.productDescription.description,
+        });
+        Notification.successNotification(i18n.t(`notification.success`) as string, i18n.t(`notification.savedData`) as string);
+      } else {
+        docRef.set(this.productDescription);
       }
     }).catch((error) => {
       Notification.errorNotification(i18n.t(`notification.error`) as string, i18n.t(`notification.somethingWrong`) as string);

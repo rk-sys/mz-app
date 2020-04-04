@@ -8,11 +8,11 @@
                        :hint="true">
 
       <mz-form @submit.prevent.native="updateAccountDescription()"
-               :form-ref.sync="form"
-               :model="displayDescriptionForm"
+               :form-ref.sync="craftsmanDescriptionForm"
+               :model="craftsmanDescription"
                :rules="descriptionRules"
                class="mz-user-account-info__form"
-               id="displayDescriptionForm">
+               id="craftsmanDescription">
 
         <div class="form__container">
           <mz-form-item class="form__container__item"
@@ -20,13 +20,44 @@
 
             <mz-input-textarea id="description"
                                class="form__container__profile-description"
-                               v-model="displayDescriptionForm.description" />
+                               v-model="craftsmanDescription.description" />
           </mz-form-item>
         </div>
 
         <div class="mz-user-account-info__form__button">
+
           <mz-button buttonStyle="primary"
-                     form="displayDescriptionForm"
+                     form="craftsmanDescription"
+                     native-type="submit">{{$t(`form.save`)}}
+          </mz-button>
+        </div>
+      </mz-form>
+    </mz-box-with-title>
+
+    <mz-box-with-title :title="$t(`boxTitle.products`)"
+                       icon-name="icon-shop">
+
+      <mz-form @submit.prevent.native="updateProductDescription"
+               :form-ref.sync="productDescriptionForm"
+               :model="productDescription"
+               :rules="productRules"
+               class="mz-user-account-info__form"
+               id="productDescriptionForm">
+
+        <div class="form__container">
+          <mz-form-item class="form__container__item"
+                        prop="description">
+
+            <mz-input-textarea id="product"
+                               class="form__container__profile-description"
+                               v-model="productDescription.description" />
+          </mz-form-item>
+        </div>
+
+        <div class="mz-user-account-info__form__button">
+
+          <mz-button buttonStyle="primary"
+                     form="productDescriptionForm"
                      native-type="submit">{{$t(`form.save`)}}
           </mz-button>
         </div>
@@ -42,7 +73,7 @@
 
       <div class="mz-user-account-info__form">
         <div class="form__container">
-          <div class="form__container__icon icon-tag--green"></div>
+          <div class="form__container__icon icon-tag--primary"></div>
 
           <mz-input v-model="userTag"
                     :holder="$t(`form.tag`)"
@@ -99,6 +130,7 @@ import { i18n, loadTranslationsAsync }                       from '@/i18n/i18n';
 import Store                                                 from '@/store/store';
 import { Route }                                             from 'vue-router';
 import { IVueElementFormReference }                          from '../store/user-account.state';
+import { IUserDisplayDescriptionForm, IUserDisplayTagsForm } from '@/views/user-account/store/user-account.interface';
 import mzUserAccountModule                                   from '../store/user-account.module';
 import mzInput                                               from '@/components/input/mz-input.component.vue';
 import mzForm                                                from '@/components/form/form/form.component.vue';
@@ -109,7 +141,6 @@ import mzButton                                              from '@/components/
 import mzUpload                                              from '@/components/upload/upload.component.vue';
 import mzTag                                                 from '@/components/tag/tag.component.vue';
 import mzContact                                             from './components/contact.component.vue';
-import { IUserDisplayDescriptionForm, IUserDisplayTagsForm } from '@/views/user-account/store/user-account.interface';
 import mzProgress                                            from '@/components/progress/progress.component.vue';
 
 const LOCAL_STORE: string = 'userAccount';
@@ -130,20 +161,30 @@ const local = namespace(LOCAL_STORE);
   },
 })
 export default class mzUserAccountInfo extends Vue {
-  @local.Getter public accountProgress!: () => number;
   @local.State((state: mzUserAccountModule) => state.mzUserDisplayTagsForm) public displayTagsForm!: IUserDisplayTagsForm;
-  @local.State((state: mzUserAccountModule) => state.mzUserDisplayDescriptionForm) public displayDescriptionForm!: IUserDisplayDescriptionForm;
+  @local.State((state: mzUserAccountModule) => state.craftsmanDescription) public craftsmanDescription!: IUserDisplayDescriptionForm;
+  @local.State((state: mzUserAccountModule) => state.productDescription) public productDescription!: IUserDisplayDescriptionForm;
+
+  @local.Getter public accountProgress!: () => number;
   @local.Mutation public addTagToList!: (arg: string) => void;
   @local.Mutation public removeTagFromList!: (arg: number) => void;
   @local.Action public updateTags!: () => void;
-  @local.Action public updateDescription!: () => void;
+  @local.Action public updateDescriptionCraftsman!: () => void;
+  @local.Action public updateDescriptionProduct!: () => void;
 
   public userTag: string = '';
   public disabledTagInput: boolean = false;
 
-  public form: HTMLElement | null = null;
+  public craftsmanDescriptionForm: HTMLElement | null = null;
+  public productDescriptionForm: HTMLElement | null = null;
 
   public descriptionRules: any = {
+    description: [
+      { max: 256, message: i18n.t('rules.descriptionLength', [ 256 ]), trigger: 'submit' },
+    ],
+  };
+
+  public productRules: any = {
     description: [
       { max: 256, message: i18n.t('rules.descriptionLength', [ 256 ]), trigger: 'submit' },
     ],
@@ -167,12 +208,26 @@ export default class mzUserAccountInfo extends Vue {
   }
 
   public async updateAccountDescription() {
-    (this.form as unknown as IVueElementFormReference).validate(async (valid: boolean) => {
+    (this.craftsmanDescriptionForm as unknown as IVueElementFormReference).validate(async (valid: boolean) => {
       if (valid) {
         try {
-          this.updateDescription();
+          this.updateDescriptionCraftsman();
         } catch (e) {
-          (this.form as unknown as IVueElementFormReference).validate(() => null);
+          (this.craftsmanDescriptionForm as unknown as IVueElementFormReference).validate(() => null);
+        }
+      } else {
+        return false;
+      }
+    });
+  }
+
+  public async updateProductDescription() {
+    (this.productDescriptionForm as any).validate(async (valid: boolean) => {
+      if (valid) {
+        try {
+          this.updateDescriptionProduct();
+        } catch (e) {
+          (this.productDescriptionForm as any).validate(() => null);
         }
       } else {
         return false;

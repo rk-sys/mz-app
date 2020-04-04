@@ -1,6 +1,7 @@
 <template>
   <div class="nav-bar-category">
-    <mz-logo :is-green="true" class="nav-bar-category__logo" />
+    <mz-logo :is-primary="true"
+             class="nav-bar-category__logo" />
 
     <router-link class="nav-bar-category__craftsmen"
                  :to="{ name: 'Craftsmen' }">

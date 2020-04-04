@@ -1,6 +1,7 @@
 <template>
   <div class="mz-registration-view">
-    <mz-logo :is-green="true" class="mz-registration-view__logo" />
+    <mz-logo :is-primary="true"
+             class="mz-registration-view__logo" />
 
     <div class="mz-registration-view__box">
       <h2 class="title">{{$t(`titlePage`)}}</h2>
@@ -11,9 +12,6 @@
       <mz-registration-form />
 
     </div>
-
-    <mz-footer :is-light="false"
-               class="mz-registration-view__footer"></mz-footer>
 
     <mz-social-media class="mz-registration-view__social-media" />
   </div>
@@ -86,7 +84,7 @@ export default class mzRegistration extends Vue {
 
   &__box {
     background: var(--white);
-    width: 50rem;
+    width: 55rem;
     height: auto;
     -webkit-border-radius: .2rem;
     -moz-border-radius: .2rem;
@@ -113,13 +111,6 @@ export default class mzRegistration extends Vue {
     }
   }
 
-  &__footer {
-    grid-row-start: 4;
-    grid-column-start: 1;
-    align-self: center;
-    place-self: center;
-  }
-
   &__social-media {
     grid-row-start: 3;
     grid-column-start: 1;
@@ -130,7 +121,8 @@ export default class mzRegistration extends Vue {
 @include respond-to(tablet) {
 
   .mz-registration-view__box {
-    max-width: 40rem;
+    max-width: 60rem;
+    width: 60rem;
     padding: 1rem 2rem;
   }
 

@@ -58,7 +58,7 @@ const local = namespace(LOCAL_STORE);
   },
 })
 export default class mzCraftsmenDetailMenu extends Vue {
-  @local.State((state: mzCraftsmenDetailModule) => state.mzCraftsMenMenuLinks) public menuLinks!: ICraftsmenMenuLinks;
+  @local.State((state: mzCraftsmenDetailModule) => state.mzCraftsmenMenuLinks) public menuLinks!: ICraftsmenMenuLinks;
   @Prop(Object) public readonly baseInfo!: ICraftsmenBaseInfo;
 
 }

@@ -80,7 +80,8 @@ export default class mzPortfolioItem extends Vue {
   position: relative;
 
   &:hover {
-    box-shadow: 0 0 1rem 0 var(--gray-450);
+    border-color: var(--primary-color);
+    box-shadow: 0 0 1.5rem 0 var(--gray-500);
 
     .mz-portfolio-item__content {
       height: 8rem;
@@ -180,6 +181,12 @@ export default class mzPortfolioItem extends Vue {
 
 @media only screen and (max-width: 425px) {
   .mz-portfolio-item {
+
+    &:hover {
+      .mz-portfolio-item__content {
+        height: 10rem;
+      }
+    }
 
     &__background {
       height: 30rem;

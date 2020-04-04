@@ -1,4 +1,5 @@
-import { IProductDetail } from './product-detail.interface';
+import { IProductDetail }                           from './product-detail.interface';
+import { IDelivery, IPersonalPickupDeliveryOption } from '@/views/user-administration/user-administration-products/add-item/store/user-account-add-item.interface';
 
 export const productDetail: IProductDetail = {
   craftsman: {
@@ -27,6 +28,7 @@ export const productDetail: IProductDetail = {
     subCategory: '',
     gender: '',
     isNew: true,
+    productDeliveryOptions: [],
   },
 };
 

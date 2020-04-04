@@ -3,11 +3,12 @@ import cloneDeep                                           from 'lodash/cloneDee
 import { craftsmenDetail, craftsmenMenuLinks }             from './craftsmen-detail.state';
 import { IComment, ICraftsmenDetail, ICraftsmenMenuLinks } from './craftsmen-detail.interface';
 import * as craftsmenDetailService                         from './craftsmen-detail.service';
+import { IProduct }                                        from '@/views/products-list/store/products.interface';
 
 @Module({ namespaced: true, stateFactory: true })
 export default class craftsmenDetailModule extends VuexModule {
   public mzCraftsmenDetailState: ICraftsmenDetail = cloneDeep(craftsmenDetail);
-  public mzCraftsMenMenuLinks: ICraftsmenMenuLinks[] = cloneDeep(craftsmenMenuLinks);
+  public mzCraftsmenMenuLinks: ICraftsmenMenuLinks[] = cloneDeep(craftsmenMenuLinks);
 
   public visibleModal: boolean = false;
   public activeItemIndex: number = 0;
@@ -50,6 +51,11 @@ export default class craftsmenDetailModule extends VuexModule {
     this.mzCraftsmenDetailState.craftsmenComments = payload;
   }
 
+  @Mutation
+  public setCraftsmenProducts(payload: IProduct[]): void {
+    this.mzCraftsmenDetailState.craftsmenProducts = payload;
+  }
+
   @Action
   public openModal(payload: number): void {
     this.context.commit('setActiveItemIndex', payload);
@@ -71,6 +77,16 @@ export default class craftsmenDetailModule extends VuexModule {
     try {
       const response = await craftsmenDetailService.getCraftsmenCommentsAndRating(payload);
       this.context.commit('setCraftsmenCommentsAndRate', response.data);
+    } catch (e) {
+      throw new Error(e);
+    }
+  }
+
+  @Action
+  public async getCraftsmenProducts(payload: string): Promise<void> {
+    try {
+      const { data }: { data: IProduct[] } = await craftsmenDetailService.getCraftsmenProducts(payload);
+      this.context.commit('setCraftsmenProducts', data);
     } catch (e) {
       throw new Error(e);
     }

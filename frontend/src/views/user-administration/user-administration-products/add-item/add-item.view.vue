@@ -1,7 +1,7 @@
 <template>
   <div class="mz-user-administration-add-item">
 
-    <mz-steps :labels="['Informacje ogólne', 'Dodaj opis', 'Wrzuć zdjęcie', 'Podsumowanie'] "
+    <mz-steps :labels="['Informacje ogólne', 'Dodaj opis', 'Wrzuć zdjęcie', 'Opcje dostawy', 'Podsumowanie'] "
               :active="activeNumber" />
 
     <transition name="fade"
@@ -32,10 +32,17 @@
                 mode="out-in">
 
       <template v-if="activeNumber === 3">
-        <mz-item-summary />
+        <mz-delivery />
       </template>
     </transition>
 
+    <transition name="fade"
+                mode="out-in">
+
+      <template v-if="activeNumber === 4">
+        <mz-item-summary />
+      </template>
+    </transition>
   </div>
 </template>
 
@@ -53,6 +60,7 @@ import mzItemSummary             from './steps/item-summary.component.vue';
 import mzGeneralInfo             from './steps/general-info.component.vue';
 import mzItemDescription         from './steps/item-description.component.vue';
 import mzUploadPictures          from './steps/upload-pictures.component.vue';
+import mzDelivery                from './steps/delivery.component.vue';
 
 
 const LOCAL_STORE: string = 'addItem';
@@ -61,10 +69,11 @@ const local = namespace(LOCAL_STORE);
 @Component({
   components: {
     mzSteps,
+    mzDelivery,
     mzGeneralInfo,
-    mzItemDescription,
     mzItemSummary,
     mzUploadPictures,
+    mzItemDescription,
   },
 })
 export default class mzUserAdministrationAddItem extends Vue {
@@ -106,17 +115,17 @@ export default class mzUserAdministrationAddItem extends Vue {
   margin: 0 auto;
 }
 
-@media screen and (max-width: 768px) and (min-width: 426px) {
+@include respond-to(tablet) {
   .mz-user-administration-add-item {
     margin-left: 0;
     width: 85rem;
   }
 }
 
-@media screen and (max-width: 425px) {
+@include respond-to(mobile) {
   .mz-user-administration-add-item {
     margin-left: 0;
-    width: 43rem;
+    width: 100%;
   }
 }
 </style>

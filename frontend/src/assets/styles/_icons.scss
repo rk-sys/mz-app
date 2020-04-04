@@ -50,8 +50,8 @@
     background-size: contain;
   }
 
-  &-instagram--green {
-    background: url("~@/assets/icons/instagram/instagram--green.svg") no-repeat center;
+  &-instagram--primary {
+    background: url("~@/assets/icons/instagram/instagram--primary.svg") no-repeat center;
     background-size: contain;
   }
 
@@ -65,18 +65,23 @@
     background-size: contain;
   }
 
-  &-list--green {
-    background: url("~@/assets/icons/list/list--green.svg") no-repeat center;
+  &-hamburger {
+    background: url("~@/assets/icons/hamburger/hamburger.svg") no-repeat center;
     background-size: contain;
   }
 
-  &-tile--green {
-    background: url("~@/assets/icons/tile/tile--green.svg") no-repeat center;
+  &-list--primary {
+    background: url("~@/assets/icons/list/list--primary.svg") no-repeat center;
     background-size: contain;
   }
 
-  &-pin--green {
-    background: url("~@/assets/icons/pin/pin--green.svg") no-repeat center;
+  &-tile--primary {
+    background: url("~@/assets/icons/tile/tile--primary.svg") no-repeat center;
+    background-size: contain;
+  }
+
+  &-pin--primary {
+    background: url("~@/assets/icons/pin/pin--primary.svg") no-repeat center;
     background-size: contain;
   }
 
@@ -95,8 +100,8 @@
     background-size: contain;
   }
 
-  &-domain--green {
-    background: url("~@/assets/icons/domain/domain--green.svg") no-repeat center;
+  &-domain--primary {
+    background: url("~@/assets/icons/domain/domain--primary.svg") no-repeat center;
     background-size: contain;
   }
 
@@ -105,8 +110,8 @@
     background-size: contain;
   }
 
-  &-phone--green {
-    background: url("~@/assets/icons/phone/phone--green.svg") no-repeat center;
+  &-phone--primary {
+    background: url("~@/assets/icons/phone/phone--primary.svg") no-repeat center;
     background-size: contain;
   }
 
@@ -115,8 +120,8 @@
     background-size: contain;
   }
 
-  &-help--green {
-    background: url("~@/assets/icons/help/help--green.svg") no-repeat center;
+  &-help--primary {
+    background: url("~@/assets/icons/help/help--primary.svg") no-repeat center;
     background-size: contain;
   }
 
@@ -125,8 +130,8 @@
     background-size: contain;
   }
 
-  &-tag--green {
-    background: url("~@/assets/icons/tag/tag--green.svg") no-repeat center;
+  &-tag--primary {
+    background: url("~@/assets/icons/tag/tag--primary.svg") no-repeat center;
     background-size: contain;
   }
 
@@ -150,8 +155,8 @@
     background-size: contain;
   }
 
-  &-search--green {
-    background: url("~@/assets/icons/search/search--green.svg") no-repeat center;
+  &-search--primary {
+    background: url("~@/assets/icons/search/search--primary.svg") no-repeat center;
     background-size: contain;
   }
 
@@ -160,13 +165,13 @@
     background-size: contain;
   }
 
-  &-shopping-cart--green {
-    background: url("~@/assets/icons/shopping-cart/shopping-cart--green.svg") no-repeat center;
+  &-shopping-cart--primary {
+    background: url("~@/assets/icons/shopping-cart/shopping-cart--primary.svg") no-repeat center;
     background-size: contain;
   }
 
-  &-user--green {
-    background: url("~@/assets/icons/user/user--green.svg") no-repeat center;
+  &-user--primary {
+    background: url("~@/assets/icons/user/user--primary.svg") no-repeat center;
     background-size: contain;
   }
 
@@ -175,8 +180,8 @@
     background-size: contain;
   }
 
-  &-locked--green {
-    background: url("~@/assets/icons/locked/locked--green.svg") no-repeat center;
+  &-locked--primary {
+    background: url("~@/assets/icons/locked/locked--primary.svg") no-repeat center;
     background-size: contain;
   }
 
@@ -190,8 +195,8 @@
     background-size: contain;
   }
 
-  &-logo--green {
-    background: url("~@/assets/icons/logo/logo--green.svg") no-repeat center;
+  &-logo--primary {
+    background: url("~@/assets/icons/logo/logo--primary.svg") no-repeat center;
     background-size: contain;
   }
 
@@ -205,8 +210,8 @@
     background-size: contain;
   }
 
-  &-facebook--green {
-    background: url("~@/assets/icons/facebook/facebook--green.svg") no-repeat center;
+  &-facebook--primary {
+    background: url("~@/assets/icons/facebook/facebook--primary.svg") no-repeat center;
     background-size: contain;
   }
 
@@ -240,8 +245,8 @@
     background-size: contain;
   }
 
-  &-mail--green {
-    background: url("~@/assets/icons/mail/mail--green.svg") no-repeat center;
+  &-mail--primary {
+    background: url("~@/assets/icons/mail/mail--primary.svg") no-repeat center;
     background-size: contain;
   }
 
@@ -365,8 +370,13 @@
     background-size: contain;
   }
 
-  &-success-green {
+  &-success--primary {
     background: url("~@/assets/icons/success/success-fill.svg") no-repeat center;
+    background-size: contain;
+  }
+
+  &-success-only-check {
+    background: url("~@/assets/icons/success/success-only-check.svg") no-repeat center;
     background-size: contain;
   }
 
@@ -385,8 +395,8 @@
     background-size: contain;
   }
 
-  &-edit--green {
-    background: url("~@/assets/icons/edit/edit--green.svg") no-repeat center;
+  &-edit--primary {
+    background: url("~@/assets/icons/edit/edit--primary.svg") no-repeat center;
     background-size: contain;
   }
 

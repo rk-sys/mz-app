@@ -34,7 +34,7 @@
         <div class="mz-product-checkout__container__main__buttons">
 
           <mz-button button-style="cancel"
-                     @click="goToProductDtail()"
+                     @click="goToProductDetail()"
                      class="button button--cancel">
 
             {{ $t(`buttons.cancel`) }}
@@ -118,7 +118,7 @@ export default class mzProductCheckout extends Vue {
     }
   }
 
-  public goToProductDtail(): void {
+  public goToProductDetail(): void {
     const uuid: string = this.productUuid;
     router.push({ name: 'Product detail', params: { uuid } });
   }

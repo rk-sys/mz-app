@@ -1,4 +1,5 @@
-import { IRate, IRatings } from '../../craftsmen-detail/store/craftsmen-detail.interface';
+import { IRatings }                                 from '../../craftsmen-detail/store/craftsmen-detail.interface';
+import { IDelivery, IPersonalPickupDeliveryOption } from '@/views/user-administration/user-administration-products/add-item/store/user-account-add-item.interface';
 
 export interface IProductDetail {
   craftsman: ICraftsman;
@@ -27,6 +28,7 @@ export interface IProduct {
   gender: string;
   isNew: boolean;
   id: string;
+  productDeliveryOptions: IDelivery[];
 }
 
 export interface ISocialMedia {

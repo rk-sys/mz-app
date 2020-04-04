@@ -33,14 +33,14 @@ export const mzRegistrationState: IRegistration = {
       icon: 'icon-wooden',
       style: {
         top: '35rem',
-        left: '50rem',
+        left: '55rem',
       },
     },
     {
       icon: 'icon-wool',
       style: {
         top: '45rem',
-        left: '48rem',
+        left: '53rem',
       },
     },
   ],

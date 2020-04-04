@@ -1,4 +1,4 @@
-import { IAddItemGeneralInfo, IAddItemNewItem } from './user-account-add-item.interface';
+import { IAddItemGeneralInfo, IAddItemNewItem, IDeliveryOption, IPersonalPickupDeliveryOption } from './user-account-add-item.interface';
 
 export const addItemGeneralInfo: IAddItemGeneralInfo = {
   listOfMainRange: [
@@ -157,6 +157,34 @@ export const addItemGeneralInfo: IAddItemGeneralInfo = {
   ],
 };
 
+export const parcelLockerDelivery: IDeliveryOption = {
+  isSelected: false,
+  title: 'parcelLocker',
+  options: [],
+};
+
+export const courierDelivery: IDeliveryOption = {
+  isSelected: false,
+  title: 'courier',
+  options: [],
+};
+
+export const letterDelivery: IDeliveryOption = {
+  isSelected: false,
+  title: 'letter',
+  options: [],
+};
+
+export const personalPickupDelivery: IPersonalPickupDeliveryOption = {
+  title: 'personalPickup',
+  isSelected: false,
+  address: '',
+  name: '',
+  city: '',
+  phone: '',
+  mail: '',
+};
+
 export const newItem: IAddItemNewItem = {
   mainRange: '',
   mainCategory: '',
@@ -173,4 +201,8 @@ export const newItem: IAddItemNewItem = {
     file: null,
   },
   currency: 'zl',
+  parcelLockerDelivery: [],
+  courierDelivery: [],
+  letterDelivery: [],
+  personalPickupDelivery: null,
 };

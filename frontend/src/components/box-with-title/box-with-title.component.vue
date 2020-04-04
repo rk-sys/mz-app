@@ -31,7 +31,7 @@
       <mz-tooltip :content="tooltipMessage"
                   placement="top">
 
-        <div class="box-with-title__icon icon-help--green"
+        <div class="box-with-title__icon icon-help--primary"
              v-if="hint"></div>
       </mz-tooltip>
     </div>

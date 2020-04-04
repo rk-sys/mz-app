@@ -27,10 +27,10 @@ export default class Home extends Vue {
   @Prop(String) public readonly value!: string;
   @Prop(Boolean) public readonly error!: boolean;
 
-  public greenInput: boolean = false;
+  public primaryInput: boolean = false;
 
   public changeInputStyle(): void {
-    this.greenInput = !this.greenInput;
+    this.primaryInput = !this.primaryInput;
   }
 
   public emit(event: string): void {

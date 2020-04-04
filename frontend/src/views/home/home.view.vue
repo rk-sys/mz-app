@@ -1,18 +1,18 @@
 <template>
   <div class="home">
     <div class="home__title">
-      <h1 class="slogan">{{$t(`webFor`)}}
-        <span class="slogan--green">{{$t(`craftsman`)}}</span>
+      <h1 class="slogan">{{ $t(`webFor`) }}
+        <span class="slogan--primary">{{$t(`craftsman`)}}</span>
       </h1>
     </div>
 
     <div class="home__register">
-      <p class="home__register__title">{{$t(`registerTitle`)}}!</p>
+      <p class="home__register__title">{{ $t(`registerTitle`) }}!</p>
       <p class="home__register__info" v-html="$t(`registerInfo`)"></p>
 
 
       <router-link class="home__register__button"
-                   to="/registration">{{$t(`button`)}}
+                   to="/registration">{{ $t(`button`) }}
       </router-link>
     </div>
   </div>
@@ -47,7 +47,6 @@ export default class yHome extends Vue {
 .home {
   background: url("~@/assets/img/background.jpg") no-repeat center;
   min-height: 100vh;
-  min-width: 100vw;
   background-size: cover;
   display: flex;
   flex-direction: column;
@@ -61,7 +60,7 @@ export default class yHome extends Vue {
       color: var(--black);
       line-height: 1.1;
 
-      &--green {
+      &--primary {
         display: block;
         font-size: 7.5rem;
         color: var(--primary-color);
@@ -112,7 +111,7 @@ export default class yHome extends Vue {
       .slogan {
         font-size: 10rem;
 
-        &--green {
+        &--primary {
           font-size: 6rem;
         }
       }
@@ -128,7 +127,7 @@ export default class yHome extends Vue {
       .slogan {
         font-size: 6rem;
 
-        &--green {
+        &--primary {
           font-size: 4rem;
         }
       }
@@ -154,7 +153,7 @@ export default class yHome extends Vue {
       .slogan {
         font-size: 4.5rem;
 
-        &--green {
+        &--primary {
           font-size: 3.2rem;
         }
       }

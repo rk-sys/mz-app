@@ -7,7 +7,7 @@
            id="registrationForm">
 
     <div class="mz-registration-form__container">
-      <div class="mz-registration-form__icon icon-user--green"></div>
+      <div class="mz-registration-form__icon icon-user--primary"></div>
 
       <mz-form-item class="mz-registration-form__item"
                     prop="name">
@@ -21,7 +21,7 @@
     </div>
 
     <div class="mz-registration-form__container">
-      <div class="mz-registration-form__icon icon-mail--green"></div>
+      <div class="mz-registration-form__icon icon-mail--primary"></div>
 
       <mz-form-item class="mz-registration-form__item"
                     prop="email">
@@ -36,7 +36,7 @@
     </div>
 
     <div class="mz-registration-form__container">
-      <div class="mz-registration-form__icon icon-locked--green"></div>
+      <div class="mz-registration-form__icon icon-locked--primary"></div>
 
       <mz-form-item class="mz-registration-form__item"
                     prop="password">
@@ -51,7 +51,7 @@
     </div>
 
     <div class="mz-registration-form__container">
-      <div class="mz-registration-form__icon icon-locked--green"></div>
+      <div class="mz-registration-form__icon icon-locked--primary"></div>
 
       <mz-form-item class="mz-registration-form__item"
                     prop="passwordRepeat">
@@ -67,14 +67,26 @@
 
     <div class="mz-registration-form__rule">
 
-      <mz-checkbox v-model="mzRule">
-        {{$t(`registerForm.acceptRule`)}}
-        <router-link to="#">{{$t(`registerForm.rule`)}}</router-link>
-        {{$t(`service`)}}
-      </mz-checkbox>
+      <mz-form-item class="mz-registration-form__item"
+                    prop="mzRule">
 
-      <mz-checkbox v-model="mzNewsletter">
-        {{$t(`registerForm.newsletter`)}}
+        <mz-checkbox v-model="mzRule"
+                     class="mz-registration-form__rule__checkbox">
+
+          <span class="mz-registration-form__rule__checkbox__label">
+            {{ $t(`registerForm.acceptRule`) }}
+            <router-link to="#">{{ $t(`registerForm.rule`) }}</router-link>
+            {{ $t(`service`) }}
+          </span>
+        </mz-checkbox>
+
+      </mz-form-item>
+      <mz-checkbox v-model="mzNewsletter"
+                   class="mz-registration-form__rule__checkbox">
+
+        <span class="mz-registration-form__rule__checkbox__label">
+          {{ $t(`registerForm.newsletter`) }}
+        </span>
       </mz-checkbox>
     </div>
 
@@ -82,14 +94,14 @@
       <mz-button :loading="loadingButton"
                  class="button"
                  form="registrationForm"
-                 native-type="submit">{{$t(`buttonsText.submit`)}}
+                 native-type="submit">{{ $t(`buttonsText.submit`) }}
       </mz-button>
 
       <router-link class="btn-register"
                    to="/login">
 
-        {{$t(`buttonsText.gotAccount`)}}
-        <span>{{$t(`buttonsText.login`)}}</span>
+        {{ $t(`buttonsText.gotAccount`) }}
+        <span>{{ $t(`buttonsText.login`) }}</span>
       </router-link>
     </div>
   </mz-form>
@@ -188,6 +200,9 @@ export default class mzRegistrationForm extends Vue {
       { required: true, message: i18n.t('rules.required'), trigger: [ 'blur', 'submit' ] },
       { min: 8, message: i18n.t('rules.minLength'), trigger: [ 'blur', 'submit' ] },
     ],
+    mzRule: [
+      { required: true, message: i18n.t('rules.required'), trigger: [ 'blur', 'submit' ] },
+    ],
   };
 
   public async registerNewUser() {
@@ -219,6 +234,17 @@ export default class mzRegistrationForm extends Vue {
   font-weight: bold;
   left: auto;
   right: 0;
+}
+
+.mz-registration-form__rule__checkbox {
+  .el-form-item__error {
+    bottom: -1rem;
+    font-size: 1.1rem !important;
+    top: auto;
+    font-weight: bold;
+    left: auto;
+    right: 0;
+  }
 }
 </style>
 
@@ -280,19 +306,33 @@ export default class mzRegistrationForm extends Vue {
   &__rule {
     display: flex;
     flex-direction: column;
-    padding: 0 2rem;
-    margin-top: 1rem;
+    margin-top: 2rem;
+
+    &__checkbox {
+      font-size: 1.2rem;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      margin: 2rem 0;
+
+      &__label {
+        font-size: 1.6rem;
+      }
+    }
   }
 }
 
-@media only screen and (max-width: 767px) {
-
+@include respond-to(tablet) {
   .mz-registration-form__rule {
     padding: 0;
+
+    &__checkbox__label {
+      font-size: 2rem;
+    }
   }
 }
 
-@media only screen and (max-width: 425px) {
+@include respond-to(mobile) {
 
   .mz-registration-form__icon {
     display: none;
