@@ -43,9 +43,9 @@ export async function getUserPicture() {
 }
 
 export function getUserItems() {
-  return axios.get('https://api.myjson.com/bins/io3ju');
+  return axios.get('http://localhost:3000/userAccountProducts');
 }
 
 export async function getUserItemsPortfolio() {
-  return axios.get('https://api.myjson.com/bins/w7to2');
+  return axios.get('http://localhost:3000/userAccountPortfolioItems');
 }

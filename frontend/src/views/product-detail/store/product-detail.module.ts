@@ -2,7 +2,7 @@ import { Module, Action, Mutation, VuexModule } from 'vuex-module-decorators';
 import cloneDeep                                from 'lodash/cloneDeep';
 import * as craftsmenDetailService              from './product-detail.service';
 import { productDetail }                        from './product-detail.state';
-import { IProductDetail }                       from '@/views/product-detail/store/product-detail.interface';
+import { IProductDetail }                       from './product-detail.interface';
 
 @Module({ namespaced: true, stateFactory: true })
 export default class productDetailModule extends VuexModule {

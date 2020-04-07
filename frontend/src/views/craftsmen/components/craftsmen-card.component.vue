@@ -160,6 +160,7 @@ export default class mzCraftsmenCard extends Vue {
           color: var(--white);
           font-size: 1.8rem;
           font-weight: var(--font-medium);
+          text-align: center;
         }
       }
     }

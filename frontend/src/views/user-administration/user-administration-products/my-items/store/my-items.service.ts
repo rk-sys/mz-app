@@ -1,5 +1,5 @@
 import axios from 'axios';
 
 export function getUserItems() {
-  return axios.get('https://api.myjson.com/bins/yuxlq');
+  return axios.get('http://localhost:3000/userAccountProducts');
 }

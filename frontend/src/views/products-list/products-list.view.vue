@@ -9,7 +9,6 @@
         <mz-products-header-info :quantity="productList.length" />
 
         <main class="mz-product-list__container__list__cards">
-
           <mz-product-card v-for="(product, index) in productList"
                            :key="index"
                            :product="product"

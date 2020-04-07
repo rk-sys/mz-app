@@ -69,7 +69,7 @@ export default class mzProductsDetailCraftsman extends Vue {
   padding: 3rem;
   background: var(--white);
   border: 1px solid var(--gray-400);
-  height: 52rem;
+  height: 50rem;
   width: 32rem;
 
   &__content {
@@ -122,14 +122,14 @@ export default class mzProductsDetailCraftsman extends Vue {
         color: var(--primary-color);
       }
     }
-  }
 
-  &__rate {
-    margin-bottom: 1rem;
-    font-size: 1.6rem;
-    font-weight: var(--font-medium);
-    display: flex;
-    justify-content: space-between;
+    &__rate {
+      margin-bottom: 1rem;
+      font-size: 1.6rem;
+      font-weight: var(--font-medium);
+      display: flex;
+      justify-content: space-between;
+    }
   }
 
   &__social-media {

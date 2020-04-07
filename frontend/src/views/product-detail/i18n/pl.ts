@@ -23,7 +23,7 @@ export default {
   craftsman: {
     rate: {
       contact: 'Kontakt:',
-      quantity: 'Jakość:',
+      quality: 'Jakość:',
       date: 'Terminowość:',
       price: 'Cena:',
     },

@@ -1,6 +1,6 @@
 export interface IProductsList {
-  defaultProductsSortOption: string;
-  productsSortOption: string[];
+  defaultProductsSortOption?: string;
+  productsSortOption?: string[];
   productList: IProduct[];
   filters: IProductsFilters;
 }

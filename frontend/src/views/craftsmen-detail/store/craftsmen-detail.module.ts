@@ -46,16 +46,6 @@ export default class craftsmenDetailModule extends VuexModule {
     }
   }
 
-  @Mutation
-  public setCraftsmenCommentsAndRate(payload: IComment[]): void {
-    this.mzCraftsmenDetailState.craftsmenComments = payload;
-  }
-
-  @Mutation
-  public setCraftsmenProducts(payload: IProduct[]): void {
-    this.mzCraftsmenDetailState.craftsmenProducts = payload;
-  }
-
   @Action
   public openModal(payload: number): void {
     this.context.commit('setActiveItemIndex', payload);
@@ -67,26 +57,6 @@ export default class craftsmenDetailModule extends VuexModule {
     try {
       const response = await craftsmenDetailService.getCraftsmenDetail(payload);
       this.context.commit('setCraftsmenDetail', response.data);
-    } catch (e) {
-      throw new Error(e);
-    }
-  }
-
-  @Action
-  public async getCraftsmenCommentsAndRate(payload: string): Promise<void> {
-    try {
-      const response = await craftsmenDetailService.getCraftsmenCommentsAndRating(payload);
-      this.context.commit('setCraftsmenCommentsAndRate', response.data);
-    } catch (e) {
-      throw new Error(e);
-    }
-  }
-
-  @Action
-  public async getCraftsmenProducts(payload: string): Promise<void> {
-    try {
-      const { data }: { data: IProduct[] } = await craftsmenDetailService.getCraftsmenProducts(payload);
-      this.context.commit('setCraftsmenProducts', data);
     } catch (e) {
       throw new Error(e);
     }
