@@ -31,6 +31,7 @@ export default {
   },
   emptyList: {
     'craftsmen': 'Brak Rzemieślników',
+    'offers list': 'Brak Ofert',
     'products list': 'Brak Produktów',
     'user portfolio': 'Nie dodano jeszcze żadnej pracy',
     'user administration my items': 'Brak wystawionych przedmiotów',

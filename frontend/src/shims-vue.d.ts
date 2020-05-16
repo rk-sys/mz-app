@@ -41,3 +41,5 @@ declare module 'element-ui/lib/rate.js';
 declare module 'element-ui/lib/dialog.js';
 declare module 'element-ui/lib/tabs.js';
 declare module 'element-ui/lib/tab-pane.js';
+declare module 'element-ui/lib/carousel.js';
+declare module 'element-ui/lib/carousel-item.js';

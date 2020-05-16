@@ -566,5 +566,105 @@
         ]
       }
     ]
-  }
+  },
+  "offers": [
+    {
+      "uuid": 1,
+      "title": "Shoes old",
+      "status": "create",
+      "image": "https://images.unsplash.com/photo-1511283402428-355853756676?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80",
+      "additionalImages": [
+        "https://images.unsplash.com/photo-1511283402428-355853756676?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
+      ],
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
+      "startPrice": 120,
+      "finalPrice": 300
+    },
+    {
+      "uuid": 2,
+      "title": "Shoes old",
+      "status": "create",
+      "image": "https://images.unsplash.com/photo-1511283402428-355853756676?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80",
+      "additionalImages": [
+        "https://images.unsplash.com/photo-1511283402428-355853756676?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80",
+        "https://images.unsplash.com/photo-1570025133152-5fcc2cfe6573?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1352&q=80",
+        "https://images.unsplash.com/photo-1550274503-f50cf8dd4ab3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
+      ],
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
+      "startPrice": 120,
+      "finalPrice": 300
+    },
+    {
+      "uuid": 3,
+      "title": "Shoes old",
+      "status": "create",
+      "image": "https://images.unsplash.com/photo-1511283402428-355853756676?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80",
+      "additionalImages": [
+        "https://images.unsplash.com/photo-1511283402428-355853756676?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
+      ],
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
+      "startPrice": 120,
+      "finalPrice": 300
+    },
+    {
+      "uuid": 4,
+      "title": "Shoes old",
+      "status": "lookingFor",
+      "image": "https://images.unsplash.com/photo-1511283402428-355853756676?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80",
+      "additionalImages": [
+        "https://images.unsplash.com/photo-1511283402428-355853756676?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
+      ],
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
+      "startPrice": 120,
+      "finalPrice": 300
+    },
+    {
+      "uuid": 5,
+      "title": "Shoes old",
+      "status": "lookingFor",
+      "image": "https://images.unsplash.com/photo-1511283402428-355853756676?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80",
+      "additionalImages": [
+        "https://images.unsplash.com/photo-1511283402428-355853756676?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
+      ],
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
+      "startPrice": 120,
+      "finalPrice": 300
+    },
+    {
+      "uuid": 6,
+      "title": "Shoes old",
+      "status": "lookingFor",
+      "image": "https://images.unsplash.com/photo-1511283402428-355853756676?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80",
+      "additionalImages": [
+        "https://images.unsplash.com/photo-1511283402428-355853756676?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
+      ],
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
+      "startPrice": 120,
+      "finalPrice": 300
+    },
+    {
+      "uuid": 7,
+      "title": "Shoes old",
+      "status": "create",
+      "image": "https://images.unsplash.com/photo-1511283402428-355853756676?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80",
+      "additionalImages": [
+        "https://images.unsplash.com/photo-1511283402428-355853756676?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
+      ],
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
+      "startPrice": 120,
+      "finalPrice": 300
+    },
+    {
+      "uuid": 8,
+      "title": "Shoes old",
+      "status": "create",
+      "image": "https://images.unsplash.com/photo-1511283402428-355853756676?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80",
+      "additionalImages": [
+        "https://images.unsplash.com/photo-1511283402428-355853756676?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
+      ],
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
+      "startPrice": 120,
+      "finalPrice": 300
+    }
+  ]
 }

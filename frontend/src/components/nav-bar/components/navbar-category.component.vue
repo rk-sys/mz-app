@@ -18,7 +18,7 @@
     </router-link>
 
     <router-link class="nav-bar-category__services"
-                 to="/#">
+                 :to="{ name: 'Offers list' }">
 
       <div class="icon icon-tag"></div>
       {{ $t(`navBar.services`) }}

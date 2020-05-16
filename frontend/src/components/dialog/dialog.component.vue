@@ -29,4 +29,10 @@ export default class mzDialog extends Mixins(mzTransparentWrapper) {
 .el-dialog__body {
   padding: 0 3rem 3rem;
 }
+
+.el-dialog__headerbtn {
+  width: 2rem;
+  height: 2rem;
+}
+
 </style>
