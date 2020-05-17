@@ -1,8 +1,8 @@
 export default {
   history: {
     title: 'Historia',
-    offer: 'Zrealizowane oferty',
-    products: 'Zrealizowane produkty',
+    offer: 'Oferty',
+    products: 'Produkty',
   },
   offer: {
     title: 'Oferty',

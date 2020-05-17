@@ -13,9 +13,9 @@ export default {
   },
   dialog: {
     warning: 'Uwaga!',
-    deleteItem: 'Czy na pewno chcesz usunąć',
+    deleteItem: 'Czy na pewno chcesz zakończyć',
     button: {
-      delete: 'Usuń',
+      delete: 'Zakończ',
       cancel: 'Anuluj',
     },
   },

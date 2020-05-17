@@ -59,7 +59,7 @@ export const menuAdministration: IUserAdministration = {
           label: 'offer',
         },
         {
-          name: 'Login',
+          name: 'User administration history product list',
           label: 'products',
         },
       ],

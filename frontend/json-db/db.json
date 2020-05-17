@@ -25,6 +25,36 @@
       "price": 99879
     }
   ],
+  "userAccountProductsHistory": [
+    {
+      "avatar": "https://images.unsplash.com/photo-1584992236310-6edddc08acff?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1267&q=80",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
+      "title": "orange blue and white yarn",
+      "price": 100.2,
+      "status": "cancelled"
+    },
+    {
+      "avatar": "https://images.unsplash.com/photo-1451930393367-e1e01fc2bacc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
+      "title": "leather, brown, last",
+      "price": 1.12,
+      "status": "completed"
+    },
+    {
+      "avatar": "https://images.unsplash.com/photo-1511283402428-355853756676?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
+      "title": "Shoes old, sale!",
+      "price": 120,
+      "status": "cancelled"
+    },
+    {
+      "avatar": "https://images.unsplash.com/photo-1581383407993-1352bdc4dd25?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
+      "title": "Hat leather!",
+      "price": 99879,
+      "status": "completed"
+    }
+  ],
   "userAccountPortfolioItems": [
     {
       "picture": {
