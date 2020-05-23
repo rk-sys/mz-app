@@ -17,11 +17,7 @@
         {{item.description}}
       </p>
       <p class="mz-user-item__info__price">
-        {{item.price}}
-
-        <span class="currency">
-          {{item.currency}}
-        </span>
+        {{item.price}} {{item.currency}}
       </p>
     </div>
     <div class="mz-user-item__action">
@@ -30,21 +26,43 @@
                     'icon-chat--blue': isHoverChat}"
            @mouseenter="isHoverChat = true"
            @mouseleave="isHoverChat = false"></div>
+
+      <div class="icon"
+           @click="emitDeleteItem(item)"
+           :class="{'icon-delete': !isHoverDelete,
+                    'icon-delete--red': isHoverDelete}"
+           @mouseenter="isHoverDelete = true"
+           @mouseleave="isHoverDelete = false"></div>
     </div>
   </div>
 </template>
 
 <script lang="ts">
 import { Component, Vue, Prop } from 'vue-property-decorator';
-import { IUserItem }            from '../store/in-realization.interface';
+import { namespace }            from 'vuex-class';
 import router                   from '@/router';
+import { IUserItem }            from '../store/in-realization.interface';
+import mzUserItemListModule     from '../store/in-realization.module';
+
+const LOCAL_STORE: string = 'userAdministrationInRealization';
+const local = namespace(LOCAL_STORE);
 
 @Component({
   components: {},
 })
 export default class mzUserItems extends Vue {
   @Prop(Object) public item!: IUserItem;
+  @local.State((state: mzUserItemListModule) => state.isModalOpen) public isModalOpen!: boolean;
+  @local.Mutation public setIsModalOpen!: (payload: boolean) => void;
+  @local.Mutation public setDeleteProduct!: (payload: IUserItem) => void;
+
   public isHoverChat: boolean = false;
+  public isHoverDelete: boolean = false;
+
+  public emitDeleteItem(arg: IUserItem): void {
+    this.setDeleteProduct(arg);
+    this.setIsModalOpen(true);
+  }
 
   public goToProductDetail(uuid: string): void {
     router.push({ name: 'Product detail', params: { uuid } });
@@ -107,12 +125,6 @@ export default class mzUserItems extends Vue {
       color: var(--secondary-color);
       font-size: 2.2rem;
       margin: 1rem 0 0 0;
-
-      .currency {
-        font-size: 1.8rem;
-        font-weight: var(--font-medium);
-        color: var(--black);
-      }
     }
   }
 

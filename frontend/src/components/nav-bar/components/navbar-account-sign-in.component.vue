@@ -56,7 +56,7 @@
     </mz-dropdown-item>
 
     <mz-dropdown-item class="mz-nav-bar-account-sign-in__item">
-      <router-link :to="{name: 'User administration offer'}"
+      <router-link :to="{name: 'User administration my offers'}"
                    class="mz-nav-bar-account-sign-in__item__link">
 
         {{ $t(`navBar.myOffer`) }}
@@ -64,7 +64,7 @@
     </mz-dropdown-item>
 
     <mz-dropdown-item class="mz-nav-bar-account-sign-in__item">
-      <router-link :to="{name: 'User administration history'}"
+      <router-link :to="{name: 'User administration history product list'}"
                    class="mz-nav-bar-account-sign-in__item__link">
 
         {{ $t(`navBar.myHistory`) }}

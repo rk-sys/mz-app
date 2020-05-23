@@ -17,11 +17,7 @@
         {{item.description}}
       </p>
       <p class="mz-user-item__info__price">
-        {{item.price}}
-
-        <span class="currency">
-          {{item.currency}}
-        </span>
+        {{item.price}} {{item.currency}}
       </p>
     </div>
 
@@ -136,12 +132,6 @@ export default class mzUserItems extends Vue {
       color: var(--primary-color);
       font-size: 2.2rem;
       margin: 1rem 0 0 0;
-
-      .currency {
-        font-size: 1.8rem;
-        font-weight: var(--font-medium);
-        color: var(--black);
-      }
     }
   }
 

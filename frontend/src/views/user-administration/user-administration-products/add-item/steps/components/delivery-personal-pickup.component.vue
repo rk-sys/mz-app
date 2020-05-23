@@ -82,11 +82,11 @@ import mzAddItemModule                       from '../../store/user-account-add-
 import mzBoxWithTitle                        from '@/components/box-with-title/box-with-title.component.vue';
 import mzCheckbox                            from '@/components/form/checkbox/checkbox.component.vue';
 import mzFormItem                            from '@/components/form/form-item/form-item.component.vue';
-import mzButton                          from '@/components/buttons/button.component.vue';
-import mzRadio                           from '@/components/form/radio/radio.component.vue';
-import mzInput                           from '@/components/input/mz-input.component.vue';
-import mzForm                            from '@/components/form/form/form.component.vue';
-import { i18n }                          from '@/i18n/i18n';
+import mzButton                              from '@/components/buttons/button.component.vue';
+import mzRadio                               from '@/components/form/radio/radio.component.vue';
+import mzInput                               from '@/components/input/mz-input.component.vue';
+import mzForm                                from '@/components/form/form/form.component.vue';
+import { i18n }                              from '@/i18n/i18n';
 
 const LOCAL_STORE: string = 'addItem';
 const local = namespace(LOCAL_STORE);

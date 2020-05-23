@@ -10,4 +10,12 @@ export default {
       show: 'Pokaż:',
     },
   },
+  dialog: {
+    warning: 'Uwaga!',
+    deleteOffer: 'Produkt jest w trakcie realizacji, czy na penwo chcesz zakończyć?',
+    button: {
+      delete: 'Zakończ',
+      cancel: 'Anuluj',
+    },
+  },
 };

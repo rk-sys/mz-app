@@ -1,16 +1,25 @@
 <template>
-  <div class="mz-user-item">
-    <div class="mz-user-item__picture"
+  <div class="mz-user-offer">
+    <div class="mz-user-offer__picture"
          @click="goToProductDetail(item.id)">
+
+      <div class="mz-user-offer__picture__type"
+           :class="{'buy' : item.type === 'buy',
+                       'crafting' : item.type === 'crafting'}">
+
+        <span class="mz-user-offer__picture__type__label">
+                  {{ $t(`item.${item.type}`) }}</span>
+      </div>
 
       <img class="picture"
            :src="item.avatar"
            :alt="item.title" />
     </div>
-    <div class="mz-user-item__info"
+
+    <div class="mz-user-offer__info"
          @click="goToProductDetail(item.id)">
 
-      <h2 class="mz-user-item__info__title">
+      <h2 class="mz-user-offer__info__title">
         {{item.title}} -
 
         <span v-if="item.status === 'cancelled'"
@@ -25,14 +34,15 @@
       </span>
       </h2>
 
-      <p class="mz-user-item__info__description">
+      <p class="mz-user-offer__info__description">
         {{item.description}}
       </p>
-      <p class="mz-user-item__info__price">
+      <p class="mz-user-offer__info__price">
         {{item.price}} {{item.currency}}
       </p>
     </div>
-    <div class="mz-user-item__action">
+
+    <div class="mz-user-offer__action">
       <div class="icon"
            :class="{'icon-chat': !isHoverChat,
                     'icon-chat--blue': isHoverChat}"
@@ -50,30 +60,30 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue, Prop }   from 'vue-property-decorator';
-import { IDeleteItem, IUserItem } from '../store/product-history.interface';
-import router                     from '@/router';
-import mzProductHistorModule      from '../store/product-history.module';
-import { namespace }              from 'vuex-class';
+import { Component, Vue, Prop }      from 'vue-property-decorator';
+import { namespace }                 from 'vuex-class';
+import router                        from '@/router';
+import { IDeleteOffer, IUserOffers } from '../store/offer-history.interface';
+import mzUserOfferListModule         from '../store/offer-history.module';
 
-const LOCAL_STORE: string = 'mzProductHistory';
+const LOCAL_STORE: string = 'mzOfferHistory';
 const local = namespace(LOCAL_STORE);
 
 @Component({
   components: {},
 })
 export default class mzUserItems extends Vue {
-  @local.State((state: mzProductHistorModule) => state.isModalOpen) public isModalOpen!: boolean;
-  @local.State((state: mzProductHistorModule) => state.deleteItem) public deleteItem!: IDeleteItem;
+  @local.State((state: mzUserOfferListModule) => state.isModalOpen) public isModalOpen!: boolean;
+  @local.State((state: mzUserOfferListModule) => state.deleteOffer) public deleteItem!: IDeleteOffer;
   @local.Mutation public setIsModalOpen!: (payload: boolean) => void;
-  @local.Mutation public setDeleteItem!: (payload: IUserItem) => void;
-  @Prop(Object) public item!: IUserItem;
+  @local.Mutation public setDeleteOffer!: (payload: IUserOffers) => void;
+  @Prop(Object) public item!: IUserOffers;
 
   public isHoverChat: boolean = false;
   public isHoverDelete: boolean = false;
 
-  public emitDeleteItem(arg: IUserItem): void {
-    this.setDeleteItem(arg);
+  public emitDeleteItem(arg: IUserOffers): void {
+    this.setDeleteOffer(arg);
     this.setIsModalOpen(true);
   }
 
@@ -86,25 +96,24 @@ export default class mzUserItems extends Vue {
 <style lang="scss"
        scoped>
 
-.mz-user-item {
+.mz-user-offer {
   width: 100%;
   background: var(--white);
   margin-bottom: 1rem;
   display: flex;
   border-radius: 2px;
   align-items: center;
-  border: 1px solid var(--white);
 
   &:hover {
     box-shadow: 0 0 1.5rem 0 var(--gray-500);
-    border: 1px solid var(--gray-500);
     transition: var(--transition-product-card);
   }
 
   &__picture {
-    width: 20rem;
+    width: 23rem;
     height: 15rem;
     cursor: pointer;
+    display: flex;
 
     .picture {
       object-fit: cover;
@@ -112,6 +121,31 @@ export default class mzUserItems extends Vue {
       height: 15rem;
       border-radius: 2px;
       filter: grayscale(.35);
+    }
+
+    &__type {
+      width: 3rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 2px;
+      filter: grayscale(.35);
+
+      &.buy {
+        background: var(--thirth-color);
+      }
+
+      &.crafting {
+        background: var(--secondary-color);
+      }
+
+      &__label {
+        display: block;
+        transform: rotate(-90deg);
+        text-align: center;
+        font-weight: var(--font-medium);
+        color: var(--white);
+      }
     }
   }
 
@@ -173,7 +207,7 @@ export default class mzUserItems extends Vue {
 
 
 @include respond-to(mobile) {
-  .mz-user-item {
+  .mz-user-offer {
     flex-direction: column;
 
     &__picture {

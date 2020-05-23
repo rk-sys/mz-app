@@ -6,11 +6,9 @@ export default {
   },
   offer: {
     title: 'Oferty',
-    searchCraftsmen: 'Szukam rzemieślnika',
-    buyProduct: 'Kupię produkt',
-    craftProduct: 'Wykonam przedmiot',
     addOffer: 'Wystaw ofertę',
     offerInRealization: 'Oferty w realizacji',
+    myOffers: 'Moje oferty',
   },
   products: {
     title: 'Przedmioty',

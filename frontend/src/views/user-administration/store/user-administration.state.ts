@@ -28,23 +28,15 @@ export const menuAdministration: IUserAdministration = {
       activeName: 'offer',
       links: [
         {
-          name: 'Login',
-          label: 'searchCraftsmen',
-        },
-        {
-          name: 'Login',
-          label: 'buyProduct',
-        },
-        {
-          name: 'Login',
-          label: 'craftProduct',
+          name: 'User administration my offers',
+          label: 'myOffers',
         },
         {
           name: 'Login',
           label: 'addOffer',
         },
         {
-          name: 'Login',
+          name: 'User administration offers in realization',
           label: 'offerInRealization',
         },
       ],
@@ -55,12 +47,12 @@ export const menuAdministration: IUserAdministration = {
       activeName: 'history',
       links: [
         {
-          name: 'Login',
-          label: 'offer',
-        },
-        {
           name: 'User administration history product list',
           label: 'products',
+        },
+        {
+          name: 'User administration history offer list',
+          label: 'offer',
         },
       ],
     },

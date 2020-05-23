@@ -2,6 +2,7 @@ export default {
   item: {
     found: 'Wystawiono:',
     items: 'przedmiotów',
+    currency: 'zł',
     action: {
       details: 'szczegóły',
       edit: 'edytuj',

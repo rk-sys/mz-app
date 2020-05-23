@@ -1,16 +1,14 @@
-export interface IUserItem {
+export interface IUserOffers {
   avatar: string;
   description: string;
   title: string;
   price: number;
-}
-
-export interface IUserItemStatus {
-  items: IUserItem[];
+  uuid: string;
   status: string;
+  type: string;
 }
 
-export interface IDeleteProdcut {
+export interface IDeleteOffer {
   uuid: string;
   title: string;
 }
