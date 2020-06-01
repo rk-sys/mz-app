@@ -43,3 +43,4 @@ declare module 'element-ui/lib/tabs.js';
 declare module 'element-ui/lib/tab-pane.js';
 declare module 'element-ui/lib/carousel.js';
 declare module 'element-ui/lib/carousel-item.js';
+declare module 'element-ui/lib/badge.js';

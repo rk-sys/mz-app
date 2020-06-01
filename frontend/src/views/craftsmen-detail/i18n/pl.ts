@@ -6,6 +6,7 @@ export default {
     comment: 'Oceny i komentarze',
   },
   craftsmenDetailMenu: {
+    fallow: 'Dodaj do ulubionych',
     rating: {
       contact: 'Kontakt:',
       quality: 'Jakość:',

@@ -1,9 +1,8 @@
-import { Module, Action, Mutation, VuexModule }            from 'vuex-module-decorators';
-import cloneDeep                                           from 'lodash/cloneDeep';
-import { craftsmenDetail, craftsmenMenuLinks }             from './craftsmen-detail.state';
-import { IComment, ICraftsmenDetail, ICraftsmenMenuLinks } from './craftsmen-detail.interface';
-import * as craftsmenDetailService                         from './craftsmen-detail.service';
-import { IProduct }                                        from '@/views/products-list/store/products.interface';
+import { Module, Action, Mutation, VuexModule }  from 'vuex-module-decorators';
+import cloneDeep                                 from 'lodash/cloneDeep';
+import { craftsmenDetail, craftsmenMenuLinks }   from './craftsmen-detail.state';
+import { ICraftsmenDetail, ICraftsmenMenuLinks } from './craftsmen-detail.interface';
+import * as craftsmenDetailService               from './craftsmen-detail.service';
 
 @Module({ namespaced: true, stateFactory: true })
 export default class craftsmenDetailModule extends VuexModule {

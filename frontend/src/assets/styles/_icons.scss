@@ -1,5 +1,15 @@
 .icon {
 
+  &-hearth {
+    background: url("~@/assets/icons/heart/heart.svg") no-repeat center;
+    background-size: contain;
+  }
+
+  &-hearth--full {
+    background: url("~@/assets/icons/heart/heart--full.svg") no-repeat center;
+    background-size: contain;
+  }
+
   &-camera {
     background: url("~@/assets/icons/camera/camera.svg") no-repeat center;
     background-size: contain;

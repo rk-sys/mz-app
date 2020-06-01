@@ -1,6 +1,7 @@
 <template>
   <div class="mz-progress">
     <div class="mz-progress__label">
+
       <mz-tooltip :content="$t(`progressBar.tooltip.${ customLabel() }`)"
                   placement="right">
 
