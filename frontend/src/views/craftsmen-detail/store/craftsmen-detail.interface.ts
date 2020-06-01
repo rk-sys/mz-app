@@ -38,6 +38,7 @@ export interface IRate {
 }
 
 export interface ICraftsmenBaseInfo {
+  follow: boolean;
   name: string;
   picture: string;
   ratings: IRatings[];

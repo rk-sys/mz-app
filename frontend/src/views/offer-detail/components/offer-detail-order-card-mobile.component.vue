@@ -49,14 +49,24 @@
         <div class="mz-product-detail-card-mobile__product__price">
 
           {{ $t(`price.from`) }}
+
           <span class="mz-product-detail-card-mobile__product__price__value">
-          {{ offer.offerDetail.price.from }} {{ offer.offerDetail.price.currency }}
-        </span>
+            {{ offer.offerDetail.price.from }} {{ offer.offerDetail.price.currency }}
+          </span>
 
           {{ $t(`price.to`) }}
           <span class="mz-product-detail-card-mobile__product__price__value">
-          {{ offer.offerDetail.price.to }} {{ offer.offerDetail.price.currency }}
-        </span>
+            {{ offer.offerDetail.price.to }} {{ offer.offerDetail.price.currency }}
+          </span>
+
+          <mz-tooltip :content="$t(`follow.${offer.offerDetail.follow}`)"
+                      placement="top"
+                      class="mz-product-detail-card-mobile__product__price__follow">
+
+            <div class="icon"
+                 :class="{'red icon-heart--full' : offer.offerDetail.follow,
+                      'gray icon-heart' : !offer.offerDetail.follow}"></div>
+          </mz-tooltip>
         </div>
 
         <div class="mz-product-detail-card-mobile__product__description">
@@ -77,10 +87,12 @@ import { IOffer }               from '../store/offer-detail.interface';
 import mzOfferDetailPicture     from './offer-detail-pictures.component.vue';
 import mzCollapse               from '@/components/commons/collapse/collapse.component.vue';
 import mzCollapseItem           from '@/components/commons/collapse-item/collapse-item.component.vue';
+import mzTooltip                from '@/components/tooltip/tooltip.component.vue';
 
 @Component({
   components: {
     mzRate,
+    mzTooltip,
     mzCollapse,
     mzCollapseItem,
     mzOfferDetailPicture,
@@ -210,6 +222,35 @@ export default class mzProductDetailCardMobile extends Vue {
       font-size: 2.6rem;
       margin-bottom: 1rem;
       margin-top: 1rem;
+      position: relative;
+
+      &__follow {
+        opacity: 1;
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 3.4rem;
+        height: 3.4rem;
+        cursor: pointer;
+        filter: grayscale(1);
+        transition: .3s ease;
+
+        &.red {
+          filter: grayscale(0);
+        }
+
+        &:hover {
+          transition: .3s ease;
+
+          &.red {
+            filter: grayscale(1);
+          }
+
+          &.gray {
+            filter: grayscale(0);
+          }
+        }
+      }
 
       &__value {
         color: var(--primary-color);

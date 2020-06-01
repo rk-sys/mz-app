@@ -28,11 +28,11 @@
       </mz-dropdown>
     </div>
 
-    <div class="nav-bar-profile__basket">
+    <div class="nav-bar-profile__heart">
 
-      <div :class="basketHover? 'icon-shopping-cart--primary':'icon-shopping-cart'"
-           @mouseenter="basketHover = true"
-           @mouseleave="basketHover = false"
+      <div :class="followHover? 'icon-heart red':'icon-heart'"
+           @mouseenter="followHover = true"
+           @mouseleave="followHover = false"
            class="icon "></div>
     </div>
   </div>
@@ -63,7 +63,7 @@ export default class mzNavBarProfile extends Vue {
 
   public searchHover = false;
   public userHover = false;
-  public basketHover = false;
+  public followHover = false;
 }
 </script>
 
@@ -75,7 +75,15 @@ export default class mzNavBarProfile extends Vue {
   align-items: center;
   padding: 0;
 
-  &__basket,
+  &__heart {
+    filter: grayscale(1);
+
+    &:hover {
+      filter: grayscale(0);
+    }
+  }
+
+  &__heart,
   &__user,
   &__search {
     height: 100%;

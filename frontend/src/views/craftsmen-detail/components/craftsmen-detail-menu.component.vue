@@ -1,6 +1,16 @@
 <template>
   <div class="mz-craftsmen-detail-menu">
     <div class="mz-craftsmen-detail-menu__info">
+
+      <mz-tooltip :content="$t(`follow.${baseInfo.follow}`)"
+                  placement="top"
+                  class="mz-craftsmen-detail-menu__info__follow">
+
+        <div class="icon"
+             :class="{'red icon-heart--full' : baseInfo.follow,
+                      'gray icon-heart' : !baseInfo.follow}"></div>
+      </mz-tooltip>
+
       <img :src="baseInfo.picture"
            alt="craftsmen-image"
            class="picture">
@@ -47,6 +57,7 @@ import { ICraftsmenBaseInfo, ICraftsmenMenuLinks } from '@/views/craftsmen-detai
 import mzCraftsmenDetailModule                     from '../store/craftsmen-detail.module';
 import mzSocialMedia                               from '@/components/social-media/social-media.component.vue';
 import mzRate                                      from '@/components/rate/rate.component.vue';
+import mzTooltip                                   from '@/components/tooltip/tooltip.component.vue';
 
 const LOCAL_STORE: string = 'mzCraftsmenDetail';
 const local = namespace(LOCAL_STORE);
@@ -54,6 +65,7 @@ const local = namespace(LOCAL_STORE);
 @Component({
   components: {
     mzRate,
+    mzTooltip,
     mzSocialMedia,
   },
 })
@@ -73,6 +85,33 @@ export default class mzCraftsmenDetailMenu extends Vue {
     display: flex;
     flex-direction: column;
     margin-bottom: 5rem;
+    position: relative;
+
+    &__follow {
+      position: absolute;
+      right: 0;
+      width: 3.4rem;
+      height: 3.4rem;
+      cursor: pointer;
+      filter: grayscale(1);
+      transition: .3s ease;
+
+      &.red {
+        filter: grayscale(0);
+      }
+
+      &:hover {
+        transition: .3s ease;
+
+        &.red {
+          filter: grayscale(1);
+        }
+
+        &.gray {
+          filter: grayscale(0);
+        }
+      }
+    }
 
     .picture {
       width: 17.5rem;

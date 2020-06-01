@@ -277,6 +277,7 @@
   ],
   "craftsmanDetail": {
     "craftsmenBaseInfo": {
+      "follow": false,
       "name": "Kapsel Kłukowski",
       "picture": "https://images.unsplash.com/photo-1575425187384-ccd8f6a161e8?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80",
       "ratings": [
@@ -515,6 +516,7 @@
       }
     },
     "product": {
+      "follow": false,
       "title": "Nowe buty od Kaspela",
       "description": "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. ",
       "price": "260.59",
@@ -752,6 +754,7 @@
       "picture": "https://images.unsplash.com/photo-1575425186775-b8de9a427e67?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80"
     },
     "offerDetail": {
+      "follow": true,
       "type": "buy",
       "title": "Przeszywanica do DESW z XVw.",
       "price": {

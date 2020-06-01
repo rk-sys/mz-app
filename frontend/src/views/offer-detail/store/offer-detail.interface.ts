@@ -5,6 +5,7 @@ export interface IOffer {
 }
 
 export interface IOfferDetail {
+  follow: boolean;
   type: string;
   title: string;
   price: {

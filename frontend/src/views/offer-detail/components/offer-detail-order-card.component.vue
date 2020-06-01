@@ -40,9 +40,20 @@
 
     <div class="mz-product-detail-card__product">
 
-      <span class="mz-product-detail-card__product__type">
-         {{ $t(`type.${offer.offerDetail.type}`) }}
-       </span>
+      <div class="mz-product-detail-card__product__type">
+        <span class="mz-product-detail-card__product__type__label">
+          {{ $t(`type.${offer.offerDetail.type}`) }}
+        </span>
+
+        <mz-tooltip :content="$t(`follow.${offer.offerDetail.follow}`)"
+                    placement="top"
+                    class="mz-product-detail-card__product__type__follow">
+
+          <div class="icon"
+               :class="{'red icon-heart--full' : offer.offerDetail.follow,
+                      'gray icon-heart' : !offer.offerDetail.follow}"></div>
+        </mz-tooltip>
+      </div>
 
       <div class="mz-product-detail-card__product__title">
         {{offer.offerDetail.title}}
@@ -76,10 +87,12 @@ import mzRate                   from '@/components/rate/rate.component.vue';
 import router                   from '@/router';
 import { IOffer }               from '../store/offer-detail.interface';
 import mzOfferDetailPicture     from './offer-detail-pictures.component.vue';
+import mzTooltip                from '@/components/tooltip/tooltip.component.vue';
 
 @Component({
   components: {
     mzRate,
+    mzTooltip,
     mzOfferDetailPicture,
   },
 })
@@ -176,12 +189,44 @@ export default class mzProductDetailCard extends Vue {
     }
 
     &__type {
-      opacity: .3;
-      line-height: 1;
-      font-size: 3rem;
-      letter-spacing: .4rem;
-      color: var(--primary-color);
-      font-weight: var(--font-bold);
+      position: relative;
+
+      &__label {
+        opacity: .3;
+        line-height: 1;
+        font-size: 3rem;
+        letter-spacing: .4rem;
+        color: var(--primary-color);
+        font-weight: var(--font-bold);
+      }
+
+      &__follow {
+        opacity: 1;
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 3.4rem;
+        height: 3.4rem;
+        cursor: pointer;
+        filter: grayscale(1);
+        transition: .3s ease;
+
+        &.red {
+          filter: grayscale(0);
+        }
+
+        &:hover {
+          transition: .3s ease;
+
+          &.red {
+            filter: grayscale(1);
+          }
+
+          &.gray {
+            filter: grayscale(0);
+          }
+        }
+      }
     }
 
     &__price {

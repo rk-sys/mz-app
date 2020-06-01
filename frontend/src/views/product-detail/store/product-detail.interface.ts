@@ -16,6 +16,7 @@ export interface ICraftsman {
 }
 
 export interface IProduct {
+  follow: boolean;
   title: string;
   description: string;
   price: number;

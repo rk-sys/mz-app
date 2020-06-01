@@ -38,4 +38,5 @@ export default {
     emptyTags: 'Brak tagów',
   },
   pictureHover: 'Przejdź do profilu',
+  follow: 'Dodaj do ulubionych',
 };

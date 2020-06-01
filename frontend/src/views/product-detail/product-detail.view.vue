@@ -2,7 +2,8 @@
   <div class="mz-product-detail">
     <div class="mz-product-detail__content">
       <main class="mz-product-detail__content__product-info">
-        <mz-product-detail-picture :pictures="productDetail.product.pictures" />
+        <mz-product-detail-picture :pictures="productDetail.product.pictures"
+                                   :is-follow="productDetail.product.follow"/>
 
         <mz-product-detail-description :description="productDetail.product.description"
                                        :tags="productDetail.product.tags"
@@ -11,6 +12,7 @@
                                        :subCategory="productDetail.product.subCategory"
                                        :gender="productDetail.product.gender"
                                        :isNew="productDetail.product.isNew"
+                                       :is-follow="productDetail.product.follow"
                                        :delivery="productDetail.product.productDeliveryOptions" />
       </main>
 

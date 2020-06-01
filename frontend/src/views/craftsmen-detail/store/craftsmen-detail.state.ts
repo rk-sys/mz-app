@@ -2,6 +2,7 @@ import { ICraftsmenDetail, ICraftsmenMenuLinks } from './craftsmen-detail.interf
 
 export const craftsmenDetail: ICraftsmenDetail = {
   craftsmenBaseInfo: {
+    follow: true,
     name: '',
     picture: '',
     ratings: [],

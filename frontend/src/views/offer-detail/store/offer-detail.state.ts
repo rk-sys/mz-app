@@ -8,6 +8,7 @@ export const mzOffer: IOffer = {
     uuid: '',
   },
   offerDetail: {
+    follow: false,
     type: '',
     title: '',
     price: {

@@ -6,7 +6,6 @@ export default {
     comment: 'Oceny i komentarze',
   },
   craftsmenDetailMenu: {
-    fallow: 'Dodaj do ulubionych',
     rating: {
       contact: 'Kontakt:',
       quality: 'Jakość:',
@@ -31,6 +30,10 @@ export default {
     contact: 'Kontakt: ',
     punctuality: 'Terminowość: ',
     reply: 'odpowiedział(a)',
+  },
+  follow: {
+    false: 'Dodaj do ulubionych',
+    true: 'Usuń z ulubionych',
   },
   pictureHover: 'Przejdź do produktu',
   currency: {

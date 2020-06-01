@@ -15,6 +15,7 @@ export const productDetail: IProductDetail = {
     },
   },
   product: {
+    follow: false,
     id: '',
     title: '',
     description: '',

@@ -10,6 +10,10 @@ export default {
     to: 'do',
   },
   show: 'Wyświetl zdjęcie',
+  follow: {
+    false: 'Dodaj do ulubionych',
+    true: 'Usuń z ulubionych',
+  },
   order: {
     status: 'Status',
     price: 'Cena',

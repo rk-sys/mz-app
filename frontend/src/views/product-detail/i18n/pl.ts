@@ -14,6 +14,10 @@ export default {
     addToCheckout: 'Kupuję',
     delivery: 'Sposoby dostawy',
   },
+  follow: {
+    false: 'Dodaj do ulubionych',
+    true: 'Usuń z ulubionych',
+  },
   delivery: {
     personalPickup: 'Odbiór osobisty',
     courier: 'Wysyłka kurierem',

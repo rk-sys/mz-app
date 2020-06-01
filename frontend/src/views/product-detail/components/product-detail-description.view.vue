@@ -1,7 +1,19 @@
 <template>
   <div class="mz-product-detail-description">
     <div class="mz-product-detail-description__wrapper">
-      <h2 class="mz-product-detail-description__wrapper__title">{{ $t(`product.title`) }}</h2>
+      <h2 class="mz-product-detail-description__wrapper__title">
+        {{ $t(`product.title`) }}
+
+        <mz-tooltip :content="$t(`follow.${isFollow}`)"
+                    placement="top"
+                    class="mz-product-detail-description__wrapper__title__follow">
+
+          <div class="icon"
+               :class="{'red icon-heart--full' : isFollow,
+                      'gray icon-heart' : !isFollow}"></div>
+        </mz-tooltip>
+      </h2>
+
       <p class="mz-product-detail-description__wrapper__info">{{ description }}</p>
 
       <div class="mz-product-detail-description__wrapper__tags">
@@ -77,10 +89,12 @@
 import { Component, Prop, Vue } from 'vue-property-decorator';
 import mzTag                    from '@/components/tag/tag.component.vue';
 import { IAddItemNewItem }      from '@/views/user-administration/user-administration-products/add-item/store/user-account-add-item.interface';
+import mzTooltip                from '@/components/tooltip/tooltip.component.vue';
 
 @Component({
   components: {
     mzTag,
+    mzTooltip,
   },
 })
 export default class mzProductsDetailPicture extends Vue {
@@ -91,6 +105,7 @@ export default class mzProductsDetailPicture extends Vue {
   @Prop(String) public readonly subCategory!: string;
   @Prop(String) public readonly gender!: string;
   @Prop(Boolean) public readonly isNew!: boolean;
+  @Prop(Boolean) public readonly isFollow!: boolean;
   @Prop(Array) public readonly delivery!: IAddItemNewItem[];
 }
 </script>
@@ -108,6 +123,34 @@ export default class mzProductsDetailPicture extends Vue {
     &__title {
       font-size: 2.6rem;
       margin: 1rem 0;
+      position: relative;
+
+      &__follow {
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 3.4rem;
+        height: 3.4rem;
+        cursor: pointer;
+        filter: grayscale(1);
+        transition: .3s ease;
+
+        &.red {
+          filter: grayscale(0);
+        }
+
+        &:hover {
+          transition: .3s ease;
+
+          &.red {
+            filter: grayscale(1);
+          }
+
+          &.gray {
+            filter: grayscale(0);
+          }
+        }
+      }
     }
 
     &__info {
