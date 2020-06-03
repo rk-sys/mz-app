@@ -184,27 +184,17 @@ import { namespace }       from 'vuex-class';
 import { IAddItemNewItem } from '../store/user-account-add-item.interface';
 import mzAddItemModule     from '../store/user-account-add-item.module';
 import mzButton            from '@/components/buttons/button.component.vue';
-import mzInput             from '@/components/input/mz-input.component.vue';
-import mzInputTextarea     from '@/components/input-textarea/mz-input-textarea.component.vue';
-import mzFormItem          from '@/components/form/form-item/form-item.component.vue';
-import mzForm              from '@/components/form/form/form.component.vue';
 import mzBoxWithTitle      from '@/components/box-with-title/box-with-title.component.vue';
 import mzTag               from '@/components/tag/tag.component.vue';
-import mzRadio             from '@/components/form/radio/radio.component.vue';
 
 const LOCAL_STORE: string = 'addItem';
 const local = namespace(LOCAL_STORE);
 
 @Component({
   components: {
-    mzFormItem,
-    mzInput,
-    mzForm,
+    mzTag,
     mzButton,
     mzBoxWithTitle,
-    mzInputTextarea,
-    mzTag,
-    mzRadio,
   },
 })
 export default class mzUserAdministrationItemSummary extends Vue {
@@ -263,12 +253,14 @@ export default class mzUserAdministrationItemSummary extends Vue {
   }
 
   &__big-picture {
-    width: 100%;
+    width: auto;
     height: 45rem;
     padding: 3rem;
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
+    margin: 0 auto;
+    display: block;
 
     &--empty {
       width: 100%;
@@ -312,6 +304,7 @@ export default class mzUserAdministrationItemSummary extends Vue {
       width: 12.5rem;
       height: 12.5rem;
       cursor: pointer;
+      object-fit: cover;
 
       &:hover {
         transition: .2s;
@@ -447,6 +440,10 @@ export default class mzUserAdministrationItemSummary extends Vue {
       &__subtitle {
         font-size: 2.2rem;
       }
+    }
+
+    &__big-picture {
+      max-width: 100%;
     }
 
     &__gallery {

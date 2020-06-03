@@ -141,6 +141,11 @@ const router = new Router({
           component: () => import ('./views/user-administration/user-administration-offer/in-realization/in-realization.view.vue'),
         },
         {
+          path: 'offers/add-offer',
+          name: 'User administration add offer',
+          component: () => import ('./views/user-administration/user-administration-offer/add-offer/add-offer.view.vue'),
+        },
+        {
           path: 'offer',
           name: 'User administration offer',
         },

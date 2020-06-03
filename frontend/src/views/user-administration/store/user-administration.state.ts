@@ -32,7 +32,7 @@ export const menuAdministration: IUserAdministration = {
           label: 'myOffers',
         },
         {
-          name: 'Login',
+          name: 'User administration add offer',
           label: 'addOffer',
         },
         {

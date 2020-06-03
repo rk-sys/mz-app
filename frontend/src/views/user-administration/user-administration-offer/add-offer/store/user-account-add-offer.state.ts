@@ -1,0 +1,184 @@
+import { IAddNewOffer, IAddOfferGeneralInfo } from '@/views/user-administration/user-administration-offer/add-offer/store/user-account-add-offer.interface';
+
+export const addOfferGeneralInfo: IAddOfferGeneralInfo = {
+  listOfType: [
+    {
+      label: 'buy',
+    },
+    {
+      label: 'craft',
+    },
+  ],
+  listOfMainRange: [
+    {
+      label: 'larp',
+    },
+    {
+      label: 'cosplay',
+    },
+    {
+      label: 'reconstruction',
+    },
+  ],
+  currency: [
+    {
+      label: 'zl',
+    },
+  ],
+  gender: [
+    {
+      label: 'male',
+    },
+    {
+      label: 'female',
+    },
+    {
+      label: 'unisex',
+    },
+    {
+      label: 'noMatter',
+    },
+  ],
+  listOfCategory: [
+    {
+      mainCategory: 'weapon',
+      selected: false,
+      listOfSubCategory: [
+        {
+          label: 'daggers',
+        },
+        {
+          label: 'oneHandSwords',
+        },
+        {
+          label: 'twoHandSwords',
+        },
+        {
+          label: 'axesHammers',
+        },
+        {
+          label: 'bows',
+        },
+        {
+          label: 'shields',
+        },
+        {
+          label: 'weaponsThrow',
+        },
+        {
+          label: 'other',
+        },
+      ],
+    },
+    {
+      mainCategory: 'armor',
+      selected: false,
+      listOfSubCategory: [
+        {
+          label: 'quivers',
+        }, {
+          label: 'gambesons',
+        },
+        {
+          label: 'chainMail',
+        },
+        {
+          label: 'breastplates',
+        },
+        {
+          label: 'shoulders',
+        },
+        {
+          label: 'helmets',
+        },
+        {
+          label: 'bevors',
+        },
+        {
+          label: 'bracers',
+        },
+        {
+          label: 'gloves',
+        },
+        {
+          label: 'greaves',
+        },
+        {
+          label: 'setArmor',
+        },
+        {
+          label: 'other',
+        },
+      ],
+    },
+    {
+      mainCategory: 'costume',
+      selected: false,
+      listOfSubCategory: [
+        {
+          label: 'shirts',
+        },
+        {
+          label: 'zhupans',
+        },
+        {
+          label: 'trousers',
+        },
+        {
+          label: 'skirts',
+        },
+        {
+          label: 'headCovering',
+        },
+        {
+          label: 'pouch',
+        },
+        {
+          label: 'shoes',
+        },
+        {
+          label: 'accessories',
+        },
+        {
+          label: 'other',
+        },
+      ],
+    },
+    {
+      mainCategory: 'other',
+      selected: false,
+      listOfSubCategory: [
+        {
+          label: 'plates',
+        },
+        {
+          label: 'tents',
+        },
+        {
+          label: 'masks',
+        },
+        {
+          label: 'other',
+        },
+      ],
+    },
+  ],
+};
+
+export const newOffer: IAddNewOffer = {
+  type: '',
+  mainRange: '',
+  mainCategory: '',
+  subCategory: '',
+  title: '',
+  price: '',
+  isFinalPrice: false,
+  description: '',
+  tags: [],
+  pictures: [],
+  mainPicture: {
+    url: '',
+    file: null,
+  },
+  currency: 'zl',
+};

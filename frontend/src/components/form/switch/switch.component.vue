@@ -19,6 +19,17 @@ import ElSwitch              from 'element-ui/lib/switch.js';
 export default class mzSwitch extends Mixins(mzTransparentWrapper) {
 }
 </script>
+<style lang="scss">
+.mz-switch.is-checked.el-switch {
+  .el-switch {
+    &__core {
+      background: var(--primary-color);
+      border-color: var(--primary-color);
+    }
+  }
+}
+</style>
+
 <style lang="scss"
        scoped>
 @import '~element-ui/lib/theme-chalk/switch.css';
