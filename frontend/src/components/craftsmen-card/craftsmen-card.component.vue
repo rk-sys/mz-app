@@ -68,7 +68,7 @@
 
 <script lang="ts">
 import { Component, Prop, Vue } from 'vue-property-decorator';
-import mzRate                   from '@/components/rate/rate.component.vue';
+import mzRate                   from '../rate/rate.component.vue';
 
 @Component({
   components: {

@@ -38,7 +38,7 @@ import { Route }                 from 'vue-router';
 import Store                     from '@/store/store';
 import { ICraftsmenList }        from '@/views/craftsmen/store/craftsmen.interface';
 import mzCraftsmenModule         from '@/views/craftsmen/store/craftsmen.module';
-import mzCraftsmenCard           from '@/views/craftsmen/components/craftsmen-card.component.vue';
+import mzCraftsmenCard           from '@/components/craftsmen-card/craftsmen-card.component.vue';
 import mzCraftsmenFilters        from '@/views/craftsmen/components/craftsmen-filters.component.vue';
 import mzCraftsmenHeaderInfo     from './components/craftsmen-header-info.component.vue';
 import mzEmptyListMessage        from '@/components/empty-list-message/empty-list-message.component.vue';

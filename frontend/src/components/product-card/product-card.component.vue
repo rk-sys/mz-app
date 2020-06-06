@@ -29,10 +29,10 @@
 
 <script lang="ts">
 import { Component, Prop, Vue } from 'vue-property-decorator';
-import mzSelect                 from '@/components/form/select/select.component.vue';
-import mzOption                 from '@/components/form/option/option.component.vue';
+import mzSelect                 from '../form/select/select.component.vue';
+import mzOption                 from '../form/option/option.component.vue';
 import { IProduct }             from 'src/views/products-list/store/products.interface';
-import router                   from '@/router';
+import router                   from '../../router';
 
 @Component({
   components: {

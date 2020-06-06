@@ -13,7 +13,7 @@ import { namespace }                  from 'vuex-class';
 import mzCraftsmenDetailModule        from '../store/craftsmen-detail.module';
 import mzCraftsmenDetailPortfolioCard from '../components/craftsmen-detail-portfolio-card.component.vue';
 import mzModal                        from '@/components/form/modal/modal.component.vue';
-import mzProductCard                  from '@/views/products-list/components/product-card.component.vue';
+import mzProductCard                  from '@/components/product-card/product-card.component.vue';
 import { IProduct }                   from '@/views/products-list/store/products.interface';
 
 const LOCAL_STORE: string = 'mzCraftsmenDetail';

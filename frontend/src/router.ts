@@ -156,6 +156,14 @@ const router = new Router({
       ],
     },
     {
+      path: '/follow',
+      name: 'My follow',
+      component: () => import ('./views/my-follow/my-follow.view.vue'),
+      meta: {
+        requiresAuth: true,
+      },
+    },
+    {
       path: '/account',
       name: 'User account',
       redirect: '/account/edit',

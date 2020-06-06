@@ -33,7 +33,7 @@ import { IProduct }              from '@/views/products-list/store/products.inte
 import mzProductsModule          from './store/products.module';
 import mzProductsFilters         from './components/products-filters.component.vue';
 import mzProductsHeaderInfo      from './components/products-header-info.component.vue';
-import mzProductCard             from './components/product-card.component.vue';
+import mzProductCard             from '../../components/product-card/product-card.component.vue';
 import mzEmptyListMessage        from '@/components/empty-list-message/empty-list-message.component.vue';
 import { DEFAULT }               from '@/helpers/variables';
 

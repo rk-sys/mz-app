@@ -33,6 +33,7 @@
       <div :class="followHover? 'icon-heart red':'icon-heart'"
            @mouseenter="followHover = true"
            @mouseleave="followHover = false"
+           @click="goToMyFollow()"
            class="icon "></div>
     </div>
   </div>
@@ -47,6 +48,7 @@ import mzDropdownMenu           from '@/components/commons/dropdown-menu/dropdow
 import mzDropdownItem           from '@/components/commons/dropdown-item/dropdown-item.component.vue';
 import mzNavBarAccountSignIn    from '@/components/nav-bar/components/navbar-account-sign-in.component.vue';
 import mzNavBarAccountNotSignIn from '@/components/nav-bar/components/navbar-account-not-sign-in.component.vue';
+import router                   from '@/router';
 
 @Component({
   components: {
@@ -64,6 +66,10 @@ export default class mzNavBarProfile extends Vue {
   public searchHover = false;
   public userHover = false;
   public followHover = false;
+
+  public goToMyFollow() {
+    router.push({ name: 'My follow' });
+  }
 }
 </script>
 
