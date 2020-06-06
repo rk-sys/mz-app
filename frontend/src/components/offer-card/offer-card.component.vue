@@ -46,7 +46,7 @@ import router                   from '@/router';
 export default class mzOfferCard extends Vue {
   @Prop(Object) public readonly offer!: IOffer;
 
-  public goToDetail(uuid) {
+  public goToDetail(uuid: string): void {
     router.push({ name: 'Offer detail', params: { uuid } });
   }
 };
