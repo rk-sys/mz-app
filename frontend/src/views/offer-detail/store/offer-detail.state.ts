@@ -11,10 +11,9 @@ export const mzOffer: IOffer = {
     follow: false,
     type: '',
     title: '',
-    price: {
-      from: 0,
-      to: 0,
-    },
+    price: 0,
+    currency: '',
+    isFinalPrice: false,
     description: '',
     images: [],
   },

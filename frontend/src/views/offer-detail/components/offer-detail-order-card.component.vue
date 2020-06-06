@@ -61,14 +61,15 @@
 
       <div class="mz-product-detail-card__product__price">
 
-        {{ $t(`price.from`) }}
+        {{ $t(`price`) }}
         <span class="mz-product-detail-card__product__price__value">
-          {{ offer.offerDetail.price.from }} {{ offer.offerDetail.price.currency }}
+          {{ offer.offerDetail.price }} {{ offer.offerDetail.currency }}
         </span>
 
-        {{ $t(`price.to`) }}
-        <span class="mz-product-detail-card__product__price__value">
-          {{ offer.offerDetail.price.to }} {{ offer.offerDetail.price.currency }}
+
+        <span v-if="!offer.offerDetail.isFinalPrice"
+              class="mz-product-detail-card__product__price__not-final">
+                  {{ $t(`notFinalPrice`) }}
         </span>
       </div>
 
@@ -192,11 +193,11 @@ export default class mzProductDetailCard extends Vue {
       position: relative;
 
       &__label {
-        opacity: .3;
+        opacity: .6;
         line-height: 1;
         font-size: 3rem;
         letter-spacing: .4rem;
-        color: var(--primary-color);
+        color: var(--thirth-color);
         font-weight: var(--font-bold);
       }
 
@@ -230,10 +231,19 @@ export default class mzProductDetailCard extends Vue {
     }
 
     &__price {
+      font-size: 1.6rem;
+
       &__value {
         color: var(--primary-color);
         font-weight: var(--font-medium);
         line-height: 1.8;
+        font-size: 2rem;
+      }
+
+      &__not-final {
+        background: var(--blue-25);
+        margin-left: auto;
+        margin-right: 0;
       }
     }
 

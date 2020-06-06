@@ -655,13 +655,13 @@
         "https://images.unsplash.com/photo-1511283402428-355853756676?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
       ],
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
-      "startPrice": 120,
-      "finalPrice": 300
+      "price": 120,
+      "isFinalPrice": true
     },
     {
       "uuid": 2,
-      "title": "Shoes old",
-      "status": "create",
+      "title": "Lorem ipsum dolor sit amet, consectetur adipiscing elit Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+      "status": "buy",
       "image": "https://images.unsplash.com/photo-1511283402428-355853756676?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80",
       "additionalImages": [
         "https://images.unsplash.com/photo-1511283402428-355853756676?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80",
@@ -669,8 +669,8 @@
         "https://images.unsplash.com/photo-1550274503-f50cf8dd4ab3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
       ],
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
-      "startPrice": 120,
-      "finalPrice": 300
+      "price": 120,
+      "isFinalPrice": false
     },
     {
       "uuid": 3,
@@ -681,44 +681,44 @@
         "https://images.unsplash.com/photo-1511283402428-355853756676?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
       ],
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
-      "startPrice": 120,
-      "finalPrice": 300
+      "price": 120,
+      "isFinalPrice": false
     },
     {
       "uuid": 4,
       "title": "Shoes old",
-      "status": "lookingFor",
+      "status": "buy",
       "image": "https://images.unsplash.com/photo-1511283402428-355853756676?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80",
       "additionalImages": [
         "https://images.unsplash.com/photo-1511283402428-355853756676?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
       ],
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
-      "startPrice": 120,
-      "finalPrice": 300
+      "price": 120,
+      "isFinalPrice": false
     },
     {
       "uuid": 5,
       "title": "Shoes old",
-      "status": "lookingFor",
+      "status": "buy",
       "image": "https://images.unsplash.com/photo-1511283402428-355853756676?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80",
       "additionalImages": [
         "https://images.unsplash.com/photo-1511283402428-355853756676?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
       ],
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
-      "startPrice": 120,
-      "finalPrice": 300
+      "price": 120,
+      "isFinalPrice": false
     },
     {
       "uuid": 6,
       "title": "Shoes old",
-      "status": "lookingFor",
+      "status": "buy",
       "image": "https://images.unsplash.com/photo-1511283402428-355853756676?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80",
       "additionalImages": [
         "https://images.unsplash.com/photo-1511283402428-355853756676?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
       ],
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
-      "startPrice": 120,
-      "finalPrice": 300
+      "price": 120,
+      "isFinalPrice": false
     },
     {
       "uuid": 7,
@@ -729,8 +729,8 @@
         "https://images.unsplash.com/photo-1511283402428-355853756676?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
       ],
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
-      "startPrice": 120,
-      "finalPrice": 300
+      "price": 120,
+      "isFinalPrice": false
     },
     {
       "uuid": 8,
@@ -741,8 +741,8 @@
         "https://images.unsplash.com/photo-1511283402428-355853756676?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
       ],
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
-      "startPrice": 120,
-      "finalPrice": 300
+      "price": 120,
+      "isFinalPrice": false
     }
   ],
   "offerDetail": {
@@ -757,11 +757,9 @@
       "follow": true,
       "type": "buy",
       "title": "Przeszywanica do DESW z XVw.",
-      "price": {
-        "from": 50,
-        "to": 200,
-        "currency": "zł"
-      },
+      "price": 423,
+      "currency": "zł",
+      "isFinalPrice": false,
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum nostraes.",
       "images": [
         "https://images.unsplash.com/photo-1542291026-7eec264c27ff?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80",

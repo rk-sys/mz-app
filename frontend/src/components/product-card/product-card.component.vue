@@ -50,7 +50,7 @@ export default class mzProductsHeaderInfo extends Vue {
   }
 
   public goToProductDetail(uuid: string): void {
-    router.push({name: 'Product detail', params: {uuid}});
+    router.push({ name: 'Product detail', params: { uuid } });
   }
 }
 </script>
@@ -58,11 +58,11 @@ export default class mzProductsHeaderInfo extends Vue {
 <style lang="scss"
        scoped>
 .mz-products-card {
+  border: 1px solid var(--gray-400);
   width: 26rem;
   min-height: 25rem;
   background: var(--white);
   position: relative;
-  border: 1px solid transparent;
   border-radius: 2px;
   transition: var(--transition-product-card);
 

@@ -1,5 +1,5 @@
 export type TSort = 'name_ASC' | 'name_DESC' | 'price_ASC' | 'price_DESC';
-export type TOfferStatus = 'create' | 'lookingFor';
+export type TOfferStatus = 'create' | 'buy';
 
 export interface IOffersState {
   defaultOffersSortOption: TSort;
@@ -15,8 +15,8 @@ export interface IOffer {
   image: string;
   additionalImages: string[];
   description: string;
-  startPrice: number;
-  finalPrice: number;
+  price: number;
+  isFinalPrice: boolean;
 }
 
 export interface IFilters {

@@ -10,9 +10,9 @@ export default {
     price_ASC: 'Cena: Od najtańszej',
     price_DESC: 'Cena: Od najdroższej',
   },
-  backgroundSignature: {
-    create: 'Wykonam',
-    lookingFor: 'Szukam',
+  status: {
+    create: 'WYKONAM',
+    buy: 'KUPIĘ',
   },
   filters: {
     title: 'Filtry',
@@ -34,10 +34,8 @@ export default {
     },
   },
   price: {
-    minValue: 'Od:',
-    maxValue: 'Do:',
-  },
-  currency: {
+    label: 'Cena: ',
+    notFinal: 'Do negocjacji',
     zl: 'zł',
   },
   button: {

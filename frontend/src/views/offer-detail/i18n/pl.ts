@@ -5,10 +5,8 @@ export default {
     buy: 'KUPIĘ',
     craft: 'WYKONAM',
   },
-  price: {
-    from: 'Od',
-    to: 'do',
-  },
+  price: 'Cena: ',
+  notFinalPrice: 'Do negocjacji',
   show: 'Wyświetl zdjęcie',
   follow: {
     false: 'Dodaj do ulubionych',

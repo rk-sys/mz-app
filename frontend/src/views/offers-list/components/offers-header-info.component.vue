@@ -62,6 +62,7 @@ export default class mzOffersHeaderInfo extends Vue {
 .mz-offers-header-info {
   display: flex;
   justify-content: space-between;
+  margin-bottom: 2rem;
 
   .total-items {
     display: flex;

@@ -8,10 +8,9 @@ export interface IOfferDetail {
   follow: boolean;
   type: string;
   title: string;
-  price: {
-    from: number;
-    to: number;
-  };
+  price: number;
+  currency: string;
+  isFinalPrice: boolean;
   description: string;
   images: string[];
 }
