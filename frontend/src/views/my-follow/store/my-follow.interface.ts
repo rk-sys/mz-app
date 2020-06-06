@@ -1,5 +1,6 @@
 import { ICraftsman }    from '@/views/product-detail/store/product-detail.interface';
 import { IProductsList } from '@/views/products-list/store/products.interface';
+import { IOffer }        from '@/views/offers-list/store/offers-list.interface';
 
 export interface IMyFollowMenu {
   isOpen: boolean;
@@ -20,5 +21,6 @@ export interface IMenuLinks {
 
 export interface IMyFollow {
   craftsmen: ICraftsman[];
-  productList: IProductsList[];
+  products: IProductsList[];
+  offers: IOffer[];
 }

@@ -944,7 +944,7 @@
         "id": 5
       }
     ],
-    "productList": [
+    "products": [
       {
         "id": 1,
         "image": "https://images.unsplash.com/photo-1584992236310-6edddc08acff?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1267&q=80",
@@ -968,6 +968,106 @@
         "image": "https://images.unsplash.com/photo-1581383407993-1352bdc4dd25?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80",
         "title": "Hat leather!",
         "price": 99879
+      }
+    ],
+    "offers": [
+      {
+        "uuid": 1,
+        "title": "Shoes old",
+        "status": "create",
+        "image": "https://images.unsplash.com/photo-1511283402428-355853756676?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80",
+        "additionalImages": [
+          "https://images.unsplash.com/photo-1511283402428-355853756676?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
+        ],
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
+        "price": 120,
+        "isFinalPrice": true
+      },
+      {
+        "uuid": 2,
+        "title": "Lorem ipsum dolor sit amet, consectetur adipiscing elit Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+        "status": "buy",
+        "image": "https://images.unsplash.com/photo-1511283402428-355853756676?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80",
+        "additionalImages": [
+          "https://images.unsplash.com/photo-1511283402428-355853756676?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80",
+          "https://images.unsplash.com/photo-1570025133152-5fcc2cfe6573?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1352&q=80",
+          "https://images.unsplash.com/photo-1550274503-f50cf8dd4ab3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
+        ],
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
+        "price": 120,
+        "isFinalPrice": false
+      },
+      {
+        "uuid": 3,
+        "title": "Shoes old",
+        "status": "create",
+        "image": "https://images.unsplash.com/photo-1511283402428-355853756676?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80",
+        "additionalImages": [
+          "https://images.unsplash.com/photo-1511283402428-355853756676?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
+        ],
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
+        "price": 120,
+        "isFinalPrice": false
+      },
+      {
+        "uuid": 4,
+        "title": "Shoes old",
+        "status": "buy",
+        "image": "https://images.unsplash.com/photo-1511283402428-355853756676?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80",
+        "additionalImages": [
+          "https://images.unsplash.com/photo-1511283402428-355853756676?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
+        ],
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
+        "price": 120,
+        "isFinalPrice": false
+      },
+      {
+        "uuid": 5,
+        "title": "Shoes old",
+        "status": "buy",
+        "image": "https://images.unsplash.com/photo-1511283402428-355853756676?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80",
+        "additionalImages": [
+          "https://images.unsplash.com/photo-1511283402428-355853756676?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
+        ],
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
+        "price": 120,
+        "isFinalPrice": false
+      },
+      {
+        "uuid": 6,
+        "title": "Shoes old",
+        "status": "buy",
+        "image": "https://images.unsplash.com/photo-1511283402428-355853756676?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80",
+        "additionalImages": [
+          "https://images.unsplash.com/photo-1511283402428-355853756676?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
+        ],
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
+        "price": 120,
+        "isFinalPrice": false
+      },
+      {
+        "uuid": 7,
+        "title": "Shoes old",
+        "status": "create",
+        "image": "https://images.unsplash.com/photo-1511283402428-355853756676?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80",
+        "additionalImages": [
+          "https://images.unsplash.com/photo-1511283402428-355853756676?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
+        ],
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
+        "price": 120,
+        "isFinalPrice": false
+      },
+      {
+        "uuid": 8,
+        "title": "Shoes old",
+        "status": "create",
+        "image": "https://images.unsplash.com/photo-1511283402428-355853756676?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80",
+        "additionalImages": [
+          "https://images.unsplash.com/photo-1511283402428-355853756676?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
+        ],
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
+        "price": 120,
+        "isFinalPrice": false
       }
     ]
   }

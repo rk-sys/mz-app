@@ -28,10 +28,22 @@
                      name="items">
 
           <main class="mz-my-follow__wrapper__products">
-            <mz-product-card v-for="(product, index) in myFollow.productList"
+            <mz-product-card v-for="(product, index) in myFollow.products"
                              :key="index"
                              :product="product"
                              class="mz-my-follow__wrapper__products__item" />
+          </main>
+        </mz-tab-pane>
+
+        <mz-tab-pane :label="$t(`tab.offers`)"
+                     name="offers">
+
+          <main class="mz-my-follow__wrapper__offers">
+
+            <mz-offer-card v-for="(offer, id) in myFollow.offers"
+                           :key="id"
+                           :offer="offer"
+                           class="mz-my-follow__wrapper__offers__item" />
           </main>
         </mz-tab-pane>
       </mz-tabs>
@@ -51,7 +63,8 @@ import { loadTranslationsAsync } from '@/i18n/i18n';
 import { IMyFollow }             from '@/views/my-follow/store/my-follow.interface';
 import mzTabs                    from '@/components/commons/tab/tabs.component.vue';
 import mzCraftsmenCard           from '@/components/craftsmen-card/craftsmen-card.component.vue';
-import mzProductCard             from '../../components/product-card/product-card.component.vue';
+import mzProductCard             from '@/components/product-card/product-card.component.vue';
+import mzOfferCard               from '@/components/offer-card/offer-card.component.vue';
 
 
 const LOCAL_STORE: string = 'myFollow';
@@ -61,6 +74,7 @@ const local = namespace(LOCAL_STORE);
   components: {
     mzTabs,
     mzTabPane,
+    mzOfferCard,
     mzProductCard,
     mzCraftsmenCard,
   },
@@ -154,6 +168,20 @@ export default class mzUserAdministration extends Vue {
         margin: 4rem 0;
       }
     }
+
+    &__offers {
+      display: flex;
+      flex-wrap: wrap;
+
+      &__item {
+        margin-right: 2rem;
+        margin-bottom: 2rem;
+
+        &:nth-child(2n) {
+          margin-right: 0;
+        }
+      }
+    }
   }
 }
 
@@ -231,6 +259,12 @@ export default class mzUserAdministration extends Vue {
           }
         }
       }
+
+      &__offers {
+        &__item {
+          width: 100%;
+        }
+      }
     }
   }
 }
@@ -275,6 +309,12 @@ export default class mzUserAdministration extends Vue {
           &:nth-child(2n) {
             margin-right: 0;
           }
+        }
+      }
+
+      &__offers {
+        &__item {
+          width: 100%;
         }
       }
     }

@@ -27,5 +27,6 @@ export const menuFollow: IMyFollowMenu = {
 
 export const myFollow: IMyFollow = {
   craftsmen: [],
-  productList: [],
+  products: [],
+  offers: [],
 };

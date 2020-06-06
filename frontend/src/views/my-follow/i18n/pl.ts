@@ -13,4 +13,13 @@ export default {
   currency: {
     zl: 'zł',
   },
+  status: {
+    create: 'WYKONAM',
+    buy: 'KUPIĘ',
+  },
+  price: {
+    label: 'Cena: ',
+    notFinal: 'Do negocjacji',
+    zl: 'zł',
+  },
 };
