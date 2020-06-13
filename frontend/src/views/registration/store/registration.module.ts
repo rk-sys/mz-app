@@ -49,7 +49,7 @@ export default class mzRegistrationModule extends VuexModule {
     this.mzRegistrationState.registrationForm.newsletter = payload;
   }
 
-  get getRegistrationForm() {
+  get getRegistrationForm(): IRegistrationForm {
     return this.mzRegistrationState.registrationForm;
   }
 

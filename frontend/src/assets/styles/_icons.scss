@@ -1,7 +1,22 @@
 .icon {
 
+  &-archive {
+    background: url("~@/assets/icons/archive/archive.svg") no-repeat center;
+    background-size: contain;
+  }
+
+  &-archive--primary {
+    background: url("~@/assets/icons/archive/archive--primary.svg") no-repeat center;
+    background-size: contain;
+  }
+
   &-heart {
     background: url("~@/assets/icons/heart/heart.svg") no-repeat center;
+    background-size: contain;
+  }
+
+  &-heart--gray {
+    background: url("~@/assets/icons/heart/heart--gray.svg") no-repeat center;
     background-size: contain;
   }
 
@@ -35,8 +50,18 @@
     background-size: contain;
   }
 
+  &-chat--full {
+    background: url("~@/assets/icons/chat/chat--full.svg") no-repeat center;
+    background-size: contain;
+  }
+
   &-network-group {
     background: url("~@/assets/icons/network-group/network-group.svg") no-repeat center;
+    background-size: contain;
+  }
+
+  &-chat--full {
+    background: url("~@/assets/icons/chat/chat--full.svg") no-repeat center;
     background-size: contain;
   }
 
@@ -187,6 +212,11 @@
 
   &-user {
     background: url("~@/assets/icons/user/user.svg") no-repeat center;
+    background-size: contain;
+  }
+
+  &-user--full {
+    background: url("~@/assets/icons/user/user--full.svg") no-repeat center;
     background-size: contain;
   }
 

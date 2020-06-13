@@ -122,7 +122,7 @@ export default class mzLogin extends Vue {
     this.setEmail(login);
   }
 
-  get passwordModel() {
+  get passwordModel(): string {
     return this.loginState.loginForm.password;
   }
 

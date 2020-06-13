@@ -82,19 +82,39 @@
         </template>
       </div>
     </div>
+
+    <mz-box-with-title :title="$t(`product.message`)"
+                       icon-name="icon-chat"
+                       class="mz-product-detail-description__message">
+      <div class="mz-product-detail-description__message__content">
+
+        <mz-input-textarea class="mz-product-detail-description__message__content__input"
+                           v-model="message" />
+
+        <mz-button class="mz-product-detail-description__message__btn"
+                   @click="sendMessage">{{ $t(`product.sendMessage`) }}</mz-button>
+      </div>
+    </mz-box-with-title>
   </div>
 </template>
 
 <script lang="ts">
 import { Component, Prop, Vue } from 'vue-property-decorator';
 import mzTag                    from '@/components/tag/tag.component.vue';
-import { IAddItemNewItem }      from '@/views/user-administration/user-administration-products/add-item/store/user-account-add-item.interface';
-import mzTooltip                from '@/components/tooltip/tooltip.component.vue';
+import { IAddItemNewItem } from '@/views/user-administration/user-administration-products/add-item/store/user-account-add-item.interface';
+import mzTooltip           from '@/components/tooltip/tooltip.component.vue';
+import mzBoxWithTitle      from '@/components/box-with-title/box-with-title.component.vue';
+import mzInputTextarea     from '@/components/input-textarea/mz-input-textarea.component.vue';
+import mzButton            from '@/components/buttons/button.component.vue';
+import router              from '@/router';
 
 @Component({
   components: {
     mzTag,
+    mzButton,
     mzTooltip,
+    mzBoxWithTitle,
+    mzInputTextarea,
   },
 })
 export default class mzProductsDetailPicture extends Vue {
@@ -107,6 +127,12 @@ export default class mzProductsDetailPicture extends Vue {
   @Prop(Boolean) public readonly isNew!: boolean;
   @Prop(Boolean) public readonly isFollow!: boolean;
   @Prop(Array) public readonly delivery!: IAddItemNewItem[];
+
+  public message: string = '';
+
+  public sendMessage(message: string): void {
+    router.push({ name: 'Home' });
+  }
 }
 </script>
 
@@ -216,6 +242,20 @@ export default class mzProductsDetailPicture extends Vue {
         width: 3rem;
         height: 3rem;
       }
+    }
+  }
+
+  &__message {
+    margin-top: 6.5rem;
+
+    &__content {
+      &__input {
+        margin: 2rem 0;
+      }
+    }
+
+    &__btn {
+      width: 100%;
     }
   }
 }

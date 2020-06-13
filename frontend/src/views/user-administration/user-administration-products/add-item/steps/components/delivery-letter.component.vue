@@ -125,7 +125,7 @@ export default class mzUserAdministrationDelivery extends Vue {
     return price > 0;
   }
 
-  public addNewOptionCourier() {
+  public addNewOptionCourier(): void {
     (this.formLetter as any).validate(async (valid: boolean) => {
       if (valid) {
         try {

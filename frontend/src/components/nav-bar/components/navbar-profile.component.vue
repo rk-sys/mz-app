@@ -1,11 +1,12 @@
 <template>
   <div class="nav-bar-profile">
 
-    <div class="nav-bar-profile__search">
-      <div :class="searchHover? 'icon-search--primary' : 'icon-search'"
+    <div class="nav-bar-profile__messages">
+      <div :class="searchHover? 'icon-chat--full' : 'icon-chat'"
            @mouseenter="searchHover = true"
            @mouseleave="searchHover = false"
-           class="icon">
+           class="icon"
+           @click="goToMyMessage">
       </div>
     </div>
 
@@ -13,7 +14,7 @@
       <mz-dropdown class="nav-bar-profile__user--sign-in"
                    trigger="click">
 
-        <div :class="userHover? 'icon-user--primary':'icon-user'"
+        <div :class="userHover? 'icon-user--full' : 'icon-user'"
              @mouseenter="userHover = true"
              @mouseleave="userHover = false"
              class="icon"></div>
@@ -30,7 +31,7 @@
 
     <div class="nav-bar-profile__heart">
 
-      <div :class="followHover? 'icon-heart red':'icon-heart'"
+      <div :class="followHover? 'icon-heart--full':'icon-heart--gray'"
            @mouseenter="followHover = true"
            @mouseleave="followHover = false"
            @click="goToMyFollow()"
@@ -67,8 +68,12 @@ export default class mzNavBarProfile extends Vue {
   public userHover = false;
   public followHover = false;
 
-  public goToMyFollow() {
+  public goToMyFollow(): void {
     router.push({ name: 'My follow' });
+  }
+
+  public goToMyMessage(): void {
+    router.push({ name: 'My messages' });
   }
 }
 </script>
@@ -91,7 +96,7 @@ export default class mzNavBarProfile extends Vue {
 
   &__heart,
   &__user,
-  &__search {
+  &__messages {
     height: 100%;
     display: flex;
     align-items: center;

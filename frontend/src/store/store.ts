@@ -18,7 +18,7 @@ export default new Vuex.Store({
     },
   },
   actions: {
-    logout() {
+    logout(): void {
       firebase.auth().signOut().then(() => {
         const currentUser = {
           name: '',

@@ -48,16 +48,16 @@
 
         <div class="mz-product-detail-card-mobile__product__price">
 
-          {{ $t(`price.from`) }}
+          {{ $t(`price`) }}
 
           <span class="mz-product-detail-card-mobile__product__price__value">
-            {{ offer.offerDetail.price.from }} {{ offer.offerDetail.price.currency }}
+            {{ offer.offerDetail.price }} {{ offer.offerDetail.price.currency }}
           </span>
 
-          {{ $t(`price.to`) }}
-          <span class="mz-product-detail-card-mobile__product__price__value">
-            {{ offer.offerDetail.price.to }} {{ offer.offerDetail.price.currency }}
-          </span>
+          <span v-if="!offer.offerDetail.isFinalPrice"
+                class="mz-product-detail-card-mobile__product__price__not-final">
+                  {{ $t(`notFinalPrice`) }}
+        </span>
 
           <mz-tooltip :content="$t(`follow.${offer.offerDetail.follow}`)"
                       placement="top"
@@ -257,6 +257,12 @@ export default class mzProductDetailCardMobile extends Vue {
         font-weight: var(--font-medium);
         line-height: 1.8;
         font-size: 3rem;
+      }
+
+      &__not-final {
+        background: var(--blue-25);
+        margin-left: auto;
+        margin-right: 0;
       }
     }
 

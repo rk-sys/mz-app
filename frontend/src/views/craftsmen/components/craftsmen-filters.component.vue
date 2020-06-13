@@ -102,7 +102,7 @@ export default class mzCraftsmenFilters extends Vue {
     }
   }
 
-  public checkAllTargetGroup() {
+  public checkAllTargetGroup(): void {
     this.checkTargetGroupSelected();
   }
 }

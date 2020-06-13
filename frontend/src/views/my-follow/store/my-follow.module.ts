@@ -14,7 +14,7 @@ export default class mzUserAdministration extends VuexModule {
   }
 
   @Action
-  public async getMyFollow() {
+  public async getMyFollow(): Promise<void> {
     try {
       const { data } = await myFollowService.getMyFollow();
       this.context.commit('setMyFollow', data);

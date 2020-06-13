@@ -49,7 +49,7 @@ export default class mzOfferCard extends Vue {
   public goToDetail(uuid: string): void {
     router.push({ name: 'Offer detail', params: { uuid } });
   }
-};
+}
 </script>
 
 <style lang="scss"

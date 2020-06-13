@@ -18,6 +18,9 @@ export default {
     tagListTitle: 'Aktywne tagi',
     itemsInfoTitle: 'Informacje o produktach',
     contactInfoTitle: 'Kontakt',
+    sendMessage: 'Wyślij wiadomość',
+    message: 'Treść wiadomości',
+    messageTitle: 'Tytuł wiadomości',
   },
   portfolio: {
     detailPicture: 'Zobacz szczegóły',

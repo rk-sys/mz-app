@@ -125,7 +125,7 @@ export default class mzUserAdministrationDelivery extends Vue {
     return price > 0;
   }
 
-  public addNewOption() {
+  public addNewOption(): void {
     (this.formParcelLocker as any).validate(async (valid: boolean) => {
       if (valid) {
         try {

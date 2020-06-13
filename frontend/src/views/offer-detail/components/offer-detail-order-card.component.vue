@@ -66,7 +66,6 @@
           {{ offer.offerDetail.price }} {{ offer.offerDetail.currency }}
         </span>
 
-
         <span v-if="!offer.offerDetail.isFinalPrice"
               class="mz-product-detail-card__product__price__not-final">
                   {{ $t(`notFinalPrice`) }}

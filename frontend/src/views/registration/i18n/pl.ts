@@ -26,6 +26,7 @@ export default {
     differencePassword: 'Hasła nie są takie same',
     minLength: 'Minimum 8 znaków',
     correctEmail: 'Błędny adres e-mail',
+    ruleRequired: 'Musisz akceptować regulamin',
   },
   response: {
     'error': 'Błąd',

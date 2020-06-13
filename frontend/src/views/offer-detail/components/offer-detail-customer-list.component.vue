@@ -86,7 +86,7 @@ export default class mzOfferDetailCustomerList extends Vue {
 
   public marginLeft = 0;
 
-  public showNextCustomer() {
+  public showNextCustomer(): void {
     let value = this.marginLeft;
 
     if (this.customerList.length > 4) {
@@ -98,8 +98,8 @@ export default class mzOfferDetailCustomerList extends Vue {
     }
   }
 
-  public showPrevCustomer() {
-    let maxMargin = (this.customerList.length * 12 - 60) * -1;
+  public showPrevCustomer(): void {
+    const maxMargin = (this.customerList.length * 12 - 60) * -1;
     let value = this.marginLeft;
 
     if (this.customerList.length > 4) {

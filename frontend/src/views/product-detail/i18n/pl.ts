@@ -13,6 +13,8 @@ export default {
     show: 'Wyświetl zdjęcie',
     addToCheckout: 'Kupuję',
     delivery: 'Sposoby dostawy',
+    sendMessage: 'Wyślij wiadomość',
+    message: 'Treść wiadomości',
   },
   follow: {
     false: 'Dodaj do ulubionych',
@@ -22,7 +24,7 @@ export default {
     personalPickup: 'Odbiór osobisty',
     courier: 'Wysyłka kurierem',
     parcelLocker: 'Odbiór w paczkomacie',
-    letter: 'Wysyłka listowna',
+    Letter: 'Wysyłka listowna',
   },
   craftsman: {
     rate: {

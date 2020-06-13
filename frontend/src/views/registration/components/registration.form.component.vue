@@ -201,7 +201,16 @@ export default class mzRegistrationForm extends Vue {
       { min: 8, message: i18n.t('rules.minLength'), trigger: [ 'blur', 'submit' ] },
     ],
     mzRule: [
-      { required: true, message: i18n.t('rules.required'), trigger: [ 'blur', 'submit' ] },
+      {
+        validator: (rule: any, value: string, callback: (error?: Error) => void) => {
+          if (!this.checkRule()) {
+            callback(new Error(i18n.t('rules.ruleRequired') as string));
+          } else {
+            callback();
+          }
+        },
+        trigger: 'submit',
+      },
     ],
   };
 
@@ -218,6 +227,10 @@ export default class mzRegistrationForm extends Vue {
         }
       }
     });
+  }
+
+  public checkRule(): boolean {
+    return this.registrationForm.rule;
   }
 
   public validatePassword() {

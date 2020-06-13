@@ -264,11 +264,11 @@ export default class mzUserAccountEdit extends Vue {
     this.checkShowMeTargetsGroup();
   }
 
-  public validEmail() {
+  public validEmail(): boolean {
     return this.emailForm.email === this.emailForm.repeatEmail;
   }
 
-  public validPassword() {
+  public validPassword(): boolean {
     return this.passwordForm.password === this.passwordForm.repeatPassword;
   }
 

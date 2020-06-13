@@ -168,12 +168,12 @@ export default class mzUserAccountModule extends VuexModule {
   }
 
   @Action
-  public goToStep1() {
+  public goToStep1(): void {
     this.context.commit('setNumberOfActiveStep', 0);
   }
 
   @Action
-  public goToStep2() {
+  public goToStep2(): void {
     if (this.newItem.subCategory !== ''
       && this.newItem.mainCategory !== ''
       && this.newItem.mainRange !== '') {
@@ -182,17 +182,17 @@ export default class mzUserAccountModule extends VuexModule {
   }
 
   @Action
-  public goToStep3() {
+  public goToStep3(): void {
     this.context.commit('setNumberOfActiveStep', 2);
   }
 
   @Action
-  public goToStep4() {
+  public goToStep4(): void {
     this.context.commit('setNumberOfActiveStep', 3);
   }
 
   @Action
-  public goToStep5() {
+  public goToStep5(): void {
     this.context.commit('addDeliveryPersonalPickup', this.mzPersonalPickupDelivery);
     this.context.commit('setNumberOfActiveStep', 4);
   }

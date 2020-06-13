@@ -1070,5 +1070,63 @@
         "isFinalPrice": false
       }
     ]
-  }
+  },
+  "myMessages": [
+    {
+      "type": "archive",
+      "uuid": "123",
+      "craftsmen": {
+        "uuid": "1",
+        "name": "Kafał Rrukowski",
+        "picture": "https://images.unsplash.com/photo-1575425186775-b8de9a427e67?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80"
+      },
+      "message": {
+        "title": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "isNewMessage": true,
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua"
+      }
+    },
+    {
+      "type": "forMe",
+      "uuid": "1234",
+      "craftsmen": {
+        "uuid": "1",
+        "name": "Kukasz Łozłowski",
+        "picture": "https://images.unsplash.com/photo-1517423440428-a5a00ad493e8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=687&q=80"
+      },
+      "message": {
+        "title": "Incididunt ut labore et dolore magna aliqua.",
+        "isNewMessage": true,
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua"
+      }
+    },
+    {
+      "type": "item",
+      "uuid": "1235",
+      "craftsmen": {
+        "uuid": "1",
+        "name": "Sarek Mtawiar",
+        "picture": "https://images.unsplash.com/photo-1518020382113-a7e8fc38eac9?ixlib=rb-1.2.1&auto=format&fit=crop&w=660&q=80"
+      },
+      "message": {
+        "title": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "isNewMessage": false,
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua"
+      }
+    },
+    {
+      "type": "offer",
+      "uuid": "1239",
+      "craftsmen": {
+        "uuid": "1",
+        "name": "Kapsel Krukowski",
+        "picture": "https://images.unsplash.com/photo-1575425187384-ccd8f6a161e8?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80"
+      },
+      "message": {
+        "title": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "isNewMessage": false,
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua"
+      }
+    }
+  ]
 }
