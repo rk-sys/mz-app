@@ -1,4 +1,7 @@
 export default {
+  show: 'Wyświetl zdjęcie',
+  profileDetail: 'Profile',
+  empty: 'Brak wiadomości',
   product: {
     title: 'Opis przedmiotu',
     detail: 'Szczególy przedmiotu',
@@ -11,10 +14,14 @@ export default {
     condition: 'Stan',
     zl: 'zł',
     show: 'Wyświetl zdjęcie',
-    addToCheckout: 'Kupuję',
+    addToCheckout: 'Przejdź do podsumowania',
     delivery: 'Sposoby dostawy',
     sendMessage: 'Wyślij wiadomość',
     message: 'Treść wiadomości',
+    isNew: {
+      false: 'Używane',
+      true: 'Nowy',
+    },
   },
   follow: {
     false: 'Dodaj do ulubionych',

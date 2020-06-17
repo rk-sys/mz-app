@@ -5,12 +5,12 @@
     <mz-collapse-item name="0">
 
       <template slot="title">
-        <div class="mz-product-detail-card-mobile__header"
-             @mouseenter="isHover = !isHover"
-             @mouseleave="isHover = !isHover"
-             @click="goToDetail(offer.craftsman.uuid)">
+        <div class="mz-product-detail-card-mobile__header">
 
-          <div class="mz-product-detail-card-mobile__header__picture">
+          <div class="mz-product-detail-card-mobile__header__picture"
+               @mouseenter="isHover = !isHover"
+               @mouseleave="isHover = !isHover"
+               @click="goToDetail(offer.craftsman.uuid)">
 
             <img :src="offer.craftsman.picture"
                  :alt="offer.craftsman.name"
@@ -73,7 +73,7 @@
           {{ offer.offerDetail.description }}
         </div>
 
-        <mz-offer-detail-picture :pictures="offer.offerDetail.images" />
+        <mz-gallery :pictures="offer.offerDetail.images" />
       </div>
     </mz-collapse-item>
   </mz-collapse>
@@ -84,7 +84,7 @@ import { Component, Prop, Vue } from 'vue-property-decorator';
 import mzRate                   from '@/components/rate/rate.component.vue';
 import router                   from '@/router';
 import { IOffer }               from '../store/offer-detail.interface';
-import mzOfferDetailPicture     from './offer-detail-pictures.component.vue';
+import mzGallery                from '@/components/mz-gallery/gallery.component.vue';
 import mzCollapse               from '@/components/commons/collapse/collapse.component.vue';
 import mzCollapseItem           from '@/components/commons/collapse-item/collapse-item.component.vue';
 import mzTooltip                from '@/components/tooltip/tooltip.component.vue';
@@ -92,10 +92,10 @@ import mzTooltip                from '@/components/tooltip/tooltip.component.vue
 @Component({
   components: {
     mzRate,
+    mzGallery,
     mzTooltip,
     mzCollapse,
     mzCollapseItem,
-    mzOfferDetailPicture,
   },
 })
 export default class mzProductDetailCardMobile extends Vue {

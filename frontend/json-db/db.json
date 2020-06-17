@@ -480,40 +480,10 @@
   "productDetail": {
     "craftsman": {
       "name": "Kapsel Kłukowski",
-      "id": 1,
-      "ratings": [
-        {
-          "label": "date",
-          "value": 3.3
-        },
-        {
-          "label": "price",
-          "value": 4.1
-        },
-        {
-          "label": "quality",
-          "value": 4.1
-        },
-        {
-          "label": "contact",
-          "value": 4.1
-        }
-      ],
-      "picture": "https://images.unsplash.com/photo-1575425187384-ccd8f6a161e8?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80",
-      "tags": [
-        "Kruuken",
-        "Drewno",
-        "Spawanie",
-        "Metal",
-        "HOP",
-        "COLA"
-      ],
-      "socialMedia": {
-        "facebook": "@Kruuken",
-        "twitter": "@Kruuken",
-        "youtube": "@Kruuken",
-        "instagram": "@Kruuken"
-      }
+      "uuid": 1,
+      "rating": 3.5,
+      "city": "Breslau",
+      "picture": "https://images.unsplash.com/photo-1575425187384-ccd8f6a161e8?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80"
     },
     "product": {
       "follow": false,
@@ -541,7 +511,7 @@
       "subCategory": "other",
       "gender": "unisex",
       "isNew": false,
-      "id": "1",
+      "uuid": "1",
       "productDeliveryOptions": [
         {
           "label": "personalPickup"
@@ -586,7 +556,27 @@
           ]
         }
       ]
-    }
+    },
+    "customers": [
+      {
+        "name": "Kgata Arukowska",
+        "uuid": "asd-dsa",
+        "newMessages": 12,
+        "picture": "https://images.unsplash.com/photo-1469982866068-278880140412?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
+      },
+      {
+        "name": "Kapsel Kłukowski",
+        "picture": "https://images.unsplash.com/photo-1575425187384-ccd8f6a161e8?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80",
+        "newMessages": 11,
+        "uuid": "1233321"
+      },
+      {
+        "name": "Sarek Mtawiar",
+        "picture": "https://images.unsplash.com/photo-1518020382113-a7e8fc38eac9?ixlib=rb-1.2.1&auto=format&fit=crop&w=660&q=80",
+        "newMessages": 4,
+        "uuid": "1231321"
+      }
+    ]
   },
   "productCheckout": {
     "productSummary": {

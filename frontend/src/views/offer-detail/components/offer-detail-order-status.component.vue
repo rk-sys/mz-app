@@ -210,6 +210,7 @@ export default class mzOfferDetailOrderStatus extends Vue {
     width: 100%;
   }
 }
+
 @include respond-to(mobile) {
   .mz-offer-detail-order-status {
     width: 100%;

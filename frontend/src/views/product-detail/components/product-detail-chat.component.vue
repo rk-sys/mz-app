@@ -1,5 +1,5 @@
 <template>
-  <div class="mz-offer-detail-chat">
+  <div class="mz-product-detail-chat">
   </div>
 </template>
 
@@ -10,7 +10,7 @@ import { namespace }      from 'vuex-class';
 @Component({
   components: {},
 })
-export default class mzOfferDetailChat extends Vue {
+export default class mzProductDetailChat extends Vue {
 
 }
 </script>
@@ -18,7 +18,7 @@ export default class mzOfferDetailChat extends Vue {
 <style lang="scss"
        scoped>
 
-.mz-offer-detail-chat {
+.mz-product-detail-chat {
   margin-top: 1rem;
   background: var(--white);
   border-radius: 2px;
@@ -27,19 +27,19 @@ export default class mzOfferDetailChat extends Vue {
 }
 
 @include respond-to(desktop) {
-  .mz-offer-detail-chat {
+  .mz-product-detail-chat {
     margin-bottom: 5rem;
   }
 }
 
 @include respond-to(tablet) {
-  .mz-offer-detail-chat {
+  .mz-product-detail-chat {
     margin-bottom: 3rem;
   }
 }
 
 @include respond-to(mobile) {
-  .mz-offer-detail-chat {
+  .mz-product-detail-chat {
     margin-bottom: 1rem;
   }
 }

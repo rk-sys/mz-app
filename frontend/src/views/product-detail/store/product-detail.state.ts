@@ -1,22 +1,16 @@
-import { IProductDetail }                           from './product-detail.interface';
+import { IProductDetail } from './product-detail.interface';
 
 export const productDetail: IProductDetail = {
   craftsman: {
     name: '',
-    id: 0,
-    ratings: [],
+    uuid: 0,
+    city: '',
+    rating: 0,
     picture: '',
-    tags: [],
-    socialMedia: {
-      facebook: '',
-      twitter: '',
-      youtube: '',
-      instagram: '',
-    },
   },
   product: {
     follow: false,
-    id: '',
+    uuid: '',
     title: '',
     description: '',
     price: 0,
@@ -30,5 +24,6 @@ export const productDetail: IProductDetail = {
     isNew: true,
     productDeliveryOptions: [],
   },
+  customers: [],
 };
 

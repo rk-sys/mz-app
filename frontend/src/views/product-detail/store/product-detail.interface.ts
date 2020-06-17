@@ -1,18 +1,17 @@
-import { IRatings }  from '../../craftsmen-detail/store/craftsmen-detail.interface';
 import { IDelivery } from '../../product-checkout/store/product-checkout.interface';
 
 export interface IProductDetail {
   craftsman: ICraftsman;
   product: IProduct;
+  customers: ICustomer[];
 }
 
 export interface ICraftsman {
   name: string;
-  id: number;
-  ratings: IRatings[];
+  uuid: number;
+  rating: number;
   picture: string;
-  tags: string[];
-  socialMedia: ISocialMedia;
+  city: string;
 }
 
 export interface IProduct {
@@ -28,13 +27,13 @@ export interface IProduct {
   subCategory: string;
   gender: string;
   isNew: boolean;
-  id: string;
+  uuid: string;
   productDeliveryOptions: IDelivery[];
 }
 
-export interface ISocialMedia {
-  facebook: string | null;
-  twitter: string | null;
-  youtube: string | null;
-  instagram: string | null;
+export interface ICustomer {
+  name: string;
+  uuid: string;
+  picture: string;
+  newMessage: number;
 }

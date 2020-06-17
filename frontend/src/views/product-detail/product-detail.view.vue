@@ -1,54 +1,53 @@
 <template>
   <div class="mz-product-detail">
     <div class="mz-product-detail__content">
-      <main class="mz-product-detail__content__product-info">
-        <mz-product-detail-picture :pictures="productDetail.product.pictures"
-                                   :is-follow="productDetail.product.follow"/>
 
-        <mz-product-detail-description :description="productDetail.product.description"
-                                       :tags="productDetail.product.tags"
-                                       :mainRange="productDetail.product.mainRange"
-                                       :mainCategory="productDetail.product.mainCategory"
-                                       :subCategory="productDetail.product.subCategory"
-                                       :gender="productDetail.product.gender"
-                                       :isNew="productDetail.product.isNew"
-                                       :is-follow="productDetail.product.follow"
-                                       :delivery="productDetail.product.productDeliveryOptions" />
+      <main class="mz-product-detail__content__product-info">
+        <mz-product-detail-description :product-detail="productDetail" />
+
+        <mz-product-detail-description-mobile :product-detail="productDetail" />
       </main>
 
-      <mz-product-detail-checkout :product-title="productDetail.product.title"
-                                  :product-id="productDetail.product.id"
-                                  :price="productDetail.product.price"
-                                  :currency="productDetail.product.currency" />
+      <aside class="mz-product-detail__content__actions">
 
-      <mz-product-detail-craftsman :craftsman="productDetail.craftsman" />
+        <mz-product-detail-checkout :price="productDetail.product.price"
+                                    :main-range="productDetail.product.mainRange"
+                                    :is-new="productDetail.product.isNew"
+                                    :uuid="productDetail.product.uuid" />
+
+        <mz-product-detail-customer-list :customer-list="productDetail.customers" />
+
+        <mz-product-detail-chat />
+      </aside>
     </div>
   </div>
 </template>
 
 <script lang="ts">
-import { Component, Vue }         from 'vue-property-decorator';
-import { Route }                  from 'vue-router';
-import { namespace }              from 'vuex-class';
-import { registerStoreModule }    from '@/helpers/helpers';
-import { loadTranslationsAsync }  from '@/i18n/i18n';
-import Store                      from '@/store/store';
-import { IProductDetail }         from '@/views/product-detail/store/product-detail.interface';
-import mzProductDetailDescription from './components/product-detail-description.view.vue';
-import mzProductDetailCraftsman   from './components/product-detail-craftsman.view.vue';
-import mzProductDetailPicture     from './components/product-detail-pictures.view.vue';
-import mzProductDetailCheckout    from './components/product-detail-checkout.view.vue';
-import mzProductDetailModule      from './store/product-detail.module';
+import { Component, Vue }               from 'vue-property-decorator';
+import { Route }                        from 'vue-router';
+import { namespace }                    from 'vuex-class';
+import { registerStoreModule }          from '@/helpers/helpers';
+import { loadTranslationsAsync }        from '@/i18n/i18n';
+import Store                            from '@/store/store';
+import { IProductDetail }               from '@/views/product-detail/store/product-detail.interface';
+import mzProductDetailModule            from './store/product-detail.module';
+import mzProductDetailDescription       from './components/product-detail-description.compontent.vue';
+import mzProductDetailDescriptionMobile from './components/product-detail-description-mobile.compontent.vue';
+import mzProductDetailCheckout          from './components/product-detail-checkout.compontent.vue';
+import mzProductDetailCustomerList      from './components/product-detail-customer-list.component.vue';
+import mzProductDetailChat              from './components/product-detail-chat.component.vue';
 
 const LOCAL_STORE: string = 'productDetail';
 const local = namespace(LOCAL_STORE);
 
 @Component({
   components: {
-    mzProductDetailDescription,
-    mzProductDetailCraftsman,
+    mzProductDetailChat,
     mzProductDetailCheckout,
-    mzProductDetailPicture,
+    mzProductDetailDescription,
+    mzProductDetailCustomerList,
+    mzProductDetailDescriptionMobile,
   },
 })
 export default class mzProductDetail extends Vue {
@@ -91,66 +90,95 @@ export default class mzProductDetail extends Vue {
   grid-template-columns: 1fr 4fr 1fr;
 
   &__content {
-    max-width: 100%;
+    display: flex;
     grid-row-start: 3;
     grid-column-start: 2;
-    display: grid;
-    grid-template-rows: 25rem auto auto;
-    grid-template-columns: auto auto;
+    -webkit-box-pack: center;
+    justify-content: center;
 
     &__product-info {
-      width: 76rem;
-      margin: 0 10rem 0 5rem;
+      width: 52rem;
+      padding: 2.4rem;
+      border-radius: 2px;
+      background-color: var(--white);
+      margin-bottom: 4rem;
       grid-row-start: 1;
       grid-row-end: 3;
       grid-column-start: 1;
     }
 
-    &__side-menu {
-      width: 32rem;
+    &__actions {
+      display: flex;
+      margin-left: 3rem;
+      flex-direction: column;
     }
   }
 }
 
-@media only screen and (max-width: 768px) and (min-width: 426px) {
+@include respond-to(desktop) {
   .mz-product-detail {
-    grid-template-rows: auto;
-    grid-template-columns: 1fr 4fr 1fr;
-
     &__content {
-      grid-row-start: 1;
-      grid-column-start: 2;
-      grid-template-rows: auto auto auto;
-      grid-template-columns: auto;
+      flex-direction: column;
+      justify-content: flex-start;
 
       &__product-info {
-        width: 85rem;
-        margin: 0;
-        grid-row-start: 2;
-        grid-row-end: 2;
-        grid-column-start: 1;
+        width: 100%;
+        padding: 0 2.4rem;
+        margin-bottom: 1rem;
+      }
+
+      &__actions {
+        display: flex;
+        margin-left: 0;
+        flex-direction: column;
       }
     }
   }
 }
 
-@media only screen and (max-width: 425px) {
+@include respond-to(tablet) {
   .mz-product-detail {
-    grid-template-rows: auto;
-    grid-template-columns: 1fr 4fr 1fr;
+    grid-template-rows: 0 0 auto;
 
     &__content {
-      grid-row-start: 1;
-      grid-column-start: 2;
-      grid-template-rows: auto auto auto;
-      grid-template-columns: auto;
+      width: 85rem;
+      flex-direction: column;
+      justify-content: flex-start;
 
       &__product-info {
-        width: 46rem;
-        margin: 0;
-        grid-row-start: 2;
-        grid-row-end: 2;
-        grid-column-start: 1;
+        width: 100%;
+        padding: 0 2.4rem;
+        margin-bottom: 1rem;
+      }
+
+      &__actions {
+        display: flex;
+        margin-left: 0;
+        flex-direction: column;
+      }
+    }
+  }
+}
+
+@include respond-to(mobile) {
+  .mz-product-detail {
+    grid-template-rows: 0 0 auto;
+
+    &__content {
+      width: 46rem;
+      flex-direction: column;
+      justify-content: flex-start;
+
+      &__product-info {
+        width: 100%;
+        padding: 0 2.4rem;
+        margin-bottom: 1rem;
+      }
+
+      &__actions {
+        display: flex;
+        margin-left: 0;
+        flex-direction: column;
       }
     }
   }

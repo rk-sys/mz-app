@@ -1,42 +1,7 @@
 <template>
   <div class="mz-product-detail-card">
 
-    <div class="mz-product-detail-card__craftsman"
-         @mouseenter="isHover = !isHover"
-         @mouseleave="isHover = !isHover"
-         @click="goToDetail(offer.craftsman.uuid)">
-
-      <div class="mz-product-detail-card__craftsman__picture">
-
-        <img :src="offer.craftsman.picture"
-             :alt="offer.craftsman.name"
-             class="mz-product-detail-card__craftsman__picture__img" />
-
-        <div class="mz-product-detail-card__craftsman__picture__img--cover-bg"
-             :class="{'show-overlay' : isHover}"
-             @click="openModal(indexItem)">
-
-          {{ $t(`profileDetail`) }}
-        </div>
-      </div>
-
-      <div class="mz-product-detail-card__craftsman__info">
-
-        <span class="mz-product-detail-card__craftsman__info__name"
-              :class="{'isHover' : isHover}">
-          {{offer.craftsman.name}}
-        </span>
-
-        <mz-rate disabled
-                 v-model="offer.craftsman.rating"
-                 score-template="{value} points"
-                 class="mz-product-detail-card__craftsman__info__rating" />
-
-        <span class="mz-product-detail-card__craftsman__info__city">
-          {{offer.craftsman.city}}
-        </span>
-      </div>
-    </div>
+    <mz-craftsman-card-simple :craftsman="offer.craftsman" />
 
     <div class="mz-product-detail-card__product">
 
@@ -76,24 +41,24 @@
         {{ offer.offerDetail.description }}
       </div>
 
-      <mz-offer-detail-picture :pictures="offer.offerDetail.images" />
+      <mz-gallery :pictures="offer.offerDetail.images" />
     </div>
   </div>
 </template>
 
 <script lang="ts">
 import { Component, Prop, Vue } from 'vue-property-decorator';
-import mzRate                   from '@/components/rate/rate.component.vue';
 import router                   from '@/router';
 import { IOffer }               from '../store/offer-detail.interface';
-import mzOfferDetailPicture     from './offer-detail-pictures.component.vue';
 import mzTooltip                from '@/components/tooltip/tooltip.component.vue';
+import mzGallery                from '@/components/mz-gallery/gallery.component.vue';
+import mzCraftsmanCardSimple    from '@/components/craftsman-card-simple/craftsmen-card-simple.component.vue';
 
 @Component({
   components: {
-    mzRate,
     mzTooltip,
-    mzOfferDetailPicture,
+    mzGallery,
+    mzCraftsmanCardSimple,
   },
 })
 export default class mzProductDetailCard extends Vue {
