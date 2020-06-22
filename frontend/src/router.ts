@@ -172,6 +172,14 @@ const router = new Router({
       },
     },
     {
+      path: '/messages/:uuid',
+      name: 'Message detail',
+      component: () => import ('./views/message-detail/message-detail.view.vue'),
+      meta: {
+        requiresAuth: true,
+      },
+    },
+    {
       path: '/account',
       name: 'User account',
       redirect: '/account/edit',

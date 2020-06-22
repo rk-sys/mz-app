@@ -2,6 +2,10 @@ export default {
   profileDetail: 'Pokaż Profil',
   archiveMessage: 'Przenieś wiadomość do archiwum',
   deleteMessage: 'Usuń wiadomość',
+  offer: {
+    buy: 'KUPIĘ',
+    crafting: 'WYKONAM',
+  },
   tab: {
     all: 'Wszystkie wiadomości',
     craftsmen: 'Bezpośrednie',

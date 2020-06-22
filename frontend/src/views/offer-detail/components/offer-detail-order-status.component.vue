@@ -84,23 +84,6 @@
         {{ $t(`order.none`)}}
       </span>
     </div>
-
-    <!--<div class="mz-offer-detail-order-status__progress">-->
-    <!--<span class="mz-offer-detail-order-status__progress__label">-->
-    <!--{{ $t('order.progress') }}-->
-    <!--</span>-->
-
-    <!--<span v-if="mzActiveCustomer.orderStatus.progress.value"-->
-    <!--class="value">-->
-
-    <!--{{ $t(`order.${mzActiveCustomer.orderStatus.progress.value}`)}}-->
-    <!--</span>-->
-
-    <!--<span v-else-->
-    <!--class="value-none">-->
-    <!--{{ $t(`order.none`)}}-->
-    <!--</span>-->
-    <!--</div>-->
   </div>
 </template>
 
@@ -132,7 +115,7 @@ export default class mzOfferDetailOrderStatus extends Vue {
   display: flex;
   align-items: center;
   justify-content: space-around;
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
   width: 80rem;
   height: 12rem;
   padding: 1rem;

@@ -37,3 +37,10 @@ export interface ICustomer {
   picture: string;
   newMessage: number;
 }
+
+export interface IMessage {
+  name: string;
+  uuid: string;
+  message: string;
+  date: string;
+}

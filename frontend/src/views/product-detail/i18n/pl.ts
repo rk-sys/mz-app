@@ -2,6 +2,7 @@ export default {
   show: 'Wyświetl zdjęcie',
   profileDetail: 'Profile',
   empty: 'Brak wiadomości',
+  sendMessage: 'Wyślij wiadomość',
   product: {
     title: 'Opis przedmiotu',
     detail: 'Szczególy przedmiotu',

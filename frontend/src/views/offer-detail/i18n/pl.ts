@@ -1,6 +1,7 @@
 export default {
   profileDetail: 'Profile',
   empty: 'Brak propozycji',
+  sendMessage: 'Wyślij wiadomość',
   type: {
     buy: 'KUPIĘ',
     craft: 'WYKONAM',

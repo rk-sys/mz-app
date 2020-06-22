@@ -36,7 +36,6 @@
               <div v-else
                    :value="customer.newMessages"
                    :max="10"
-                   type="primary"
                    class="mz-offer-detail-customer-list__wrapper__detail__picture">
 
                 <img :src="customer.picture"
@@ -87,10 +86,11 @@ export default class mzOfferDetailCustomerList extends Vue {
   public marginLeft = 0;
 
   public showNextCustomer(): void {
-    let value = this.marginLeft;
+    const value = this.marginLeft;
+    const minMargin = value - 14;
 
     if (this.customerList.length > 4) {
-      if ((value += 14) > 0) {
+      if ((minMargin) < 0) {
         this.marginLeft = 0;
       } else {
         this.marginLeft += 14;
@@ -100,10 +100,11 @@ export default class mzOfferDetailCustomerList extends Vue {
 
   public showPrevCustomer(): void {
     const maxMargin = (this.customerList.length * 12 - 60) * -1;
-    let value = this.marginLeft;
+    const value = this.marginLeft;
+    const maxValue = value - 14;
 
     if (this.customerList.length > 4) {
-      if ((value -= 14) < maxMargin) {
+      if ((maxValue) <= maxMargin) {
         this.marginLeft = maxMargin;
       } else {
         this.marginLeft -= 14;

@@ -10,7 +10,7 @@ export interface IUserItemStatus {
   status: string;
 }
 
-export interface IDeleteProdcut {
+export interface IDeleteProduct {
   uuid: string;
   title: string;
 }

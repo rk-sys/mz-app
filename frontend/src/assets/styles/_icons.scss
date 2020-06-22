@@ -15,6 +15,11 @@
     background-size: contain;
   }
 
+  &-ban {
+    background: url("~@/assets/icons/ban/ban.svg") no-repeat center;
+    background-size: contain;
+  }
+
   &-heart--gray {
     background: url("~@/assets/icons/heart/heart--gray.svg") no-repeat center;
     background-size: contain;

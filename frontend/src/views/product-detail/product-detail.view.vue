@@ -15,9 +15,18 @@
                                     :is-new="productDetail.product.isNew"
                                     :uuid="productDetail.product.uuid" />
 
-        <mz-product-detail-customer-list :customer-list="productDetail.customers" />
+        <mz-product-detail-customer-list v-if="productDetail.customers"
+                                         :customer-list="productDetail.customers" />
 
         <mz-product-detail-chat />
+
+        <div class="mz-product-detail__content__actions__message">
+          <textarea v-model="newMessage"
+                    class="input"></textarea>
+
+          <mz-button @click="sendNewMessage"> {{ $t(`sendMessage`) }}
+          </mz-button>
+        </div>
       </aside>
     </div>
   </div>
@@ -37,12 +46,14 @@ import mzProductDetailDescriptionMobile from './components/product-detail-descri
 import mzProductDetailCheckout          from './components/product-detail-checkout.compontent.vue';
 import mzProductDetailCustomerList      from './components/product-detail-customer-list.component.vue';
 import mzProductDetailChat              from './components/product-detail-chat.component.vue';
+import mzButton                         from '@/components/buttons/button.component.vue';
 
 const LOCAL_STORE: string = 'productDetail';
 const local = namespace(LOCAL_STORE);
 
 @Component({
   components: {
+    mzButton,
     mzProductDetailChat,
     mzProductDetailCheckout,
     mzProductDetailDescription,
@@ -52,6 +63,12 @@ const local = namespace(LOCAL_STORE);
 })
 export default class mzProductDetail extends Vue {
   @local.State((state: mzProductDetailModule) => state.mzProductDetail) public productDetail!: IProductDetail;
+
+  public newMessage: string = '';
+
+  public sendNewMessage(): void {
+    this.newMessage = '';
+  }
 
   private async beforeRouteEnter(to: Route, from: Route, next: any) {
     const lang: string = Store.state.global.defaultLang;
@@ -111,6 +128,27 @@ export default class mzProductDetail extends Vue {
       display: flex;
       margin-left: 3rem;
       flex-direction: column;
+
+      &__message {
+        background: var(--white);
+        padding: 2rem;
+        margin-top: 1.5rem;
+
+        .input {
+          width: 100%;
+          height: 8rem;
+          margin-bottom: 1rem;
+          font-size: 1.6rem;
+          font-weight: 300;
+          border-radius: 2px;
+          padding: .8rem 1.6rem;
+
+          &:focus {
+            border-radius: 2px;
+            outline-color: var(--primary-color);
+          }
+        }
+      }
     }
   }
 }

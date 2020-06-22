@@ -1,18 +1,18 @@
 import { Action, Module, Mutation, VuexModule } from 'vuex-module-decorators';
 import * as userAccountService                  from './in-realization.service';
-import { IUserItem, IDeleteProdcut }            from './in-realization.interface';
+import { IUserItem, IDeleteProduct }            from './in-realization.interface';
 
 @Module({ namespaced: true, stateFactory: true })
 export default class mzUserAdministrationMyItemsModule extends VuexModule {
   public mzItems: IUserItem[] = [];
   public isModalOpen: boolean = false;
-  public deleteProduct: IDeleteProdcut = {
+  public deleteProduct: IDeleteProduct = {
     uuid: '',
     title: '',
   };
 
   @Mutation
-  public setDeleteProduct(item: IDeleteProdcut): void {
+  public setDeleteProduct(item: IDeleteProduct): void {
     this.deleteProduct = { ...item };
   }
 

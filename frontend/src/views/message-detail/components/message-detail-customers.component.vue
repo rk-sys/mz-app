@@ -1,21 +1,21 @@
 <template>
-  <div class="mz-product-detail-customer-list"
-       :class="{'is-empty' : customerList.length < 1}">
+  <div class="mz-message-detail-customers"
+       :class="{'is-empty' : customers.length < 1}">
 
-    <div v-if="customerList.length"
-         class="mz-product-detail-customer-list__icon-prev icon-arrow--black"
+    <div v-if="customers.length"
+         class="mz-message-detail-customers__icon-prev icon-arrow--black"
          @click="showPrevCustomer"></div>
 
-    <div class="mz-product-detail-customer-list__content"
-         :class="{'is-empty' : customerList.length < 1}">
+    <div class="mz-message-detail-customers__content"
+         :class="{'is-empty' : customers.length < 1}">
 
-      <div class="mz-product-detail-customer-list__wrapper"
+      <div class="mz-message-detail-customers__wrapper"
            :style="{'margin-left': marginLeft + 'rem'}">
 
-        <template v-if="customerList.length">
-          <div v-for="(customer, index) in customerList"
+        <template v-if="customers.length">
+          <div v-for="(customer, index) in customers"
                :key="index"
-               class="mz-product-detail-customer-list__wrapper__detail"
+               class="mz-message-detail-customers__wrapper__detail"
                @click="setActiveCustomer(customer)">
 
             <mz-tooltip :content="customer.name"
@@ -25,7 +25,7 @@
                         :value="customer.newMessages"
                         :max="10"
                         type="primary"
-                        class="mz-product-detail-customer-list__wrapper__detail__picture">
+                        class="mz-message-detail-customers__wrapper__detail__picture">
 
                 <img :src="customer.picture"
                      :alt="customer.name"
@@ -36,7 +36,7 @@
               <div v-else
                    :value="customer.newMessages"
                    :max="10"
-                   class="mz-product-detail-customer-list__wrapper__detail__picture">
+                   class="mz-message-detail-customers__wrapper__detail__picture">
 
                 <img :src="customer.picture"
                      :alt="customer.name"
@@ -47,7 +47,7 @@
         </template>
 
         <template v-else>
-          <span class="mz-product-detail-customer-list__wrapper__empty">
+          <span class="mz-message-detail-customers__wrapper__empty">
             {{ $t('empty') }}
           </span>
         </template>
@@ -55,33 +55,35 @@
       </div>
     </div>
 
-    <div v-if="customerList.length"
-         class="mz-product-detail-customer-list__icon-next icon-arrow--black"
+    <div v-if="customers.length"
+         class="mz-message-detail-customers__icon-next icon-arrow--black"
          @click="showNextCustomer"></div>
   </div>
 </template>
 
 <script lang="ts">
 import { Component, Prop, Vue } from 'vue-property-decorator';
+import { ICustomer }            from '@/views/product-detail/store/product-detail.interface';
 import { namespace }            from 'vuex-class';
-import { ICustomer }            from '../store/product-detail.interface';
 import mzTooltip                from '@/components/tooltip/tooltip.component.vue';
 import mzBadge                  from '@/components/badge/badge.component.vue';
-import mzProductDetailModule    from '../store/product-detail.module';
+import mzMessageDetailModule    from '../store/message-detail.module';
 
-const LOCAL_STORE: string = 'productDetail';
+const LOCAL_STORE: string = 'mzMessageDetail';
 const local = namespace(LOCAL_STORE);
 
 @Component({
   components: {
-    mzBadge,
     mzTooltip,
+    mzBadge,
   },
 })
-export default class mzProductDetailCustomerList extends Vue {
-  @local.State((state: mzProductDetailModule) => state.activeCustomer) public mzActiveCustomer!: ICustomer;
+export default class mzMessageDetailCustomers extends Vue {
+  @local.State((state: mzMessageDetailModule) => state.activeCustomer) public mzActiveCustomer!: ICustomer;
   @local.Mutation public setActiveCustomer!: (arg: ICustomer) => void;
-  @Prop(Array) public readonly customerList!: ICustomer[];
+
+  @Prop(Array) public readonly customers!: ICustomer[];
+
 
   public marginLeft = 0;
 
@@ -89,7 +91,7 @@ export default class mzProductDetailCustomerList extends Vue {
     const value = this.marginLeft;
     const minMargin = value - 14;
 
-    if (this.customerList.length > 4) {
+    if (this.customers.length > 4) {
       if ((minMargin) < 0) {
         this.marginLeft = 0;
       } else {
@@ -99,11 +101,11 @@ export default class mzProductDetailCustomerList extends Vue {
   }
 
   public showPrevCustomer(): void {
-    const maxMargin = (this.customerList.length * 12 - 60) * -1;
+    const maxMargin = (this.customers.length * 12 - 60) * -1;
     const value = this.marginLeft;
     const maxValue = value - 14;
 
-    if (this.customerList.length > 4) {
+    if (this.customers.length > 4) {
       if ((maxValue) <= maxMargin) {
         this.marginLeft = maxMargin;
       } else {
@@ -117,15 +119,16 @@ export default class mzProductDetailCustomerList extends Vue {
 <style lang="scss"
        scoped>
 
-.mz-product-detail-customer-list {
+.mz-message-detail-customers {
   background: var(--white);
   border-radius: 2px;
   overflow: hidden;
-  width: 80rem;
+  width: 100%;
   height: 12rem;
   padding: 1rem;
   display: flex;
   align-items: center;
+  margin: 2rem 0;
 
   &__icon-prev {
     transform: rotate(180deg);
@@ -214,19 +217,19 @@ export default class mzProductDetailCustomerList extends Vue {
 }
 
 @include respond-to(desktop) {
-  .mz-product-detail-customer-list {
+  .mz-message-detail-customers {
     width: 100%;
   }
 }
 
 @include respond-to(tablet) {
-  .mz-product-detail-customer-list {
+  .mz-message-detail-customers {
     width: 100%;
   }
 }
 
 @include respond-to(mobile) {
-  .mz-product-detail-customer-list {
+  .mz-message-detail-customers {
     width: 100%;
   }
 }

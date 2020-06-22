@@ -47,12 +47,10 @@ export default class mzProductsDetailcheckout extends Vue {
 .mz-product-detail-checkout {
   background: var(--white);
   border-radius: 2px;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   align-items: center;
   justify-content: space-around;
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
   width: 80rem;
   padding: 1rem;
   flex-wrap: wrap;

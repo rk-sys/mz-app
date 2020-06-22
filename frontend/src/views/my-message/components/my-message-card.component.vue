@@ -88,7 +88,7 @@ export default class mzCraftsmenDetailPortfolio extends Vue {
   }
 
   public goToDetail(uuid: string): void {
-    router.push({ name: 'Home' });
+    router.push({ name: 'Message detail', params: {uuid} });
   }
 
   public archiveMessage(uuid: string): void {

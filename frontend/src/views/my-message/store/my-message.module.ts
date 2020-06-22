@@ -6,10 +6,10 @@ import { myMessages }                           from '@/views/my-message/store/m
 
 @Module({ namespaced: true, stateFactory: true })
 export default class mzMyMessages extends VuexModule {
-  public myMessages: IMyMessage[] = cloneDeep(myMessages);
+  public myMessages: IMyMessage = cloneDeep(myMessages);
 
   @Mutation
-  public setMyMessages(payload: IMyMessage[]) {
+  public setMyMessages(payload: IMyMessage) {
     this.myMessages = payload;
   }
 

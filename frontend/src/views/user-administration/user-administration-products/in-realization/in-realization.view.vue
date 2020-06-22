@@ -62,7 +62,7 @@ import { loadTranslationsAsync }               from '@/i18n/i18n';
 import Store                                   from '@/store/store';
 import { registerStoreModule }                 from '@/helpers/helpers';
 import { DEFAULT }                             from '@/helpers/variables';
-import { IDeleteProdcut, IUserItem }           from './store/in-realization.interface';
+import { IDeleteProduct, IUserItem }           from './store/in-realization.interface';
 import mzButton                                from '@/components/buttons/button.component.vue';
 import mzDialog                                from '@/components/dialog/dialog.component.vue';
 import mzEmptyListMessage                      from '@/components/empty-list-message/empty-list-message.component.vue';
@@ -85,7 +85,7 @@ const local = namespace(LOCAL_STORE);
 export default class mzUserAdministrationInRealization extends Vue {
   @local.State((state: mzUserAdministrationInRealizationModule) => state.mzItems) public items!: IUserItem[];
   @local.State((state: mzUserAdministrationInRealizationModule) => state.isModalOpen) public isModalOpen!: boolean;
-  @local.State((state: mzUserAdministrationInRealizationModule) => state.deleteProduct) public deleteProduct!: IDeleteProdcut;
+  @local.State((state: mzUserAdministrationInRealizationModule) => state.deleteProduct) public deleteProduct!: IDeleteProduct;
   @local.Mutation public setIsModalOpen!: (payload: boolean) => void;
   @local.Action public getUserItems!: (arg: string) => void;
   public pageName: string | undefined;

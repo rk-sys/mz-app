@@ -8,20 +8,10 @@
 
       <mz-tabs v-model="activeTab">
 
-        <mz-tab-pane :label="$t(`tab.all`)"
-                     name="all">
-
-          <mz-my-message-card v-for="(message, id) in messages"
-                              :key="id"
-                              type="all"
-                              :item="message" />
-
-        </mz-tab-pane>
-
         <mz-tab-pane :label="$t(`tab.craftsmen`)"
                      name="forMe">
 
-          <mz-my-message-card v-for="(message, id) in messages"
+          <mz-my-message-card v-for="(message, id) in messages.forMe"
                               :key="id"
                               type="forMe"
                               :item="message" />
@@ -30,25 +20,23 @@
         <mz-tab-pane :label="$t(`tab.items`)"
                      name="items">
 
-          <mz-my-message-card v-for="(message, id) in messages"
-                              :key="id"
-                              type="item"
-                              :item="message" />
+          <mz-my-message-item-card v-for="(item, id) in messages.items"
+                                   :key="id"
+                                   :item="item" />
         </mz-tab-pane>
 
         <mz-tab-pane :label="$t(`tab.offers`)"
                      name="offers">
 
-          <mz-my-message-card v-for="(message, id) in messages"
-                              :key="id"
-                              type="offer"
-                              :item="message" />
+          <mz-my-message-offer-card v-for="(offer, id) in messages.offers"
+                                    :key="id"
+                                    :offer="offer" />
         </mz-tab-pane>
 
         <mz-tab-pane :label="$t(`tab.archives`)"
                      name="archives">
 
-          <mz-my-message-card v-for="(message, id) in messages"
+          <mz-my-message-card v-for="(message, id) in messages.archive"
                               :key="id"
                               type="archive"
                               :item="message" />
@@ -63,14 +51,15 @@ import { Component, Vue }        from 'vue-property-decorator';
 import { Route }                 from 'vue-router';
 import mzTabPane                 from 'element-ui/lib/tab-pane.js';
 import { namespace }             from 'vuex-class';
-import mzMyMessageModule         from './store/my-message.module';
+import { IMyMessage }            from '@/views/my-message/store/my-message.interface';
 import Store                     from '@/store/store';
 import { registerStoreModule }   from '@/helpers/helpers';
 import { loadTranslationsAsync } from '@/i18n/i18n';
 import mzTabs                    from '@/components/commons/tab/tabs.component.vue';
+import mzMyMessageModule         from './store/my-message.module';
 import mzMyMessageCard           from './components/my-message-card.component.vue';
-import { IMyMessage }            from '@/views/my-message/store/my-message.interface';
-
+import mzMyMessageItemCard       from './components/my-message-item-card.component.vue';
+import mzMyMessageOfferCard      from './components/my-message-offer-card.component.vue';
 
 const LOCAL_STORE: string = 'mzMyMessage';
 const local = namespace(LOCAL_STORE);
@@ -80,12 +69,14 @@ const local = namespace(LOCAL_STORE);
     mzTabs,
     mzTabPane,
     mzMyMessageCard,
+    mzMyMessageItemCard,
+    mzMyMessageOfferCard,
   },
 })
-export default class mzUserAdministration extends Vue {
+export default class mzMyMessage extends Vue {
   @local.State((state: mzMyMessageModule) => state.myMessages) public messages!: IMyMessage;
 
-  public activeTab = 'all';
+  public activeTab = 'forMe';
 
   private async beforeRouteEnter(to: Route, from: Route, next: any) {
     const lang: string = Store.state.global.defaultLang;

@@ -1,12 +1,13 @@
 import { Action, Module, Mutation, VuexModule } from 'vuex-module-decorators';
 import cloneDeep                                from 'lodash/cloneDeep';
-import { ICustomer, IOffer }                    from '@/views/offer-detail/store/offer-detail.interface';
+import { ICustomer, IMessage, IOffer }          from '@/views/offer-detail/store/offer-detail.interface';
 import { mzOffer }                              from './offer-detail.state';
 import * as offerDetailService                  from './offer-detail.service';
 
 @Module({ namespaced: true, stateFactory: true })
 export default class offerDetailModule extends VuexModule {
   public mzOffer: IOffer = cloneDeep(mzOffer);
+  public message: IMessage[] = [];
   public activeCustomer: ICustomer = {
     name: '',
     picture: '',
@@ -35,6 +36,11 @@ export default class offerDetailModule extends VuexModule {
   }
 
   @Mutation
+  public setMessage(payload: IMessage[]): void {
+    this.message = payload;
+  }
+
+  @Mutation
   public setActiveCustomer(payload: ICustomer): void {
     this.activeCustomer = payload;
   }
@@ -52,6 +58,7 @@ export default class offerDetailModule extends VuexModule {
       if (data.customers.length) {
         this.context.commit('setActiveCustomer', data.customers[ 0 ]);
       }
+      this.context.commit('setMessage', data.messages);
     } catch (e) {
       throw new Error(e);
     }

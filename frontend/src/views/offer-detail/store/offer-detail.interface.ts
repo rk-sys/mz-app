@@ -45,3 +45,10 @@ export interface IOrderStatus {
     accept: boolean;
   };
 }
+
+export interface IMessage {
+  name: string;
+  uuid: string;
+  message: string;
+  date: string;
+}
