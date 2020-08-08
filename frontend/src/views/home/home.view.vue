@@ -1,32 +1,119 @@
 <template>
-  <div class="home">
-    <div class="home__title">
-      <h1 class="slogan">{{ $t(`webFor`) }}
-        <span class="slogan--primary">{{$t(`craftsman`)}}</span>
+  <div class="mz-home">
+
+    <div class="mz-home__title">
+      <h1 class="mz-home__title__slogan">{{ $t(`webFor`) }}
+        <span class="mz-home__title__slogan--primary">{{$t(`craftsman`)}}</span>
       </h1>
+
+      <div class="mz-home__search">
+        <mz-input-basic v-model="search"
+                        placeholder="Czego szukasz?"
+                        class="mz-home__search__input" />
+
+        <mz-select class="mz-home__search__select"
+                   v-model="searchType"
+                   size="mini">
+
+          <mz-option v-for="(option, index) in searchTypes"
+                     :value="option"
+                     :label="$t(`options.${option}`)"
+                     :key="index" />
+        </mz-select>
+
+        <div class="mz-home__search__button">{{ $t(`search`) }}</div>
+      </div>
     </div>
 
-    <div class="home__register">
-      <p class="home__register__title">{{ $t(`registerTitle`) }}!</p>
-      <p class="home__register__info" v-html="$t(`registerInfo`)"></p>
+    <div class="mz-home__craftsmen">
+      <h2 class="mz-home__craftsmen__title">{{ $t(`newCraftsmen`) }}</h2>
 
+      <div class="mz-home__craftsmen__list">
 
-      <router-link class="home__register__button"
-                   to="/registration">{{ $t(`button`) }}
-      </router-link>
+        <mz-craftsmen-card v-if="index < 4"
+                           v-for="(craftsmen, index) in mzHome.craftsmen"
+                           :key="index"
+                           class="mz-home__craftsmen__list__item"
+                           :craftsmen-id="craftsmen.uuid"
+                           :city="craftsmen.city"
+                           :rating="craftsmen.rating"
+                           :name="craftsmen.name"
+                           :image="craftsmen.image"
+                           :tags="craftsmen.tags" />
+      </div>
+    </div>
+
+    <div class="mz-home__products">
+      <h2 class="mz-home__products__title">{{ $t(`newProducts`) }}</h2>
+
+      <div class="mz-home__products__list">
+        <mz-product-card v-if="index < 5"
+                         v-for="(product, index) in mzHome.products"
+                         :key="index"
+                         :product="product"
+                         class="mz-home__products__list__item" />
+      </div>
+    </div>
+
+    <div class="mz-home__events">
+      <h2 class="mz-home__events__title">{{ $t(`newEvents`) }}</h2>
+
+      <div class="mz-home__events__list">
+
+        <mz-event-card v-if="index < 2"
+                       v-for="(event, index) in mzHome.events"
+                       :key="index"
+                       :event="event"
+                       class="mz-home__events__list__item" />
+      </div>
     </div>
   </div>
 </template>
 <script lang="ts">
 import { Component, Vue }        from 'vue-property-decorator';
 import { Route }                 from 'vue-router';
-import { loadTranslationsAsync } from '@/i18n/i18n';
+import { namespace }             from 'vuex-class';
 import Store                     from '@/store/store';
+import { loadTranslationsAsync } from '@/i18n/i18n';
+import { registerStoreModule }   from '@/helpers/helpers';
+import { IHome }                 from '@/views/home/store/home.interface';
+import mzInputBasic              from '@/components/input/mz-input-basic.component.vue';
+import mzSelect                  from '@/components/form/select/select-basic.component.vue';
+import mzOption                  from '@/components/form/option/option-basic.component.vue';
+import mzButton                  from '@/components/buttons/button.component.vue';
+import mzHomeModule              from './store/home.module';
+import mzCraftsmenCard           from '@/components/craftsmen-card/craftsmen-card.component.vue';
+import mzProductCard             from '@/components/product-card/product-card.component.vue';
+import mzEventCard               from '@/components/event/event-card.component.vue';
+
+const LOCAL_STORE: string = 'mzHome';
+const local = namespace(LOCAL_STORE);
 
 @Component({
-  components: {},
+  components: {
+    mzButton,
+    mzOption,
+    mzSelect,
+    mzEventCard,
+    mzInputBasic,
+    mzProductCard,
+    mzCraftsmenCard,
+  },
 })
-export default class yHome extends Vue {
+export default class mzHome extends Vue {
+  @local.State((state: mzHomeModule) => state.mzHome) public mzHome!: IHome;
+  @local.State((state: mzHomeModule) => state.search) public search!: string;
+  @local.State((state: mzHomeModule) => state.searchTypes) public searchTypes!: Array<string>;
+  @local.State((state: mzHomeModule) => state.searchType) public searchTypeOption!: string;
+  @local.Mutation public setSearchType!: (arg: string) => void;
+
+  set searchType(arg: string) {
+    this.setSearchType(arg);
+  }
+
+  get searchType(): string {
+    return this.searchTypeOption;
+  }
 
   private async beforeRouteEnter(to: Route, from: Route, next: any): Promise<void> {
     const lang: string = Store.state.global.defaultLang;
@@ -34,6 +121,8 @@ export default class yHome extends Vue {
     try {
       await loadTranslationsAsync(lang,
         import(/* webpackChunkName: "user/[request]" */ `./i18n/${lang}` as string));
+      registerStoreModule(LOCAL_STORE.split('/'), mzHomeModule);
+      await Store.dispatch(`${LOCAL_STORE}/getHomePage`);
       next();
     } catch (e) {
       next(false);
@@ -44,20 +133,24 @@ export default class yHome extends Vue {
 </script>
 
 <style lang="scss" scoped>
-.home {
-  background: url("~@/assets/img/background.jpg") no-repeat center;
+.mz-home {
   min-height: 100vh;
-  background-size: cover;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  padding: 0 20rem;
 
-  .home__title {
-    .slogan {
+  &__title {
+    height: 50rem;
+    margin-top: 16.2rem;
+    padding: 0 20rem;
+    background: url("~@/assets/img/background-craft.jpg") no-repeat center;
+    background-size: cover;
+
+    &__slogan {
+      font-family: var(--secondary-font-family);
+      margin: 5rem 0;
       font-size: 12rem;
       font-weight: var(--font-light);
-      color: var(--black);
+      color: var(--white);
       line-height: 1.1;
 
       &--primary {
@@ -69,103 +162,196 @@ export default class yHome extends Vue {
     }
   }
 
-  .home__register {
-    &__title {
-      font-size: 3.2rem;
-      font-weight: var(--font-medium);
-      margin-bottom: 0;
+  &__search {
+    padding: 1rem;
+    display: flex;
+    width: 80rem;
+
+    &__input {
+      margin-right: .5rem;
     }
 
-    &__info {
-      margin-top: 1rem;
-      font-size: 2rem;
+    &__select {
+      margin-right: .5rem;
     }
 
     &__button {
-      display: block;
-      width: 20rem;
-      height: 4rem;
-      border-radius: .2rem;
-      padding: 1rem 2rem;
       cursor: pointer;
-      font-size: var(--font-size-16);
-      color: var(--white);
-      background-color: var(--primary-color);
-      border: .1rem solid var(--primary-color);
-      text-decoration: none;
+      background: var(--primary-color);
+      width: 25rem;
       text-align: center;
+      font-size: 2.4rem;
+      padding: 1rem;
+      color: var(--white);
+      font-weight: 500;
 
       &:hover {
         background-color: var(--primary-color-80);
-        border: .1rem solid var(--primary-color-80);
       }
+    }
+  }
+
+  &__craftsmen {
+    margin-top: 10rem;
+    padding: 0 20rem 5rem;
+    background: var(--gray-150);
+
+    &__list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+
+      &__item {
+        margin-top: 2.4rem;
+
+        &:not(:nth-child(4n)) {
+          margin-right: 2.4rem;
+        }
+      }
+    }
+  }
+
+  &__products {
+    margin-top: 5rem;
+    padding: 0 20rem 5rem;
+
+    &__list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+
+      &__item {
+        margin-right: 5rem;
+        margin-top: 2rem;
+
+        &:nth-child(5n) {
+          margin-right: 0;
+        }
+      }
+    }
+  }
+
+  &__events {
+    margin-top: 5rem;
+    padding: 0 20rem 5rem;
+    background-color: var(--gray-150);
+
+    &__list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+    }
+
+  }
+}
+
+@media screen and (max-width: 1440px) and (min-width: 1025px) {
+  .mz-home {
+    &__title {
+      padding: 0 10rem;
+    }
+
+    &__craftsmen,
+    &__products,
+    &__events {
+      padding: 0 5rem 5rem;
     }
   }
 }
 
-@media only screen and (max-width: 1024px) and (min-width: 768px) {
-  .home {
-    padding: 0 10rem;
+@media screen and (max-width: 1024px) and (min-width: 769px) {
+  .mz-home {
+    &__title {
+      padding: 0 10rem;
+    }
 
-    .home__title {
-      .slogan {
-        font-size: 10rem;
+    &__craftsmen,
+    &__products,
+    &__events {
+      padding: 0 10rem 5rem;
+    }
+  }
+}
 
-        &--primary {
-          font-size: 6rem;
+@media screen and (max-width: 768px) and (min-width: 430px) {
+  .mz-home {
+    &__title {
+      padding: 0 5rem;
+      margin-top: 10rem;
+    }
+
+    &__craftsmen,
+    &__products,
+    &__events {
+      padding: 0 10rem 5rem;
+
+      &__list {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+
+        &__item {
+          margin-top: 2.4rem;
+          margin-right: 0;
+
+          &:not(:nth-child(4n)) {
+            margin-right: 0;
+          }
         }
       }
     }
   }
 }
 
-@media only screen and (max-width: 768px) and (min-width: 426px) {
-  .home {
-    padding: 0 5rem;
+@media screen and (max-width: 429px) {
+  .mz-home {
+    &__title {
+      padding: 0 2rem;
+      margin-top: 5rem;
+      height: 60rem;
 
-    .home__title {
-      .slogan {
-        font-size: 6rem;
-
-        &--primary {
-          font-size: 4rem;
-        }
+      &__slogan {
+        font-size: 8rem;
       }
     }
 
-    .home__register {
+    &__search {
+      flex-direction: column;
+      width: 100%;
+      height: 20rem;
+      justify-content: space-between;
+      align-items: center;
+
+      &__input,
+      &__select,
+      &__button {
+        height: 5rem;
+        width: 100%;
+      }
+    }
+
+    &__craftsmen,
+    &__products,
+    &__events {
+      padding: 0 2rem 5rem;
+
       &__title {
         font-size: 2.6rem;
       }
 
-      &__info {
-        font-size: 1.8rem;
-      }
-    }
-  }
-}
+      &__list {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
 
-@media only screen and (max-width: 425px) {
-  .home {
-    padding: 0 2rem;
+        &__item {
+          margin-top: 2.4rem;
+          margin-right: 0;
 
-    .home__title {
-      .slogan {
-        font-size: 4.5rem;
-
-        &--primary {
-          font-size: 3.2rem;
+          &:not(:nth-child(4n)) {
+            margin-right: 0;
+          }
         }
-      }
-    }
-
-    .home__register {
-      &__title {
-        font-size: 2.2rem;
-      }
-
-      &__info {
-        font-size: 1.6rem;
       }
     }
   }

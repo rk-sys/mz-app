@@ -3,7 +3,7 @@
     <div class="mz-portfolio-item__background">
       <img class="mz-portfolio-item__avatar"
            alt="item"
-           :src="item.picture.url">
+           :src="item.pictureUrl">
     </div>
 
     <div class="mz-portfolio-item__content">
@@ -99,6 +99,7 @@ export default class mzPortfolioItem extends Vue {
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
+    object-fit: cover;
   }
 
   &__content {

@@ -53,7 +53,7 @@
 
       <mz-button class="button"
                  form="parcelLockerForm"
-                 native-type="submit"> +
+                 native-type="submit">
       </mz-button>
     </mz-form>
   </div>

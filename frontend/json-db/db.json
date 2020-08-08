@@ -1,4 +1,196 @@
 {
+  "craftsmen": [
+    {
+      "city": "Wrocław",
+      "name": "Kafał Rrukowski",
+      "rating": 1.3,
+      "tags": [
+        "Hip",
+        "Opa",
+        "Patyl"
+      ],
+      "image": "https://images.unsplash.com/photo-1575425186775-b8de9a427e67?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80",
+      "id": 1
+    },
+    {
+      "city": "Szonów",
+      "name": "Kapsel Kłukowski",
+      "rating": 3.6,
+      "tags": [
+        "H",
+        "O",
+        "P"
+      ],
+      "image": "https://images.unsplash.com/photo-1575425187384-ccd8f6a161e8?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80",
+      "id": 2
+    },
+    {
+      "city": "Wrocław",
+      "name": "Sarek Mawiar",
+      "rating": 4.1,
+      "tags": [
+        "Drewno",
+        "GUI",
+        "To jest jakis tag długi",
+        "To jest jakis tag długi"
+      ],
+      "image": "https://images.unsplash.com/photo-1518020382113-a7e8fc38eac9?ixlib=rb-1.2.1&auto=format&fit=crop&w=660&q=80",
+      "id": 3
+    },
+    {
+      "city": "Kusino",
+      "name": "Nevin Kikolas",
+      "rating": 1.3,
+      "tags": [
+        "Vue",
+        "js",
+        "Zamieszanie"
+      ],
+      "image": "https://images.unsplash.com/photo-1529088363398-8efc64a0eb95?ixlib=rb-1.2.1&auto=format&fit=crop&w=724&q=80",
+      "id": 4
+    },
+    {
+      "city": "Wrocław",
+      "name": "Fapał Fapalowicz",
+      "rating": 4.1,
+      "tags": [
+        "Osiem",
+        "tagi",
+        "To",
+        "Jeszcze",
+        "Nie",
+        "Koniec"
+      ],
+      "image": "https://images.unsplash.com/photo-1530041539828-114de669390e?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80",
+      "id": 5
+    }
+  ],
+  "productList": [
+    {
+      "id": 1,
+      "image": "https://images.unsplash.com/photo-1584992236310-6edddc08acff?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1267&q=80",
+      "title": "orange blue and white yarn",
+      "price": 100.2
+    },
+    {
+      "id": 2,
+      "image": "https://images.unsplash.com/photo-1451930393367-e1e01fc2bacc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80",
+      "title": "leather, brown, last",
+      "price": 1.12
+    },
+    {
+      "id": 3,
+      "image": "https://images.unsplash.com/photo-1511283402428-355853756676?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80",
+      "title": "Shoes old, sale!",
+      "price": 120
+    },
+    {
+      "id": 4,
+      "image": "https://images.unsplash.com/photo-1581383407993-1352bdc4dd25?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80",
+      "title": "Hat leather!",
+      "price": 99879
+    }
+  ],
+  "offers": [
+    {
+      "uuid": 1,
+      "title": "Shoes old",
+      "status": "create",
+      "image": "https://images.unsplash.com/photo-1511283402428-355853756676?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80",
+      "additionalImages": [
+        "https://images.unsplash.com/photo-1511283402428-355853756676?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
+      ],
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
+      "price": 120,
+      "isFinalPrice": true
+    },
+    {
+      "uuid": 2,
+      "title": "Lorem ipsum dolor sit amet, consectetur adipiscing elit Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+      "status": "buy",
+      "image": "https://images.unsplash.com/photo-1511283402428-355853756676?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80",
+      "additionalImages": [
+        "https://images.unsplash.com/photo-1511283402428-355853756676?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80",
+        "https://images.unsplash.com/photo-1570025133152-5fcc2cfe6573?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1352&q=80",
+        "https://images.unsplash.com/photo-1550274503-f50cf8dd4ab3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
+      ],
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
+      "price": 120,
+      "isFinalPrice": false
+    },
+    {
+      "uuid": 3,
+      "title": "Shoes old",
+      "status": "create",
+      "image": "https://images.unsplash.com/photo-1511283402428-355853756676?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80",
+      "additionalImages": [
+        "https://images.unsplash.com/photo-1511283402428-355853756676?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
+      ],
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
+      "price": 120,
+      "isFinalPrice": false
+    },
+    {
+      "uuid": 4,
+      "title": "Shoes old",
+      "status": "buy",
+      "image": "https://images.unsplash.com/photo-1511283402428-355853756676?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80",
+      "additionalImages": [
+        "https://images.unsplash.com/photo-1511283402428-355853756676?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
+      ],
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
+      "price": 120,
+      "isFinalPrice": false
+    },
+    {
+      "uuid": 5,
+      "title": "Shoes old",
+      "status": "buy",
+      "image": "https://images.unsplash.com/photo-1511283402428-355853756676?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80",
+      "additionalImages": [
+        "https://images.unsplash.com/photo-1511283402428-355853756676?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
+      ],
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
+      "price": 120,
+      "isFinalPrice": false
+    },
+    {
+      "uuid": 6,
+      "title": "Shoes old",
+      "status": "buy",
+      "image": "https://images.unsplash.com/photo-1511283402428-355853756676?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80",
+      "additionalImages": [
+        "https://images.unsplash.com/photo-1511283402428-355853756676?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
+      ],
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
+      "price": 120,
+      "isFinalPrice": false
+    },
+    {
+      "uuid": 7,
+      "title": "Shoes old",
+      "status": "create",
+      "image": "https://images.unsplash.com/photo-1511283402428-355853756676?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80",
+      "additionalImages": [
+        "https://images.unsplash.com/photo-1511283402428-355853756676?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
+      ],
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
+      "price": 120,
+      "isFinalPrice": false
+    },
+    {
+      "uuid": 8,
+      "title": "Shoes old",
+      "status": "create",
+      "image": "https://images.unsplash.com/photo-1511283402428-355853756676?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80",
+      "additionalImages": [
+        "https://images.unsplash.com/photo-1511283402428-355853756676?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
+      ],
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
+      "price": 120,
+      "isFinalPrice": false
+    }
+  ],
   "userAccountProducts": [
     {
       "avatar": "https://images.unsplash.com/photo-1584992236310-6edddc08acff?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1267&q=80",
@@ -173,32 +365,6 @@
       "id": 1
     }
   ],
-  "productList": [
-    {
-      "id": 1,
-      "image": "https://images.unsplash.com/photo-1584992236310-6edddc08acff?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1267&q=80",
-      "title": "orange blue and white yarn",
-      "price": 100.2
-    },
-    {
-      "id": 2,
-      "image": "https://images.unsplash.com/photo-1451930393367-e1e01fc2bacc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80",
-      "title": "leather, brown, last",
-      "price": 1.12
-    },
-    {
-      "id": 3,
-      "image": "https://images.unsplash.com/photo-1511283402428-355853756676?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80",
-      "title": "Shoes old, sale!",
-      "price": 120
-    },
-    {
-      "id": 4,
-      "image": "https://images.unsplash.com/photo-1581383407993-1352bdc4dd25?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80",
-      "title": "Hat leather!",
-      "price": 99879
-    }
-  ],
   "userItemsInRealization": [
     {
       "id": 1
@@ -207,72 +373,6 @@
   "userProduct": [
     {
       "id": 1
-    }
-  ],
-  "craftsmen": [
-    {
-      "city": "Wrocław",
-      "name": "Kafał Rrukowski",
-      "rating": 1.3,
-      "tags": [
-        "Hip",
-        "Opa",
-        "Patyl"
-      ],
-      "image": "https://images.unsplash.com/photo-1575425186775-b8de9a427e67?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80",
-      "id": 1
-    },
-    {
-      "city": "Szonów",
-      "name": "Kapsel Kłukowski",
-      "rating": 3.6,
-      "tags": [
-        "H",
-        "O",
-        "P"
-      ],
-      "image": "https://images.unsplash.com/photo-1575425187384-ccd8f6a161e8?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80",
-      "id": 2
-    },
-    {
-      "city": "Wrocław",
-      "name": "Sarek Mawiar",
-      "rating": 4.1,
-      "tags": [
-        "Drewno",
-        "GUI",
-        "To jest jakis tag długi",
-        "To jest jakis tag długi"
-      ],
-      "image": "https://images.unsplash.com/photo-1518020382113-a7e8fc38eac9?ixlib=rb-1.2.1&auto=format&fit=crop&w=660&q=80",
-      "id": 3
-    },
-    {
-      "city": "Kusino",
-      "name": "Nevin Kikolas",
-      "rating": 1.3,
-      "tags": [
-        "Vue",
-        "js",
-        "Zamieszanie"
-      ],
-      "image": "https://images.unsplash.com/photo-1529088363398-8efc64a0eb95?ixlib=rb-1.2.1&auto=format&fit=crop&w=724&q=80",
-      "id": 4
-    },
-    {
-      "city": "Wrocław",
-      "name": "Fapał Fapalowicz",
-      "rating": 4.1,
-      "tags": [
-        "Osiem",
-        "tagi",
-        "To",
-        "Jeszcze",
-        "Nie",
-        "Koniec"
-      ],
-      "image": "https://images.unsplash.com/photo-1530041539828-114de669390e?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80",
-      "id": 5
     }
   ],
   "craftsmanDetail": {
@@ -673,106 +773,6 @@
       }
     ]
   },
-  "offers": [
-    {
-      "uuid": 1,
-      "title": "Shoes old",
-      "status": "create",
-      "image": "https://images.unsplash.com/photo-1511283402428-355853756676?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80",
-      "additionalImages": [
-        "https://images.unsplash.com/photo-1511283402428-355853756676?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
-      ],
-      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
-      "price": 120,
-      "isFinalPrice": true
-    },
-    {
-      "uuid": 2,
-      "title": "Lorem ipsum dolor sit amet, consectetur adipiscing elit Lorem ipsum dolor sit amet, consectetur adipiscing elit",
-      "status": "buy",
-      "image": "https://images.unsplash.com/photo-1511283402428-355853756676?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80",
-      "additionalImages": [
-        "https://images.unsplash.com/photo-1511283402428-355853756676?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80",
-        "https://images.unsplash.com/photo-1570025133152-5fcc2cfe6573?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1352&q=80",
-        "https://images.unsplash.com/photo-1550274503-f50cf8dd4ab3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
-      ],
-      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
-      "price": 120,
-      "isFinalPrice": false
-    },
-    {
-      "uuid": 3,
-      "title": "Shoes old",
-      "status": "create",
-      "image": "https://images.unsplash.com/photo-1511283402428-355853756676?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80",
-      "additionalImages": [
-        "https://images.unsplash.com/photo-1511283402428-355853756676?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
-      ],
-      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
-      "price": 120,
-      "isFinalPrice": false
-    },
-    {
-      "uuid": 4,
-      "title": "Shoes old",
-      "status": "buy",
-      "image": "https://images.unsplash.com/photo-1511283402428-355853756676?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80",
-      "additionalImages": [
-        "https://images.unsplash.com/photo-1511283402428-355853756676?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
-      ],
-      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
-      "price": 120,
-      "isFinalPrice": false
-    },
-    {
-      "uuid": 5,
-      "title": "Shoes old",
-      "status": "buy",
-      "image": "https://images.unsplash.com/photo-1511283402428-355853756676?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80",
-      "additionalImages": [
-        "https://images.unsplash.com/photo-1511283402428-355853756676?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
-      ],
-      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
-      "price": 120,
-      "isFinalPrice": false
-    },
-    {
-      "uuid": 6,
-      "title": "Shoes old",
-      "status": "buy",
-      "image": "https://images.unsplash.com/photo-1511283402428-355853756676?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80",
-      "additionalImages": [
-        "https://images.unsplash.com/photo-1511283402428-355853756676?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
-      ],
-      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
-      "price": 120,
-      "isFinalPrice": false
-    },
-    {
-      "uuid": 7,
-      "title": "Shoes old",
-      "status": "create",
-      "image": "https://images.unsplash.com/photo-1511283402428-355853756676?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80",
-      "additionalImages": [
-        "https://images.unsplash.com/photo-1511283402428-355853756676?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
-      ],
-      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
-      "price": 120,
-      "isFinalPrice": false
-    },
-    {
-      "uuid": 8,
-      "title": "Shoes old",
-      "status": "create",
-      "image": "https://images.unsplash.com/photo-1511283402428-355853756676?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80",
-      "additionalImages": [
-        "https://images.unsplash.com/photo-1511283402428-355853756676?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
-      ],
-      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
-      "price": 120,
-      "isFinalPrice": false
-    }
-  ],
   "offerDetail": {
     "craftsman": {
       "uuid": "1",

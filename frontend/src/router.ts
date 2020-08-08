@@ -13,22 +13,34 @@ const router = new Router({
       path: '/',
       name: 'Home',
       component: () => import('./views/home/home.view.vue'),
+      meta: {
+        requiresAuth: true,
+      },
     },
     {
       path: '/craftsmen',
       name: 'Craftsmen',
       component: () => import('./views/craftsmen/craftsmen.view.vue'),
+      meta: {
+        requiresAuth: true,
+      },
     },
 
     {
       path: '/products',
       name: 'Products list',
       component: () => import ('./views/products-list/products-list.view.vue'),
+      meta: {
+        requiresAuth: true,
+      },
     },
     {
       path: '/products/:uuid/detail',
       name: 'Product detail',
       component: () => import ('./views/product-detail/product-detail.view.vue'),
+      meta: {
+        requiresAuth: true,
+      },
     },
     {
       path: '/products/:uuid/detail/checkout',
@@ -42,11 +54,17 @@ const router = new Router({
       path: '/offers',
       name: 'Offers list',
       component: () => import ('./views/offers-list/offers-list.view.vue'),
+      meta: {
+        requiresAuth: true,
+      },
     },
     {
       path: '/offers/:uuid/detail',
       name: 'Offer detail',
       component: () => import ('./views/offer-detail/offer-detail.view.vue'),
+      meta: {
+        requiresAuth: true,
+      },
     },
     {
       path: '/login',
@@ -57,6 +75,9 @@ const router = new Router({
       path: '/registration',
       name: 'Registration',
       component: () => import ('./views/registration/registration.view.vue'),
+      meta: {
+        requiresAuth: true,
+      },
     },
     {
       path: '/reset',
@@ -68,6 +89,9 @@ const router = new Router({
       name: 'Craftsmen detail',
       redirect: '/craftsmen/:uuid/detail/info',
       component: () => import ('./views/craftsmen-detail/craftsmen-detail.view.vue'),
+      meta: {
+        requiresAuth: true,
+      },
       children: [
         {
           path: 'info',

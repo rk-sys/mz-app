@@ -158,7 +158,7 @@
            v-for="(option, index) in newItem.letterDelivery"
            :key="index">
 
-          <span class="options__label">{ {option.label }}</span>
+          <span class="options__label">{{ option.label }}</span>
           <span class="options__value">{{ option.price }} {{ $t(`itemSummary.currency`) }}</span>
         </p>
       </div>

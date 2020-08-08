@@ -1,7 +1,17 @@
 export default {
-  webFor: 'Portal dla',
-  craftsman: 'rzemieślników',
-  registerTitle: 'Pokaż mi swoje towary!',
-  registerInfo: 'Darmowa rejestracja, w ciągu <br /> 5 minut założysz u nas konto',
-  button: 'Zarejestruj się',
+  webFor: 'Znajdz swojego',
+  craftsman: 'rzemieślnika',
+  search: 'Szukaj',
+  newCraftsmen: 'Nowi rzemieślnicy',
+  newProducts: 'Nowe produkty',
+  newEvents: 'Najbliższe eventy',
+  pictureHover: 'Zobacz szczegóły',
+  currency: {
+    zl: 'zl'
+  },
+  options: {
+    craftsman: 'Rzemieślnik',
+    product: 'Przedmiot',
+    offer: 'Usługa',
+  }
 };

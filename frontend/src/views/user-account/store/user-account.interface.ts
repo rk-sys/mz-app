@@ -68,7 +68,7 @@ export interface IItemPortfolio {
   title: string;
   description: string;
   tags: string[];
-  picture: IPicture;
+  pictureUrl: string;
 }
 
 export interface IPicture {

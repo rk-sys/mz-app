@@ -91,7 +91,6 @@ import mzLogo                          from '@/components/logo/logo.component.vu
 import mzForm                          from '@/components/form/form/form.component.vue';
 import mzFormItem                      from '@/components/form/form-item/form-item.component.vue';
 
-
 const LOCAL_STORE: string = 'login';
 const local = namespace(LOCAL_STORE);
 

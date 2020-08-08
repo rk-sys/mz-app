@@ -1,0 +1,1570 @@
+{
+  "craftsmen": [
+    {
+      "city": "Wrocław",
+      "name": "Blacksmith Black rock",
+      "rating": 4.3,
+      "tags": [
+        "Rekon",
+        "Rekonstrukcja",
+        "Metal",
+        "Kowal",
+        "Zbroje",
+        "Broń",
+        "Kolczugi",
+        "Topory",
+        "Noże"
+      ],
+      "image": "https://images.unsplash.com/photo-1497369573176-0ceb5353817d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1353&q=80",
+      "id": 2
+    },
+    {
+      "city": "Szonów",
+      "name": "Leathercraft Malorne",
+      "rating": 3.6,
+      "tags": [
+        "Skóra",
+        "Larp",
+        "Cosplay",
+        "Zbroja",
+        "Kołczany",
+        "Buty",
+        "Maski"
+      ],
+      "image": "https://images.unsplash.com/photo-1478357100796-dc5a1613bedf?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+      "id": 1
+    },
+    {
+      "city": "Poznań",
+      "name": "Woodcraft Aldor",
+      "rating": 4.1,
+      "tags": [
+        "Drewno",
+        "Stoły",
+        "Stojaki",
+        "Namioty",
+        "Krzesła",
+        "Tarcze"
+      ],
+      "image": "https://images.unsplash.com/photo-1497219055242-93359eeed651?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1591&q=80",
+      "id": 3
+    },
+    {
+      "city": "Kraków",
+      "name": "Wool Voidheart",
+      "rating": 3.5,
+      "tags": [
+        "Cosplay",
+        "Larp",
+        "Rekonstrukcja",
+        "Szaty",
+        "Kaptury",
+        "Tuniki",
+        "Żupany",
+        "Czapki"
+      ],
+      "image": "https://images.unsplash.com/photo-1544195522-04e7c58ba945?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1358&q=80",
+      "id": 4
+    },
+    {
+      "city": "Wrocław",
+      "name": "Craft Skyshatter",
+      "rating": 4.1,
+      "tags": [
+        "Cosplay",
+        "Eva",
+        "handmade",
+        "paint",
+        "Zbroja",
+        "Broń",
+        "Set",
+        "Cały zestaw"
+      ],
+      "image": "https://images.unsplash.com/flagged/photo-1569517282304-d1e2baf737e4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2134&q=80",
+      "id": 5
+    }
+  ],
+  "productList": [
+    {
+      "id": 6,
+      "image": "https://images.unsplash.com/photo-1512414947060-048d53abb081?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=705&q=80",
+      "title": "Portfel skóra naturalna",
+      "price": 139
+    },
+    {
+      "id": 2,
+      "image": "https://images.unsplash.com/photo-1501543590094-4362fb5caf3e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1267&q=80",
+      "title": "Siekiera 120cm",
+      "price": 1.12
+    },
+    {
+      "id": 3,
+      "image": "https://images-na.ssl-images-amazon.com/images/I/81c87gqnJNL._AC_SL1500_.jpg",
+      "title": "Noż - model Thunderheart!",
+      "price": 120
+    },
+    {
+      "id": 4,
+      "image": "https://images.unsplash.com/photo-1557524676-fb4323e6bdcb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1355&q=80",
+      "title": "Ręce wyprzedaż!",
+      "price": 99879
+    },
+    {
+      "id": 5,
+      "image": "https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fglobalreplicas.com%2Fmedia%2Fproducts%2Fac6e5b27714f5cff4569861c72fe7100%2Fimages%2Fthumbnail%2Fbig_nap3.jpg%3Flm%3D1553780842&f=1&nofb=1",
+      "title": "Napierśnik husarski",
+      "price": 979
+    },
+    {
+      "id": 7,
+      "image": "https://images.unsplash.com/photo-1566844100977-86816d92f85f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1489&q=80",
+      "title": "Maska Dr. plague",
+      "price": 979
+    },
+    {
+      "id": 1,
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQqLScfrQq4vD0DRfde7sjxJOfbIyJk9n6p4Q&usqp=CAU",
+      "title": "hełm 2mm niehart",
+      "price": 100.2
+    },
+    {
+      "id": 1,
+      "image": "https://images.unsplash.com/photo-1473188588951-666fce8e7c68?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1440&q=80",
+      "title": "Aktówka / plecak - duży rozmiar",
+      "price": 430
+    }
+  ],
+  "offers": [
+    {
+      "uuid": 1,
+      "title": "Shoes old",
+      "status": "create",
+      "image": "https://images.unsplash.com/photo-1511283402428-355853756676?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80",
+      "additionalImages": [
+        "https://images.unsplash.com/photo-1511283402428-355853756676?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
+      ],
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
+      "price": 120,
+      "isFinalPrice": true
+    },
+    {
+      "uuid": 2,
+      "title": "Lorem ipsum dolor sit amet, consectetur adipiscing elit Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+      "status": "buy",
+      "image": "https://images.unsplash.com/photo-1511283402428-355853756676?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80",
+      "additionalImages": [
+        "https://images.unsplash.com/photo-1511283402428-355853756676?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80",
+        "https://images.unsplash.com/photo-1570025133152-5fcc2cfe6573?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1352&q=80",
+        "https://images.unsplash.com/photo-1550274503-f50cf8dd4ab3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
+      ],
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
+      "price": 120,
+      "isFinalPrice": false
+    },
+    {
+      "uuid": 3,
+      "title": "Shoes old",
+      "status": "create",
+      "image": "https://images.unsplash.com/photo-1511283402428-355853756676?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80",
+      "additionalImages": [
+        "https://images.unsplash.com/photo-1511283402428-355853756676?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
+      ],
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
+      "price": 120,
+      "isFinalPrice": false
+    },
+    {
+      "uuid": 4,
+      "title": "Shoes old",
+      "status": "buy",
+      "image": "https://images.unsplash.com/photo-1511283402428-355853756676?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80",
+      "additionalImages": [
+        "https://images.unsplash.com/photo-1511283402428-355853756676?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
+      ],
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
+      "price": 120,
+      "isFinalPrice": false
+    },
+    {
+      "uuid": 5,
+      "title": "Shoes old",
+      "status": "buy",
+      "image": "https://images.unsplash.com/photo-1511283402428-355853756676?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80",
+      "additionalImages": [
+        "https://images.unsplash.com/photo-1511283402428-355853756676?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
+      ],
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
+      "price": 120,
+      "isFinalPrice": false
+    },
+    {
+      "uuid": 6,
+      "title": "Shoes old",
+      "status": "buy",
+      "image": "https://images.unsplash.com/photo-1511283402428-355853756676?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80",
+      "additionalImages": [
+        "https://images.unsplash.com/photo-1511283402428-355853756676?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
+      ],
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
+      "price": 120,
+      "isFinalPrice": false
+    },
+    {
+      "uuid": 7,
+      "title": "Shoes old",
+      "status": "create",
+      "image": "https://images.unsplash.com/photo-1511283402428-355853756676?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80",
+      "additionalImages": [
+        "https://images.unsplash.com/photo-1511283402428-355853756676?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
+      ],
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
+      "price": 120,
+      "isFinalPrice": false
+    },
+    {
+      "uuid": 8,
+      "title": "Shoes old",
+      "status": "create",
+      "image": "https://images.unsplash.com/photo-1511283402428-355853756676?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80",
+      "additionalImages": [
+        "https://images.unsplash.com/photo-1511283402428-355853756676?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
+      ],
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
+      "price": 120,
+      "isFinalPrice": false
+    }
+  ],
+  "userAccountProducts": [
+    {
+      "avatar": "https://images.unsplash.com/photo-1584992236310-6edddc08acff?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1267&q=80",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
+      "title": "orange blue and white yarn",
+      "price": 100.2,
+      "currency": "zł"
+    },
+    {
+      "avatar": "https://images.unsplash.com/photo-1451930393367-e1e01fc2bacc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
+      "title": "leather, brown, last",
+      "price": 1.12,
+      "currency": "zł"
+    },
+    {
+      "avatar": "https://images.unsplash.com/photo-1511283402428-355853756676?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
+      "title": "Shoes old, sale!",
+      "price": 120,
+      "currency": "zł"
+    },
+    {
+      "avatar": "https://images.unsplash.com/photo-1581383407993-1352bdc4dd25?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
+      "title": "Hat leather!",
+      "price": 99879,
+      "currency": "zł"
+    }
+  ],
+  "userAccountProductsHistory": [
+    {
+      "avatar": "https://images.unsplash.com/photo-1584992236310-6edddc08acff?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1267&q=80",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
+      "title": "orange blue and white yarn",
+      "price": 100.2,
+      "currency": "zł",
+      "status": "cancelled"
+    },
+    {
+      "avatar": "https://images.unsplash.com/photo-1451930393367-e1e01fc2bacc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
+      "title": "leather, brown, last",
+      "price": 1.12,
+      "currency": "zł",
+      "status": "completed"
+    },
+    {
+      "avatar": "https://images.unsplash.com/photo-1511283402428-355853756676?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
+      "title": "Shoes old, sale!",
+      "price": 120,
+      "currency": "zł",
+      "status": "cancelled"
+    },
+    {
+      "avatar": "https://images.unsplash.com/photo-1581383407993-1352bdc4dd25?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
+      "title": "Hat leather!",
+      "price": 99879,
+      "currency": "zł",
+      "status": "completed"
+    }
+  ],
+  "userAccountOffersHistory": [
+    {
+      "avatar": "https://images.unsplash.com/photo-1584992236310-6edddc08acff?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1267&q=80",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
+      "title": "orange blue and white yarn",
+      "price": 100.2,
+      "currency": "zł",
+      "status": "cancelled",
+      "type": "buy"
+    },
+    {
+      "avatar": "https://images.unsplash.com/photo-1451930393367-e1e01fc2bacc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
+      "title": "leather, brown, last",
+      "price": 1.12,
+      "currency": "zł",
+      "status": "completed",
+      "type": "crafting"
+    },
+    {
+      "avatar": "https://images.unsplash.com/photo-1511283402428-355853756676?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
+      "title": "Shoes old, sale!",
+      "price": 120,
+      "currency": "zł",
+      "status": "cancelled",
+      "type": "buy"
+    },
+    {
+      "avatar": "https://images.unsplash.com/photo-1581383407993-1352bdc4dd25?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
+      "title": "Hat leather!",
+      "price": 99879,
+      "currency": "zł",
+      "status": "completed",
+      "type": "buy"
+    }
+  ],
+  "userAccountPortfolioItems": [
+    {
+      "pictureUrl": "https://images.unsplash.com/photo-1566844116408-c5f235c19f61?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1489&q=80",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
+      "title": "Maska dr. Plague",
+      "tags": [
+        "Skóra",
+        "Larp",
+        "Cosplay",
+        "Zbroja",
+        "Kołczany",
+        "Buty"
+      ]
+    },
+    {
+      "pictureUrl": "https://images.unsplash.com/photo-1501851602203-f40cf2f11ba9?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
+      "title": "Sandały różne",
+      "tags": [
+        "Skóra",
+        "Larp",
+        "Cosplay",
+        "Zbroja",
+        "Kołczany",
+        "Buty"
+      ]
+    },
+    {
+      "pictureUrl": "https://images.unsplash.com/photo-1583341655648-78bdf4ed6d13?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
+      "title": "Notes / dziennik",
+      "tags": [
+        "Skóra",
+        "Larp",
+        "Cosplay",
+        "Zbroja",
+        "Kołczany",
+        "Buty"
+      ]
+    },
+    {
+      "pictureUrl": "https://images.unsplash.com/photo-1567397168010-53c432628d71?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
+      "title": "Zeszyt / notes - zdobiony",
+      "tags": [
+        "Skóra",
+        "Larp",
+        "Cosplay",
+        "Zbroja",
+        "Kołczany",
+        "Buty"
+      ]
+    },
+    {
+      "pictureUrl": "https://images.unsplash.com/photo-1473188588951-666fce8e7c68?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1440&q=80",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
+      "title": "Aktówka / plecak duży",
+      "tags": [
+        "Skóra",
+        "Larp",
+        "Cosplay",
+        "Zbroja",
+        "Kołczany",
+        "Buty"
+      ]
+    }
+  ],
+  "craftsmanDetail": {
+    "craftsmenBaseInfo": {
+      "follow": false,
+      "name": "Leathercraft Malorne",
+      "picture": "https://images.unsplash.com/photo-1478357100796-dc5a1613bedf?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+      "ratings": [
+        {
+          "label": "date",
+          "value": 3.3
+        },
+        {
+          "label": "price",
+          "value": 4.1
+        },
+        {
+          "label": "quality",
+          "value": 4.1
+        },
+        {
+          "label": "contact",
+          "value": 4.1
+        }
+      ],
+      "socialMedia": {
+        "facebook": "@Malorne",
+        "twitter": "@Malorne",
+        "youtube": "@Malorne",
+        "instagram": "@Malorne"
+      },
+      "craftsmenDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum",
+      "itemDescription": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.",
+      "contact": [
+        {
+          "label": "phone",
+          "value": 725086696
+        },
+        {
+          "label": "mail",
+          "value": "kruku@kruku.pl"
+        },
+        {
+          "label": "domain",
+          "value": "www.kruku.pl"
+        },
+        {
+          "label": "facebook",
+          "value": "@kruuken"
+        }
+      ],
+      "tags": [
+        "Skóra",
+        "Larp",
+        "Cosplay",
+        "Zbroja",
+        "Kołczany",
+        "Buty"
+      ]
+    },
+    "craftsmenPortfolio": [
+      {
+        "pictureUrl": "https://images.unsplash.com/photo-1566844116408-c5f235c19f61?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1489&q=80",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
+        "title": "Maska dr. Plague",
+        "tags": [
+          "Skóra",
+          "Larp",
+          "Cosplay",
+          "Zbroja",
+          "Kołczany",
+          "Buty"
+        ]
+      },
+      {
+        "pictureUrl": "https://images.unsplash.com/photo-1501851602203-f40cf2f11ba9?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
+        "title": "Sandały różne",
+        "tags": [
+          "Skóra",
+          "Larp",
+          "Cosplay",
+          "Zbroja",
+          "Kołczany",
+          "Buty"
+        ]
+      },
+      {
+        "pictureUrl": "https://images.unsplash.com/photo-1583341655648-78bdf4ed6d13?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
+        "title": "Notes / dziennik",
+        "tags": [
+          "Skóra",
+          "Larp",
+          "Cosplay",
+          "Zbroja",
+          "Kołczany",
+          "Buty"
+        ]
+      },
+      {
+        "pictureUrl": "https://images.unsplash.com/photo-1567397168010-53c432628d71?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
+        "title": "Zeszyt / notes - zdobiony",
+        "tags": [
+          "Skóra",
+          "Larp",
+          "Cosplay",
+          "Zbroja",
+          "Kołczany",
+          "Buty"
+        ]
+      },
+      {
+        "pictureUrl": "https://images.unsplash.com/photo-1473188588951-666fce8e7c68?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1440&q=80",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
+        "title": "Aktówka / plecak duży",
+        "tags": [
+          "Skóra",
+          "Larp",
+          "Cosplay",
+          "Zbroja",
+          "Kołczany",
+          "Buty"
+        ]
+      }
+    ],
+    "craftsmenComments": [
+      {
+        "description": "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.",
+        "customer": "Kafał Rukowski",
+        "customerId": "1",
+        "pictureUrl": "https://images.unsplash.com/photo-1575425186775-b8de9a427e67?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80",
+        "date": "14/01/2020",
+        "rate": {
+          "quality": "3.9",
+          "price": "3.4",
+          "contact": "2.8",
+          "punctuality": "5"
+        },
+        "reply": {
+          "description": "Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus",
+          "author": "Kapsel Kłukowski",
+          "date": "20/01/2020"
+        }
+      },
+      {
+        "description": "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.",
+        "customer": "Sarek Mtawiar",
+        "customerId": "1",
+        "pictureUrl": "https://images.unsplash.com/photo-1518020382113-a7e8fc38eac9?ixlib=rb-1.2.1&auto=format&fit=crop&w=660&q=80",
+        "date": "14/01/2020",
+        "rate": {
+          "quality": "3.9",
+          "price": "3.4",
+          "contact": "2.8",
+          "punctuality": "5"
+        },
+        "reply": {
+          "description": "Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus",
+          "author": "Kapsel Kłukowski",
+          "date": "20/01/2020"
+        }
+      },
+      {
+        "description": "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.",
+        "customer": "Nevin Kikolas",
+        "customerId": "1",
+        "pictureUrl": "https://images.unsplash.com/photo-1529088363398-8efc64a0eb95?ixlib=rb-1.2.1&auto=format&fit=crop&w=724&q=80",
+        "date": "14/01/2020",
+        "rate": {
+          "quality": "2.9",
+          "price": "3.9",
+          "contact": "4.8",
+          "punctuality": "1.5"
+        },
+        "reply": {
+          "description": "Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus",
+          "author": "Kapsel Kłukowski",
+          "date": "20/01/2020"
+        }
+      }
+    ],
+    "craftsmenProducts": [
+      {
+        "id": 1,
+        "image": "https://images.unsplash.com/photo-1566844116408-c5f235c19f61?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1489&q=80",
+        "title": "Maska dr. Plague",
+        "price": 230
+      },
+      {
+        "id": 2,
+        "image": "https://images.unsplash.com/photo-1567397168010-53c432628d71?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80",
+        "title": "Zdobiony dziennik / notes",
+        "price": 1.12
+      },
+      {
+        "id": 3,
+        "image": "https://images.unsplash.com/photo-1473188588951-666fce8e7c68?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1440&q=80",
+        "title": "Aktówka / plecak duży rozmiar",
+        "price": 420
+      }
+    ]
+  },
+  "productDetail": {
+    "craftsman": {
+      "name": "Leathercraft Malorne",
+      "uuid": 1,
+      "rating": 3.6,
+      "city": "Szonów",
+      "picture": "https://images.unsplash.com/photo-1478357100796-dc5a1613bedf?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+    },
+    "product": {
+      "follow": false,
+      "title": "Maska dr. Plague",
+      "description": "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. ",
+      "price": "430",
+      "currency": "zl",
+      "tags": [
+        "Larp",
+        "Cosplay",
+        "Skóra",
+        "Dr plague",
+        "Używane"
+      ],
+      "pictures": [
+        "https://images.unsplash.com/photo-1566844116408-c5f235c19f61?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1489&q=80",
+        "https://images.unsplash.com/photo-1566844100977-86816d92f85f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1489&q=80",
+        "https://images.unsplash.com/photo-1566844083449-61f0ffa5d92e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1489&q=80",
+        "https://images.unsplash.com/photo-1566844077402-58a00647610b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1489&q=80",
+        "https://images.unsplash.com/photo-1566844089411-72ce45ad5340?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1489&q=80"
+      ],
+      "mainRange": "Larp",
+      "mainCategory": "Inne",
+      "subCategory": "Maski",
+      "gender": "unisex",
+      "isNew": false,
+      "uuid": "1",
+      "productDeliveryOptions": [
+        {
+          "label": "personalPickup"
+        },
+        {
+          "label": "courier",
+          "options": [
+            {
+              "title": "Express",
+              "price": 15.5
+            },
+            {
+              "title": "Normal",
+              "price": 15.5
+            }
+          ]
+        },
+        {
+          "label": "Letter",
+          "options": [
+            {
+              "title": "Express",
+              "price": 11.5
+            },
+            {
+              "title": "Normal",
+              "price": 6.5
+            }
+          ]
+        },
+        {
+          "label": "parcelLocker",
+          "options": [
+            {
+              "title": "Express",
+              "price": 11.5
+            },
+            {
+              "title": "Normal",
+              "price": 6.5
+            }
+          ]
+        }
+      ]
+    },
+    "customers": [
+      {
+        "name": "Kgata Arukowska",
+        "uuid": "asd-dsa",
+        "newMessages": 12,
+        "picture": "https://images.unsplash.com/photo-1469982866068-278880140412?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
+      },
+      {
+        "name": "Kapsel Kłukowski",
+        "picture": "https://images.unsplash.com/photo-1575425187384-ccd8f6a161e8?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80",
+        "newMessages": 11,
+        "uuid": "1233321"
+      },
+      {
+        "name": "Sarek Mtawiar",
+        "picture": "https://images.unsplash.com/photo-1518020382113-a7e8fc38eac9?ixlib=rb-1.2.1&auto=format&fit=crop&w=660&q=80",
+        "newMessages": 4,
+        "uuid": "1231321"
+      }
+    ],
+    "messages": [
+      {
+        "name": "Kapsel Krukowski",
+        "uuid": "000-000",
+        "message": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit",
+        "date": "20 czerwiec 2020, 16:59"
+      },
+      {
+        "name": "Kafał Rrukowski",
+        "uuid": "321-123",
+        "message": "Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit",
+        "date": "20 czerwiec 2020, 16:59"
+      },
+      {
+        "name": "Kapsel Krukowski",
+        "uuid": "000-000",
+        "message": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit",
+        "date": "20 czerwiec 2020, 16:59"
+      },
+      {
+        "name": "Kapsel Krukowski",
+        "uuid": "000-000",
+        "message": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit",
+        "date": "20 czerwiec 2020, 16:59"
+      },
+      {
+        "name": "Kafał Rrukowski",
+        "uuid": "321-123",
+        "message": "Neque porro quisquam est",
+        "date": "20 czerwiec 2020, 16:59"
+      },
+      {
+        "name": "Kafał Rrukowski",
+        "uuid": "321-123",
+        "message": "dolorem ipsum quia dolor sit amet, consectetur, adipisci velit",
+        "date": "20 czerwiec 2020, 16:59"
+      }
+    ]
+  },
+  "productCheckout": {
+    "productSummary": {
+      "title": "Maska dr. Plague",
+      "description": "On the other hand, we denounce with righteous indignation and dislike men who are so beguiled and demoralized by the charms of pleasure of the moment, so blinded by desire, that they cannot foresee the pain and trouble that are bound to ensue; and equal blame belongs to those who fail in their duty through weakness of will",
+      "price": 430,
+      "currency": "zl",
+      "city": "Szonów",
+      "craftsman": {
+        "picture": "https://images.unsplash.com/photo-1478357100796-dc5a1613bedf?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+        "name": "Leathercraft Malorne"
+      }
+    },
+    "productDeliveryOptions": [
+      {
+        "label": "personalPickup"
+      },
+      {
+        "label": "courier",
+        "options": [
+          {
+            "title": "Express",
+            "price": 15.5
+          },
+          {
+            "title": "Normal",
+            "price": 15.5
+          }
+        ]
+      },
+      {
+        "label": "letter",
+        "options": [
+          {
+            "title": "Express",
+            "price": 11.5
+          },
+          {
+            "title": "Normal",
+            "price": 6.5
+          }
+        ]
+      },
+      {
+        "label": "parcelLocker",
+        "options": [
+          {
+            "title": "Express",
+            "price": 11.5
+          },
+          {
+            "title": "Normal",
+            "price": 6.5
+          }
+        ]
+      }
+    ]
+  },
+  "offerDetail": {
+    "craftsman": {
+      "uuid": "1",
+      "name": "Kafał Rrukowski",
+      "rating": 4.2,
+      "city": "Breslau",
+      "picture": "https://images.unsplash.com/photo-1575425186775-b8de9a427e67?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80"
+    },
+    "offerDetail": {
+      "follow": true,
+      "type": "buy",
+      "title": "Przeszywanica do DESW z XVw.",
+      "price": 423,
+      "currency": "zł",
+      "isFinalPrice": false,
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum nostraes.",
+      "images": [
+        "https://images.unsplash.com/photo-1542291026-7eec264c27ff?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80",
+        "https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=643&q=80",
+        "https://images.unsplash.com/photo-1511556532299-8f662fc26c06?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80",
+        "https://images.unsplash.com/photo-1463100099107-aa0980c362e6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80",
+        "https://images.unsplash.com/photo-1504949079547-16d1656f7f73?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1267&q=80"
+      ]
+    },
+    "customers": [
+      {
+        "name": "Sarek Mtawiar",
+        "picture": "https://images.unsplash.com/photo-1518020382113-a7e8fc38eac9?ixlib=rb-1.2.1&auto=format&fit=crop&w=660&q=80",
+        "newMessages": 4,
+        "uuid": "1231321",
+        "orderStatus": {
+          "status": "notPropose",
+          "price": {
+            "value": null,
+            "status": "notPropose"
+          },
+          "date": {
+            "value": null,
+            "status": "notPropose"
+          },
+          "progress": {
+            "value": null,
+            "accept": false
+          }
+        }
+      },
+      {
+        "name": "Kapsel Kłukowski",
+        "picture": "https://images.unsplash.com/photo-1575425187384-ccd8f6a161e8?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80",
+        "newMessages": 11,
+        "uuid": "1233321",
+        "orderStatus": {
+          "status": "proposed",
+          "price": {
+            "value": "150 zł",
+            "status": "proposed"
+          },
+          "date": {
+            "value": null,
+            "status": "notPropose"
+          },
+          "progress": {
+            "value": null,
+            "accept": false
+          }
+        }
+      },
+      {
+        "name": "Nevin Kikolas",
+        "picture": "https://images.unsplash.com/photo-1529088363398-8efc64a0eb95?ixlib=rb-1.2.1&auto=format&fit=crop&w=724&q=8080",
+        "newMessages": 20000,
+        "uuid": "1234321",
+        "orderStatus": {
+          "status": "proposed",
+          "price": {
+            "value": "150 zł",
+            "status": "proposed"
+          },
+          "date": {
+            "value": "20-20-2020",
+            "status": "proposed"
+          },
+          "progress": {
+            "value": null,
+            "accept": false
+          }
+        }
+      },
+      {
+        "name": "Sarek Mtawiar",
+        "picture": "https://images.unsplash.com/photo-1518020382113-a7e8fc38eac9?ixlib=rb-1.2.1&auto=format&fit=crop&w=660&q=80",
+        "newMessages": 4,
+        "uuid": "1235321",
+        "orderStatus": {
+          "status": "accept",
+          "price": {
+            "value": "150 zł",
+            "status": "accept"
+          },
+          "date": {
+            "value": "20-20-2020",
+            "status": "accept"
+          },
+          "progress": {
+            "value": null,
+            "accept": false
+          }
+        }
+      },
+      {
+        "name": "Sarek Mtawiar",
+        "picture": "https://images.unsplash.com/photo-1518020382113-a7e8fc38eac9?ixlib=rb-1.2.1&auto=format&fit=crop&w=660&q=80",
+        "newMessages": 4,
+        "uuid": "1231321",
+        "orderStatus": {
+          "status": "notPropose",
+          "price": {
+            "value": null,
+            "status": "notPropose"
+          },
+          "date": {
+            "value": null,
+            "status": "notPropose"
+          },
+          "progress": {
+            "value": null,
+            "accept": false
+          }
+        }
+      },
+      {
+        "name": "Kapsel Kłukowski",
+        "picture": "https://images.unsplash.com/photo-1575425187384-ccd8f6a161e8?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80",
+        "newMessages": 11,
+        "uuid": "1233321",
+        "orderStatus": {
+          "status": "proposed",
+          "price": {
+            "value": "150 zł",
+            "status": "proposed"
+          },
+          "date": {
+            "value": null,
+            "status": "notPropose"
+          },
+          "progress": {
+            "value": null,
+            "accept": false
+          }
+        }
+      },
+      {
+        "name": "Nevin Kikolas",
+        "picture": "https://images.unsplash.com/photo-1529088363398-8efc64a0eb95?ixlib=rb-1.2.1&auto=format&fit=crop&w=724&q=8080",
+        "newMessages": 20000,
+        "uuid": "1234321",
+        "orderStatus": {
+          "status": "proposed",
+          "price": {
+            "value": "150 zł",
+            "status": "proposed"
+          },
+          "date": {
+            "value": "20-20-2020",
+            "status": "proposed"
+          },
+          "progress": {
+            "value": null,
+            "accept": false
+          }
+        }
+      },
+      {
+        "name": "Sarek Mtawiar",
+        "picture": "https://images.unsplash.com/photo-1518020382113-a7e8fc38eac9?ixlib=rb-1.2.1&auto=format&fit=crop&w=660&q=80",
+        "newMessages": 4,
+        "uuid": "1235321",
+        "orderStatus": {
+          "status": "accept",
+          "price": {
+            "value": "150 zł",
+            "status": "accept"
+          },
+          "date": {
+            "value": "20-20-2020",
+            "status": "accept"
+          },
+          "progress": {
+            "value": null,
+            "accept": false
+          }
+        }
+      },
+      {
+        "name": "Sarek Mtawiar",
+        "picture": "https://images.unsplash.com/photo-1518020382113-a7e8fc38eac9?ixlib=rb-1.2.1&auto=format&fit=crop&w=660&q=80",
+        "newMessages": 4,
+        "uuid": "12353321",
+        "orderStatus": {
+          "status": "inProgress",
+          "price": {
+            "value": "150 zł",
+            "status": "accept"
+          },
+          "date": {
+            "value": "20-20-2020",
+            "status": "accept"
+          },
+          "progress": {
+            "value": null,
+            "accept": false
+          }
+        }
+      }
+    ],
+    "messages": [
+      {
+        "name": "Kapsel Krukowski",
+        "uuid": "000-000",
+        "message": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit",
+        "date": "20 czerwiec 2020, 16:59"
+      },
+      {
+        "name": "Kafał Rrukowski",
+        "uuid": "321-123",
+        "message": "Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit",
+        "date": "20 czerwiec 2020, 16:59"
+      },
+      {
+        "name": "Kapsel Krukowski",
+        "uuid": "000-000",
+        "message": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit",
+        "date": "20 czerwiec 2020, 16:59"
+      },
+      {
+        "name": "Kapsel Krukowski",
+        "uuid": "000-000",
+        "message": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit",
+        "date": "20 czerwiec 2020, 16:59"
+      },
+      {
+        "name": "Kafał Rrukowski",
+        "uuid": "321-123",
+        "message": "Neque porro quisquam est",
+        "date": "20 czerwiec 2020, 16:59"
+      },
+      {
+        "name": "Kafał Rrukowski",
+        "uuid": "321-123",
+        "message": "dolorem ipsum quia dolor sit amet, consectetur, adipisci velit",
+        "date": "20 czerwiec 2020, 16:59"
+      }
+    ]
+  },
+  "myFollow": {
+    "craftsmen": [
+      {
+        "city": "Wrocław",
+        "name": "Kafał Rrukowski",
+        "rating": 1.3,
+        "tags": [
+          "Hip",
+          "Opa",
+          "Patyl"
+        ],
+        "image": "https://images.unsplash.com/photo-1575425186775-b8de9a427e67?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80",
+        "id": 1
+      },
+      {
+        "city": "Szonów",
+        "name": "Kapsel Kłukowski",
+        "rating": 3.6,
+        "tags": [
+          "H",
+          "O",
+          "P"
+        ],
+        "image": "https://images.unsplash.com/photo-1575425187384-ccd8f6a161e8?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80",
+        "id": 2
+      },
+      {
+        "city": "Wrocław",
+        "name": "Sarek Mawiar",
+        "rating": 4.1,
+        "tags": [
+          "Drewno",
+          "GUI",
+          "To jest jakis tag długi",
+          "To jest jakis tag długi"
+        ],
+        "image": "https://images.unsplash.com/photo-1518020382113-a7e8fc38eac9?ixlib=rb-1.2.1&auto=format&fit=crop&w=660&q=80",
+        "id": 3
+      },
+      {
+        "city": "Kusino",
+        "name": "Nevin Kikolas",
+        "rating": 1.3,
+        "tags": [
+          "Vue",
+          "js",
+          "Zamieszanie"
+        ],
+        "image": "https://images.unsplash.com/photo-1529088363398-8efc64a0eb95?ixlib=rb-1.2.1&auto=format&fit=crop&w=724&q=80",
+        "id": 4
+      },
+      {
+        "city": "Wrocław",
+        "name": "Fapał Fapalowicz",
+        "rating": 4.1,
+        "tags": [
+          "Osiem",
+          "tagi",
+          "To",
+          "Jeszcze",
+          "Nie",
+          "Koniec"
+        ],
+        "image": "https://images.unsplash.com/photo-1530041539828-114de669390e?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80",
+        "id": 5
+      }
+    ],
+    "products": [
+      {
+        "id": 1,
+        "image": "https://images.unsplash.com/photo-1584992236310-6edddc08acff?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1267&q=80",
+        "title": "orange blue and white yarn",
+        "price": 100.2
+      },
+      {
+        "id": 2,
+        "image": "https://images.unsplash.com/photo-1451930393367-e1e01fc2bacc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80",
+        "title": "leather, brown, last",
+        "price": 1.12
+      },
+      {
+        "id": 3,
+        "image": "https://images.unsplash.com/photo-1511283402428-355853756676?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80",
+        "title": "Shoes old, sale!",
+        "price": 120
+      },
+      {
+        "id": 4,
+        "image": "https://images.unsplash.com/photo-1581383407993-1352bdc4dd25?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80",
+        "title": "Hat leather!",
+        "price": 99879
+      }
+    ],
+    "offers": [
+      {
+        "uuid": 1,
+        "title": "Shoes old",
+        "status": "create",
+        "image": "https://images.unsplash.com/photo-1511283402428-355853756676?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80",
+        "additionalImages": [
+          "https://images.unsplash.com/photo-1511283402428-355853756676?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
+        ],
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
+        "price": 120,
+        "isFinalPrice": true
+      },
+      {
+        "uuid": 2,
+        "title": "Lorem ipsum dolor sit amet, consectetur adipiscing elit Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+        "status": "buy",
+        "image": "https://images.unsplash.com/photo-1511283402428-355853756676?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80",
+        "additionalImages": [
+          "https://images.unsplash.com/photo-1511283402428-355853756676?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80",
+          "https://images.unsplash.com/photo-1570025133152-5fcc2cfe6573?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1352&q=80",
+          "https://images.unsplash.com/photo-1550274503-f50cf8dd4ab3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
+        ],
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
+        "price": 120,
+        "isFinalPrice": false
+      },
+      {
+        "uuid": 3,
+        "title": "Shoes old",
+        "status": "create",
+        "image": "https://images.unsplash.com/photo-1511283402428-355853756676?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80",
+        "additionalImages": [
+          "https://images.unsplash.com/photo-1511283402428-355853756676?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
+        ],
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
+        "price": 120,
+        "isFinalPrice": false
+      },
+      {
+        "uuid": 4,
+        "title": "Shoes old",
+        "status": "buy",
+        "image": "https://images.unsplash.com/photo-1511283402428-355853756676?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80",
+        "additionalImages": [
+          "https://images.unsplash.com/photo-1511283402428-355853756676?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
+        ],
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
+        "price": 120,
+        "isFinalPrice": false
+      },
+      {
+        "uuid": 5,
+        "title": "Shoes old",
+        "status": "buy",
+        "image": "https://images.unsplash.com/photo-1511283402428-355853756676?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80",
+        "additionalImages": [
+          "https://images.unsplash.com/photo-1511283402428-355853756676?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
+        ],
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
+        "price": 120,
+        "isFinalPrice": false
+      },
+      {
+        "uuid": 6,
+        "title": "Shoes old",
+        "status": "buy",
+        "image": "https://images.unsplash.com/photo-1511283402428-355853756676?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80",
+        "additionalImages": [
+          "https://images.unsplash.com/photo-1511283402428-355853756676?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
+        ],
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
+        "price": 120,
+        "isFinalPrice": false
+      },
+      {
+        "uuid": 7,
+        "title": "Shoes old",
+        "status": "create",
+        "image": "https://images.unsplash.com/photo-1511283402428-355853756676?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80",
+        "additionalImages": [
+          "https://images.unsplash.com/photo-1511283402428-355853756676?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
+        ],
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
+        "price": 120,
+        "isFinalPrice": false
+      },
+      {
+        "uuid": 8,
+        "title": "Shoes old",
+        "status": "create",
+        "image": "https://images.unsplash.com/photo-1511283402428-355853756676?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80",
+        "additionalImages": [
+          "https://images.unsplash.com/photo-1511283402428-355853756676?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
+        ],
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
+        "price": 120,
+        "isFinalPrice": false
+      }
+    ]
+  },
+  "myMessages": {
+    "forMe": [
+      {
+        "type": "forMe",
+        "uuid": "1234",
+        "craftsmen": {
+          "uuid": "1",
+          "name": "Kukasz Łozłowski",
+          "picture": "https://images.unsplash.com/photo-1517423440428-a5a00ad493e8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=687&q=80"
+        },
+        "message": {
+          "title": "Incididunt ut labore et dolore magna aliqua.",
+          "isNewMessage": true,
+          "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua"
+        }
+      }
+    ],
+    "archive": [
+      {
+        "type": "archive",
+        "uuid": "123",
+        "craftsmen": {
+          "uuid": "1",
+          "name": "Kafał Rrukowski",
+          "picture": "https://images.unsplash.com/photo-1575425186775-b8de9a427e67?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80"
+        },
+        "message": {
+          "title": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+          "isNewMessage": true,
+          "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua"
+        }
+      }
+    ],
+    "items": [
+      {
+        "uuid": "qwer",
+        "image": "https://images.unsplash.com/photo-1584992236310-6edddc08acff?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1267&q=80",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
+        "title": "orange blue and white yarn",
+        "price": 100.2,
+        "currency": "zł",
+        "quantityChat": 12
+      },
+      {
+        "uuid": "qwer",
+        "image": "https://images.unsplash.com/photo-1451930393367-e1e01fc2bacc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
+        "title": "leather, brown, last",
+        "price": 1.12,
+        "currency": "zł",
+        "quantityChat": 1
+      },
+      {
+        "uuid": "qwer",
+        "image": "https://images.unsplash.com/photo-1511283402428-355853756676?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
+        "title": "Shoes old, sale!",
+        "price": 120,
+        "currency": "zł",
+        "quantityChat": 4
+      },
+      {
+        "uuid": "qwer",
+        "image": "https://images.unsplash.com/photo-1581383407993-1352bdc4dd25?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
+        "title": "Hat leather!",
+        "price": 99879,
+        "currency": "zł",
+        "quantityChat": 9
+      }
+    ],
+    "offers": [
+      {
+        "uuid": "qwer",
+        "image": "https://images.unsplash.com/photo-1584992236310-6edddc08acff?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1267&q=80",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
+        "title": "orange blue and white yarn",
+        "price": 100.2,
+        "currency": "zł",
+        "type": "buy",
+        "quantityChat": 3
+      },
+      {
+        "uuid": "qwer",
+        "image": "https://images.unsplash.com/photo-1451930393367-e1e01fc2bacc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
+        "title": "leather, brown, last",
+        "price": 1.12,
+        "currency": "zł",
+        "type": "crafting",
+        "quantityChat": 5
+      }
+    ]
+  },
+  "messageDetail": {
+    "customers": [
+      {
+        "name": "Sarek Mtawiar",
+        "picture": "https://images.unsplash.com/photo-1518020382113-a7e8fc38eac9?ixlib=rb-1.2.1&auto=format&fit=crop&w=660&q=80",
+        "newMessages": 4,
+        "uuid": "1231321"
+      },
+      {
+        "name": "Kapsel Kłukowski",
+        "picture": "https://images.unsplash.com/photo-1575425187384-ccd8f6a161e8?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80",
+        "newMessages": 11,
+        "uuid": "1233321"
+      },
+      {
+        "name": "Nevin Kikolas",
+        "picture": "https://images.unsplash.com/photo-1529088363398-8efc64a0eb95?ixlib=rb-1.2.1&auto=format&fit=crop&w=724&q=8080",
+        "newMessages": 20000,
+        "uuid": "1234321"
+      },
+      {
+        "name": "Sarek Mtawiar",
+        "picture": "https://images.unsplash.com/photo-1518020382113-a7e8fc38eac9?ixlib=rb-1.2.1&auto=format&fit=crop&w=660&q=80",
+        "newMessages": 4,
+        "uuid": "1235321"
+      }
+    ],
+    "topic": {
+      "type": "offer",
+      "detail": {
+        "uuid": "12321321312",
+        "title": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
+        "description": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit"
+      }
+    },
+    "messages": [
+      {
+        "name": "Kapsel Krukowski",
+        "uuid": "000-000",
+        "message": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit",
+        "date": "20 czerwiec 2020, 16:59"
+      },
+      {
+        "name": "Kafał Rrukowski",
+        "uuid": "321-123",
+        "message": "Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit",
+        "date": "20 czerwiec 2020, 16:59"
+      },
+      {
+        "name": "Kapsel Krukowski",
+        "uuid": "000-000",
+        "message": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit",
+        "date": "20 czerwiec 2020, 16:59"
+      },
+      {
+        "name": "Kapsel Krukowski",
+        "uuid": "000-000",
+        "message": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit",
+        "date": "20 czerwiec 2020, 16:59"
+      },
+      {
+        "name": "Kafał Rrukowski",
+        "uuid": "321-123",
+        "message": "Neque porro quisquam est",
+        "date": "20 czerwiec 2020, 16:59"
+      },
+      {
+        "name": "Kafał Rrukowski",
+        "uuid": "321-123",
+        "message": "dolorem ipsum quia dolor sit amet, consectetur, adipisci velit",
+        "date": "20 czerwiec 2020, 16:59"
+      }
+    ]
+  },
+  "home": {
+    "craftsmen": [
+      {
+        "city": "Wrocław",
+        "name": "Blacksmith Black rock",
+        "rating": 4.3,
+        "tags": [
+          "Rekon",
+          "Rekonstrukcja",
+          "Metal",
+          "Kowal",
+          "Zbroje",
+          "Broń",
+          "Kolczugi",
+          "Topory",
+          "Noże"
+        ],
+        "image": "https://images.unsplash.com/photo-1497369573176-0ceb5353817d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1353&q=80",
+        "uuid": 2
+      },
+      {
+        "city": "Szonów",
+        "name": "Leathercraft Malorne",
+        "rating": 3.6,
+        "tags": [
+          "Skóra",
+          "Larp",
+          "Cosplay",
+          "Zbroja",
+          "Kołczany",
+          "Buty",
+          "Maski"
+        ],
+        "image": "https://images.unsplash.com/photo-1478357100796-dc5a1613bedf?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+        "uuid": 1
+      },
+      {
+        "city": "Poznań",
+        "name": "Woodcraft Aldor",
+        "rating": 4.1,
+        "tags": [
+          "Drewno",
+          "Stoły",
+          "Stojaki",
+          "Namioty",
+          "Krzesła",
+          "Tarcze"
+        ],
+        "image": "https://images.unsplash.com/photo-1497219055242-93359eeed651?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1591&q=80",
+        "uuid": 3
+      },
+      {
+        "city": "Kraków",
+        "name": "Wool Voidheart",
+        "rating": 3.5,
+        "tags": [
+          "Cosplay",
+          "Larp",
+          "Rekonstrukcja",
+          "Szaty",
+          "Kaptury",
+          "Tuniki",
+          "Żupany",
+          "Czapki"
+        ],
+        "image": "https://images.unsplash.com/photo-1544195522-04e7c58ba945?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1358&q=80",
+        "uuid": 4
+      },
+      {
+        "city": "Wrocław",
+        "name": "Craft Skyshatter",
+        "rating": 4.1,
+        "tags": [
+          "Cosplay",
+          "Eva",
+          "handmade",
+          "paint",
+          "Zbroja",
+          "Broń",
+          "Set",
+          "Cały zestaw"
+        ],
+        "image": "https://images.unsplash.com/flagged/photo-1569517282304-d1e2baf737e4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2134&q=80",
+        "uuid": 5
+      }
+    ],
+    "products": [
+      {
+        "uuid": 6,
+        "image": "https://images.unsplash.com/photo-1512414947060-048d53abb081?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=705&q=80",
+        "title": "Portfel skóra naturalna",
+        "price": 139
+      },
+      {
+        "uuid": 2,
+        "image": "https://images.unsplash.com/photo-1501543590094-4362fb5caf3e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1267&q=80",
+        "title": "Siekiera 120cm",
+        "price": 1.12
+      },
+      {
+        "uuid": 3,
+        "image": "https://images-na.ssl-images-amazon.com/images/I/81c87gqnJNL._AC_SL1500_.jpg",
+        "title": "Noż - model Thunderheart!",
+        "price": 120
+      },
+      {
+        "uuid": 4,
+        "image": "https://images.unsplash.com/photo-1557524676-fb4323e6bdcb?ixlib=rb-1.2.1&ixuuid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1355&q=80",
+        "title": "Ręce wyprzedaż!",
+        "price": 99879
+      },
+      {
+        "id": 5,
+        "image": "https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fglobalreplicas.com%2Fmedia%2Fproducts%2Fac6e5b27714f5cff4569861c72fe7100%2Fimages%2Fthumbnail%2Fbig_nap3.jpg%3Flm%3D1553780842&f=1&nofb=1",
+        "title": "Napierśnik husarski",
+        "price": 979
+      },
+      {
+        "uuid": 7,
+        "image": "https://images.unsplash.com/photo-1566844100977-86816d92f85f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1489&q=80",
+        "title": "Maska Dr. plague",
+        "price": 979
+      },
+      {
+        "uuid": 10,
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQqLScfrQq4vD0DRfde7sjxJOfbIyJk9n6p4Q&usqp=CAU",
+        "title": "hełm 2mm niehart",
+        "price": 100.2
+      },
+      {
+        "uuid": 1,
+        "image": "https://images.unsplash.com/photo-1473188588951-666fce8e7c68?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1440&q=80",
+        "title": "Aktówka / plecak - duży rozmiar",
+        "price": 430
+      }
+    ],
+    "events": [
+      {
+        "title": "Battle Quest",
+        "image": "https://i.imgur.com/MkWpz7D.jpg",
+        "uuid": "123-123",
+        "url": "link"
+      },
+      {
+        "title": "Larp Fort",
+        "image": "https://i.imgur.com/KJSx63F.jpg",
+        "uuid": "123-123",
+        "url": "link"
+      }
+    ]
+  }
+}

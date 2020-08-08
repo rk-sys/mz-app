@@ -10,14 +10,14 @@
              ref="pictureUpload"
              @change="onFileChange" />
 
-      <template v-if="!newItem.picture.url">
+      <template v-if="!newItem.pictureUrl">
         <div class="icon icon-upload"></div>
         <span class="label">{{ $t(`addPicture`) }}</span>
       </template>
 
       <template v-else>
         <img class="mz-dialog__picture-content__picture"
-             :src="newItem.picture.url"
+             :src="newItem.pictureUrl"
              :alt="newItem.title" />
       </template>
     </div>

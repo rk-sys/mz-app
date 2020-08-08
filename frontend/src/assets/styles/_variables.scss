@@ -13,7 +13,7 @@
 
   /* COLORS */
   --primary-color: #cc6600;
-  --primary-color-80: rgba(204, 102, 0, 0.8);
+  --primary-color-80: rgb(230, 129, 0);
   --primary-color-30: #ffd9b4;
 
   --secondary-color: #771d1c;
@@ -55,6 +55,7 @@
 
   /* FONTS */
   --primary-font-family: 'Montserrat', 'sans-serf';
+  --secondary-font-family: 'Lobster', 'cursive';
 
   /* GENERAL VARIABLES */
   --menu-width: 30rem;
@@ -73,4 +74,5 @@
   /* ANIMATION */
   --transition-product-card: all .15s ease-in-out;
   --transition-offer-card: all .25s ease-in-out;
+  --transition-event-card: all .35s ease-in-out;
 }

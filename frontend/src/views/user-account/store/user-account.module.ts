@@ -32,20 +32,14 @@ export default class mzUserAccountModule extends VuexModule {
     title: '',
     description: '',
     tags: [],
-    picture: {
-      url: '',
-      file: null,
-    },
+    pictureUrl: '',
   };
 
   public mzNewItemPortfolio: IItemPortfolio = {
     title: '',
     description: '',
     tags: [],
-    picture: {
-      url: '',
-      file: null,
-    },
+    pictureUrl: '',
   };
 
   public mzUserDisplayNameForm: IUserDisplayNameForm = {
@@ -149,19 +143,13 @@ export default class mzUserAccountModule extends VuexModule {
       title: '',
       description: '',
       tags: [],
-      picture: {
-        url: '',
-        file: null,
-      },
+      pictureUrl: '',
     };
   }
 
   @Mutation
-  public setNewItemPortfolioPicture(payload: any): void {
-    this.mzNewItemPortfolio.picture = {
-      url: URL.createObjectURL(payload),
-      file: payload,
-    };
+  public setNewItemPortfolioPicture(payload: string): void {
+    this.mzNewItemPortfolio.pictureUrl = payload;
   }
 
   @Mutation
