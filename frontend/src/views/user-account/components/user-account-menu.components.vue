@@ -2,14 +2,14 @@
   <div class="user-account-menu">
     <div class="user-account-menu__info">
 
-      <mz-upload width='17.5rem'
-                 height='17.5rem'
-                 action=''
+      <mz-upload :before-upload='beforeAvatarUpload'
                  :http-request='uploadPicture'
-                 :show-file-list='false'
                  :on-success='handleAvatarSuccess'
-                 :before-upload='beforeAvatarUpload'
-                 class="user-account-menu__info__wrapper">
+                 :show-file-list='false'
+                 action=''
+                 class="user-account-menu__info__wrapper"
+                 height='17.5rem'
+                 width='17.5rem'>
 
 
         <transition name="fade">
@@ -17,26 +17,26 @@
                 v-if="showLabel">{{$t(`picture.label`)}}</span>
         </transition>
 
-        <img v-if="userInfo.photoURL === null"
-             src="@/assets/img/user.png"
+        <img :class="{'picture--blur': showLabel}"
+             @mouseenter="showLabel = true"
              alt="user_2_picture"
              class="picture"
-             :class="{'picture--blur': showLabel}"
-             @mouseenter="showLabel = true" />
+             src="@/assets/img/user.png"
+             v-if="userInfo.photoURL === null" />
 
-        <img v-else
+        <img :class="{'picture--blur': showLabel}"
              :src="userInfo.photoURL"
+             @mouseenter="showLabel = true"
              alt="user_picture"
              class="picture"
-             :class="{'picture--blur': showLabel}"
-             @mouseenter="showLabel = true" />
+             v-else />
 
         <div class="picture--dark"
              v-show="showLabel"></div>
 
-        <div class="picture--light"
-             v-show="showLabel"
-             @mouseleave="showLabel = false"></div>
+        <div @mouseleave="showLabel = false"
+             class="picture--light"
+             v-show="showLabel"></div>
       </mz-upload>
 
       <span class="user-account-menu__info__display-name">
@@ -45,9 +45,9 @@
     </div>
 
     <div class="user-account-menu__list">
-      <div v-for="link in menuLinks"
-           :key="link.label"
-           class="user-account-menu__list__wrapper">
+      <div :key="link.label"
+           class="user-account-menu__list__wrapper"
+           v-for="link in menuLinks">
 
         <router-link :to="{name: link.nameUrl}"
                      class="user-account-menu__list__link">

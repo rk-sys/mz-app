@@ -1,17 +1,7 @@
-import { Action, Module, Mutation, VuexModule } from 'vuex-module-decorators';
-import cloneDeep                                from 'lodash/cloneDeep';
-import {
-  IAddItemGeneralInfo,
-  IAddItemNewItem, IDeliveryOption, IPersonalPickupDeliveryOption, IDelivery,
-}                                               from './user-account-add-item.interface';
-import {
-  personalPickupDelivery,
-  parcelLockerDelivery,
-  addItemGeneralInfo,
-  courierDelivery,
-  letterDelivery,
-  newItem,
-}                                               from './user-account-add-item.state';
+import { Action, Module, Mutation, VuexModule }                                                                        from 'vuex-module-decorators';
+import cloneDeep                                                                                                       from 'lodash/cloneDeep';
+import { IAddItemGeneralInfo, IAddItemNewItem, IDelivery, IDeliveryOption, IPersonalPickupDeliveryOption }            from './user-account-add-item.interface';
+import { addItemGeneralInfo, courierDelivery, letterDelivery, newItem, parcelLockerDelivery, personalPickupDelivery } from './user-account-add-item.state';
 
 @Module({ namespaced: true, stateFactory: true })
 export default class mzUserAccountModule extends VuexModule {

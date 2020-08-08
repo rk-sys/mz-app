@@ -1,21 +1,21 @@
 <template>
-  <div v-if="item.type === type || type === 'all'"
-       class="my-message-card">
+  <div class="my-message-card"
+       v-if="item.type === type || type === 'all'">
 
-    <div class="my-message-card__container"
-         @click="goToDetail(item.uuid)">
+    <div @click="goToDetail(item.uuid)"
+         class="my-message-card__container">
 
-      <div class="my-message-card__container__craftsmen"
+      <div @click="goToDetailCrafstmen(item.craftsmen.uuid)"
            @mouseenter="isHover = !isHover"
            @mouseleave="isHover = !isHover"
-           @click="goToDetailCrafstmen(item.craftsmen.uuid)">
+           class="my-message-card__container__craftsmen">
 
-        <img :src="item.craftsmen.picture"
-             :alt="item.craftsmen.name"
+        <img :alt="item.craftsmen.name"
+             :src="item.craftsmen.picture"
              class="picture">
 
-        <div class="picture--cover-bg"
-             :class="{ 'show-overlay' : isHover }">
+        <div :class="{ 'show-overlay' : isHover }"
+             class="picture--cover-bg">
 
           {{ $t(`profileDetail`) }}
         </div>
@@ -25,8 +25,8 @@
 
       <div class="my-message-card__container__message">
 
-        <span v-if="item.message.isNewMessage"
-              class="badge"></span>
+        <span class="badge"
+              v-if="item.message.isNewMessage"></span>
 
         <span class="title">{{ item.message.title }}</span>
 
@@ -35,28 +35,28 @@
 
       <div class="my-message-card__container__icon">
 
-        <mz-tooltip v-if="type !== 'archive'"
-                    :content="$t(`archiveMessage`)"
-                    placement="top">
+        <mz-tooltip :content="$t(`archiveMessage`)"
+                    placement="top"
+                    v-if="type !== 'archive'">
 
-          <div class="icon"
-               @click="archiveMessage(item.uuid)"
-               :class="{ 'icon-archive': !isHoverIcon,
+          <div :class="{ 'icon-archive': !isHoverIcon,
                          'icon-archive--primary': isHoverIcon }"
+               @click="archiveMessage(item.uuid)"
                @mouseenter="isHoverIcon = true"
-               @mouseleave="isHoverIcon = false"></div>
+               @mouseleave="isHoverIcon = false"
+               class="icon"></div>
         </mz-tooltip>
 
-        <mz-tooltip v-else
-                    :content="$t(`deleteMessage`)"
-                    placement="top">
+        <mz-tooltip :content="$t(`deleteMessage`)"
+                    placement="top"
+                    v-else>
 
-          <div class="icon"
-               @click="archiveMessage(item.uuid)"
-               :class="{ 'icon-delete': !isHoverIconDelete,
+          <div :class="{ 'icon-delete': !isHoverIconDelete,
                          'icon-delete--red': isHoverIconDelete }"
+               @click="archiveMessage(item.uuid)"
                @mouseenter="isHoverIconDelete = true"
-               @mouseleave="isHoverIconDelete = false"></div>
+               @mouseleave="isHoverIconDelete = false"
+               class="icon"></div>
         </mz-tooltip>
 
       </div>
@@ -88,7 +88,7 @@ export default class mzCraftsmenDetailPortfolio extends Vue {
   }
 
   public goToDetail(uuid: string): void {
-    router.push({ name: 'Message detail', params: {uuid} });
+    router.push({ name: 'Message detail', params: { uuid } });
   }
 
   public archiveMessage(uuid: string): void {

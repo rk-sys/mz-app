@@ -1,45 +1,45 @@
 <template>
-  <div class="mz-product-detail-customer-list"
-       :class="{'is-empty' : customerList.length < 1}">
+  <div :class="{'is-empty' : customerList.length < 1}"
+       class="mz-product-detail-customer-list">
 
-    <div v-if="customerList.length"
+    <div @click="showPrevCustomer"
          class="mz-product-detail-customer-list__icon-prev icon-arrow--black"
-         @click="showPrevCustomer"></div>
+         v-if="customerList.length"></div>
 
-    <div class="mz-product-detail-customer-list__content"
-         :class="{'is-empty' : customerList.length < 1}">
+    <div :class="{'is-empty' : customerList.length < 1}"
+         class="mz-product-detail-customer-list__content">
 
-      <div class="mz-product-detail-customer-list__wrapper"
-           :style="{'margin-left': marginLeft + 'rem'}">
+      <div :style="{'margin-left': marginLeft + 'rem'}"
+           class="mz-product-detail-customer-list__wrapper">
 
         <template v-if="customerList.length">
-          <div v-for="(customer, index) in customerList"
-               :key="index"
+          <div :key="index"
+               @click="setActiveCustomer(customer)"
                class="mz-product-detail-customer-list__wrapper__detail"
-               @click="setActiveCustomer(customer)">
+               v-for="(customer, index) in customerList">
 
             <mz-tooltip :content="customer.name"
                         placement="top">
 
-              <mz-badge v-if="customer.newMessages > 0 "
+              <mz-badge :max="10"
                         :value="customer.newMessages"
-                        :max="10"
+                        class="mz-product-detail-customer-list__wrapper__detail__picture"
                         type="primary"
-                        class="mz-product-detail-customer-list__wrapper__detail__picture">
+                        v-if="customer.newMessages > 0 ">
 
-                <img :src="customer.picture"
-                     :alt="customer.name"
+                <img :alt="customer.name"
                      :class="{'active' : customer.uuid === mzActiveCustomer.uuid}"
+                     :src="customer.picture"
                      class="image">
               </mz-badge>
 
-              <div v-else
+              <div :max="10"
                    :value="customer.newMessages"
-                   :max="10"
-                   class="mz-product-detail-customer-list__wrapper__detail__picture">
+                   class="mz-product-detail-customer-list__wrapper__detail__picture"
+                   v-else>
 
-                <img :src="customer.picture"
-                     :alt="customer.name"
+                <img :alt="customer.name"
+                     :src="customer.picture"
                      class="image">
               </div>
             </mz-tooltip>
@@ -55,9 +55,9 @@
       </div>
     </div>
 
-    <div v-if="customerList.length"
+    <div @click="showNextCustomer"
          class="mz-product-detail-customer-list__icon-next icon-arrow--black"
-         @click="showNextCustomer"></div>
+         v-if="customerList.length"></div>
   </div>
 </template>
 

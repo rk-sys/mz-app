@@ -1,18 +1,18 @@
 <template>
-  <div class="craftsman-card-simple"
+  <div @click="goToDetail(craftsman.uuid)"
        @mouseenter="isHover = !isHover"
        @mouseleave="isHover = !isHover"
-       @click="goToDetail(craftsman.uuid)">
+       class="craftsman-card-simple">
 
     <div class="craftsman-card-simple__picture">
 
-      <img :src="craftsman.picture"
-           :alt="craftsman.name"
+      <img :alt="craftsman.name"
+           :src="craftsman.picture"
            class="craftsman-card-simple__picture__img" />
 
-      <div class="craftsman-card-simple__picture__img--cover-bg"
-           :class="{'show-overlay' : isHover}"
-           @click="openModal(indexItem)">
+      <div :class="{'show-overlay' : isHover}"
+           @click="openModal(indexItem)"
+           class="craftsman-card-simple__picture__img--cover-bg">
 
         {{ $t(`profileDetail`) }}
       </div>
@@ -20,15 +20,15 @@
 
     <div class="craftsman-card-simple__info">
 
-        <span class="craftsman-card-simple__info__name"
-              :class="{'isHover' : isHover}">
+        <span :class="{'isHover' : isHover}"
+              class="craftsman-card-simple__info__name">
           {{craftsman.name}}
         </span>
 
-      <mz-rate disabled
-               v-model="craftsman.rating"
+      <mz-rate class="craftsman-card-simple__info__rating"
+               disabled
                score-template="{value} points"
-               class="craftsman-card-simple__info__rating" />
+               v-model="craftsman.rating" />
 
       <span class="craftsman-card-simple__info__city">
           {{craftsman.city}}

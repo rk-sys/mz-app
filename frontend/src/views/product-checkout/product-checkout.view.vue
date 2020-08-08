@@ -8,9 +8,9 @@
 
         <mz-delivery-product />
 
-        <mz-address-recipient v-if="!hideAddress"
+        <mz-address-recipient :trigger="trigger"
                               @formElement="setFormElement"
-                              :trigger="trigger" />
+                              v-if="!hideAddress" />
 
         <mz-box-with-title class="mz-product-checkout__container__main__summary">
           <p class="title">{{ $t(`summary`) }}</p>
@@ -33,18 +33,18 @@
 
         <div class="mz-product-checkout__container__main__buttons">
 
-          <mz-button button-style="cancel"
-                     @click="goToProductDetail()"
+          <mz-button @click="goToProductDetail()"
+                     button-style="cancel"
                      class="button button--cancel">
 
             {{ $t(`buttons.cancel`) }}
           </mz-button>
 
-          <mz-button type="disabled"
-                     @click="onSubmit()"
+          <mz-button :class="{'disabled' : isDisabled()}"
                      :disabled="isDisabled()"
-                     :class="{'disabled' : isDisabled()}"
-                     class="button button--buy">
+                     @click="onSubmit()"
+                     class="button button--buy"
+                     type="disabled">
 
             {{ $t(`buttons.buy`) }}
           </mz-button>

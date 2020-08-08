@@ -37,6 +37,7 @@ export default class mzTabs extends Mixins(mzTransparentWrapper) {
   &:hover {
     color: var(--primary-color);
   }
+
   &.is-active {
     color: var(--primary-color);
   }

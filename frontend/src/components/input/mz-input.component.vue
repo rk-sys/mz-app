@@ -2,28 +2,28 @@
   <div class="mz-input">
     <div class="mz-input__container">
 
-      <mz-input class="mz-input__container__box"
+      <mz-input :disabled="disabled"
                 :id="id"
                 :show-password="isPassword"
                 :type="type"
                 :value="value"
-                @input="emit"
-                @focus="changeInputStyle"
                 @blur="changeInputStyle"
-                :disabled="disabled"
+                @focus="changeInputStyle"
+                @input="emit"
+                class="mz-input__container__box"
                 required>
       </mz-input>
 
-      <label class="mz-input__container__label"
-             :for="id"
-             :class="{'set-top-label': primaryInput || value !== '',
+      <label :class="{'set-top-label': primaryInput || value !== '',
                       'disabled': disabled,
-				    		      'error-text': error}">
+				    		      'error-text': error}"
+             :for="id"
+             class="mz-input__container__label">
         {{holder}}</label>
 
-      <div class="mz-input__container__border"
-           :class="{'show-border': primaryInput,
-				    	      'error-border': error}"></div>
+      <div :class="{'show-border': primaryInput,
+				    	      'error-border': error}"
+           class="mz-input__container__border"></div>
 
     </div>
   </div>

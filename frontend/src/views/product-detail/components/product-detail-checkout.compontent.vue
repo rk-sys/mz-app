@@ -15,8 +15,8 @@
       <span class="mz-product-detail-checkout__is-new__value">{{ $t(`product.isNew.${isNew}`) }}</span>
     </div>
 
-    <div class="mz-product-detail-checkout__btn"
-         @click="goToCheckout(productUuid)">
+    <div @click="goToCheckout(productUuid)"
+         class="mz-product-detail-checkout__btn">
       {{ $t(`product.addToCheckout`) }}
     </div>
 

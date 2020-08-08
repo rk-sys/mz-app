@@ -7,11 +7,11 @@ export default {
   newEvents: 'Najbliższe eventy',
   pictureHover: 'Zobacz szczegóły',
   currency: {
-    zl: 'zl'
+    zl: 'zl',
   },
   options: {
     craftsman: 'Rzemieślnik',
     product: 'Przedmiot',
     offer: 'Usługa',
-  }
+  },
 };

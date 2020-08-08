@@ -2,9 +2,9 @@
   <div class="mz-product-detail-delivery">
     <h2 class="mz-product-detail-delivery__title">{{ $t(`product.delivery`) }}</h2>
 
-    <div v-for="item in delivery"
+    <div :class="{'without-options': !item.options}"
          class="mz-product-detail-delivery__row"
-         :class="{'without-options': !item.options}">
+         v-for="item in delivery">
 
         <span class="mz-product-detail-delivery__row__title">
           {{ $t(`delivery.${item.label}`) }}
@@ -15,9 +15,9 @@
       </template>
 
       <template v-if="item.options">
-        <p v-for="(option, index) in item.options"
-           :key="index"
-           class="option">
+        <p :key="index"
+           class="option"
+           v-for="(option, index) in item.options">
 
           <span class="option__title">{{option.title}}</span>
 

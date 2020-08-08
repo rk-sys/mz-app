@@ -1,6 +1,6 @@
 import { Action, Module, Mutation, VuexModule } from 'vuex-module-decorators';
 import * as userAccountService                  from './my-offer.service';
-import { IUserOffers, IDeleteOffer }            from './my-offer.interface';
+import { IDeleteOffer, IUserOffers }            from './my-offer.interface';
 
 @Module({ namespaced: true, stateFactory: true })
 export default class mzOfferHistoryModule extends VuexModule {

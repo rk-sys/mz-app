@@ -15,45 +15,45 @@
         <span class="mz-item-summary__condition__subtitle">{{ $t(`itemDescription.isNew.${newItem.isNew}`) }}</span>
       </div>
       <div class="mz-item-summary__tag-list">
-        <mz-tag v-for="(tag, index) in newItem.tags"
-                :is-presentation="true"
+        <mz-tag :is-presentation="true"
                 :key="index"
-                :tag="tag" />
+                :tag="tag"
+                v-for="(tag, index) in newItem.tags" />
       </div>
     </mz-box-with-title>
 
     <mz-box-with-title :title="$t(`itemSummary.pictureSection`)"
                        icon-name="icon-camera">
 
-      <img class="mz-item-summary__big-picture"
-           :src="newItem.mainPicture.url"
-           v-if="url === '' && newItem.mainPicture.url"
-           alt="big picture">
+      <img :src="newItem.mainPicture.url"
+           alt="big picture"
+           class="mz-item-summary__big-picture"
+           v-if="url === '' && newItem.mainPicture.url">
 
-      <div v-else-if="url === '' && !newItem.mainPicture.url"
-           class="mz-item-summary__big-picture--empty">
+      <div class="mz-item-summary__big-picture--empty"
+           v-else-if="url === '' && !newItem.mainPicture.url">
 
         <div class="icon icon-empty"></div>
 
         <span class="text">{{ $t('itemSummary.mainPictureEmpty') }}</span>
       </div>
 
-      <img class="mz-item-summary__big-picture"
-           :src="url"
+      <img :src="url"
            alt="big picture"
+           class="mz-item-summary__big-picture"
            v-else>
 
       <div class="mz-item-summary__gallery">
-        <div v-for="(picture, index) in newItem.pictures"
+        <div :key="index"
              class="mz-item-summary__gallery__picture-wrapper"
-             :key="index">
+             v-for="(picture, index) in newItem.pictures">
 
-          <img class="mz-item-summary__gallery__small-picture"
-               @click="previewPicture(picture.url)"
+          <img :class="{ 'mz-item-summary__gallery__small-picture--select':
+                        picture.url === url || (picture.url === newItem.mainPicture.url && !url) }"
                :src="picture.url"
+               @click="previewPicture(picture.url)"
                alt="small picture"
-               :class="{ 'mz-item-summary__gallery__small-picture--select':
-                        picture.url === url || (picture.url === newItem.mainPicture.url && !url) }">
+               class="mz-item-summary__gallery__small-picture">
 
           <span class="mz-item-summary__gallery__main-picture-label"
                 v-if="picture.url === newItem.mainPicture.url">
@@ -75,8 +75,8 @@
     <mz-box-with-title :title="$t(`deliverySection.title`)"
                        icon-name="icon-delivery">
 
-      <div v-if="newItem.personalPickupDelivery.isSelected"
-           class="mz-item-summary__delivery">
+      <div class="mz-item-summary__delivery"
+           v-if="newItem.personalPickupDelivery.isSelected">
 
         <p class="mz-item-summary__delivery__title">
           {{ $t(`deliverySection.personalPickup.title`) }}
@@ -115,48 +115,48 @@
         </p>
       </div>
 
-      <div v-if="newItem.parcelLockerDelivery.length"
-           class="mz-item-summary__delivery">
+      <div class="mz-item-summary__delivery"
+           v-if="newItem.parcelLockerDelivery.length">
 
         <p class="mz-item-summary__delivery__title">
           {{ $t(`deliverySection.parcelLocker.title`) }}
         </p>
 
-        <p class="options"
-           v-for="(option, index) in newItem.parcelLockerDelivery"
-           :key="index">
+        <p :key="index"
+           class="options"
+           v-for="(option, index) in newItem.parcelLockerDelivery">
 
           <span class="options__label">{{ option.label }}</span>
           <span class="options__value">{{ option.price }} {{ $t(`itemSummary.currency`) }}</span>
         </p>
       </div>
 
-      <div v-if="newItem.courierDelivery.length"
-           class="mz-item-summary__delivery">
+      <div class="mz-item-summary__delivery"
+           v-if="newItem.courierDelivery.length">
 
         <p class="mz-item-summary__delivery__title">
           {{ $t(`deliverySection.courier.title`) }}
         </p>
 
-        <p class="options"
-           v-for="(option, index) in newItem.courierDelivery"
-           :key="index">
+        <p :key="index"
+           class="options"
+           v-for="(option, index) in newItem.courierDelivery">
 
           <span class="options__label">{{ option.label }}</span>
           <span class="options__value">{{ option.price }} {{ $t(`itemSummary.currency`) }}</span>
         </p>
       </div>
 
-      <div v-if="newItem.letterDelivery.length"
-           class="mz-item-summary__delivery">
+      <div class="mz-item-summary__delivery"
+           v-if="newItem.letterDelivery.length">
 
         <p class="mz-item-summary__delivery__title">
           {{ $t(`deliverySection.letter.title`) }}
         </p>
 
-        <p class="options"
-           v-for="(option, index) in newItem.letterDelivery"
-           :key="index">
+        <p :key="index"
+           class="options"
+           v-for="(option, index) in newItem.letterDelivery">
 
           <span class="options__label">{{ option.label }}</span>
           <span class="options__value">{{ option.price }} {{ $t(`itemSummary.currency`) }}</span>
@@ -165,8 +165,8 @@
     </mz-box-with-title>
 
     <div class="mz-item-summary__buttons">
-      <mz-button class="button-previous"
-                 @click="goToStep3()">
+      <mz-button @click="goToStep3()"
+                 class="button-previous">
 
         {{ $t(`button.goToPrevious`) }}
       </mz-button>

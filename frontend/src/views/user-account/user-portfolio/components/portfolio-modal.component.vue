@@ -1,14 +1,14 @@
 <template>
-  <mz-dialog-upload-portfolio class="mz-dialog"
-                              :visible.sync="dialogVisible">
+  <mz-dialog-upload-portfolio :visible.sync="dialogVisible"
+                              class="mz-dialog">
 
-    <div class="mz-dialog__picture-content"
-         @click="$refs.pictureUpload.click()">
+    <div @click="$refs.pictureUpload.click()"
+         class="mz-dialog__picture-content">
 
-      <input type="file"
+      <input @change="onFileChange"
              class="mz-dialog__picture-content__input-upload"
              ref="pictureUpload"
-             @change="onFileChange" />
+             type="file" />
 
       <template v-if="!newItem.pictureUrl">
         <div class="icon icon-upload"></div>
@@ -16,9 +16,9 @@
       </template>
 
       <template v-else>
-        <img class="mz-dialog__picture-content__picture"
+        <img :alt="newItem.title"
              :src="newItem.pictureUrl"
-             :alt="newItem.title" />
+             class="mz-dialog__picture-content__picture" />
       </template>
     </div>
 
@@ -27,52 +27,52 @@
               :model="newItem"
               :rules="portfolioRules">
 
-        <mz-form-item class="mz-dialog__content__form-item"
-                      prop="title"
-                      :label="$t(`label.title`)">
+        <mz-form-item :label="$t(`label.title`)"
+                      class="mz-dialog__content__form-item"
+                      prop="title">
 
-          <mz-input id="title"
-                    :holder="$t(`form.title`)"
+          <mz-input :holder="$t(`form.title`)"
+                    id="title"
                     v-model="newItem.title" />
         </mz-form-item>
 
-        <mz-form-item class="mz-dialog__content__form-item"
-                      prop="description"
-                      :label="$t(`label.description`)">
+        <mz-form-item :label="$t(`label.description`)"
+                      class="mz-dialog__content__form-item"
+                      prop="description">
 
-          <mz-input-textarea v-model="newItem.description"
-                             id="description" />
+          <mz-input-textarea id="description"
+                             v-model="newItem.description" />
         </mz-form-item>
 
-        <mz-form-item class="mz-dialog__content__form-item"
-                      :label="$t(`label.title`)">
+        <mz-form-item :label="$t(`label.title`)"
+                      class="mz-dialog__content__form-item">
 
-          <mz-input v-model="userTag"
+          <mz-input :disabled="newItem.tags.length >= 10"
                     :holder="$t(`form.tag`)"
-                    :disabled="newItem.tags.length >= 10"
-                    @keyup.enter.native="addTag(userTag)" />
+                    @keyup.enter.native="addTag(userTag)"
+                    v-model="userTag" />
 
-          <div class="mz-dialog__content__form-item__add-btn"
-               v-if="!newItem.tags.length < 10"
-               @click="addTag(userTag)">
+          <div @click="addTag(userTag)"
+               class="mz-dialog__content__form-item__add-btn"
+               v-if="!newItem.tags.length < 10">
 
             +
           </div>
         </mz-form-item>
 
         <div class="mz-dialog__content__tag-list">
-          <mz-tag v-for="(tag, index) in newItem.tags"
-                  :tag="tag"
-                  :index="index"
+          <mz-tag :index="index"
                   :key="index"
-                  :removeTag="removeTag" />
+                  :removeTag="removeTag"
+                  :tag="tag"
+                  v-for="(tag, index) in newItem.tags" />
         </div>
       </mzForm>
 
-      <mz-button buttonStyle="primary"
-                 form="newItemPortfolio"
+      <mz-button @click="onSubmit"
+                 buttonStyle="primary"
                  class="mz-dialog__content__button"
-                 @click="onSubmit">
+                 form="newItemPortfolio">
 
         {{ $t(`form.save`) }}
       </mz-button>

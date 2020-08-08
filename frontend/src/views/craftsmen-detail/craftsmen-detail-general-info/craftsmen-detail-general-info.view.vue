@@ -10,11 +10,11 @@
 
       <p class="tag-title">{{$t(`generalInfo.tagListTitle`)}}</p>
       <div class="tag-list">
-        <mz-tag v-for="(tag, index) in craftsmenDetail.craftsmenBaseInfo.tags"
-                :tag="tag"
-                :index="index"
+        <mz-tag :index="index"
+                :is-presentation="true"
                 :key="index"
-                :is-presentation="true" />
+                :tag="tag"
+                v-for="(tag, index) in craftsmenDetail.craftsmenBaseInfo.tags" />
       </div>
     </mz-box-with-title>
 
@@ -31,11 +31,11 @@
 
       <div class="contact">
 
-        <div v-for="item in craftsmenDetail.craftsmenBaseInfo.contact"
-             class="contact__wrapper">
+        <div class="contact__wrapper"
+             v-for="item in craftsmenDetail.craftsmenBaseInfo.contact">
 
-          <div class="icon"
-               :class="[ `icon-${ item.label }--primary` ]"></div>
+          <div :class="[ `icon-${ item.label }--primary` ]"
+               class="icon"></div>
 
           <span class="label">{{item.value}}</span>
         </div>
@@ -46,15 +46,15 @@
                        icon-name="icon-chat">
       <div class="message-content">
 
-        <mz-input v-model="message.title"
-                  :holder="$t(`generalInfo.messageTitle`)"
-                  class="message-content__title" />
+        <mz-input :holder="$t(`generalInfo.messageTitle`)"
+                  class="message-content__title"
+                  v-model="message.title" />
 
         <mz-input-textarea class="message-content__input"
                            v-model="message.description" />
 
-        <mz-button class="message-content__btn"
-                   @click="sendMessage">{{ $t(`generalInfo.sendMessage`) }}
+        <mz-button @click="sendMessage"
+                   class="message-content__btn">{{ $t(`generalInfo.sendMessage`) }}
         </mz-button>
       </div>
     </mz-box-with-title>

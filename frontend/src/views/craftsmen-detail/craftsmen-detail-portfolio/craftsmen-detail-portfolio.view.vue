@@ -1,23 +1,23 @@
 <template>
   <div class="craftsmen-detail-portfolio">
 
-    <mz-craftsmen-detail-portfolio-card v-for="(item, index) in craftsmenPortfolio"
+    <mz-craftsmen-detail-portfolio-card :index-item="index"
                                         :key="index"
                                         :portfolio-item="item"
-                                        :index-item="index" />
+                                        v-for="(item, index) in craftsmenPortfolio" />
 
-    <mz-modal class="craftsmen-detail-portfolio__modal"
-              :visible.sync="visibleModal">
+    <mz-modal :visible.sync="visibleModal"
+              class="craftsmen-detail-portfolio__modal">
 
-      <div class="icon icon--prev icon-arrow--white"
-           @click="previewPortfolio()"></div>
+      <div @click="previewPortfolio()"
+           class="icon icon--prev icon-arrow--white"></div>
 
-      <div class="icon icon--next icon-arrow--white"
-           @click="nextPortfolio()"></div>
+      <div @click="nextPortfolio()"
+           class="icon icon--next icon-arrow--white"></div>
 
-      <img class="craftsmen-detail-portfolio__modal__picture"
+      <img :alt="craftsmenPortfolio[activeItemIndex].title"
            :src="craftsmenPortfolio[activeItemIndex].pictureUrl"
-           :alt="craftsmenPortfolio[activeItemIndex].title" />
+           class="craftsmen-detail-portfolio__modal__picture" />
 
       <h2 class="craftsmen-detail-portfolio__modal__title">
         {{ craftsmenPortfolio[activeItemIndex].title }}
@@ -28,9 +28,9 @@
       </p>
 
       <div class="craftsmen-detail-portfolio__modal__tags">
-        <span class="tag"
-              v-for="(tag, index) in craftsmenPortfolio[activeItemIndex].tags"
-              :key="index">
+        <span :key="index"
+              class="tag"
+              v-for="(tag, index) in craftsmenPortfolio[activeItemIndex].tags">
           {{ tag }}
         </span>
       </div>

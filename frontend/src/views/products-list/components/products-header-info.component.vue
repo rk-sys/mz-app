@@ -9,15 +9,15 @@
     <div class="sort-items">
       <span class="sort-items__label">{{$t(`header.sortBy`)}}</span>
 
-      <mz-select class="sort-items__select"
-                 v-model="defaultProductSortOption"
-                 @change="changeProductsSortOption(defaultProductSortOption)"
-                 size="mini">
+      <mz-select @change="changeProductsSortOption(defaultProductSortOption)"
+                 class="sort-items__select"
+                 size="mini"
+                 v-model="defaultProductSortOption">
 
-        <mz-option v-for="(option, index) in productSortOption"
-                   :value="option"
+        <mz-option :key="index"
                    :label="$t(`sorting.${ option }`)"
-                   :key="index" />
+                   :value="option"
+                   v-for="(option, index) in productSortOption" />
       </mz-select>
     </div>
   </div>

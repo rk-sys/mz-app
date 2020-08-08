@@ -1,23 +1,23 @@
 <template>
-  <mz-collapse v-model="activeNames"
-               class="mz-product-detail-description-mobile">
+  <mz-collapse class="mz-product-detail-description-mobile"
+               v-model="activeNames">
 
     <mz-collapse-item name="0">
 
       <template slot="title">
         <div class="mz-product-detail-description-mobile__header">
 
-          <div class="mz-product-detail-description-mobile__header__picture"
+          <div @click="goToDetail(productDetail.craftsman.uuid)"
                @mouseenter="isHover = !isHover"
                @mouseleave="isHover = !isHover"
-               @click="goToDetail(productDetail.craftsman.uuid)">
+               class="mz-product-detail-description-mobile__header__picture">
 
-            <img :src="productDetail.craftsman.picture"
-                 :alt="productDetail.craftsman.name"
+            <img :alt="productDetail.craftsman.name"
+                 :src="productDetail.craftsman.picture"
                  class="mz-product-detail-description-mobile__header__picture__img" />
 
-            <div class="mz-product-detail-description-mobile__header__picture__img--cover-bg"
-                 :class="{'show-overlay' : isHover}">
+            <div :class="{'show-overlay' : isHover}"
+                 class="mz-product-detail-description-mobile__header__picture__img--cover-bg">
 
               {{ $t(`profileDetail`) }}
             </div>
@@ -32,20 +32,20 @@
 
           <div class="mz-product-detail-description-mobile__header__img">
 
-            <img :src="productDetail.product.pictures[0]"
-                 :alt="productDetail.product.title"
+            <img :alt="productDetail.product.title"
+                 :src="productDetail.product.pictures[0]"
                  class="product-image" />
           </div>
         </div>
       </template>
 
       <mz-tooltip :content="$t(`follow.${productDetail.product.follow}`)"
-                  placement="top"
-                  class="mz-product-detail-description-mobile__follow">
+                  class="mz-product-detail-description-mobile__follow"
+                  placement="top">
 
-        <div class="icon"
-             :class="{'red icon-heart--full' : productDetail.product.follow,
-                      'gray icon-heart' : !productDetail.product.follow}"></div>
+        <div :class="{'red icon-heart--full' : productDetail.product.follow,
+                      'gray icon-heart' : !productDetail.product.follow}"
+             class="icon"></div>
       </mz-tooltip>
 
       <div class="mz-product-detail-description-mobile__info">
@@ -53,19 +53,19 @@
       </div>
 
       <div class="mz-product-detail-description-mobile__tags">
-        <mz-tag v-for="(tag, index) in productDetail.product.tags"
-                :tag="tag"
-                :index="index"
+        <mz-tag :index="index"
+                :is-presentation="true"
                 :key="index"
-                :is-presentation="true" />
+                :tag="tag"
+                v-for="(tag, index) in productDetail.product.tags" />
       </div>
       <mz-gallery :pictures="productDetail.product.pictures" />
 
-      <mz-product-detail-more-info :main-range="productDetail.product.mainRange"
+      <mz-product-detail-more-info :gender="productDetail.product.gender"
+                                   :is-new="productDetail.product.isNew"
                                    :main-category="productDetail.product.mainCategory"
-                                   :sub-category="productDetail.product.subCategory"
-                                   :gender="productDetail.product.gender"
-                                   :is-new="productDetail.product.isNew" />
+                                   :main-range="productDetail.product.mainRange"
+                                   :sub-category="productDetail.product.subCategory" />
 
       <mz-product-detail-delivery :delivery="productDetail.product.productDeliveryOptions" />
 

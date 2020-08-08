@@ -9,13 +9,13 @@
         <mz-products-header-info :quantity="productList.length" />
 
         <main class="mz-product-list__container__list__cards">
-          <mz-product-card v-for="(product, index) in productList"
-                           :key="index"
+          <mz-product-card :key="index"
                            :product="product"
-                           class="product" />
+                           class="product"
+                           v-for="(product, index) in productList" />
 
-          <mz-empty-list-message v-if="!productList.length"
-                                 :pageName="pageName" />
+          <mz-empty-list-message :pageName="pageName"
+                                 v-if="!productList.length" />
         </main>
       </div>
     </div>

@@ -3,8 +3,8 @@
                v-model="activeNames">
 
     <mz-collapse-item :title="$t(`filters.title`)"
-                      name="0"
-                      class="mz-craftsmen-filters__collapse">
+                      class="mz-craftsmen-filters__collapse"
+                      name="0">
 
       <div class="mz-craftsmen-filters__category">
         <p class="title">{{$t(`filters.category.title`)}}</p>
@@ -22,12 +22,12 @@
       <div class="mz-craftsmen-filters__target-group">
         <p class="title">{{ $t(`filters.targetGroup.title`) }}</p>
 
-        <div class="item"
-             v-for="(item, index) in filters.targetGroup"
-        :key="index">
+        <div :key="index"
+             class="item"
+             v-for="(item, index) in filters.targetGroup">
 
-          <mz-checkbox v-model="item.isSelected"
-                       @change="checkAllTargetGroup()">
+          <mz-checkbox @change="checkAllTargetGroup()"
+                       v-model="item.isSelected">
 
             <span class="label">{{ $t(`filters.targetGroup.${item.value}`) }}</span>
           </mz-checkbox>
@@ -37,25 +37,25 @@
       <div class="mz-craftsmen-filters__tags">
         <p class="title">{{ $t(`filters.tags.title`) }}</p>
 
-        <mz-input v-model="itemTag"
-                  :holder="$t(`filters.tags.addTags`)"
-                  id="itemTag"
+        <mz-input :holder="$t(`filters.tags.addTags`)"
+                  @keyup.enter.native="addTag(itemTag)"
                   class="mz-craftsmen-filters__tags__input"
-                  @keyup.enter.native="addTag(itemTag)">
+                  id="itemTag"
+                  v-model="itemTag">
         </mz-input>
 
-        <div class="mz-craftsmen-filters__tags__add-btn"
-             @click="addTag(itemTag)">
+        <div @click="addTag(itemTag)"
+             class="mz-craftsmen-filters__tags__add-btn">
 
           +
         </div>
 
         <div class="mz-craftsmen-filters__tags__list">
-          <mz-tag v-for="(tag, index) in filters.tags"
-                  :tag="tag"
-                  :index="index"
+          <mz-tag :index="index"
                   :key="index"
-                  :remove-tag="removeTagFromFilters" />
+                  :remove-tag="removeTagFromFilters"
+                  :tag="tag"
+                  v-for="(tag, index) in filters.tags" />
         </div>
       </div>
     </mz-collapse-item>

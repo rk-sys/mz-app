@@ -1,8 +1,8 @@
 <template>
   <div class="mz-user-administration-menu-mobile">
 
-    <div class="mz-user-administration-menu-mobile__cross icon-close--black"
-         @click="setOpenMenu(false)"></div>
+    <div @click="setOpenMenu(false)"
+         class="mz-user-administration-menu-mobile__cross icon-close--black"></div>
 
     <div class="mz-user-administration-menu-mobile__container">
       <div class="mz-user-administration-menu-mobile__container__header">
@@ -12,18 +12,18 @@
         </h3>
       </div>
 
-      <div class="mz-user-administration-menu-mobile__container__section"
-           v-for="(menu, index) in mobileMenu"
-           :key="index">
+      <div :key="index"
+           class="mz-user-administration-menu-mobile__container__section"
+           v-for="(menu, index) in mobileMenu">
 
         <p class="mz-user-administration-menu-mobile__container__section__title">
           {{ $t(`${menu.title}.title`) }}
         </p>
 
-        <div v-for="(link, index) in menu.links"
-             :key="index"
+        <div :key="index"
              @click="setOpenMenu(false)"
-             class="mz-user-administration-menu-mobile__container__section__wrapper">
+             class="mz-user-administration-menu-mobile__container__section__wrapper"
+             v-for="(link, index) in menu.links">
 
           <router-link :to="{name : link.name}"
                        class="mz-user-administration-menu-mobile__container__section__wrapper__link">

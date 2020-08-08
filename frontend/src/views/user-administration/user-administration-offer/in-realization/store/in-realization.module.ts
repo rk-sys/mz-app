@@ -1,6 +1,6 @@
 import { Action, Module, Mutation, VuexModule } from 'vuex-module-decorators';
 import * as userAccountService                  from './in-realization.service';
-import { IUserOffers, IDeleteOffer }            from './in-realization.interface';
+import { IDeleteOffer, IUserOffers }            from './in-realization.interface';
 
 @Module({ namespaced: true, stateFactory: true })
 export default class mzOfferInRealizationModule extends VuexModule {

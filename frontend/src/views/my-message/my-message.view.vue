@@ -11,35 +11,35 @@
         <mz-tab-pane :label="$t(`tab.craftsmen`)"
                      name="forMe">
 
-          <mz-my-message-card v-for="(message, id) in messages.forMe"
+          <mz-my-message-card :item="message"
                               :key="id"
                               type="forMe"
-                              :item="message" />
+                              v-for="(message, id) in messages.forMe" />
         </mz-tab-pane>
 
         <mz-tab-pane :label="$t(`tab.items`)"
                      name="items">
 
-          <mz-my-message-item-card v-for="(item, id) in messages.items"
+          <mz-my-message-item-card :item="item"
                                    :key="id"
-                                   :item="item" />
+                                   v-for="(item, id) in messages.items" />
         </mz-tab-pane>
 
         <mz-tab-pane :label="$t(`tab.offers`)"
                      name="offers">
 
-          <mz-my-message-offer-card v-for="(offer, id) in messages.offers"
-                                    :key="id"
-                                    :offer="offer" />
+          <mz-my-message-offer-card :key="id"
+                                    :offer="offer"
+                                    v-for="(offer, id) in messages.offers" />
         </mz-tab-pane>
 
         <mz-tab-pane :label="$t(`tab.archives`)"
                      name="archives">
 
-          <mz-my-message-card v-for="(message, id) in messages.archive"
+          <mz-my-message-card :item="message"
                               :key="id"
                               type="archive"
-                              :item="message" />
+                              v-for="(message, id) in messages.archive" />
         </mz-tab-pane>
       </mz-tabs>
     </div>

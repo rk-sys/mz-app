@@ -2,18 +2,18 @@
   <div class="mz-products-filters-category">
     <p class="title">{{ $t(`filters.category`) }}</p>
 
-    <mz-collapse class="mz-products-filters-category__content"
-                 v-model="activeCategory"
+    <mz-collapse :key="index"
+                 accordion
+                 class="mz-products-filters-category__content"
                  v-for="(filter, index) in category"
-                 :key="index"
-                 accordion>
+                 v-model="activeCategory">
 
-      <mz-collapse-item :title="$t(`filters.mainCategory.${filter.title}`)"
-                        :name="filter.title">
+      <mz-collapse-item :name="filter.title"
+                        :title="$t(`filters.mainCategory.${filter.title}`)">
 
-        <div v-for="(item, id) in filter.items"
-             :key="id"
-             class="item">
+        <div :key="id"
+             class="item"
+             v-for="(item, id) in filter.items">
 
           <span class="label">{{ $t(`filters.subcategory.${item}`) }}</span>
         </div>

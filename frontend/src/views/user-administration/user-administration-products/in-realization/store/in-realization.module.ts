@@ -1,6 +1,6 @@
 import { Action, Module, Mutation, VuexModule } from 'vuex-module-decorators';
 import * as userAccountService                  from './in-realization.service';
-import { IUserItem, IDeleteProduct }            from './in-realization.interface';
+import { IDeleteProduct, IUserItem }            from './in-realization.interface';
 
 @Module({ namespaced: true, stateFactory: true })
 export default class mzUserAdministrationMyItemsModule extends VuexModule {

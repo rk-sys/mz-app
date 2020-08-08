@@ -1,35 +1,35 @@
 <template>
   <div class="mz-user-offer">
-    <div class="mz-user-offer__picture"
-         @click="goToProductDetail(item.id)">
+    <div @click="goToProductDetail(item.id)"
+         class="mz-user-offer__picture">
 
-      <div class="mz-user-offer__picture__type"
-           :class="{'buy' : item.type === 'buy',
-                       'crafting' : item.type === 'crafting'}">
+      <div :class="{'buy' : item.type === 'buy',
+                       'crafting' : item.type === 'crafting'}"
+           class="mz-user-offer__picture__type">
 
         <span class="mz-user-offer__picture__type__label">
                   {{ $t(`item.${item.type}`) }}</span>
       </div>
 
-      <img class="picture"
+      <img :alt="item.title"
            :src="item.avatar"
-           :alt="item.title" />
+           class="picture" />
     </div>
 
-    <div class="mz-user-offer__info"
-         @click="goToProductDetail(item.id)">
+    <div @click="goToProductDetail(item.id)"
+         class="mz-user-offer__info">
 
       <h2 class="mz-user-offer__info__title">
         {{item.title}} -
 
-        <span v-if="item.status === 'cancelled'"
-              class="status cancelled">
+        <span class="status cancelled"
+              v-if="item.status === 'cancelled'">
 
         {{ $t(`item.${item.status}`) }}
       </span>
 
-        <span v-else
-              class="status completed">
+        <span class="status completed"
+              v-else>
         {{ $t(`item.${item.status}`) }}
       </span>
       </h2>
@@ -43,24 +43,24 @@
     </div>
 
     <div class="mz-user-offer__action">
-      <div class="icon"
-           :class="{'icon-chat': !isHoverChat,
+      <div :class="{'icon-chat': !isHoverChat,
                     'icon-chat--blue': isHoverChat}"
            @mouseenter="isHoverChat = true"
-           @mouseleave="isHoverChat = false"></div>
+           @mouseleave="isHoverChat = false"
+           class="icon"></div>
 
-      <div class="icon"
-           @click="emitDeleteItem(item)"
-           :class="{'icon-delete': !isHoverDelete,
+      <div :class="{'icon-delete': !isHoverDelete,
                     'icon-delete--red': isHoverDelete}"
+           @click="emitDeleteItem(item)"
            @mouseenter="isHoverDelete = true"
-           @mouseleave="isHoverDelete = false"></div>
+           @mouseleave="isHoverDelete = false"
+           class="icon"></div>
     </div>
   </div>
 </template>
 
 <script lang="ts">
-import { Component, Vue, Prop }      from 'vue-property-decorator';
+import { Component, Prop, Vue }      from 'vue-property-decorator';
 import { namespace }                 from 'vuex-class';
 import router                        from '@/router';
 import { IDeleteOffer, IUserOffers } from '../store/offer-history.interface';

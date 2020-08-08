@@ -6,28 +6,28 @@
         {{ $t(`order.price`) }}
       </span>
 
-      <span v-if="mzActiveCustomer.orderStatus.price.value"
-            class="value">
+      <span class="value"
+            v-if="mzActiveCustomer.orderStatus.price.value">
 
         {{ mzActiveCustomer.orderStatus.price.value }}
       </span>
 
-      <span v-else
-            class="value-none">
+      <span class="value-none"
+            v-else>
 
         {{ $t(`order.none`)}}
       </span>
 
-      <span v-if="mzActiveCustomer.orderStatus.price.status !== 'notPropose'"
+      <span :class="{'propose' : mzActiveCustomer.orderStatus.price.status === 'propose',
+                     'accept' : mzActiveCustomer.orderStatus.price.status === 'accept'}"
             class="proposed"
-            :class="{'propose' : mzActiveCustomer.orderStatus.price.status === 'propose',
-                     'accept' : mzActiveCustomer.orderStatus.price.status === 'accept'}">
+            v-if="mzActiveCustomer.orderStatus.price.status !== 'notPropose'">
 
         {{ $t(`order.${mzActiveCustomer.orderStatus.price.status}`) }}
       </span>
 
-      <span v-else
-            class="propose">
+      <span class="propose"
+            v-else>
 
         {{ $t(`order.propose`) }}
       </span>
@@ -38,28 +38,28 @@
         {{ $t('order.date') }}
       </span>
 
-      <span v-if="mzActiveCustomer.orderStatus.date.value"
-            class="value">
+      <span class="value"
+            v-if="mzActiveCustomer.orderStatus.date.value">
 
         {{ mzActiveCustomer.orderStatus.date.value }}
       </span>
 
-      <span v-else
-            class="value-none">
+      <span class="value-none"
+            v-else>
 
         {{ $t(`order.none`)}}
       </span>
 
-      <span v-if="mzActiveCustomer.orderStatus.date.status !== 'notPropose'"
+      <span :class="{'propose' : mzActiveCustomer.orderStatus.date.status === 'propose',
+                     'accept' : mzActiveCustomer.orderStatus.date.status === 'accept'}"
             class="proposed"
-            :class="{'propose' : mzActiveCustomer.orderStatus.date.status === 'propose',
-                     'accept' : mzActiveCustomer.orderStatus.date.status === 'accept'}">
+            v-if="mzActiveCustomer.orderStatus.date.status !== 'notPropose'">
 
         {{ $t(`order.${mzActiveCustomer.orderStatus.date.status}`) }}
       </span>
 
-      <span v-else
-            class="propose">
+      <span class="propose"
+            v-else>
 
         {{ $t(`order.propose`) }}
       </span>
@@ -70,16 +70,16 @@
         {{ $t('order.status') }}
       </span>
 
-      <span v-if="mzActiveCustomer.orderStatus.status !== 'notPropose'"
+      <span :class="{'accept' : mzActiveCustomer.orderStatus.status === 'accept',
+                     'inProgress' : mzActiveCustomer.orderStatus.status === 'inProgress'}"
             class="value"
-            :class="{'accept' : mzActiveCustomer.orderStatus.status === 'accept',
-                     'inProgress' : mzActiveCustomer.orderStatus.status === 'inProgress'}">
+            v-if="mzActiveCustomer.orderStatus.status !== 'notPropose'">
 
         {{ $t(`order.${mzActiveCustomer.orderStatus.status}`)}}
       </span>
 
-      <span v-else
-            class="value-none">
+      <span class="value-none"
+            v-else>
 
         {{ $t(`order.none`)}}
       </span>

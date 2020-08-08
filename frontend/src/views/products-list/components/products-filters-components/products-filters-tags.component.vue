@@ -2,23 +2,23 @@
   <div class="mz-products-filters-tags">
     <p class="title">{{ $t(`filters.tags.title`) }}</p>
 
-    <mz-input v-model="itemTag"
-              :holder="$t(`filters.tags.addTags`)"
+    <mz-input :holder="$t(`filters.tags.addTags`)"
+              @keyup.enter.native="addTag(itemTag)"
               id="itemTag"
-              @keyup.enter.native="addTag(itemTag)" />
+              v-model="itemTag" />
 
-    <div class="mz-products-filters-tags__add-btn"
-         @click="addTag(itemTag)">
+    <div @click="addTag(itemTag)"
+         class="mz-products-filters-tags__add-btn">
 
       +
     </div>
 
     <div class="mz-products-filters-tags__list">
-      <mz-tag v-for="(tag, index) in tags"
-              :tag="tag"
-              :index="index"
+      <mz-tag :index="index"
               :key="index"
-              :remove-tag="removeTagFromFilters" />
+              :remove-tag="removeTagFromFilters"
+              :tag="tag"
+              v-for="(tag, index) in tags" />
     </div>
   </div>
 </template>

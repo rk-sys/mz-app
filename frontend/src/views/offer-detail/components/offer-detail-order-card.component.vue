@@ -11,12 +11,12 @@
         </span>
 
         <mz-tooltip :content="$t(`follow.${offer.offerDetail.follow}`)"
-                    placement="top"
-                    class="mz-product-detail-card__product__type__follow">
+                    class="mz-product-detail-card__product__type__follow"
+                    placement="top">
 
-          <div class="icon"
-               :class="{'red icon-heart--full' : offer.offerDetail.follow,
-                      'gray icon-heart' : !offer.offerDetail.follow}"></div>
+          <div :class="{'red icon-heart--full' : offer.offerDetail.follow,
+                      'gray icon-heart' : !offer.offerDetail.follow}"
+               class="icon"></div>
         </mz-tooltip>
       </div>
 
@@ -31,8 +31,8 @@
           {{ offer.offerDetail.price }} {{ offer.offerDetail.currency }}
         </span>
 
-        <span v-if="!offer.offerDetail.isFinalPrice"
-              class="mz-product-detail-card__product__price__not-final">
+        <span class="mz-product-detail-card__product__price__not-final"
+              v-if="!offer.offerDetail.isFinalPrice">
                   {{ $t(`notFinalPrice`) }}
         </span>
       </div>

@@ -4,13 +4,20 @@ import { contactList, userAccountMenu, userAccountTarget } from './user-account.
 import * as userAccountService                             from './user-account.service';
 import 'firebase/auth';
 import {
+  IContact,
+  IItemPortfolio,
   IUserAccountMenu,
+  IUserAccountMenuLinks,
+  IUserAccountTarget,
+  IUserDisplayContactForm,
+  IUserDisplayDescriptionForm,
   IUserDisplayNameForm,
+  IUserDisplayTagsForm,
   IUserEmailForm,
   IUserInfo,
+  IUserItem,
+  IUserItemStatus,
   IUserPasswordForm,
-  IUserDisplayDescriptionForm,
-  IUserDisplayTagsForm, IContact, IUserDisplayContactForm, IUserItem, IUserItemStatus, IItemPortfolio, IUserAccountMenuLinks, IUserAccountTarget,
 }                                                          from '@/views/user-account/store/user-account.interface';
 import Notification                                        from '@/components/notification/notifications';
 import { i18n }                                            from '@/i18n/i18n';

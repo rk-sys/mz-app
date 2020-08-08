@@ -33,9 +33,9 @@
         </div>
 
         <mz-button buttonStyle="primary"
+                   class="mz-reset-password__box__form__button"
                    form="resetPasswordForm"
-                   native-type="submit"
-                   class="mz-reset-password__box__form__button">
+                   native-type="submit">
 
           {{ $t(`resetPasswordForm.send`) }}
         </mz-button>

@@ -6,14 +6,14 @@
 
       <div class="mz-messages-detail__wrapper__container">
 
-        <mz-message-detail-customers v-if="message.customers"
-                                     :customers="message.customers" />
+        <mz-message-detail-customers :customers="message.customers"
+                                     v-if="message.customers" />
 
         <mz-message-detail-chat :message="message" />
 
         <div class="mz-messages-detail__wrapper__container__message">
-          <textarea v-model="newMessage"
-                    class="input"></textarea>
+          <textarea class="input"
+                    v-model="newMessage"></textarea>
 
           <mz-button @click="sendNewMessage"> {{ $t(`sendMessage`) }}
           </mz-button>
@@ -35,7 +35,7 @@ import mzMessageDetailModule     from './store/message-detail.module';
 import mzMessageDetailHeader     from './components/message-detail-header.component.vue';
 import mzMessageDetailChat       from './components/message-detail-chat.component.vue';
 import mzMessageDetailCustomers  from './components/message-detail-customers.component.vue';
-import mzButton                         from '@/components/buttons/button.component.vue';
+import mzButton                  from '@/components/buttons/button.component.vue';
 
 const LOCAL_STORE: string = 'mzMessageDetail';
 const local = namespace(LOCAL_STORE);

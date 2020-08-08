@@ -2,12 +2,12 @@
   <div class="mz-products-filters-target-group">
     <p class="title">{{ $t(`filters.targetGroup.title`) }}</p>
 
-    <div class="item"
-         v-for="(item, index) in targetGroup"
-         :key="index">
+    <div :key="index"
+         class="item"
+         v-for="(item, index) in targetGroup">
 
-      <mz-checkbox v-model="item.isSelected"
-                   @change="checkAllTargetGroup()">
+      <mz-checkbox @change="checkAllTargetGroup()"
+                   v-model="item.isSelected">
 
         <span class="label">{{ $t(`filters.targetGroup.${item.value}`) }}</span>
       </mz-checkbox>

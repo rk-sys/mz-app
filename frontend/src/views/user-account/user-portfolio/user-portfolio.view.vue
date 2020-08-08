@@ -17,20 +17,20 @@
     </div>
 
     <div class="mz-user-portfolio__items-wrapper">
-      <mz-portfolio-item v-for="(item, index) in items"
-                         :item="item"
-                         :key="index" />
+      <mz-portfolio-item :item="item"
+                         :key="index"
+                         v-for="(item, index) in items" />
 
     </div>
 
-    <mz-empty-list-message v-if="!items.length"
-                           :pageName="pageName" />
+    <mz-empty-list-message :pageName="pageName"
+                           v-if="!items.length" />
 
     <mz-portfolio-modal :dialogVisible="dialogVisible" />
 
-    <mz-dialog class="mz-user-portfolio__remove-item"
-               :title="$t(`modal.title`)"
-               :visible.sync="removeModalItemPortfolio">
+    <mz-dialog :title="$t(`modal.title`)"
+               :visible.sync="removeModalItemPortfolio"
+               class="mz-user-portfolio__remove-item">
 
       <p class="mz-user-portfolio__remove-item__title">
         {{ $t(`modal.description`) }}
@@ -41,9 +41,9 @@
       </p>
 
       <div class="mz-user-portfolio__remove-item__btn-content">
-        <mz-button buttonStyle="info"
-                   class="mz-user-portfolio__remove-item__btn-content__btn"
-                   @click="removeModalItemPortfolio = false">
+        <mz-button @click="removeModalItemPortfolio = false"
+                   buttonStyle="info"
+                   class="mz-user-portfolio__remove-item__btn-content__btn">
 
           {{ $t(`modal.buttonCancel`) }}
         </mz-button>

@@ -5,12 +5,12 @@
 
       <div class="mz-delivery-product__options">
 
-        <mz-radio v-for="(option, index) in delivery"
-                  :key="index"
-                  v-model="information.label"
+        <mz-radio :key="index"
                   :label="option.label"
                   @input="setOptionDelivery(option)"
-                  class="radio-box">
+                  class="radio-box"
+                  v-for="(option, index) in delivery"
+                  v-model="information.label">
 
           <span class="radio-box__text">{{ $t(`delivery.${option.label}`) }}</span>
         </mz-radio>
@@ -19,16 +19,16 @@
       <div class="mz-delivery-product__delivery-option">
         <template v-if="deliveryOptions">
 
-          <div v-for="(option, index) in deliveryOptions"
-               :key="index"
+          <div :key="index"
                @click="setSuboptionDelivery(option)"
-               class="mz-delivery-product__delivery-option__item">
+               class="mz-delivery-product__delivery-option__item"
+               v-for="(option, index) in deliveryOptions">
 
-            <div class="circle"
-                 :class="{'circle--active' : isEqualObject(option)}"></div>
+            <div :class="{'circle--active' : isEqualObject(option)}"
+                 class="circle"></div>
 
-            <span class="title"
-                  :class="{'title--active' :  isEqualObject(option)}">{{ option.title }}</span>
+            <span :class="{'title--active' :  isEqualObject(option)}"
+                  class="title">{{ option.title }}</span>
 
             <span class="price">{{ option.price }} {{ $t(`currency`) }}</span>
 

@@ -1,14 +1,14 @@
 <template>
   <div class="mz-user-item">
-    <div class="mz-user-item__picture"
-         @click="goToProductDetail(item)">
+    <div @click="goToProductDetail(item)"
+         class="mz-user-item__picture">
 
-      <img class="picture"
+      <img :alt="item.title"
            :src="item.avatar"
-           :alt="item.title" />
+           class="picture" />
     </div>
-    <div class="mz-user-item__info"
-         @click="goToProductDetail(item)">
+    <div @click="goToProductDetail(item)"
+         class="mz-user-item__info">
 
       <h2 class="mz-user-item__info__title">
         {{item.title}}
@@ -22,25 +22,25 @@
     </div>
 
     <div class="mz-user-item__action">
-      <div class="icon"
-           @click="goToEdit(item)"
-           :class="{'icon-edit': !isHoverEdit,
+      <div :class="{'icon-edit': !isHoverEdit,
                     'icon-edit--primary': isHoverEdit}"
+           @click="goToEdit(item)"
            @mouseenter="isHoverEdit = true"
-           @mouseleave="isHoverEdit = false"></div>
+           @mouseleave="isHoverEdit = false"
+           class="icon"></div>
 
-      <div class="icon"
-           @click="emitDeleteItem(item)"
-           :class="{'icon-delete': !isHoverDelete,
+      <div :class="{'icon-delete': !isHoverDelete,
                     'icon-delete--red': isHoverDelete}"
+           @click="emitDeleteItem(item)"
            @mouseenter="isHoverDelete = true"
-           @mouseleave="isHoverDelete = false"></div>
+           @mouseleave="isHoverDelete = false"
+           class="icon"></div>
     </div>
   </div>
 </template>
 
 <script lang="ts">
-import { Component, Vue, Prop }          from 'vue-property-decorator';
+import { Component, Prop, Vue }          from 'vue-property-decorator';
 import { namespace }                     from 'vuex-class';
 import router                            from '@/router';
 import { IDeleteItem, IUserItem }        from '../store/my-items.interface';

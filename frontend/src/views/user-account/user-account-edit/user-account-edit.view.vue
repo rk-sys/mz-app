@@ -6,12 +6,12 @@
 
       <p class="user-account-edit__title">{{ $t(`targetsGroup.myTargetsGroup`) }}</p>
       <div class="user-account-edit__my-targets-group">
-        <div v-for="item in userTargetsGroup.myTargetsGroup"
-             class="item">
+        <div class="item"
+             v-for="item in userTargetsGroup.myTargetsGroup">
 
-          <mz-checkbox v-model="item.isSelected"
-                       @change="checkAllMyTargetGroup()"
-                       class="item__container">
+          <mz-checkbox @change="checkAllMyTargetGroup()"
+                       class="item__container"
+                       v-model="item.isSelected">
 
             <span class="label">{{ $t(`targetsGroup.${item.value}`) }}</span>
           </mz-checkbox>
@@ -20,12 +20,12 @@
 
       <p class="user-account-edit__title">{{ $t(`targetsGroup.showMeTargetsGroup`) }}</p>
       <div class="user-account-edit__show-me-targets-group">
-        <div v-for="item in userTargetsGroup.showMeTargetsGroup"
-             class="item">
+        <div class="item"
+             v-for="item in userTargetsGroup.showMeTargetsGroup">
 
-          <mz-checkbox v-model="item.isSelected"
-                       @change="checkAllShowMeTargetsGroup()"
-                       class="item__container">
+          <mz-checkbox @change="checkAllShowMeTargetsGroup()"
+                       class="item__container"
+                       v-model="item.isSelected">
 
             <span class="label">{{ $t(`targetsGroup.${item.value}`) }}</span>
           </mz-checkbox>
@@ -33,18 +33,18 @@
       </div>
 
       <div class="user-account-edit__form__button">
-        <mz-button buttonStyle="primary"
-                   :loading="loadingButtonDisplayName"
+        <mz-button :loading="loadingButtonDisplayName"
+                   buttonStyle="primary"
                    native-type="submit">
           {{ $t(`form.save`) }}
         </mz-button>
       </div>
     </mz-box-with-title>
 
-    <mz-box-with-title :title="$t(`boxTitle.email`)"
-                       icon-name="icon-mail"
+    <mz-box-with-title :add-color="userInfo.emailVerified"
                        :sub-title="$t(`boxSubTitle.emailVerified.${userInfo.emailVerified}`)"
-                       :add-color="userInfo.emailVerified">
+                       :title="$t(`boxTitle.email`)"
+                       icon-name="icon-mail">
 
       <mz-form :form-ref.sync="formEmail"
                :model="emailForm"
@@ -80,8 +80,8 @@
         </div>
 
         <div class="user-account-edit__form__button">
-          <mz-button buttonStyle="primary"
-                     :loading="loadingButtonEmail"
+          <mz-button :loading="loadingButtonEmail"
+                     buttonStyle="primary"
                      form="emailForm"
                      native-type="submit">
             {{ $t(`form.save`) }}
@@ -128,8 +128,8 @@
         </div>
 
         <div class="user-account-edit__form__button">
-          <mz-button buttonStyle="primary"
-                     :loading="loadingButtonPassword"
+          <mz-button :loading="loadingButtonPassword"
+                     buttonStyle="primary"
                      form="passwordForm"
                      native-type="submit">{{$t(`form.save`)}}
           </mz-button>
@@ -141,26 +141,21 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue }              from 'vue-property-decorator';
-import { registerStoreModule }         from '@/helpers/helpers';
-import { namespace }                   from 'vuex-class';
-import { i18n, loadTranslationsAsync } from '@/i18n/i18n';
-import Store                           from '@/store/store';
-import { Route }                       from 'vue-router';
-import {
-  IUserAccountMenu, IUserAccountTarget,
-  IUserDisplayNameForm,
-  IUserEmailForm,
-  IUserPasswordForm,
-}                                      from '@/views/user-account/store/user-account.interface';
-import mzUserAccountModule             from '../store/user-account.module';
-import mzInput                         from '@/components/input/mz-input.component.vue';
-import mzForm                          from '@/components/form/form/form.component.vue';
-import mzFormItem                      from '@/components/form/form-item/form-item.component.vue';
-import mzBoxWithTitle                  from '@/components/box-with-title/box-with-title.component.vue';
-import mzButton                        from '@/components/buttons/button.component.vue';
-import mzUpload                        from '@/components/upload/upload.component.vue';
-import mzCheckbox                      from '@/components/form/checkbox/checkbox.component.vue';
+import { Component, Vue }                                                                                 from 'vue-property-decorator';
+import { registerStoreModule }                                                                            from '@/helpers/helpers';
+import { namespace }                                                                                      from 'vuex-class';
+import { i18n, loadTranslationsAsync }                                                                    from '@/i18n/i18n';
+import Store                                                                                              from '@/store/store';
+import { Route }                                                                                          from 'vue-router';
+import { IUserAccountMenu, IUserAccountTarget, IUserDisplayNameForm, IUserEmailForm, IUserPasswordForm } from '@/views/user-account/store/user-account.interface';
+import mzUserAccountModule                                                                                from '../store/user-account.module';
+import mzInput                                                                                            from '@/components/input/mz-input.component.vue';
+import mzForm                                                                                             from '@/components/form/form/form.component.vue';
+import mzFormItem                                                                                         from '@/components/form/form-item/form-item.component.vue';
+import mzBoxWithTitle                                                                                     from '@/components/box-with-title/box-with-title.component.vue';
+import mzButton                                                                                           from '@/components/buttons/button.component.vue';
+import mzUpload                                                                                           from '@/components/upload/upload.component.vue';
+import mzCheckbox                                                                                         from '@/components/form/checkbox/checkbox.component.vue';
 
 const LOCAL_STORE: string = 'userAccount';
 const local = namespace(LOCAL_STORE);

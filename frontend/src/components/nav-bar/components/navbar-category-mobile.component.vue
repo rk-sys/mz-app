@@ -3,19 +3,19 @@
     <mz-collapse class="nav-bar-category-mobile__content"
                  v-model="activeNames">
 
-      <mz-collapse-item title="Menu"
+      <mz-collapse-item class="nav-bar-category-mobile__content__list"
                         name="0"
-                        class="nav-bar-category-mobile__content__list">
+                        title="Menu">
 
-        <router-link class="nav-bar-category-mobile__craftsmen link"
-                     :to="{name: 'Craftsmen'}">
+        <router-link :to="{name: 'Craftsmen'}"
+                     class="nav-bar-category-mobile__craftsmen link">
 
           <div class="icon icon-hammer"></div>
           {{$t(`navBar.craftsmen`)}}
         </router-link>
 
-        <router-link class="nav-bar-category-mobile__items link"
-                     :to="{ name: 'Products list' }">
+        <router-link :to="{ name: 'Products list' }"
+                     class="nav-bar-category-mobile__items link">
 
           <div class="icon icon-box"></div>
           {{$t(`navBar.items`)}}
@@ -60,6 +60,7 @@ export default class mzNavBarCategoryMobile extends Vue {
 .el-collapse-item__wrap {
   border-bottom: none;
 }
+
 .nav-bar-category-mobile {
   .el-collapse-item__content {
     padding-bottom: 0;

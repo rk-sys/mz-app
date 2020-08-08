@@ -1,19 +1,19 @@
 <template>
   <div class="mz-user-administration-menu">
 
-    <mz-collapse class="mz-user-administration-menu__container"
+    <mz-collapse :key="index"
+                 class="mz-user-administration-menu__container"
                  v-for="(item, index) in mobileMenu"
-                 :key="index"
                  v-model="item.activeName">
 
-      <mz-collapse-item class="mz-user-administration-menu__container__item"
+      <mz-collapse-item :name="item.title"
                         :title="$t(`${item.title}.title`)"
-                        :name="item.title">
+                        class="mz-user-administration-menu__container__item">
 
-        <router-link v-for="(link, id) in item.links"
-                     :key="id"
+        <router-link :key="id"
                      :to="{name: link.name}"
-                     class="mz-user-administration-menu__container__item__link">
+                     class="mz-user-administration-menu__container__item__link"
+                     v-for="(link, id) in item.links">
 
           {{ $t(`${item.title}.${link.label}`) }}
         </router-link>

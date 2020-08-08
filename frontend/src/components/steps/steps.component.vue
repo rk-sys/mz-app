@@ -4,14 +4,14 @@
     <div class="mz-steps__wrapper"
          v-for="(step, index) in labels">
 
-      <div class="mz-steps__circle"
-           :class="{'mz-steps__circle--active': index === active,
-                    'mz-steps__circle--done': index < active}">
+      <div :class="{'mz-steps__circle--active': index === active,
+                    'mz-steps__circle--done': index < active}"
+           class="mz-steps__circle">
 
-        <div v-if="index !== 0"
+        <div :class="{'mz-steps__line--primary': index <= active,
+                      'four' : labels.length === 4}"
              class="mz-steps__line"
-             :class="{'mz-steps__line--primary': index <= active,
-                      'four' : labels.length === 4}"></div>
+             v-if="index !== 0"></div>
 
         <template v-if="index < active">
           <div class="mz-steps__circle__icon icon-success--primary"></div>
@@ -24,9 +24,9 @@
         </template>
 
       </div>
-      <p class="mz-steps__label"
-         :class="{'mz-steps__label--active': index === active,
-                    'mz-steps__label--done': index < active}">
+      <p :class="{'mz-steps__label--active': index === active,
+                    'mz-steps__label--done': index < active}"
+         class="mz-steps__label">
         {{ step }}
       </p>
     </div>

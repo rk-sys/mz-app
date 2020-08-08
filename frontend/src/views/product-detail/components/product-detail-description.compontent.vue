@@ -4,12 +4,12 @@
     <mz-craftsman-card-simple :craftsman="productDetail.craftsman" />
 
     <mz-tooltip :content="$t(`follow.${productDetail.product.follow}`)"
-                placement="top"
-                class="mz-product-detail-description__follow">
+                class="mz-product-detail-description__follow"
+                placement="top">
 
-      <div class="icon"
-           :class="{'red icon-heart--full' : productDetail.product.follow,
-                      'gray icon-heart' : !productDetail.product.follow}"></div>
+      <div :class="{'red icon-heart--full' : productDetail.product.follow,
+                      'gray icon-heart' : !productDetail.product.follow}"
+           class="icon"></div>
     </mz-tooltip>
 
     <h1 class="mz-product-detail-description__title">
@@ -21,19 +21,19 @@
     </div>
 
     <div class="mz-product-detail-description__tags">
-      <mz-tag v-for="(tag, index) in productDetail.product.tags"
-              :tag="tag"
-              :index="index"
+      <mz-tag :index="index"
+              :is-presentation="true"
               :key="index"
-              :is-presentation="true" />
+              :tag="tag"
+              v-for="(tag, index) in productDetail.product.tags" />
     </div>
     <mz-gallery :pictures="productDetail.product.pictures" />
 
-    <mz-product-detail-more-info :main-range="productDetail.product.mainRange"
+    <mz-product-detail-more-info :gender="productDetail.product.gender"
+                                 :is-new="productDetail.product.isNew"
                                  :main-category="productDetail.product.mainCategory"
-                                 :sub-category="productDetail.product.subCategory"
-                                 :gender="productDetail.product.gender"
-                                 :is-new="productDetail.product.isNew" />
+                                 :main-range="productDetail.product.mainRange"
+                                 :sub-category="productDetail.product.subCategory" />
 
     <mz-product-detail-delivery :delivery="productDetail.product.productDeliveryOptions" />
   </div>

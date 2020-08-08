@@ -3,16 +3,16 @@
     <div class="mz-message-detail-chat__topic">
       <div class="mz-message-detail-chat__topic__text">
 
-        <span class="mz-message-detail-chat__topic__text__title"
-              :class="{'private-msg' : message.topic.type === 'forMe'}"
-              @click="goToDetail(message.topic.type, message.topic.detail.uuid)">
+        <span :class="{'private-msg' : message.topic.type === 'forMe'}"
+              @click="goToDetail(message.topic.type, message.topic.detail.uuid)"
+              class="mz-message-detail-chat__topic__text__title">
 
           <span class="label">{{ $t('title') }}</span>
           {{message.topic.detail.title}}
         </span>
 
-        <span v-if="message.topic.detail.description"
-              class="mz-message-detail-chat__topic__text__description">
+        <span class="mz-message-detail-chat__topic__text__description"
+              v-if="message.topic.detail.description">
           <span class="label">{{ $t('description') }}</span>
 
           {{message.topic.detail.description}}
@@ -21,20 +21,20 @@
     </div>
 
     <div class="mz-message-detail-chat__container">
-      <div v-for="(item, id) in message.messages"
+      <div :class="{'align-right' : item.name === 'Kafał Rrukowski'}"
            :key="id"
            class="mz-message-detail-chat__container__message"
-           :class="{'align-right' : item.name === 'Kafał Rrukowski'}">
+           v-for="(item, id) in message.messages">
 
         <div class="mz-message-detail-chat__container__message__header">
-          <span class="mz-message-detail-chat__container__message__header__name"
-                @click="goToDetailCrafstman(item.uuid)">{{item.name}}</span>
+          <span @click="goToDetailCrafstman(item.uuid)"
+                class="mz-message-detail-chat__container__message__header__name">{{item.name}}</span>
           <span class="mz-message-detail-chat__container__message__header__date">{{item.date}}</span>
         </div>
 
-        <p class="mz-message-detail-chat__container__message__description"
-           :class="{'own-message' : item.name === 'Kafał Rrukowski',
-                    'client-message' : item.name !== 'Kafał Rrukowski'}">{{item.message}}</p>
+        <p :class="{'own-message' : item.name === 'Kafał Rrukowski',
+                    'client-message' : item.name !== 'Kafał Rrukowski'}"
+           class="mz-message-detail-chat__container__message__description">{{item.message}}</p>
       </div>
     </div>
   </div>

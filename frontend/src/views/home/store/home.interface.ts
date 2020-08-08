@@ -1,26 +1,26 @@
 export interface IHome {
   craftsmen: IHomeCustomer[];
-  products: IHomeProduct[]
+  products: IHomeProduct[];
   events: IHomeEvent[];
 }
 
 export interface IHomeCustomer {
-  image: string,
-  tag: Array<string>,
-  title: string,
-  uuid: string
+  image: string;
+  tag: string[];
+  title: string;
+  uuid: string;
 }
 
 export interface IHomeProduct {
-  price: string,
-  title: string,
-  image: string
-  uuid: string
+  price: string;
+  title: string;
+  image: string;
+  uuid: string;
 }
 
 export interface IHomeEvent {
-  title: string,
-  image: string,
-  uuid: string,
-  url: string,
+  title: string;
+  image: string;
+  uuid: string;
+  url: string;
 }

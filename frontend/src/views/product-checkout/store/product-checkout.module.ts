@@ -1,7 +1,7 @@
-import { Module, Action, Mutation, VuexModule }                                                         from 'vuex-module-decorators';
+import { Action, Module, Mutation, VuexModule }                                                         from 'vuex-module-decorators';
 import cloneDeep                                                                                        from 'lodash/cloneDeep';
 import * as productCheckoutService                                                                      from './product-checkout.service';
-import { productCheckout, checkoutInformation }                                                         from '@/views/product-checkout/store/product-checkout.state';
+import { checkoutInformation, productCheckout }                                                         from '@/views/product-checkout/store/product-checkout.state';
 import { IDeliveryAtPoints, IDeliveryLetter, IDeliveryOptions, IInformationCheckout, IProductCheckout } from '@/views/product-checkout/store/product-checkout.interface';
 import Notification                                                                                     from '@/components/notification/notifications';
 import { i18n }                                                                                         from '@/i18n/i18n';

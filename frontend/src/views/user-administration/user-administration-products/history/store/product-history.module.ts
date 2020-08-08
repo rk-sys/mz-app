@@ -1,6 +1,6 @@
 import { Action, Module, Mutation, VuexModule } from 'vuex-module-decorators';
 import * as userAccountService                  from './product-history.service';
-import { IUserItem, IDeleteItem }               from './product-history.interface';
+import { IDeleteItem, IUserItem }               from './product-history.interface';
 
 @Module({ namespaced: true, stateFactory: true })
 export default class mzUserAdministrationMyItemsHistoryModule extends VuexModule {

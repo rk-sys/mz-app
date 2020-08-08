@@ -3,10 +3,10 @@
 
     <div class="nav-bar-profile__messages">
       <div :class="searchHover? 'icon-chat--full' : 'icon-chat'"
+           @click="goToMyMessage"
            @mouseenter="searchHover = true"
            @mouseleave="searchHover = false"
-           class="icon"
-           @click="goToMyMessage">
+           class="icon">
       </div>
     </div>
 
@@ -32,9 +32,9 @@
     <div class="nav-bar-profile__heart">
 
       <div :class="followHover? 'icon-heart--full':'icon-heart--gray'"
+           @click="goToMyFollow()"
            @mouseenter="followHover = true"
            @mouseleave="followHover = false"
-           @click="goToMyFollow()"
            class="icon "></div>
     </div>
   </div>

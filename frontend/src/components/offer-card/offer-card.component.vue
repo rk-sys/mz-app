@@ -1,15 +1,15 @@
 <template>
-  <div class="mz-offer-card"
-       @click="goToDetail(offer.uuid)">
+  <div @click="goToDetail(offer.uuid)"
+       class="mz-offer-card">
 
-    <div class="mz-offer-card__line"
-         :class="{'mz-offer-card__line--light' : offer.status === 'buy',
-                  'mz-offer-card__line--dark' : offer.status === 'create'}"></div>
+    <div :class="{'mz-offer-card__line--light' : offer.status === 'buy',
+                  'mz-offer-card__line--dark' : offer.status === 'create'}"
+         class="mz-offer-card__line"></div>
 
     <div class="mz-offer-card__content">
-      <span class="mz-offer-card__content__status"
-            :class="{'mz-offer-card__content__status--light' : offer.status === 'buy',
-                     'mz-offer-card__content__status--dark' : offer.status === 'create'}">
+      <span :class="{'mz-offer-card__content__status--light' : offer.status === 'buy',
+                     'mz-offer-card__content__status--dark' : offer.status === 'create'}"
+            class="mz-offer-card__content__status">
         {{ $t(`status.${offer.status}`)}}
       </span>
 
@@ -19,8 +19,8 @@
         {{$t(`price.label`)}}
         <span class="value">{{offer.price}} {{$t(`price.zl`)}}</span>
 
-        <span v-if="!offer.isFinalPrice"
-              class="mz-offer-card__content__price__not-final">
+        <span class="mz-offer-card__content__price__not-final"
+              v-if="!offer.isFinalPrice">
 
           {{$t(`price.notFinal`)}}
         </span>
@@ -28,8 +28,8 @@
     </div>
 
     <div class="mz-offer-card__content__picture">
-      <img :src="offer.image"
-           :alt="offer.title"
+      <img :alt="offer.title"
+           :src="offer.image"
            class="image" />
     </div>
   </div>

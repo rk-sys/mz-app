@@ -3,7 +3,7 @@
     <div class="mz-craftsmen-detail__content">
       <mz-craftsmen-detail-menu :base-info="craftsmenDetail.craftsmenBaseInfo" />
 
-      <transition name="fade" mode="out-in">
+      <transition mode="out-in" name="fade">
         <router-view />
       </transition>
     </div>

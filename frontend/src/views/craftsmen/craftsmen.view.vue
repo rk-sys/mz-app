@@ -11,18 +11,18 @@
 
         <main class="craftsmen-list">
 
-          <mz-craftsmen-card v-for="(craftsmen, index) in craftsmenList"
-                             :key="index"
-                             class="craftsmen-list__item"
+          <mz-craftsmen-card :city="craftsmen.city"
                              :craftsmen-id="craftsmen.id"
-                             :city="craftsmen.city"
-                             :rating="craftsmen.rating"
-                             :name="craftsmen.name"
                              :image="craftsmen.image"
-                             :tags="craftsmen.tags" />
+                             :key="index"
+                             :name="craftsmen.name"
+                             :rating="craftsmen.rating"
+                             :tags="craftsmen.tags"
+                             class="craftsmen-list__item"
+                             v-for="(craftsmen, index) in craftsmenList" />
 
-          <mz-empty-list-message v-if="!craftsmenList.length"
-                                 :pageName="pageName" />
+          <mz-empty-list-message :pageName="pageName"
+                                 v-if="!craftsmenList.length" />
         </main>
       </div>
     </div>

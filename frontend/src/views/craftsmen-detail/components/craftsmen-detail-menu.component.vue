@@ -3,12 +3,12 @@
     <div class="mz-craftsmen-detail-menu__info">
 
       <mz-tooltip :content="$t(`follow.${baseInfo.follow}`)"
-                  placement="top"
-                  class="mz-craftsmen-detail-menu__info__follow">
+                  class="mz-craftsmen-detail-menu__info__follow"
+                  placement="top">
 
-        <div class="icon"
-             :class="{'red icon-heart--full' : baseInfo.follow,
-                      'gray icon-heart' : !baseInfo.follow}"></div>
+        <div :class="{'red icon-heart--full' : baseInfo.follow,
+                      'gray icon-heart' : !baseInfo.follow}"
+             class="icon"></div>
       </mz-tooltip>
 
       <img :src="baseInfo.picture"
@@ -17,22 +17,22 @@
 
       <h1 class="name">{{ baseInfo.name }}</h1>
       <div class="rating">
-        <div v-for="item in baseInfo.ratings"
-             class="rating__item">
+        <div class="rating__item"
+             v-for="item in baseInfo.ratings">
 
           <span class="label">
             {{ $t(`craftsmenDetailMenu.rating.${item.label}`) }}
           </span>
-          <mz-rate v-model="item.value"
-                   :is-reverse="true"
-                   disabled />
+          <mz-rate :is-reverse="true"
+                   disabled
+                   v-model="item.value" />
         </div>
       </div>
     </div>
 
     <div class="mz-craftsmen-detail-menu__links">
-      <div v-for="item in menuLinks"
-           class="mz-craftsmen-detail-menu__links__wrapper">
+      <div class="mz-craftsmen-detail-menu__links__wrapper"
+           v-for="item in menuLinks">
 
         <router-link :to="{name: item.nameUrl, params: {uuid: '1'}}"
                      class="link">
@@ -43,15 +43,15 @@
 
     <div class="mz-craftsmen-detail-menu__social-media">
       <mz-social-media :facebook-url="baseInfo.socialMedia.facebook"
+                       :instagram-url="baseInfo.socialMedia.instagram"
                        :twitter-url="baseInfo.socialMedia.twitter"
-                       :youtube-url="baseInfo.socialMedia.youtube"
-                       :instagram-url="baseInfo.socialMedia.instagram" />
+                       :youtube-url="baseInfo.socialMedia.youtube" />
     </div>
   </div>
 </template>
 
 <script lang="ts">
-import { Component, Vue, Prop }                    from 'vue-property-decorator';
+import { Component, Prop, Vue }                    from 'vue-property-decorator';
 import { namespace }                               from 'vuex-class';
 import { ICraftsmenBaseInfo, ICraftsmenMenuLinks } from '@/views/craftsmen-detail/store/craftsmen-detail.interface';
 import mzCraftsmenDetailModule                     from '../store/craftsmen-detail.module';

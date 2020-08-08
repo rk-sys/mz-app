@@ -1,5 +1,5 @@
-import {ModuleOptions} from 'vuex';
-import store from '@/store/store';
+import { ModuleOptions } from 'vuex';
+import store             from '@/store/store';
 
 export function registerStoreModule<T, S>(path: any, module: any, options?: ModuleOptions) {
   if (hasStoreModule(path) === false) {
@@ -17,7 +17,7 @@ export function hasObjectPath(variable: any, path: any) {
 
   for (const key of keys) {
     if (variable && variable.hasOwnProperty(key)) {
-      variable = variable[key];
+      variable = variable[ key ];
       continue;
     }
 

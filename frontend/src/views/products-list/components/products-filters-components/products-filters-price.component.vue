@@ -4,17 +4,17 @@
 
     <div class="mz-products-filters__price__wrapper">
 
-      <mz-input v-model="filters.price.minValue"
-                :holder="$t(`filters.price.minValue`)"
-                id="minValue" />
+      <mz-input :holder="$t(`filters.price.minValue`)"
+                id="minValue"
+                v-model="filters.price.minValue" />
 
       <span class="separator">
               {{ $t(`filters.price.separator`) }}
             </span>
 
-      <mz-input v-model="filters.price.maxValue"
-                :holder="$t(`filters.price.maxValue`)"
-                id="maxValue" />
+      <mz-input :holder="$t(`filters.price.maxValue`)"
+                id="maxValue"
+                v-model="filters.price.maxValue" />
     </div>
   </div>
 </template>
@@ -22,7 +22,7 @@
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
 import { namespace }      from 'vuex-class';
-import { IPrice }       from '@/views/products-list/store/products.interface';
+import { IPrice }         from '@/views/products-list/store/products.interface';
 import mzTag              from '@/components/tag/tag.component.vue';
 import mzInput            from '@/components/input/mz-input.component.vue';
 import mzProductsModule   from '../../store/products.module';
@@ -53,7 +53,7 @@ export default class yProductsFiltersTargetGroup extends Vue {
 </script>
 <style lang="scss">
 .mz-products-filters__price {
-.mz-input__container {
+  .mz-input__container {
     min-width: 100%;
   }
 }

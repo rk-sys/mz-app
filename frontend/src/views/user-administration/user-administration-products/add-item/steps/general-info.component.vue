@@ -5,11 +5,11 @@
 
       <div class="mz-general-info__range__container">
 
-        <mz-radio v-for="(mainRange, index) in addItemGeneralInfo.listOfMainRange"
-                  :key="index"
-                  v-model="newItem.mainRange"
+        <mz-radio :key="index"
                   :label="mainRange.label"
-                  class="main-range-box">
+                  class="main-range-box"
+                  v-for="(mainRange, index) in addItemGeneralInfo.listOfMainRange"
+                  v-model="newItem.mainRange">
 
           <span class="main-category__text">
             {{ $t(`listOfMainRange.${mainRange.label}`) }}
@@ -23,24 +23,24 @@
 
       <div class="mz-general-info__category__container">
 
-        <div v-for="(category, index) in addItemGeneralInfo.listOfCategory"
+        <div :class="{'main-category-box--selected': category.selected}"
              :key="index"
-             v-model="newItem.mainCategory"
              :label="category.mainCategory"
+             @click="setMainCategory(category.mainCategory)"
              class="main-category-box"
-             :class="{'main-category-box--selected': category.selected}"
-             @click="setMainCategory(category.mainCategory)">
+             v-for="(category, index) in addItemGeneralInfo.listOfCategory"
+             v-model="newItem.mainCategory">
 
           <div class="main-category-box__wrapper">
-            <div class="icon"
-                 :class="{ 'icon-armor--gray': category.mainCategory === 'armor' && !category.selected,
+            <div :class="{ 'icon-armor--gray': category.mainCategory === 'armor' && !category.selected,
                            'icon-sword--gray': category.mainCategory === 'weapon' && !category.selected,
                            'icon-tunic--gray': category.mainCategory === 'costume' && !category.selected,
                            'icon-masks--gray': category.mainCategory === 'other' && !category.selected,
                            'icon-armor--white': category.mainCategory === 'armor' && category.selected,
                            'icon-sword--white': category.mainCategory === 'weapon' && category.selected,
                            'icon-tunic--white': category.mainCategory === 'costume' && category.selected,
-                           'icon-masks--white': category.mainCategory === 'other' && category.selected}">
+                           'icon-masks--white': category.mainCategory === 'other' && category.selected}"
+                 class="icon">
             </div>
             {{ $t(`listOfCategory.mainCategory.${category.mainCategory}`) }}
           </div>
@@ -51,16 +51,16 @@
     <div class="mz-general-info__subcategory">
       <p class="title">{{$t(`categorySelection.title.subCategory`)}}</p>
 
-      <div class="mz-general-info__subcategory__container"
-           v-for="(category, categoryIndex) in addItemGeneralInfo.listOfCategory"
-           :key="categoryIndex">
+      <div :key="categoryIndex"
+           class="mz-general-info__subcategory__container"
+           v-for="(category, categoryIndex) in addItemGeneralInfo.listOfCategory">
 
         <template v-if="category.selected">
-          <mz-radio v-for="(subcategory, index) in category.listOfSubCategory"
-                    :key="index"
-                    v-model="newItem.subCategory"
+          <mz-radio :key="index"
                     :label="subcategory.label"
-                    class="subcategory-box">
+                    class="subcategory-box"
+                    v-for="(subcategory, index) in category.listOfSubCategory"
+                    v-model="newItem.subCategory">
 
             <span class="main-category__text">
               {{ $t(`listOfCategory.mainCategory.subcategory.${subcategory.label}`) }}
@@ -71,8 +71,8 @@
     </div>
 
     <div class="mz-general-info__buttons">
-      <mz-button class="button-next"
-                 @click="goToStep2()">
+      <mz-button @click="goToStep2()"
+                 class="button-next">
 
         {{ $t(`button.goNextStep`) }}
       </mz-button>

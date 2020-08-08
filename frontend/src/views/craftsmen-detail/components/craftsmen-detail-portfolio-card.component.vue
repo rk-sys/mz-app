@@ -1,15 +1,15 @@
 <template>
-  <div class="craftsmen-detail-portfolio-card"
-       @mouseenter="isHover = true"
-       @mouseleave="isHover = false">
+  <div @mouseenter="isHover = true"
+       @mouseleave="isHover = false"
+       class="craftsmen-detail-portfolio-card">
 
-    <img class="craftsmen-detail-portfolio-card__picture"
+    <img :alt="portfolioItem.title"
          :src="portfolioItem.pictureUrl"
-         :alt="portfolioItem.title">
+         class="craftsmen-detail-portfolio-card__picture">
 
-    <div class="craftsmen-detail-portfolio-card--cover-bg"
-         :class="{'show-overlay': isHover}"
-         @click="openModal(indexItem)" >
+    <div :class="{'show-overlay': isHover}"
+         @click="openModal(indexItem)"
+         class="craftsmen-detail-portfolio-card--cover-bg">
 
       {{ $t(`portfolio.detailPicture`) }}
     </div>
@@ -92,6 +92,7 @@ export default class mzCraftsmenDetailPortfolio extends Vue {
     &:nth-child(2n) {
       margin-right: 0;
     }
+
     &--cover-bg {
       width: 40rem;
       height: 30rem;

@@ -2,15 +2,15 @@
   <div class="mz-user-account-info">
     <mz-progress :percentage="accountProgress" />
 
-    <mz-box-with-title :title="$t(`boxTitle.description`)"
-                       icon-name="icon-user"
+    <mz-box-with-title :hint="true"
+                       :title="$t(`boxTitle.description`)"
                        :tooltip-message="$t(`tooltip.description`)"
-                       :hint="true">
+                       icon-name="icon-user">
 
-      <mz-form @submit.prevent.native="updateAccountDescription()"
-               :form-ref.sync="craftsmanDescriptionForm"
+      <mz-form :form-ref.sync="craftsmanDescriptionForm"
                :model="craftsmanDescription"
                :rules="descriptionRules"
+               @submit.prevent.native="updateAccountDescription()"
                class="mz-user-account-info__form"
                id="craftsmanDescription">
 
@@ -18,8 +18,8 @@
           <mz-form-item class="form__container__item"
                         prop="description">
 
-            <mz-input-textarea id="description"
-                               class="form__container__profile-description"
+            <mz-input-textarea class="form__container__profile-description"
+                               id="description"
                                v-model="craftsmanDescription.description" />
           </mz-form-item>
         </div>
@@ -37,10 +37,10 @@
     <mz-box-with-title :title="$t(`boxTitle.products`)"
                        icon-name="icon-shop">
 
-      <mz-form @submit.prevent.native="updateProductDescription"
-               :form-ref.sync="productDescriptionForm"
+      <mz-form :form-ref.sync="productDescriptionForm"
                :model="productDescription"
                :rules="productRules"
+               @submit.prevent.native="updateProductDescription"
                class="mz-user-account-info__form"
                id="productDescriptionForm">
 
@@ -48,8 +48,8 @@
           <mz-form-item class="form__container__item"
                         prop="description">
 
-            <mz-input-textarea id="product"
-                               class="form__container__profile-description"
+            <mz-input-textarea class="form__container__profile-description"
+                               id="product"
                                v-model="productDescription.description" />
           </mz-form-item>
         </div>
@@ -64,27 +64,27 @@
       </mz-form>
     </mz-box-with-title>
 
-    <mz-box-with-title :title="$t(`boxTitle.tags.newTag`)"
-                       icon-name="icon-tag"
-                       :tooltip-message="$t(`tooltip.tags`)"
+    <mz-box-with-title :add-color="true"
+                       :hint="true"
                        :sub-title="lengthOfTags() + $t('boxTitle.tags.lengthOfTags')"
-                       :add-color="true"
-                       :hint="true">
+                       :title="$t(`boxTitle.tags.newTag`)"
+                       :tooltip-message="$t(`tooltip.tags`)"
+                       icon-name="icon-tag">
 
       <div class="mz-user-account-info__form">
         <div class="form__container">
           <div class="form__container__icon icon-tag--primary"></div>
 
-          <mz-input v-model="userTag"
+          <mz-input :disabled="displayTagsForm.tagList.length >= 10"
                     :holder="$t(`form.tag`)"
-                    :disabled="displayTagsForm.tagList.length >= 10"
-                    @keyup.enter.native="addTag(userTag)">
+                    @keyup.enter.native="addTag(userTag)"
+                    v-model="userTag">
 
           </mz-input>
 
-          <div v-if="!(displayTagsForm.tagList.length >= 10)"
+          <div @click="addTag(userTag)"
                class="form__container__add-btn"
-               @click="addTag(userTag)">
+               v-if="!(displayTagsForm.tagList.length >= 10)">
 
             {{ $t(`removeButton`) }}
           </div>
@@ -95,16 +95,16 @@
         </div>
 
         <div class="form__container__tag-list">
-          <mz-tag v-for="(tag, index) in displayTagsForm.tagList"
-                  :tag="tag"
-                  :index="index"
+          <mz-tag :index="index"
                   :key="index"
-                  :removeTag="removeTag" />
+                  :removeTag="removeTag"
+                  :tag="tag"
+                  v-for="(tag, index) in displayTagsForm.tagList" />
         </div>
 
         <div class="mz-user-account-info__form__button">
-          <mz-button buttonStyle="primary"
-                     @click="updateTags()">
+          <mz-button @click="updateTags()"
+                     buttonStyle="primary">
 
             {{ $t(`form.save`) }}
           </mz-button>
@@ -112,10 +112,10 @@
       </div>
     </mz-box-with-title>
 
-    <mz-box-with-title :title="$t(`boxTitle.contact`)"
-                       icon-name="icon-chat"
+    <mz-box-with-title :hint="true"
+                       :title="$t(`boxTitle.contact`)"
                        :tooltip-message="$t(`tooltip.contact`)"
-                       :hint="true">
+                       icon-name="icon-chat">
 
       <mz-contact />
     </mz-box-with-title>

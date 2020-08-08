@@ -70,8 +70,8 @@
       <mz-form-item class="mz-registration-form__item"
                     prop="mzRule">
 
-        <mz-checkbox v-model="mzRule"
-                     class="mz-registration-form__rule__checkbox">
+        <mz-checkbox class="mz-registration-form__rule__checkbox"
+                     v-model="mzRule">
 
           <span class="mz-registration-form__rule__checkbox__label">
             {{ $t(`registerForm.acceptRule`) }}
@@ -81,8 +81,8 @@
         </mz-checkbox>
 
       </mz-form-item>
-      <mz-checkbox v-model="mzNewsletter"
-                   class="mz-registration-form__rule__checkbox">
+      <mz-checkbox class="mz-registration-form__rule__checkbox"
+                   v-model="mzNewsletter">
 
         <span class="mz-registration-form__rule__checkbox__label">
           {{ $t(`registerForm.newsletter`) }}

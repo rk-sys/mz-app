@@ -8,8 +8,8 @@
         <span class="mz-progress__status">
           {{ $t('progressBar.profileEfficiency') }}
 
-          <span class="mz-progress__level"
-                :class="`mz-progress__level--${ customLabel() }`">
+          <span :class="`mz-progress__level--${ customLabel() }`"
+                class="mz-progress__level">
 
             {{ $t(`progressBar.${ customLabel() }`) }}
           </span>
@@ -17,10 +17,10 @@
       </mz-tooltip>
     </div>
 
-    <el-progress :percentage="percentage"
-                 :color="customColor"
-                 :text-inside="true"
+    <el-progress :color="customColor"
+                 :percentage="percentage"
                  :stroke-width="18"
+                 :text-inside="true"
                  v-bind="attributes"
                  v-on="listeners">
     </el-progress>

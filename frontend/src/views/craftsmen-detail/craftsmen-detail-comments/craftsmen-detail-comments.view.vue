@@ -1,24 +1,24 @@
 <template>
   <div class="mz-craftsmen-detail-comments">
     <mz-box-with-title :title="$t(`comments.title`)"
-                       icon-name="icon-rating"
-                       class="mz-craftsmen-detail-comments__wrapper" />
+                       class="mz-craftsmen-detail-comments__wrapper"
+                       icon-name="icon-rating" />
 
-    <mz-box-with-title class="mz-craftsmen-detail-comments__wrapper"
-                       v-for="(comment, index) in commentsAndRates"
-                       :key="index">
+    <mz-box-with-title :key="index"
+                       class="mz-craftsmen-detail-comments__wrapper"
+                       v-for="(comment, index) in commentsAndRates">
 
       <div class="mz-craftsmen-detail-comments__wrapper__customer">
 
-        <img v-if="comment.pictureUrl === (null || '')"
+        <img :alt="comment.customer"
+             class="picture"
              src="@/assets/img/user.png"
-             :alt="comment.customer"
-             class="picture" />
+             v-if="comment.pictureUrl === (null || '')" />
 
-        <img v-else
+        <img :alt="comment.customer"
              :src="comment.pictureUrl"
-             :alt="comment.customer"
-             class="picture" />
+             class="picture"
+             v-else />
 
         <span class="name"> {{comment.customer}} </span>
         <span class="date"> {{ comment.date }}r.</span>
@@ -50,8 +50,8 @@
         "{{ comment.description }}"
       </blockquote>
 
-      <div v-if="comment.reply"
-           class="mz-craftsmen-detail-comments__wrapper__reply">
+      <div class="mz-craftsmen-detail-comments__wrapper__reply"
+           v-if="comment.reply">
 
         <div class="craftsmen-content">
           <img :src="picture"
@@ -80,7 +80,7 @@ import mzBoxWithTitle          from '@/components/box-with-title/box-with-title.
 import mzRate                  from '@/components/rate/rate.component.vue';
 import { IComment }            from '@/views/craftsmen-detail/store/craftsmen-detail.interface';
 
-const LOCAL_STORE: string  = 'mzCraftsmenDetail';
+const LOCAL_STORE: string = 'mzCraftsmenDetail';
 const local = namespace(LOCAL_STORE);
 
 @Component({

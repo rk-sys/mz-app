@@ -12,15 +12,15 @@
                      name="craftsmen">
 
           <main class="mz-my-follow__wrapper__craftsmen-list">
-            <mz-craftsmen-card v-for="(craftsmen, index) in myFollow.craftsmen"
-                               :key="index"
-                               class="mz-my-follow__wrapper__craftsmen-list__item"
+            <mz-craftsmen-card :city="craftsmen.city"
                                :craftsmen-id="craftsmen.id"
-                               :city="craftsmen.city"
-                               :rating="craftsmen.rating"
-                               :name="craftsmen.name"
                                :image="craftsmen.image"
-                               :tags="craftsmen.tags" />
+                               :key="index"
+                               :name="craftsmen.name"
+                               :rating="craftsmen.rating"
+                               :tags="craftsmen.tags"
+                               class="mz-my-follow__wrapper__craftsmen-list__item"
+                               v-for="(craftsmen, index) in myFollow.craftsmen" />
           </main>
         </mz-tab-pane>
 
@@ -28,10 +28,10 @@
                      name="items">
 
           <main class="mz-my-follow__wrapper__products">
-            <mz-product-card v-for="(product, index) in myFollow.products"
-                             :key="index"
+            <mz-product-card :key="index"
                              :product="product"
-                             class="mz-my-follow__wrapper__products__item" />
+                             class="mz-my-follow__wrapper__products__item"
+                             v-for="(product, index) in myFollow.products" />
           </main>
         </mz-tab-pane>
 
@@ -40,10 +40,10 @@
 
           <main class="mz-my-follow__wrapper__offers">
 
-            <mz-offer-card v-for="(offer, id) in myFollow.offers"
-                           :key="id"
+            <mz-offer-card :key="id"
                            :offer="offer"
-                           class="mz-my-follow__wrapper__offers__item" />
+                           class="mz-my-follow__wrapper__offers__item"
+                           v-for="(offer, id) in myFollow.offers" />
           </main>
         </mz-tab-pane>
       </mz-tabs>

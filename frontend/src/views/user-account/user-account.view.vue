@@ -3,17 +3,17 @@
     <div class="user-account__container">
       <mz-user-account-menu />
 
-      <div class="user-account__container__mobile-btn"
-           @click="changeStateOfMobileMenu">
+      <div @click="changeStateOfMobileMenu"
+           class="user-account__container__mobile-btn">
 
         <div class="icon icon-hamburger"></div>
       </div>
 
-      <div class="user-account__container__mobile-background"
-           :class="{'show-background': !mobileMenu}"></div>
+      <div :class="{'show-background': !mobileMenu}"
+           class="user-account__container__mobile-background"></div>
       <mz-user-account-menu-mobile />
 
-      <transition name="fade" mode="out-in">
+      <transition mode="out-in" name="fade">
         <router-view />
       </transition>
     </div>

@@ -4,17 +4,17 @@
                    v-on="listeners">
 
     <!-- Pass on all named slots -->
-    <slot v-for="slot in Object.keys($slots)"
-          :name="slot"
-          :slot="slot" />
+    <slot :name="slot"
+          :slot="slot"
+          v-for="slot in Object.keys($slots)" />
 
     <!-- Pass on all scoped slots -->
-    <template v-for="slot in Object.keys($scopedSlots)"
-              :slot="slot"
-              slot-scope="scope">
+    <template :slot="slot"
+              slot-scope="scope"
+              v-for="slot in Object.keys($scopedSlots)">
 
-      <slot v-bind="scope"
-            :name="slot" />
+      <slot :name="slot"
+            v-bind="scope" />
     </template>
   </el-table-column>
 </template>

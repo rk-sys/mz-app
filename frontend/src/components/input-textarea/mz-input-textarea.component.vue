@@ -1,13 +1,13 @@
 <template>
   <div class="mz-input-textarea">
-    <mz-input class="mz-input-textarea__box"
-              :id="id"
-              type="textarea"
+    <mz-input :id="id"
               :value="value"
-              @input="emit"
-              @focus="changeInputStyle"
               @blur="changeInputStyle"
-              required>
+              @focus="changeInputStyle"
+              @input="emit"
+              class="mz-input-textarea__box"
+              required
+              type="textarea">
     </mz-input>
   </div>
 </template>

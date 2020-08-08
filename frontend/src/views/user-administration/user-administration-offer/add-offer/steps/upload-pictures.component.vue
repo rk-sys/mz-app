@@ -1,39 +1,39 @@
 <template>
   <div class="mz-upload-pictures">
-    <mz-box-with-title :title="$t(`uploadPicture.title`)"
-                       icon-name="icon-camera"
+    <mz-box-with-title :add-color="true"
                        :sub-title="lengthOfPicture() + $t('uploadPicture.of5')"
-                       :add-color="true">
+                       :title="$t(`uploadPicture.title`)"
+                       icon-name="icon-camera">
 
       <div class="mz-upload-pictures__container">
-        <input class="mz-upload-pictures__container__input-upload"
-               type="file"
-               @change="onFileChange"
-               ref="pictureUpload" />
+        <input @change="onFileChange"
+               class="mz-upload-pictures__container__input-upload"
+               ref="pictureUpload"
+               type="file" />
 
         <div class="upload-wrapper"
              v-for="(item, index) in newOffer.pictures">
 
           <template v-if="item.url">
-            <div class="overlay-picture"
-                 @click="changeMainPicture(index)">
+            <div @click="changeMainPicture(index)"
+                 class="overlay-picture">
               {{ $t(`uploadPicture.setMainPicture`) }}
             </div>
 
-            <img :src="item.url"
-                 class="upload-wrapper__picture"
-                 :alt="item.url" />
+            <img :alt="item.url"
+                 :src="item.url"
+                 class="upload-wrapper__picture" />
 
-            <div class="upload-wrapper__remove-picture"
-                 @click="removePicture(index)">x
+            <div @click="removePicture(index)"
+                 class="upload-wrapper__remove-picture">x
             </div>
 
           </template>
         </div>
 
         <template v-if="newOffer.pictures.length < 5">
-          <div class="upload-wrapper__action"
-               @click="$refs.pictureUpload.click()">
+          <div @click="$refs.pictureUpload.click()"
+               class="upload-wrapper__action">
 
             <div class="icon icon-upload"></div>
             <span class="text">
@@ -49,12 +49,12 @@
               {{ $t(`uploadPicture.mainPicture`) }}
         </span>
 
-        <img v-if="newOffer.mainPicture.url !== ''"
-             :src="newOffer.mainPicture.url"
+        <img :src="newOffer.mainPicture.url"
              alt="mainPicture"
-             class="picture">
+             class="picture"
+             v-if="newOffer.mainPicture.url !== ''">
 
-        <div v-else class="mz-upload-pictures__main-picture__empty">
+        <div class="mz-upload-pictures__main-picture__empty" v-else>
           <div class="icon icon-empty">
           </div>
           <span class="text">
@@ -66,14 +66,14 @@
     </mz-box-with-title>
 
     <div class="mz-upload-pictures__buttons">
-      <mz-button class="button-previous"
-                 @click="goToStep2()">
+      <mz-button @click="goToStep2()"
+                 class="button-previous">
 
         {{ $t(`button.goToPrevious`) }}
       </mz-button>
 
-      <mz-button class="button-next"
-                 @click="goToStep4()">
+      <mz-button @click="goToStep4()"
+                 class="button-next">
 
         {{ $t(`button.goNextStep`) }}
       </mz-button>

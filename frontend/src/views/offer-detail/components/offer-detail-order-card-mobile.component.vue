@@ -1,24 +1,24 @@
 <template>
-  <mz-collapse v-model="activeNames"
-               class="mz-product-detail-card-mobile">
+  <mz-collapse class="mz-product-detail-card-mobile"
+               v-model="activeNames">
 
     <mz-collapse-item name="0">
 
       <template slot="title">
         <div class="mz-product-detail-card-mobile__header">
 
-          <div class="mz-product-detail-card-mobile__header__picture"
+          <div @click="goToDetail(offer.craftsman.uuid)"
                @mouseenter="isHover = !isHover"
                @mouseleave="isHover = !isHover"
-               @click="goToDetail(offer.craftsman.uuid)">
+               class="mz-product-detail-card-mobile__header__picture">
 
-            <img :src="offer.craftsman.picture"
-                 :alt="offer.craftsman.name"
+            <img :alt="offer.craftsman.name"
+                 :src="offer.craftsman.picture"
                  class="mz-product-detail-card-mobile__header__picture__img" />
 
-            <div class="mz-product-detail-card-mobile__header__picture__img--cover-bg"
-                 :class="{'show-overlay' : isHover}"
-                 @click="openModal(indexItem)">
+            <div :class="{'show-overlay' : isHover}"
+                 @click="openModal(indexItem)"
+                 class="mz-product-detail-card-mobile__header__picture__img--cover-bg">
 
               {{ $t(`profileDetail`) }}
             </div>
@@ -37,8 +37,8 @@
 
           <div class="mz-product-detail-card-mobile__header__img">
 
-            <img :src="offer.offerDetail.images[0]"
-                 :alt="offer.offerDetail.type"
+            <img :alt="offer.offerDetail.type"
+                 :src="offer.offerDetail.images[0]"
                  class="product-image">
           </div>
         </div>
@@ -54,18 +54,18 @@
             {{ offer.offerDetail.price }} {{ offer.offerDetail.price.currency }}
           </span>
 
-          <span v-if="!offer.offerDetail.isFinalPrice"
-                class="mz-product-detail-card-mobile__product__price__not-final">
+          <span class="mz-product-detail-card-mobile__product__price__not-final"
+                v-if="!offer.offerDetail.isFinalPrice">
                   {{ $t(`notFinalPrice`) }}
         </span>
 
           <mz-tooltip :content="$t(`follow.${offer.offerDetail.follow}`)"
-                      placement="top"
-                      class="mz-product-detail-card-mobile__product__price__follow">
+                      class="mz-product-detail-card-mobile__product__price__follow"
+                      placement="top">
 
-            <div class="icon"
-                 :class="{'red icon-heart--full' : offer.offerDetail.follow,
-                      'gray icon-heart' : !offer.offerDetail.follow}"></div>
+            <div :class="{'red icon-heart--full' : offer.offerDetail.follow,
+                      'gray icon-heart' : !offer.offerDetail.follow}"
+                 class="icon"></div>
           </mz-tooltip>
         </div>
 

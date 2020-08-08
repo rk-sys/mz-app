@@ -2,16 +2,16 @@
   <div class="mz-offer-detail-picture">
     <div class="mz-offer-detail-picture__list">
 
-      <div class="mz-offer-detail-picture__list__item"
-           v-for="(picture, index) in pictures"
-           :key="index">
+      <div :key="index"
+           class="mz-offer-detail-picture__list__item"
+           v-for="(picture, index) in pictures">
 
         <img :src="picture"
              alt="gallery"
              class="picture">
 
-        <div class="layout"
-             @click="changePreviewPicture(picture)">
+        <div @click="changePreviewPicture(picture)"
+             class="layout">
 
           <span class="label">{{ $t(`show`) }}</span>
         </div>

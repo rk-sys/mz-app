@@ -14,6 +14,34 @@ import router                                   from '@/router';
 export default class mzRegistrationModule extends VuexModule {
   public mzRegistrationState: IRegistration = cloneDeep(mzRegistrationState);
 
+  get getRegistrationForm(): IRegistrationForm {
+    return this.mzRegistrationState.registrationForm;
+  }
+
+  get getEmail(): string {
+    return this.mzRegistrationState.registrationForm.email;
+  }
+
+  get getName(): string {
+    return this.mzRegistrationState.registrationForm.name;
+  }
+
+  get getPassword() {
+    return this.mzRegistrationState.registrationForm.passwordRepeat;
+  }
+
+  get getPasswordRepeat() {
+    return this.mzRegistrationState.registrationForm.passwordRepeat;
+  }
+
+  get getRuleMz() {
+    return this.mzRegistrationState.registrationForm.rule;
+  }
+
+  get getNewsletter() {
+    return this.mzRegistrationState.registrationForm.newsletter;
+  }
+
   @Mutation
   public setRegistrationForm(payload: IRegistrationForm) {
     this.mzRegistrationState.registrationForm = payload;
@@ -47,34 +75,6 @@ export default class mzRegistrationModule extends VuexModule {
   @Mutation
   public setNewsletter(payload: boolean) {
     this.mzRegistrationState.registrationForm.newsletter = payload;
-  }
-
-  get getRegistrationForm(): IRegistrationForm {
-    return this.mzRegistrationState.registrationForm;
-  }
-
-  get getEmail(): string {
-    return this.mzRegistrationState.registrationForm.email;
-  }
-
-  get getName(): string {
-    return this.mzRegistrationState.registrationForm.name;
-  }
-
-  get getPassword() {
-    return this.mzRegistrationState.registrationForm.passwordRepeat;
-  }
-
-  get getPasswordRepeat() {
-    return this.mzRegistrationState.registrationForm.passwordRepeat;
-  }
-
-  get getRuleMz() {
-    return this.mzRegistrationState.registrationForm.rule;
-  }
-
-  get getNewsletter() {
-    return this.mzRegistrationState.registrationForm.newsletter;
   }
 
   @Action

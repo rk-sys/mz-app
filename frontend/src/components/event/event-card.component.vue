@@ -1,8 +1,8 @@
 <template>
   <div class="mz-event-card">
 
-    <img :src="event.image"
-         :alt="event.title"
+    <img :alt="event.title"
+         :src="event.image"
          class="mz-event-card__image" />
 
     <h3 class="mz-event-card__title">{{event.title}}</h3>

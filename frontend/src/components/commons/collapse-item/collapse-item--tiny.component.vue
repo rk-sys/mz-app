@@ -1,6 +1,6 @@
 <template>
-  <el-collapse-item class="mz-collapse-item-tiny"
-                    :class="collapseStyleClass"
+  <el-collapse-item :class="collapseStyleClass"
+                    class="mz-collapse-item-tiny"
                     v-bind="attributes"
                     v-on="listeners">
 

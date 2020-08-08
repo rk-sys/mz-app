@@ -8,16 +8,16 @@
       </div>
 
       <div class="rating">
-        <mz-rate v-model="rating"
-                 :is-reverse="true"
+        <mz-rate :is-reverse="true"
                  disabled
-                 score-template="{value} points" />
+                 score-template="{value} points"
+                 v-model="rating" />
       </div>
     </div>
 
-    <div class="mz-craftsmen-card__info"
-         @mouseenter="isHover = !isHover"
-         @mouseleave="isHover = !isHover">
+    <div @mouseenter="isHover = !isHover"
+         @mouseleave="isHover = !isHover"
+         class="mz-craftsmen-card__info">
 
       <router-link :to="{name: 'Craftsmen detail', params: {uuid: craftsmenId}}"
                    class="mz-craftsmen-card__info__link">
@@ -25,25 +25,25 @@
         <div class="mz-craftsmen-card__info__img">
 
           <template v-if="image && image !== ''">
-            <img :src="image"
-                 :alt="name"
+            <img :alt="name"
+                 :src="image"
                  class="picture">
           </template>
 
           <template v-else>
-            <img src="@/assets/img/user.png"
-                 :alt="name"
-                 class="picture">
+            <img :alt="name"
+                 class="picture"
+                 src="@/assets/img/user.png">
           </template>
 
-          <div v-if="isHover"
-               class="picture--hover">
+          <div class="picture--hover"
+               v-if="isHover">
             {{$t(`pictureHover`)}}
           </div>
         </div>
 
-        <span class="display-name"
-              :class="{'hover': isHover}">
+        <span :class="{'hover': isHover}"
+              class="display-name">
 
         {{name}}
       </span>
@@ -53,8 +53,8 @@
     <div class="mz-craftsmen-card__tags">
 
       <template v-if="tags !== undefined && tags.length > 0">
-        <span v-for="tag in tags"
-              class="tag">
+        <span class="tag"
+              v-for="tag in tags">
           {{tag}}
         </span>
       </template>

@@ -2,8 +2,8 @@
   <mz-collapse class="mz-products-filters"
                v-model="activeNames">
 
-    <mz-collapse-item :title="$t(`filters.title`)"
-                      :name="filters.title"
+    <mz-collapse-item :name="filters.title"
+                      :title="$t(`filters.title`)"
                       class="mz-products-filters__container">
 
       <mz-products-filters-category />

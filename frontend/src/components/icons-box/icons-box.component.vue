@@ -1,9 +1,9 @@
 <template>
   <div class="icons-box">
     <template v-for="item in icons">
-      <div class="icons-box__icon"
+      <div :class="[item.icon]"
            :style="item.style"
-           :class="[item.icon]">
+           class="icons-box__icon">
       </div>
     </template>
   </div>

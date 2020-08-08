@@ -40,6 +40,7 @@ export default class mzSelect extends Mixins(mzTransparentWrapper) {
     }
   }
 }
+
 .el-input .el-input__inner {
   padding: 0 1.5rem;
 }

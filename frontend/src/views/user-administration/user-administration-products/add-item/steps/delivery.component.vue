@@ -29,15 +29,15 @@
     </mz-box-with-title>
 
     <div class="mz-delivery__buttons">
-      <mz-button class="button-previous"
-                 @click="goToStep3()">
+      <mz-button @click="goToStep3()"
+                 class="button-previous">
 
         {{ $t(`button.goToPrevious`) }}
       </mz-button>
 
-      <mz-button class="button-next"
+      <mz-button @click="goToNextStep()"
 
-                 @click="goToNextStep()">
+                 class="button-next">
 
         {{ $t(`button.goNextStep`) }}
       </mz-button>

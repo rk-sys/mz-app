@@ -20,8 +20,8 @@
           <span class="mz-offer-summary__product__price__value">
           {{ $t(`itemDescription.form.price`) }} {{ newOffer.price }} {{ $t(`itemDescription.form.zl`) }}
 
-            <span v-if="newOffer.isFinalPrice"
-                  class="isFinalPrice">
+            <span class="isFinalPrice"
+                  v-if="newOffer.isFinalPrice">
 
               {{ $t(`itemDescription.form.notFinalPrice`) }}
             </span>
@@ -33,42 +33,42 @@
         </div>
 
         <div class="mz-offer-summary__product__tag-list">
-          <mz-tag v-for="(tag, index) in newOffer.tags"
-                  :is-presentation="true"
+          <mz-tag :is-presentation="true"
                   :key="index"
-                  :tag="tag" />
+                  :tag="tag"
+                  v-for="(tag, index) in newOffer.tags" />
         </div>
 
         <div class="mz-offer-summary__product__pictures">
 
-          <img v-if="url === '' && newOffer.mainPicture.url"
-               :src="newOffer.mainPicture.url"
+          <img :src="newOffer.mainPicture.url"
                alt="main-picture"
-               class="mz-offer-summary__product__pictures__main-picture">
+               class="mz-offer-summary__product__pictures__main-picture"
+               v-if="url === '' && newOffer.mainPicture.url">
 
-          <div v-else-if="url === '' && !newOffer.mainPicture.url"
-               class="mz-offer-summary__product__pictures__main-picture--empty">
+          <div class="mz-offer-summary__product__pictures__main-picture--empty"
+               v-else-if="url === '' && !newOffer.mainPicture.url">
 
             <div class="icon icon-empty"></div>
             <span class="text">{{ $t('itemSummary.mainPictureEmpty') }}</span>
           </div>
 
-          <img class="mz-offer-summary__product__pictures__main-picture"
-               :src="url"
+          <img :src="url"
                alt="big picture"
+               class="mz-offer-summary__product__pictures__main-picture"
                v-else>
 
           <div class="mz-offer-summary__product__pictures__gallery">
-            <div v-for="(picture, index) in newOffer.pictures"
+            <div :key="index"
                  class="mz-offer-summary__product__pictures__gallery__picture-wrapper"
-                 :key="index">
+                 v-for="(picture, index) in newOffer.pictures">
 
-              <img class="mz-offer-summary__product__pictures__gallery__small-picture"
-                   @click="previewPicture(picture.url)"
+              <img :class="{ 'mz-item-summary__gallery__small-picture--select':
+                        picture.url === url || (picture.url === newOffer.mainPicture.url && !url) }"
                    :src="picture.url"
+                   @click="previewPicture(picture.url)"
                    alt="small picture"
-                   :class="{ 'mz-item-summary__gallery__small-picture--select':
-                        picture.url === url || (picture.url === newOffer.mainPicture.url && !url) }">
+                   class="mz-offer-summary__product__pictures__gallery__small-picture">
 
               <span class="mz-offer-summary__product__pictures__gallery__main-picture-label"
                     v-if="picture.url === newOffer.mainPicture.url">
@@ -82,8 +82,8 @@
     </mz-box-with-title>
 
     <div class="mz-offer-summary__buttons">
-      <mz-button class="button-previous"
-                 @click="goToStep3()">
+      <mz-button @click="goToStep3()"
+                 class="button-previous">
 
         {{ $t(`button.goToPrevious`) }}
       </mz-button>

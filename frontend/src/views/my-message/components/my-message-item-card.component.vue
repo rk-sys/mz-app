@@ -1,11 +1,11 @@
 <template>
-  <div class="mz-my-message-item-card"
-       @click="goToMessageDetail(item.uuid)">
+  <div @click="goToMessageDetail(item.uuid)"
+       class="mz-my-message-item-card">
 
     <div class="mz-my-message-item-card__picture">
-      <img class="picture"
+      <img :alt="item.title"
            :src="item.image"
-           :alt="item.title" />
+           class="picture" />
     </div>
 
     <div class="mz-my-message-item-card__info">
@@ -29,7 +29,7 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue, Prop } from 'vue-property-decorator';
+import { Component, Prop, Vue } from 'vue-property-decorator';
 import router                   from '@/router';
 
 @Component({
@@ -39,7 +39,7 @@ export default class mzUserItems extends Vue {
   @Prop(Object) public item!: any;
 
   public goToMessageDetail(uuid: string): void {
-    router.push({ name: 'Message detail', params: {uuid} });
+    router.push({ name: 'Message detail', params: { uuid } });
   }
 }
 </script>

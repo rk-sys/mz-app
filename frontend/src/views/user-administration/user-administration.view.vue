@@ -5,14 +5,14 @@
         <mz-user-administration-menu />
       </div>
 
-      <div class="mz-user-administration__wrapper__mobile-btn"
-           @click="setOpenMenu(true)">
+      <div @click="setOpenMenu(true)"
+           class="mz-user-administration__wrapper__mobile-btn">
 
         <div class="icon icon-hamburger"></div>
       </div>
 
-      <div class="mz-user-administration__wrapper__mobile-background"
-           :class="{'show-background': isOpen}"></div>
+      <div :class="{'show-background': isOpen}"
+           class="mz-user-administration__wrapper__mobile-background"></div>
 
       <div class="mz-user-administration__wrapper__menu-mobile">
 
@@ -21,7 +21,7 @@
 
 
       <div class="mz-user-administration__wrapper__container">
-        <transition name="fade" mode="out-in">
+        <transition mode="out-in" name="fade">
           <router-view />
         </transition>
       </div>

@@ -4,15 +4,15 @@
 
     <div class="mz-nav-bar-account-sign-in__account">
 
-      <img v-if="getCurrentUser.photoURL === null"
+      <img alt="avatar"
            class="mz-nav-bar-account-sign-in__account__picture"
-           alt="avatar"
-           src="@/assets/img/user.png" />
+           src="@/assets/img/user.png"
+           v-if="getCurrentUser.photoURL === null" />
 
-      <img v-else
-           class="mz-nav-bar-account-sign-in__account__picture"
+      <img :src="getCurrentUser.photoURL"
            alt="avatar"
-           :src="getCurrentUser.photoURL" />
+           class="mz-nav-bar-account-sign-in__account__picture"
+           v-else />
 
       <span class="mz-nav-bar-account-sign-in__account__name">
 				{{ getCurrentUser.name }}

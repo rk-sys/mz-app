@@ -14,19 +14,19 @@
     </div>
 
     <div class="mz-user-administration-my-items__items-wrapper">
-      <mz-user-item v-for="(item, index) in items"
-                    :item="item"
-                    :key="index" />
+      <mz-user-item :item="item"
+                    :key="index"
+                    v-for="(item, index) in items" />
     </div>
 
-    <mz-empty-list-message v-if="!items.length"
-                           :pageName="pageName" />
+    <mz-empty-list-message :pageName="pageName"
+                           v-if="!items.length" />
 
     <mz-dialog :title="$t(`dialog.warning`)"
                :visible.sync="isModalOpen"
+               center
                class="mz-user-administration-my-items__modal"
-               width="30%"
-               center>
+               width="30%">
 
       <span class="mz-user-administration-my-items__modal__label">
         {{ $t(`dialog.deleteItem`) }}
@@ -36,19 +36,19 @@
         {{deleteItem.title}}
       </span>
 
-      <span slot="footer"
-            class="mz-user-administration-my-items__modal__footer">
+      <span class="mz-user-administration-my-items__modal__footer"
+            slot="footer">
 
-      <mz-button button-style="info"
-                 class="mz-user-administration-my-items__modal__footer__button"
-                 @click="setIsModalOpen(false)">
+      <mz-button @click="setIsModalOpen(false)"
+                 button-style="info"
+                 class="mz-user-administration-my-items__modal__footer__button">
 
         {{ $t(`dialog.button.cancel`) }}
       </mz-button>
 
-      <mz-button button-style="danger"
-                 class="mz-user-administration-my-items__modal__footer__button"
-                 @click="setIsModalOpen(false)">
+      <mz-button @click="setIsModalOpen(false)"
+                 button-style="danger"
+                 class="mz-user-administration-my-items__modal__footer__button">
         {{ $t(`dialog.button.delete`) }}
       </mz-button>
     </span>

@@ -1,51 +1,51 @@
 <template>
   <div class="mz-personal-pickup">
-    <mz-checkbox v-model="personalPickupOption.isSelected"
-                 class="mz-personal-pickup__checkbox">
+    <mz-checkbox class="mz-personal-pickup__checkbox"
+                 v-model="personalPickupOption.isSelected">
 
           <span class="mz-personal-pickup__title">
             {{ $t(`deliverySection.personalPickup.checkboxDelivery`) }}
           </span>
     </mz-checkbox>
 
-    <span v-if="personalPickupOption.isSelected"
-          class="mz-personal-pickup__info">
+    <span class="mz-personal-pickup__info"
+          v-if="personalPickupOption.isSelected">
       {{ $t(`deliverySection.personalPickup.info`) }}
     </span>
 
     <mz-form :form-ref.sync="formPersonalPickup"
              :model="personalPickupOption"
              :rules="personalPickupRule"
-             v-if="personalPickupOption.isSelected"
              class="mz-personal-pickup__form"
-             id="personalPickup">
+             id="personalPickup"
+             v-if="personalPickupOption.isSelected">
 
       <div class="mz-personal-pickup__form__wrapper">
 
         <mz-form-item class="item"
                       prop="name">
 
-          <mz-input v-model="personalPickupOption.name"
-                    :holder="$t(`deliverySection.personalPickup.name`)"
-                    id="name" />
+          <mz-input :holder="$t(`deliverySection.personalPickup.name`)"
+                    id="name"
+                    v-model="personalPickupOption.name" />
 
         </mz-form-item>
 
         <mz-form-item class="item"
                       prop="mail">
 
-          <mz-input v-model="personalPickupOption.mail"
-                    :holder="$t(`deliverySection.personalPickup.mail`)"
-                    id="mail" />
+          <mz-input :holder="$t(`deliverySection.personalPickup.mail`)"
+                    id="mail"
+                    v-model="personalPickupOption.mail" />
 
         </mz-form-item>
 
         <mz-form-item class="item"
                       prop="phone">
 
-          <mz-input v-model="personalPickupOption.phone"
-                    :holder="$t(`deliverySection.personalPickup.phone`)"
-                    id="phone" />
+          <mz-input :holder="$t(`deliverySection.personalPickup.phone`)"
+                    id="phone"
+                    v-model="personalPickupOption.phone" />
 
         </mz-form-item>
       </div>
@@ -55,18 +55,18 @@
         <mz-form-item class="item"
                       prop="city">
 
-          <mz-input v-model="personalPickupOption.city"
-                    :holder="$t(`deliverySection.personalPickup.city`)"
-                    id="city" />
+          <mz-input :holder="$t(`deliverySection.personalPickup.city`)"
+                    id="city"
+                    v-model="personalPickupOption.city" />
 
         </mz-form-item>
 
         <mz-form-item class="item"
                       prop="address">
 
-          <mz-input v-model="personalPickupOption.address"
-                    :holder="$t(`deliverySection.personalPickup.address`)"
-                    id="address" />
+          <mz-input :holder="$t(`deliverySection.personalPickup.address`)"
+                    id="address"
+                    v-model="personalPickupOption.address" />
 
         </mz-form-item>
       </div>

@@ -15,8 +15,8 @@
         <mz-offer-detail-chat />
 
         <div class="mz-offer-detail__content__actions__message">
-          <textarea v-model="newMessage"
-                    class="input" ></textarea>
+          <textarea class="input"
+                    v-model="newMessage"></textarea>
 
           <mz-button @click="sendNewMessage"> {{ $t(`sendMessage`) }}
           </mz-button>

@@ -1,17 +1,17 @@
 <template>
   <div class="mz-letter">
-    <mz-checkbox v-model="letterDeliveryOption.isSelected"
-                 class="mz-letter__checkbox">
+    <mz-checkbox class="mz-letter__checkbox"
+                 v-model="letterDeliveryOption.isSelected">
 
           <span class="mz-letter__title">
             {{ $t(`deliverySection.letter.checkboxDelivery`) }}
           </span>
     </mz-checkbox>
 
-    <div v-if="letterDeliveryOption.isSelected"
+    <div :key="index"
+         class="mz-letter__options"
          v-for="(option, index) in letterOptions"
-         :key="index"
-         class="mz-letter__options">
+         v-if="letterDeliveryOption.isSelected">
 
         <span class="mz-letter__options__label">
           {{option.label}}
@@ -20,34 +20,34 @@
       <div class="mz-letter__options__price">
         {{option.price}} {{ $t(`itemSummary.currency`) }}
 
-        <div class="icon icon-delete--red"
-             @click="removeDeliveryLetter(index)"></div>
+        <div @click="removeDeliveryLetter(index)"
+             class="icon icon-delete--red"></div>
       </div>
     </div>
 
-    <mz-form v-if="letterDeliveryOption.isSelected"
-             :form-ref.sync="formLetter"
-             @submit.prevent.native="addNewOptionCourier"
+    <mz-form :form-ref.sync="formLetter"
              :model="letterTempt"
              :rules="rulesLetter"
+             @submit.prevent.native="addNewOptionCourier"
              class="mz-letter__form"
-             id="letterForm">
+             id="letterForm"
+             v-if="letterDeliveryOption.isSelected">
 
       <mz-form-item class="item item--wide"
                     prop="label">
 
-        <mz-input v-model="letterTempt.label"
-                  :holder="$t(`deliverySection.parcelLocker.parcelLockerName`)"
-                  id="label" />
+        <mz-input :holder="$t(`deliverySection.parcelLocker.parcelLockerName`)"
+                  id="label"
+                  v-model="letterTempt.label" />
 
       </mz-form-item>
 
       <mz-form-item class="item item--price"
                     prop="price">
 
-        <mz-input v-model="letterTempt.price"
-                  :holder="$t(`deliverySection.parcelLocker.price`)"
-                  id="price" />
+        <mz-input :holder="$t(`deliverySection.parcelLocker.price`)"
+                  id="price"
+                  v-model="letterTempt.price" />
 
       </mz-form-item>
 

@@ -1,19 +1,19 @@
 <template>
-  <div class="mz-my-message-offer-card"
-       @click="goToProductDetail(offer.uuid)">
+  <div @click="goToProductDetail(offer.uuid)"
+       class="mz-my-message-offer-card">
 
     <div class="mz-my-message-offer-card__picture">
-      <div class="mz-my-message-offer-card__picture__type"
-           :class="{'buy' : offer.type === 'buy',
-                       'crafting' : offer.type === 'crafting'}">
+      <div :class="{'buy' : offer.type === 'buy',
+                       'crafting' : offer.type === 'crafting'}"
+           class="mz-my-message-offer-card__picture__type">
 
         <span class="mz-my-message-offer-card__picture__type__label">
                   {{ $t(`offer.${offer.type}`) }}</span>
       </div>
 
-      <img class="picture"
+      <img :alt="offer.title"
            :src="offer.image"
-           :alt="offer.title" />
+           class="picture" />
     </div>
 
     <div class="mz-my-message-offer-card__info">
@@ -39,7 +39,7 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue, Prop } from 'vue-property-decorator';
+import { Component, Prop, Vue } from 'vue-property-decorator';
 import { IMessageOffer }        from '@/views/my-message/store/my-message.interface';
 import router                   from '@/router';
 
@@ -50,7 +50,7 @@ export default class mzUserOffer extends Vue {
   @Prop(Object) public offer!: IMessageOffer;
 
   public goToProductDetail(uuid: string): void {
-    router.push({ name: 'Message detail', params: {uuid} });
+    router.push({ name: 'Message detail', params: { uuid } });
   }
 }
 </script>

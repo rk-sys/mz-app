@@ -1,27 +1,27 @@
 <template>
-  <div class="box-with-title"
-       :class="{'box-with-title--hide' : isDisabled}">
+  <div :class="{'box-with-title--hide' : isDisabled}"
+       class="box-with-title">
 
-    <div v-if="title"
-         class="box-with-title__header">
+    <div class="box-with-title__header"
+         v-if="title">
 
-      <div class="box-with-title__header__circle"
-           :class="{'box-with-title__header__circle--disabled' : isDisabled}">
+      <div :class="{'box-with-title__header__circle--disabled' : isDisabled}"
+           class="box-with-title__header__circle">
 
-        <div class="icon" :class="[ iconName ]"></div>
+        <div :class="[ iconName ]" class="icon"></div>
       </div>
 
-      <div class="box-with-title__header__title"
-           :class="{'box-with-title__header__title--disabled' : isDisabled}">
+      <div :class="{'box-with-title__header__title--disabled' : isDisabled}"
+           class="box-with-title__header__title">
 
-        <div class="box-with-title__header__title__arrow"
-             :class="{'box-with-title__header__title__arrow--disabled' : isDisabled}"></div>
+        <div :class="{'box-with-title__header__title__arrow--disabled' : isDisabled}"
+             class="box-with-title__header__title__arrow"></div>
         {{ title }}
 
 
-        <span v-if="subTitle"
+        <span :class="{'subtitle--error': !addColor}"
               class="subtitle"
-              :class="{'subtitle--error': !addColor}">( {{subTitle}} )</span>
+              v-if="subTitle">( {{subTitle}} )</span>
 
       </div>
     </div>

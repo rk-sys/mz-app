@@ -1,11 +1,11 @@
 <template>
-  <div class="mz-tag"
-       :class="{ 'mz-tag--presentation': isPresentation }">
+  <div :class="{ 'mz-tag--presentation': isPresentation }"
+       class="mz-tag">
 
     <span class="mz-tag__text">{{ tag }}</span>
 
-    <span class="mz-tag__remove-button"
-          @click="removeTag(index)"
+    <span @click="removeTag(index)"
+          class="mz-tag__remove-button"
           v-if="!isPresentation">
       x
     </span>
@@ -13,8 +13,7 @@
 </template>
 
 <script lang="ts">
-import { Vue }             from 'vue-property-decorator';
-import { Component, Prop } from 'vue-property-decorator';
+import { Component, Prop, Vue } from 'vue-property-decorator';
 
 @Component({
   components: {},

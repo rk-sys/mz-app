@@ -1,9 +1,9 @@
 <template>
   <div class="mz-craftsmen-detail-products">
-    <mz-product-card v-for="(product, index) in products"
-                     :key="index"
+    <mz-product-card :key="index"
                      :product="product"
-                     class="mz-craftsmen-detail-products__product" />
+                     class="mz-craftsmen-detail-products__product"
+                     v-for="(product, index) in products" />
   </div>
 </template>
 

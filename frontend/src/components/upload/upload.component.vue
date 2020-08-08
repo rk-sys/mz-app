@@ -1,7 +1,7 @@
 <template>
-  <el-upload class="mz-upload"
-             v-bind="attributes"
-             v-on="listeners" :style="{width: width, height: height}">
+  <el-upload :style="{width: width, height: height}"
+             class="mz-upload"
+             v-bind="attributes" v-on="listeners">
 
     <slot :name="slot"
           :slot="slot"

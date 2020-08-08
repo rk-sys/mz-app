@@ -3,22 +3,22 @@
     <mz-logo :is-primary="true"
              class="nav-bar-category__logo" />
 
-    <router-link class="nav-bar-category__craftsmen"
-                 :to="{ name: 'Craftsmen' }">
+    <router-link :to="{ name: 'Craftsmen' }"
+                 class="nav-bar-category__craftsmen">
 
       <div class="icon icon-hammer"></div>
       {{ $t(`navBar.craftsmen`) }}
     </router-link>
 
-    <router-link class="nav-bar-category__items"
-                 :to="{ name: 'Products list' }">
+    <router-link :to="{ name: 'Products list' }"
+                 class="nav-bar-category__items">
 
       <div class="icon icon-box"></div>
       {{ $t(`navBar.items`) }}
     </router-link>
 
-    <router-link class="nav-bar-category__services"
-                 :to="{ name: 'Offers list' }">
+    <router-link :to="{ name: 'Offers list' }"
+                 class="nav-bar-category__services">
 
       <div class="icon icon-tag"></div>
       {{ $t(`navBar.services`) }}

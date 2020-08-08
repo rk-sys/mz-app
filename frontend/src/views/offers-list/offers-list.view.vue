@@ -8,17 +8,17 @@
       <div class="mz-offers-list__container__list">
         <mz-offers-header-info :quantity="offersList.length" />
 
-        <div v-if="offersList.length"
-             class="mz-offers-list__container__list__cards">
+        <div class="mz-offers-list__container__list__cards"
+             v-if="offersList.length">
 
-          <mz-offer-card v-for="(offer, id) in offersList"
-                         :key="id"
+          <mz-offer-card :key="id"
                          :offer="offer"
-                         class="mz-offers-list__container__list__cards__item" />
+                         class="mz-offers-list__container__list__cards__item"
+                         v-for="(offer, id) in offersList" />
         </div>
 
-        <mz-empty-list-message v-if="!offersList.length"
-                               :pageName="pageName" />
+        <mz-empty-list-message :pageName="pageName"
+                               v-if="!offersList.length" />
       </div>
     </div>
   </div>

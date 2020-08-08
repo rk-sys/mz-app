@@ -1,26 +1,26 @@
 <template>
   <div class="mz-user-item">
-    <div class="mz-user-item__picture"
-         @click="goToProductDetail(item.id)">
+    <div @click="goToProductDetail(item.id)"
+         class="mz-user-item__picture">
 
-      <img class="picture"
+      <img :alt="item.title"
            :src="item.avatar"
-           :alt="item.title" />
+           class="picture" />
     </div>
-    <div class="mz-user-item__info"
-         @click="goToProductDetail(item.id)">
+    <div @click="goToProductDetail(item.id)"
+         class="mz-user-item__info">
 
       <h2 class="mz-user-item__info__title">
         {{item.title}} -
 
-        <span v-if="item.status === 'cancelled'"
-              class="status cancelled">
+        <span class="status cancelled"
+              v-if="item.status === 'cancelled'">
 
         {{ $t(`item.${item.status}`) }}
       </span>
 
-        <span v-else
-              class="status completed">
+        <span class="status completed"
+              v-else>
         {{ $t(`item.${item.status}`) }}
       </span>
       </h2>
@@ -33,24 +33,24 @@
       </p>
     </div>
     <div class="mz-user-item__action">
-      <div class="icon"
-           :class="{'icon-chat': !isHoverChat,
+      <div :class="{'icon-chat': !isHoverChat,
                     'icon-chat--blue': isHoverChat}"
            @mouseenter="isHoverChat = true"
-           @mouseleave="isHoverChat = false"></div>
+           @mouseleave="isHoverChat = false"
+           class="icon"></div>
 
-      <div class="icon"
-           @click="emitDeleteItem(item)"
-           :class="{'icon-delete': !isHoverDelete,
+      <div :class="{'icon-delete': !isHoverDelete,
                     'icon-delete--red': isHoverDelete}"
+           @click="emitDeleteItem(item)"
            @mouseenter="isHoverDelete = true"
-           @mouseleave="isHoverDelete = false"></div>
+           @mouseleave="isHoverDelete = false"
+           class="icon"></div>
     </div>
   </div>
 </template>
 
 <script lang="ts">
-import { Component, Vue, Prop }   from 'vue-property-decorator';
+import { Component, Prop, Vue }   from 'vue-property-decorator';
 import { IDeleteItem, IUserItem } from '../store/product-history.interface';
 import router                     from '@/router';
 import mzProductHistorModule      from '../store/product-history.module';

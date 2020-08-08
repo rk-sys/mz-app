@@ -1,23 +1,23 @@
 <template>
-  <mz-form @submit.prevent.native="updateAccountContact()"
-           class="mz-contact__form"
-           :form-ref.sync="form"
+  <mz-form :form-ref.sync="form"
            :model="displayContactForm"
            :rules="contactRules"
+           @submit.prevent.native="updateAccountContact()"
+           class="mz-contact__form"
            id="displayContactForm">
 
-    <div class="form__container"
-         v-for="(contact, i) in contactList"
-         :key="i">
+    <div :key="i"
+         class="form__container"
+         v-for="(contact, i) in contactList">
 
       <div :class="[ `form__container__icon icon-${contact.icon}--primary` ]"></div>
 
-      <mz-form-item class="form__container__item"
-                    :prop="contact.type">
+      <mz-form-item :prop="contact.type"
+                    class="form__container__item">
 
         <mz-input :holder="$t(`form.${contact.type}`)"
-                  v-model="displayContactForm[contact.type]"
-                  :id="contact.type" />
+                  :id="contact.type"
+                  v-model="displayContactForm[contact.type]" />
       </mz-form-item>
     </div>
 

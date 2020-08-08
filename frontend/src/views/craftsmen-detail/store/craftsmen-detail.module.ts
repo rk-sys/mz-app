@@ -1,4 +1,4 @@
-import { Module, Action, Mutation, VuexModule }  from 'vuex-module-decorators';
+import { Action, Module, Mutation, VuexModule }  from 'vuex-module-decorators';
 import cloneDeep                                 from 'lodash/cloneDeep';
 import { craftsmenDetail, craftsmenMenuLinks }   from './craftsmen-detail.state';
 import { ICraftsmenDetail, ICraftsmenMenuLinks } from './craftsmen-detail.interface';

@@ -1,19 +1,19 @@
 <template>
   <div class="mz-offer-detail-chat">
     <div class="mz-offer-detail-chat__container">
-      <div v-for="(item, id) in messages"
+      <div :class="{'align-right' : item.name === 'Kafał Rrukowski'}"
            :key="id"
            class="mz-offer-detail-chat__container__message"
-           :class="{'align-right' : item.name === 'Kafał Rrukowski'}">
+           v-for="(item, id) in messages">
 
         <div class="mz-offer-detail-chat__container__message__header">
           <span class="mz-offer-detail-chat__container__message__header__name">{{item.name}}</span>
           <span class="mz-offer-detail-chat__container__message__header__date">{{item.date}}</span>
         </div>
 
-        <p class="mz-offer-detail-chat__container__message__description"
-           :class="{'own-message' : item.name === 'Kafał Rrukowski',
-                    'client-message' : item.name !== 'Kafał Rrukowski'}">{{item.message}}</p>
+        <p :class="{'own-message' : item.name === 'Kafał Rrukowski',
+                    'client-message' : item.name !== 'Kafał Rrukowski'}"
+           class="mz-offer-detail-chat__container__message__description">{{item.message}}</p>
       </div>
     </div>
   </div>

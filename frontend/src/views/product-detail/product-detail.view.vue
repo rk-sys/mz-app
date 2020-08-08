@@ -10,19 +10,19 @@
 
       <aside class="mz-product-detail__content__actions">
 
-        <mz-product-detail-checkout :price="productDetail.product.price"
+        <mz-product-detail-checkout :is-new="productDetail.product.isNew"
                                     :main-range="productDetail.product.mainRange"
-                                    :is-new="productDetail.product.isNew"
+                                    :price="productDetail.product.price"
                                     :uuid="productDetail.product.uuid" />
 
-        <mz-product-detail-customer-list v-if="productDetail.customers"
-                                         :customer-list="productDetail.customers" />
+        <mz-product-detail-customer-list :customer-list="productDetail.customers"
+                                         v-if="productDetail.customers" />
 
         <mz-product-detail-chat />
 
         <div class="mz-product-detail__content__actions__message">
-          <textarea v-model="newMessage"
-                    class="input"></textarea>
+          <textarea class="input"
+                    v-model="newMessage"></textarea>
 
           <mz-button @click="sendNewMessage"> {{ $t(`sendMessage`) }}
           </mz-button>

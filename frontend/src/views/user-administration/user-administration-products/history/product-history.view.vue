@@ -12,19 +12,19 @@
     </div>
 
     <div class="mz-product-history__items-wrapper">
-      <mz-user-item v-for="(item, index) in items"
-                    :item="item"
-                    :key="index" />
+      <mz-user-item :item="item"
+                    :key="index"
+                    v-for="(item, index) in items" />
     </div>
 
-    <mz-empty-list-message v-if="!items.length"
-                           :pageName="pageName" />
+    <mz-empty-list-message :pageName="pageName"
+                           v-if="!items.length" />
 
     <mz-dialog :title="$t(`dialog.warning`)"
                :visible.sync="isModalOpen"
+               center
                class="mz-product-history__modal"
-               width="30%"
-               center>
+               width="30%">
 
       <span class="mz-product-history__modal__label">
         {{ $t(`dialog.deleteItem`) }}
@@ -34,19 +34,19 @@
         {{deleteItem.title}}
       </span>
 
-      <span slot="footer"
-            class="mz-product-history__modal__footer">
+      <span class="mz-product-history__modal__footer"
+            slot="footer">
 
-      <mz-button button-style="info"
-                 class="mz-product-history__modal__footer__button"
-                 @click="setIsModalOpen(false)">
+      <mz-button @click="setIsModalOpen(false)"
+                 button-style="info"
+                 class="mz-product-history__modal__footer__button">
 
         {{ $t(`dialog.button.cancel`) }}
       </mz-button>
 
-      <mz-button button-style="danger"
-                 class="mz-product-history__modal__footer__button"
-                 @click="setIsModalOpen(false)">
+      <mz-button @click="setIsModalOpen(false)"
+                 button-style="danger"
+                 class="mz-product-history__modal__footer__button">
         {{ $t(`dialog.button.delete`) }}
       </mz-button>
     </span>
@@ -63,7 +63,7 @@ import { loadTranslationsAsync }  from '@/i18n/i18n';
 import { registerStoreModule }    from '@/helpers/helpers';
 import Store                      from '@/store/store';
 import { DEFAULT }                from '@/helpers/variables';
-import { IUserItem, IDeleteItem } from './store/product-history.interface';
+import { IDeleteItem, IUserItem } from './store/product-history.interface';
 import mzProductHistorModule      from './store/product-history.module';
 import mzUserItem                 from './components/user-item-history.component.vue';
 import mzDialog                   from '@/components/dialog/dialog.component.vue';

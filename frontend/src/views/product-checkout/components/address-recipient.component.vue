@@ -1,6 +1,6 @@
 <template>
-  <mz-box-with-title :title="$t(`box.selectedProduct`)"
-                     :is-disabled="!addressInfo.selected"
+  <mz-box-with-title :is-disabled="!addressInfo.selected"
+                     :title="$t(`box.selectedProduct`)"
                      class="mz-address-recipient"
                      icon-name="icon-pin--stroke">
 
@@ -9,8 +9,8 @@
       <template v-if="checkDelivery(deliveryType)">
 
         <mz-form :form-ref.sync="formElement"
-                 :rules="parcelLockerRules"
                  :model="addressInfo.data"
+                 :rules="parcelLockerRules"
                  class="mz-address-recipient__form"
                  id="parcelLockerForm">
 
@@ -18,18 +18,18 @@
             <mz-form-item class="mz-selected-product__form__wrapper__item"
                           prop="name">
 
-              <mz-input v-model="addressInfo.data.name"
-                        :holder="$t(`form.placeholder.name`)"
-                        :is-password="false" />
+              <mz-input :holder="$t(`form.placeholder.name`)"
+                        :is-password="false"
+                        v-model="addressInfo.data.name" />
 
             </mz-form-item>
 
             <mz-form-item class="mz-selected-product__form__wrapper__item"
                           prop="mail">
 
-              <mz-input v-model="addressInfo.data.mail"
-                        :holder="$t(`form.placeholder.mail`)"
-                        :is-password="false" />
+              <mz-input :holder="$t(`form.placeholder.mail`)"
+                        :is-password="false"
+                        v-model="addressInfo.data.mail" />
 
             </mz-form-item>
           </div>
@@ -38,18 +38,18 @@
             <mz-form-item class="mz-selected-product__form__wrapper__item"
                           prop="phone">
 
-              <mz-input v-model="addressInfo.data.phone"
-                        :holder="$t(`form.placeholder.phone`)"
-                        :is-password="false" />
+              <mz-input :holder="$t(`form.placeholder.phone`)"
+                        :is-password="false"
+                        v-model="addressInfo.data.phone" />
 
             </mz-form-item>
 
             <mz-form-item class="mz-selected-product__form__wrapper__item"
                           prop="parcelLockerCode">
 
-              <mz-input v-model="addressInfo.data.parcelLockerCode"
-                        :holder="$t(`form.placeholder.parcelLockerCode`)"
-                        :is-password="false" />
+              <mz-input :holder="$t(`form.placeholder.parcelLockerCode`)"
+                        :is-password="false"
+                        v-model="addressInfo.data.parcelLockerCode" />
 
             </mz-form-item>
           </div>
@@ -57,8 +57,8 @@
       </template>
 
       <template v-else>
-        <mz-form :model="addressInfo.data"
-                 :form-ref.sync="formElement"
+        <mz-form :form-ref.sync="formElement"
+                 :model="addressInfo.data"
                  :rules="sendProductRule"
                  class="mz-address-recipient__form"
                  id="addressForm">
@@ -67,27 +67,27 @@
             <mz-form-item class="mz-selected-product__form__wrapper__item"
                           prop="name">
 
-              <mz-input v-model="addressInfo.data.name"
-                        :holder="$t(`form.placeholder.name`)"
-                        :is-password="false" />
+              <mz-input :holder="$t(`form.placeholder.name`)"
+                        :is-password="false"
+                        v-model="addressInfo.data.name" />
 
             </mz-form-item>
 
             <mz-form-item class="mz-selected-product__form__wrapper__item"
                           prop="phone">
 
-              <mz-input v-model="addressInfo.data.phone"
-                        :holder="$t(`form.placeholder.phone`)"
-                        :is-password="false" />
+              <mz-input :holder="$t(`form.placeholder.phone`)"
+                        :is-password="false"
+                        v-model="addressInfo.data.phone" />
 
             </mz-form-item>
 
             <mz-form-item class="mz-selected-product__form__wrapper__item"
                           prop="mail">
 
-              <mz-input v-model="addressInfo.data.mail"
-                        :holder="$t(`form.placeholder.mail`)"
-                        :is-password="false" />
+              <mz-input :holder="$t(`form.placeholder.mail`)"
+                        :is-password="false"
+                        v-model="addressInfo.data.mail" />
 
             </mz-form-item>
           </div>
@@ -96,27 +96,27 @@
             <mz-form-item class="mz-selected-product__form__wrapper__item"
                           prop="zipCode">
 
-              <mz-input v-model="addressInfo.data.zipCode"
-                        :holder="$t(`form.placeholder.zipCode`)"
-                        :is-password="false" />
+              <mz-input :holder="$t(`form.placeholder.zipCode`)"
+                        :is-password="false"
+                        v-model="addressInfo.data.zipCode" />
 
             </mz-form-item>
 
             <mz-form-item class="mz-selected-product__form__wrapper__item"
                           prop="city">
 
-              <mz-input v-model="addressInfo.data.city"
-                        :holder="$t(`form.placeholder.city`)"
-                        :is-password="false" />
+              <mz-input :holder="$t(`form.placeholder.city`)"
+                        :is-password="false"
+                        v-model="addressInfo.data.city" />
 
             </mz-form-item>
 
             <mz-form-item class="mz-selected-product__form__wrapper__item"
                           prop="address">
 
-              <mz-input v-model="addressInfo.data.address"
-                        :holder="$t(`form.placeholder.address`)"
-                        :is-password="false" />
+              <mz-input :holder="$t(`form.placeholder.address`)"
+                        :is-password="false"
+                        v-model="addressInfo.data.address" />
 
             </mz-form-item>
           </div>
@@ -127,7 +127,7 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue, Prop, Watch, Emit } from 'vue-property-decorator';
+import { Component, Emit, Prop, Vue, Watch } from 'vue-property-decorator';
 import { namespace }                         from 'vuex-class';
 import { IProductSummary }                   from '@/views/product-checkout/store/product-checkout.interface';
 import mzProductCheckoutModule               from '../store/product-checkout.module';

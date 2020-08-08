@@ -1,9 +1,9 @@
 <template>
-  <el-pagination class="mz-pagination"
-                 v-bind="attributes"
+  <el-pagination :hide-on-single-page="true"
                  background
-                 :hide-on-single-page="true"
+                 class="mz-pagination"
                  layout="prev, pager, next"
+                 v-bind="attributes"
                  v-on="listeners">
 
     <slot :name="slot"

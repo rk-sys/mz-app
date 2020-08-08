@@ -35,33 +35,33 @@ export default class mzTree extends Mixins(mzTransparentWrapper) {
   background: none;
   margin-top: 3.5rem;
 
-      .el-tree-node__label {
-      font-size: 1.8rem;
-      font-weight: 500;
+  .el-tree-node__label {
+    font-size: 1.8rem;
+    font-weight: 500;
+  }
+
+  .el-tree-node__content {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+    height: auto;
+
+    &:hover,
+    &:focus {
+      background: none;
+    }
+  }
+
+  .el-tree-node {
+    &:hover {
+      background: none;
     }
 
-    .el-tree-node__content {
-      display: flex;
-      flex-direction: row-reverse;
-      justify-content: flex-end;
-      height: auto;
-
-      &:hover,
-      &:focus {
+    &:focus {
+      .el-tree-node__content {
         background: none;
-      }
-    }
-
-    .el-tree-node {
-      &:hover {
-        background: none;
-      }
-
-      &:focus {
-        .el-tree-node__content {
-          background: none;
-        }
       }
     }
   }
+}
 </style>

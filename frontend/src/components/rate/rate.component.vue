@@ -1,6 +1,6 @@
 <template>
-  <el-rate class="mz-rate"
-           :class="{'reverse' : isReverse}"
+  <el-rate :class="{'reverse' : isReverse}"
+           class="mz-rate"
            v-bind="attributes"
            v-on="listeners">
 
@@ -11,7 +11,7 @@
 </template>
 
 <script lang="ts">
-import { Component, Prop, Mixins } from 'vue-property-decorator';
+import { Component, Mixins, Prop } from 'vue-property-decorator';
 import mzTransparentWrapper        from '@/components/transparent-component.mixin';
 import ElRate                      from 'element-ui/lib/rate.js';
 

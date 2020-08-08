@@ -1,9 +1,9 @@
 <template>
   <div class="mz-portfolio-item">
     <div class="mz-portfolio-item__background">
-      <img class="mz-portfolio-item__avatar"
+      <img :src="item.pictureUrl"
            alt="item"
-           :src="item.pictureUrl">
+           class="mz-portfolio-item__avatar">
     </div>
 
     <div class="mz-portfolio-item__content">
@@ -14,14 +14,14 @@
       </div>
 
       <div class="mz-portfolio-item__link-wrapper">
-        <div class="mz-portfolio-item__link mz-portfolio-item__link--details"
-             @click="openDialogWithItem(item)">
+        <div @click="openDialogWithItem(item)"
+             class="mz-portfolio-item__link mz-portfolio-item__link--details">
 
           <div class="icon icon-edit--white"></div>
         </div>
 
-        <div class="mz-portfolio-item__link mz-portfolio-item__link--delete"
-             @click="removePortfolioItem(item)">
+        <div @click="removePortfolioItem(item)"
+             class="mz-portfolio-item__link mz-portfolio-item__link--delete">
 
           <div class="icon icon-delete--white"></div>
         </div>
@@ -32,7 +32,7 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue, Prop }      from 'vue-property-decorator';
+import { Component, Prop, Vue }      from 'vue-property-decorator';
 import { namespace }                 from 'vuex-class';
 import { IItemPortfolio, IUserItem } from '@/views/user-account/store/user-account.interface';
 import mzUserAccountModule           from '@/views/user-account/store/user-account.module';

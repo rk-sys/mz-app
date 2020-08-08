@@ -7,18 +7,18 @@
       </h1>
 
       <div class="mz-home__search">
-        <mz-input-basic v-model="search"
+        <mz-input-basic class="mz-home__search__input"
                         placeholder="Czego szukasz?"
-                        class="mz-home__search__input" />
+                        v-model="search" />
 
         <mz-select class="mz-home__search__select"
-                   v-model="searchType"
-                   size="mini">
+                   size="mini"
+                   v-model="searchType">
 
-          <mz-option v-for="(option, index) in searchTypes"
-                     :value="option"
+          <mz-option :key="index"
                      :label="$t(`options.${option}`)"
-                     :key="index" />
+                     :value="option"
+                     v-for="(option, index) in searchTypes" />
         </mz-select>
 
         <div class="mz-home__search__button">{{ $t(`search`) }}</div>
@@ -30,16 +30,16 @@
 
       <div class="mz-home__craftsmen__list">
 
-        <mz-craftsmen-card v-if="index < 4"
-                           v-for="(craftsmen, index) in mzHome.craftsmen"
-                           :key="index"
-                           class="mz-home__craftsmen__list__item"
+        <mz-craftsmen-card :city="craftsmen.city"
                            :craftsmen-id="craftsmen.uuid"
-                           :city="craftsmen.city"
-                           :rating="craftsmen.rating"
-                           :name="craftsmen.name"
                            :image="craftsmen.image"
-                           :tags="craftsmen.tags" />
+                           :key="index"
+                           :name="craftsmen.name"
+                           :rating="craftsmen.rating"
+                           :tags="craftsmen.tags"
+                           class="mz-home__craftsmen__list__item"
+                           v-for="(craftsmen, index) in mzHome.craftsmen"
+                           v-if="index < 4" />
       </div>
     </div>
 
@@ -47,11 +47,11 @@
       <h2 class="mz-home__products__title">{{ $t(`newProducts`) }}</h2>
 
       <div class="mz-home__products__list">
-        <mz-product-card v-if="index < 5"
-                         v-for="(product, index) in mzHome.products"
-                         :key="index"
+        <mz-product-card :key="index"
                          :product="product"
-                         class="mz-home__products__list__item" />
+                         class="mz-home__products__list__item"
+                         v-for="(product, index) in mzHome.products"
+                         v-if="index < 5" />
       </div>
     </div>
 
@@ -60,11 +60,11 @@
 
       <div class="mz-home__events__list">
 
-        <mz-event-card v-if="index < 2"
-                       v-for="(event, index) in mzHome.events"
+        <mz-event-card :event="event"
                        :key="index"
-                       :event="event"
-                       class="mz-home__events__list__item" />
+                       class="mz-home__events__list__item"
+                       v-for="(event, index) in mzHome.events"
+                       v-if="index < 2" />
       </div>
     </div>
   </div>
@@ -103,7 +103,7 @@ const local = namespace(LOCAL_STORE);
 export default class mzHome extends Vue {
   @local.State((state: mzHomeModule) => state.mzHome) public mzHome!: IHome;
   @local.State((state: mzHomeModule) => state.search) public search!: string;
-  @local.State((state: mzHomeModule) => state.searchTypes) public searchTypes!: Array<string>;
+  @local.State((state: mzHomeModule) => state.searchTypes) public searchTypes!: string[];
   @local.State((state: mzHomeModule) => state.searchType) public searchTypeOption!: string;
   @local.Mutation public setSearchType!: (arg: string) => void;
 

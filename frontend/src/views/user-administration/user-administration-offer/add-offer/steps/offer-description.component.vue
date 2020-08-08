@@ -73,11 +73,11 @@
           <mz-form-item class="form__container__item"
                         prop="currency">
 
-            <mz-radio v-for="(option, index) in mzAddOfferGeneralInfo.currency"
-                      :key="index"
-                      v-model="newOffer.currency"
+            <mz-radio :key="index"
                       :label="option.label"
-                      class="radio-box">
+                      class="radio-box"
+                      v-for="(option, index) in mzAddOfferGeneralInfo.currency"
+                      v-model="newOffer.currency">
 
               <span class="main-category__text">
                 {{ $t(`itemDescription.form.${option.label}`) }}
@@ -88,54 +88,54 @@
       </mz-box-with-title>
     </mz-form>
 
-    <mz-box-with-title :title="$t(`itemDescription.title.addTags`)"
-                       icon-name="icon-tag"
+    <mz-box-with-title :add-color="true"
+                       :hint="true"
                        :sub-title="lengthOfTags() + $t('itemDescription.lengthOfTags')"
-                       :add-color="true"
+                       :title="$t(`itemDescription.title.addTags`)"
                        :tooltip-message="$t(`tooltip.addTags`)"
-                       :hint="true">
+                       icon-name="icon-tag">
 
       <div class="mz-item-description__tags">
-        <p class="mz-item-description__tags__label"
-           :class="{'disabled': disabledTags}">
+        <p :class="{'disabled': disabledTags}"
+           class="mz-item-description__tags__label">
           {{ $t('itemDescription.form.tags') }}</p>
 
-        <mz-input v-model="itemTag"
+        <mz-input :disabled="disabledTags"
                   :holder="$t(`itemDescription.form.addTags`)"
-                  id="itemTag"
-                  :disabled="disabledTags"
+                  @keyup.enter.native="addTag(itemTag)"
                   class="mz-item-description__tags__input"
-                  @keyup.enter.native="addTag(itemTag)" />
+                  id="itemTag"
+                  v-model="itemTag" />
 
-        <div class="mz-item-description__tags__add-btn"
-             v-if="!disabledTags"
-             @click="addTag(itemTag)">
+        <div @click="addTag(itemTag)"
+             class="mz-item-description__tags__add-btn"
+             v-if="!disabledTags">
 
           +
         </div>
       </div>
 
       <div class="mz-item-description__tags__list">
-        <mz-tag v-for="(tag, index) in newOffer.tags"
+        <mz-tag :index="index"
                 :key="index"
+                :remove-tag="removeTag"
                 :tag="tag"
                 id="tags"
-                :index="index"
-                :remove-tag="removeTag">
+                v-for="(tag, index) in newOffer.tags">
 
         </mz-tag>
       </div>
     </mz-box-with-title>
 
     <div class="mz-item-description__buttons">
-      <mz-button class="button-previous"
-                 @click="goToStep1()">
+      <mz-button @click="goToStep1()"
+                 class="button-previous">
 
         {{ $t(`button.goToPrevious`) }}
       </mz-button>
 
-      <mz-button class="button-next"
-                 @click="goToNextStep()">
+      <mz-button @click="goToNextStep()"
+                 class="button-next">
 
         {{ $t(`button.goNextStep`) }}
       </mz-button>

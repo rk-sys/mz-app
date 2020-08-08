@@ -4,13 +4,13 @@
       {{ product.price }} {{ $t(`currency.zl`) }}
     </span>
 
-    <div class="mz-products-card__wrapper"
-         @click="goToProductDetail(product.id)"
+    <div @click="goToProductDetail(product.id)"
          @mouseenter="showLayout(true)"
-         @mouseleave="showLayout(false)">
+         @mouseleave="showLayout(false)"
+         class="mz-products-card__wrapper">
 
-      <div class="mz-products-card__wrapper__layout"
-           :class="{'show-layout': isHover}">
+      <div :class="{'show-layout': isHover}"
+           class="mz-products-card__wrapper__layout">
         <span class="label">{{ $t('pictureHover') }}</span>
       </div>
 

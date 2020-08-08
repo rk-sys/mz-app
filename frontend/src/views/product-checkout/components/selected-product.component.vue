@@ -20,8 +20,8 @@
         <span class="mz-selected-product__craftsman__text">{{ $t(`productFrom`) }}</span>
         <div class="craftsman">
 
-          <img :src="productSummary.craftsman.picture"
-               :alt="productSummary.craftsman.name"
+          <img :alt="productSummary.craftsman.name"
+               :src="productSummary.craftsman.picture"
                class="craftsman__picture" />
 
           <span class="craftsman__name">{{ productSummary.craftsman.name }}</span>

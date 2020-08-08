@@ -1,23 +1,23 @@
 <template>
   <div class="mz-user-offer">
-    <div class="mz-user-offer__picture"
-         @click="goToProductDetail(item.id)">
+    <div @click="goToProductDetail(item.id)"
+         class="mz-user-offer__picture">
 
-      <div class="mz-user-offer__picture__type"
-           :class="{'buy' : item.type === 'buy',
-                       'crafting' : item.type === 'crafting'}">
+      <div :class="{'buy' : item.type === 'buy',
+                       'crafting' : item.type === 'crafting'}"
+           class="mz-user-offer__picture__type">
 
         <span class="mz-user-offer__picture__type__label">
                   {{ $t(`item.${item.type}`) }}</span>
       </div>
 
-      <img class="picture"
+      <img :alt="item.title"
            :src="item.avatar"
-           :alt="item.title" />
+           class="picture" />
     </div>
 
-    <div class="mz-user-offer__info"
-         @click="goToProductDetail(item.id)">
+    <div @click="goToProductDetail(item.id)"
+         class="mz-user-offer__info">
 
       <h2 class="mz-user-offer__info__title">
         {{item.title}}
@@ -32,24 +32,24 @@
     </div>
 
     <div class="mz-user-offer__action">
-      <div class="icon"
-           :class="{'icon-edit': !isHoverEdit,
+      <div :class="{'icon-edit': !isHoverEdit,
                     'icon-edit--primary': isHoverEdit}"
            @mouseenter="isHoverEdit = true"
-           @mouseleave="isHoverEdit = false"></div>
+           @mouseleave="isHoverEdit = false"
+           class="icon"></div>
 
-      <div class="icon"
-           @click="emitDeleteItem(item)"
-           :class="{'icon-delete': !isHoverDelete,
+      <div :class="{'icon-delete': !isHoverDelete,
                     'icon-delete--red': isHoverDelete}"
+           @click="emitDeleteItem(item)"
            @mouseenter="isHoverDelete = true"
-           @mouseleave="isHoverDelete = false"></div>
+           @mouseleave="isHoverDelete = false"
+           class="icon"></div>
     </div>
   </div>
 </template>
 
 <script lang="ts">
-import { Component, Vue, Prop }      from 'vue-property-decorator';
+import { Component, Prop, Vue }      from 'vue-property-decorator';
 import { namespace }                 from 'vuex-class';
 import router                        from '@/router';
 import { IDeleteOffer, IUserOffers } from '../store/my-offer.interface';

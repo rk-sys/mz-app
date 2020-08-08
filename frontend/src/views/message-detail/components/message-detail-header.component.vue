@@ -1,8 +1,8 @@
 <template>
   <div class="mz-message-detail-header">
 
-    <div class="mz-message-detail-header__go-back"
-         @click="goBack">
+    <div @click="goBack"
+         class="mz-message-detail-header__go-back">
 
       <div class="icon icon-arrow--black"></div>
       <span class="title">{{ $t('goBack') }}</span>
@@ -24,8 +24,8 @@
 </template>
 
 <script lang="ts">
-import { Component, Prop, Vue } from 'vue-property-decorator';
-import router                   from '@/router';
+import { Component, Vue } from 'vue-property-decorator';
+import router             from '@/router';
 
 @Component({
   components: {},

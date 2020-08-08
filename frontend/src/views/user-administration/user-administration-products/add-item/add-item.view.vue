@@ -1,43 +1,43 @@
 <template>
   <div class="mz-user-administration-add-item">
 
-    <mz-steps :labels="['Informacje ogólne', 'Dodaj opis', 'Wrzuć zdjęcie', 'Opcje dostawy', 'Podsumowanie'] "
-              :active="activeNumber" />
+    <mz-steps :active="activeNumber"
+              :labels="['Informacje ogólne', 'Dodaj opis', 'Wrzuć zdjęcie', 'Opcje dostawy', 'Podsumowanie'] " />
 
-    <transition name="fade"
-                mode="out-in">
+    <transition mode="out-in"
+                name="fade">
 
       <template v-if="activeNumber === 0">
         <mz-general-info />
       </template>
     </transition>
 
-    <transition name="fade"
-                mode="out-in">
+    <transition mode="out-in"
+                name="fade">
 
       <template v-if="activeNumber === 1">
         <mz-item-description />
       </template>
     </transition>
 
-    <transition name="fade"
-                mode="out-in">
+    <transition mode="out-in"
+                name="fade">
 
       <template v-if="activeNumber === 2">
         <mz-upload-pictures />
       </template>
     </transition>
 
-    <transition name="fade"
-                mode="out-in">
+    <transition mode="out-in"
+                name="fade">
 
       <template v-if="activeNumber === 3">
         <mz-delivery />
       </template>
     </transition>
 
-    <transition name="fade"
-                mode="out-in">
+    <transition mode="out-in"
+                name="fade">
 
       <template v-if="activeNumber === 4">
         <mz-item-summary />

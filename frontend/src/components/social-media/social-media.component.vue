@@ -1,40 +1,40 @@
 <template>
   <div class="mz-social-media">
-    <a v-if="facebookUrl"
-       :href="facebookUrl"
-       :class="{'icon--light': isLight,
+    <a :class="{'icon--light': isLight,
              'icon--dark': !isLight,
              'icon-facebook--primary': facebookWhite && !isLight,}"
+       :href="facebookUrl"
        @mouseleave="removeColor($event.target)"
        @mouseover="changeColor($event.target)"
-       class="mz-social-media__icon icon-facebook"></a>
+       class="mz-social-media__icon icon-facebook"
+       v-if="facebookUrl"></a>
 
-    <a v-if="youtubeUrl"
-       :href="youtubeUrl"
-       :class="{'icon--light': isLight,
+    <a :class="{'icon--light': isLight,
              'icon--dark': !isLight,
              'icon-youtube--color': youtubeWhite && !isLight}"
+       :href="youtubeUrl"
        @mouseleave="removeColor($event.target)"
        @mouseover="changeColor($event.target)"
-       class="mz-social-media__icon icon-youtube"></a>
+       class="mz-social-media__icon icon-youtube"
+       v-if="youtubeUrl"></a>
 
-    <a v-if="twitterUrl"
-       :href="twitterUrl"
-       :class="{'icon--light': isLight,
+    <a :class="{'icon--light': isLight,
              'icon--dark': !isLight,
              'icon-twitter--color': twitterWhite && !isLight,}"
+       :href="twitterUrl"
        @mouseleave="removeColor($event.target)"
        @mouseover="changeColor($event.target)"
-       class="mz-social-media__icon icon-twitter"></a>
+       class="mz-social-media__icon icon-twitter"
+       v-if="twitterUrl"></a>
 
-    <a v-if="instagramUrl"
-       :href="instagramUrl"
-       :class="{'icon--light': isLight,
+    <a :class="{'icon--light': isLight,
              'icon--dark': !isLight,
              'icon-instagram--primary': instagramWhite && !isLight,}"
+       :href="instagramUrl"
        @mouseleave="removeColor($event.target)"
        @mouseover="changeColor($event.target)"
-       class="mz-social-media__icon icon-instagram"></a>
+       class="mz-social-media__icon icon-instagram"
+       v-if="instagramUrl"></a>
 
   </div>
 </template>
